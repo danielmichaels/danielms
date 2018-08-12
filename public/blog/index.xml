@@ -6,18 +6,19 @@
     <description>Recent content in Blog on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux Environment Variables &amp; PATH</title>
-      <link>https://danielms.site/blog/linux-environment-variables--path/</link>
-      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      <link>https://danielms.site/blog/linux-environment-variables/</link>
+      <pubDate>Sat, 11 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://danielms.site/blog/linux-environment-variables--path/</guid>
-      <description> test </description>
+      <guid>https://danielms.site/blog/linux-environment-variables/</guid>
+      <description>Environment Variables Simply put, environment variables are a collection of key value strings held by the current shell or process. Each process has access to an array of environment variables held in its user-space memory.
+The environment variables are available to all applications, and allow these programs or scripts use them within the shell environment. They can allow custom modification to defaults that permeate throughout the user-space rather than be homed within each applications configuration.</description>
     </item>
     
     <item>

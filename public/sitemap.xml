@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://danielms.site/fixed/about/</loc>
-    <lastmod>2018-08-10T22:56:29+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/blog/linux-environment-variables--path/</loc>
-    <lastmod>2018-08-10T00:00:00+00:00</lastmod>
+    <loc>https://danielms.site/blog/linux-environment-variables/</loc>
+    <lastmod>2018-08-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -75,7 +70,7 @@
   
   <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2018-08-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -87,7 +82,7 @@
   
   <url>
     <loc>https://danielms.site/</loc>
-    <lastmod>2018-08-10T22:56:29+00:00</lastmod>
+    <lastmod>2018-08-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -100,12 +95,6 @@
   <url>
     <loc>https://danielms.site/categories/eli5/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/fixed/</loc>
-    <lastmod>2018-08-10T22:56:29+00:00</lastmod>
     <priority>0</priority>
   </url>
   
