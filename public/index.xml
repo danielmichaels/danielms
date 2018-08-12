@@ -6,10 +6,19 @@
     <description>Recent content on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 11 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Aug 2018 14:36:01 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Daniel Michaels</title>
+      <link>https://danielms.site/about/</link>
+      <pubDate>Sun, 12 Aug 2018 14:36:01 +0000</pubDate>
+      
+      <guid>https://danielms.site/about/</guid>
+      <description>This is a blog site. The opinions, views and writings expressed here are my own and not that of my employers.</description>
+    </item>
     
     <item>
       <title>Linux Environment Variables &amp; PATH</title>
