@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Daniel Michaels</title>
+    <link>https://danielms.site/categories/</link>
+    <description>Recent content in Categories on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 28 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Administration</title>
+      <link>https://danielms.site/categories/administration/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/administration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eli5</title>
+      <link>https://danielms.site/categories/eli5/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/eli5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://danielms.site/categories/linux/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://danielms.site/categories/programming/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://danielms.site/categories/python/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Til</title>
+      <link>https://danielms.site/categories/til/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webdev</title>
+      <link>https://danielms.site/categories/webdev/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/webdev/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

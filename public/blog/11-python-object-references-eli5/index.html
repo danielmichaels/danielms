@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Python Object References Date: 09 July 2018 Status: Published Tags:ELI  Category:Python, Programming    Python Object Reference ELI5 I first learnt about variables through the analogy of &quot;variables are boxes&quot; and that we assign things to those boxes. Turns out, this isn&#39;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&#39;s that can cause unintended errors along the way.">
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Python Object References Date: 09 July 2018 Status: Published Tags:ELI  Category:Python, Programming    Python Object Reference ELI5 I first learnt about variables through the analogy of &quot;variables are boxes&quot; and that we assign things to those boxes. Turns out, this isn&#39;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&#39;s that can cause unintended errors along the way." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/blog/11-python-object-references-eli5/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+      
+
+</title>
+<link rel="canonical" href="http://example.org/blog/11-python-object-references-eli5/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+
+</div>
+
+                    <div class="initials"><a href="http://example.org/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jan 1 0001 00:00:00 UTC'>Jan 1, 0001</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>6 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <div class="document" id="python-object-references">
+<h1 class="title">Python Object References</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Date:</th>
+<td>09 July 2018</td></tr>
+<tr><th class="docinfo-name">Status:</th>
+<td>Published</td></tr>
+<tr class="tags field"><th class="docinfo-name">Tags:</th><td class="field-body">ELI</td>
+</tr>
+<tr class="category field"><th class="docinfo-name">Category:</th><td class="field-body">Python, Programming</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="python-object-reference-eli5">
+<h2>Python Object Reference ELI5</h2>
+<p>I first learnt about variables through the analogy of &quot;variables are boxes&quot; and that we assign things to those boxes. Turns out, this isn't particularly helpful in objected orientated programming.
+This post is about how python treats object assignment and some of the hidden gotcha's that can cause unintended errors along the way.
+Instead of &quot;boxes&quot; it is better to think of variables as &quot;labels&quot; that we attach to objects. And, as everything in python is an object its important to remember that all objects have three things;
+identity, type and values. Values are the only things that change once an object is created, and it values that we often care about, and hence label.</p>
+<div class="section" id="labels-not-boxes">
+<h3>Labels not boxes</h3>
+<p>Extending the &quot;labels&quot; metaphor a little we look at the assignment of variables.</p>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">2</span> <span class="comment single"># we label the integer 2 as 'a'</span>
+<span class="name">b</span> <span class="operator">=</span> <span class="name">a</span> <span class="comment single"># 'a' is now labelled as 'b'</span>
+<span class="name">c</span> <span class="operator">=</span> <span class="name">b</span> <span class="comment single"># and 'b' is now labelled as 'c'</span>
+</pre>
+<p>Above we can see that the object <code>2</code> is assigned to the variable 'a'. Each subsequent assignment thereafter is simply a reference to the same object.
+When viewed through this lense you can start to see how objects have labels. It is not feasible that the <code>2</code> can exist in three different boxes,
+rather we visualise <code>2</code> having three sticky notes attached to it.
+If we changed <code>a</code> like this <code>a = 20</code> then it is just a matter of peeling off the sticky note with <code>a</code> written on it from <code>2</code> and attaching it to <code>20</code>.
+To further aid in this thinking, always read assignments from right to left. The right side is where the object is created or retrieved and the left
+is what we bind to it (the label.. Enough you get it already!)</p>
+<p>When an object like <code>2</code> has many labels we called this <em>aliasing</em>.
+Aliasing is an important concept to grasp, and to illustrate why we will examine the identity of <code>a</code>, <code>b</code>, and <code>c</code>.</p>
+<pre class="code python literal-block">
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">f</span><span class="literal string single">'a id: {id(a)}'</span><span class="punctuation">)</span> <span class="comment single"># original object')  # a id: 139886603774600</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">f</span><span class="literal string single">'b id: {id(b)}'</span><span class="punctuation">)</span> <span class="comment single"># alias of a')       # b id: 139886603774600</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">f</span><span class="literal string single">'c id: {id(c)}'</span><span class="punctuation">)</span> <span class="comment single"># copy of a')        # c id: 139886603774600</span>
+</pre>
+<p>All aliases of <code>a</code> have the same identity which in python is unique integer representing its C memory address. If any change were to be made the identity integer would also change
+to reflect that.</p>
+</div>
+<div class="section" id="when-is-true">
+<h3>When is == true?</h3>
+<p>Let's check out Equality and Identity (and aliases, too)</p>
+<p>An object's identity never changes once it has been created. However its values might, and generally this is what we care about more.
+Python gives us the option to check either like so:</p>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">==</span> <span class="name">b</span> <span class="comment single"># compares the values</span>
+<span class="name">a</span> <span class="operator word">is</span> <span class="name">b</span> <span class="comment single"># compares the identities</span>
+</pre>
+<p>Lets extend this using a more complex example using some dictionaries.</p>
+<pre class="code python literal-block">
+<span class="name">batman</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'name'</span><span class="punctuation">:</span> <span class="literal string single">'Bruce Wayne'</span><span class="punctuation">,</span> <span class="literal string single">'job'</span><span class="punctuation">:</span> <span class="literal string single">'crime fighter'</span><span class="punctuation">}</span>
+<span class="name">bruce</span> <span class="operator">=</span> <span class="name">batman</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">batman</span> <span class="operator">==</span> <span class="name">bruce</span><span class="punctuation">)</span>  <span class="comment single"># True</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">batman</span> <span class="operator word">is</span> <span class="name">bruce</span><span class="punctuation">)</span>  <span class="comment single"># True</span>
+</pre>
+<p>Both <code>batman</code> and <code>bruce</code> are equal in identity, and their values. Suppose we have a vigilante crime fighter out there
+pretending to be <code>batman</code>, named <code>manbat</code>, does he have the same equality?</p>
+<pre class="code python literal-block">
+<span class="name">manbat</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'name'</span><span class="punctuation">:</span> <span class="literal string single">'Bruce Wayne'</span><span class="punctuation">,</span> <span class="literal string single">'job'</span><span class="punctuation">:</span> <span class="literal string single">'crime fighter'</span><span class="punctuation">}</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">batman</span> <span class="operator">==</span> <span class="name">manbat</span><span class="punctuation">)</span> <span class="comment single"># True</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">batman</span> <span class="operator word">is</span> <span class="name">manbat</span><span class="punctuation">)</span> <span class="comment single"># False</span>
+</pre>
+<p>In this case, both <code>manbat</code> and <code>batman</code> share equal values but not the same identity. <code>manbat</code> is not an alias of <code>bruce</code> or <code>batman</code>, and thus has his own
+unique identity. This is because we created an entirely new identity albeit with the same values as batman.</p>
+<p>Much of the time we care mostly about the values an object holds not its identity but you will see <code>is</code> in a lot during conditionals such as:</p>
+<pre class="code python literal-block">
+<span class="keyword">if</span> <span class="name">x</span> <span class="operator word">is</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+  <span class="name">do</span> <span class="name">something</span>
+<span class="keyword">if</span> <span class="name">x</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+  <span class="name">do</span> <span class="name">something</span> <span class="keyword">else</span>
+</pre>
+</div>
+<div class="section" id="alias-issues">
+<h3>Alias Issues</h3>
+<p>Something I didn't realise until it came back to haunt me much later is that aliases can have unintended side effects with mutable types.
+Let's say we have two lists, the original and its alias. The alias will have items added to it but we want the original untouched for whatever reason.</p>
+<pre class="code python literal-block">
+<span class="name">orig</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">10</span><span class="punctuation">,</span> <span class="literal number integer">20</span><span class="punctuation">,</span> <span class="literal number integer">30</span><span class="punctuation">,</span> <span class="punctuation">[</span><span class="literal number integer">100</span><span class="punctuation">,</span> <span class="literal number integer">200</span><span class="punctuation">]]</span>
+<span class="name">new</span> <span class="operator">=</span> <span class="name">orig</span>
+</pre>
+<p>Looks good, we can now make changes to <code>new</code>.</p>
+<pre class="code python literal-block">
+<span class="name">new</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal string single">'FizzBuzz'</span><span class="punctuation">)</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">)</span> <span class="comment single"># [10, 20, 30, [100, 200], 'FizzBuzz']</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">)</span>  <span class="comment single"># [10, 20, 30, [100, 200], 'FizzBuzz']</span>
+</pre>
+<p>After appending to <code>new</code> it becomes apparent that this change has affected both lists. This happens
+because the alias works two way with mutable types.
+I think this is really important to know - aliases are not copies!</p>
+</div>
+<div class="section" id="copies">
+<h3>Copies</h3>
+<p>If aliases aren't copies then how do we copy?</p>
+<pre class="code python literal-block">
+<span class="name">orig</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">10</span><span class="punctuation">,</span> <span class="literal number integer">20</span><span class="punctuation">,</span> <span class="literal number integer">30</span><span class="punctuation">,</span> <span class="punctuation">[</span><span class="literal number integer">100</span><span class="punctuation">,</span> <span class="literal number integer">200</span><span class="punctuation">]]</span>
+<span class="name">new</span> <span class="operator">=</span> <span class="name builtin">list</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">)</span>
+<span class="comment single"># dict(x) also works this way</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string single">'orig id:'</span><span class="punctuation">,</span> <span class="name builtin">id</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">))</span> <span class="comment single"># orig id: 140443406513496</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string single">'new id:'</span><span class="punctuation">,</span> <span class="name builtin">id</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">))</span>   <span class="comment single"># new id:  140443402343535</span>
+</pre>
+<p>By using the <code>list()</code> class we successfully create two new objects. Now if we append or remove items from
+either list it does not propagate through. Except, it does sometimes.</p>
+<p>In this case we are only making a new copy of the overall object but not any <strong>mutable</strong> nested types
+within the copy. So while any changes made within the first layer of the object are contained within
+the copy, any mutable objects nested more deeply will be aliases.</p>
+<p>Confused, an example.</p>
+<pre class="code python literal-block">
+<span class="name">orig</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">10</span><span class="punctuation">,</span> <span class="literal number integer">20</span><span class="punctuation">,</span> <span class="literal number integer">30</span><span class="punctuation">,</span> <span class="punctuation">[</span><span class="literal number integer">100</span><span class="punctuation">,</span> <span class="literal number integer">200</span><span class="punctuation">]]</span>
+<span class="name">new</span> <span class="operator">=</span> <span class="name builtin">list</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">)</span>
+<span class="name">new</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal string single">'not nested'</span><span class="punctuation">)</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">)</span> <span class="comment single"># [10, 20, 30, [100, 200]]</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">)</span>  <span class="comment single"># [10, 20, 30, [100, 200], 'not nested']</span>
+<span class="comment single"># first layer is not affected as it is a copy, not an alias</span>
+<span class="name">orig</span><span class="punctuation">[</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal string single">'i am aliased to orig'</span><span class="punctuation">)</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">)</span> <span class="comment single"># [10, 20, 30, [100, 200, 'i am aliased to a']]</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">)</span>  <span class="comment single"># [10, 20, 30, [100, 200, 'i am aliased to a'], 'not nested']</span>
+</pre>
+<p>While the <code>orig</code> and <code>new</code> are independent of each other when making changes to
+the first layer of abstraction, any mutable types within that are simply aliases of the
+copies source.</p>
+<p>Another example to check this out.</p>
+<pre class="code python literal-block">
+<span class="comment single"># before we started making alterations to the lists</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">))</span>     <span class="comment single"># 140443390926984</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">))</span>      <span class="comment single"># 140443392352593</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">(</span><span class="name">orig</span><span class="punctuation">[</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]))</span> <span class="comment single"># 140443395483400</span>
+<span class="keyword">print</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">(</span><span class="name">new</span><span class="punctuation">[</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]))</span>  <span class="comment single"># 140443395483400</span>
+</pre>
+<p>Inspecting the identities reveals that only the overall object's were initialised as new objects
+but the nested types within were bound to the original nested type - an alias!</p>
+<p>This is something to take into consideration when passing variables around that have
+nested types. To circumvent this immutable types such as tuples can be used in place.</p>
+<p>Python can do deep copies which will take care of this issue, but it has its own drawbacks. Of which
+we not be discussed here as this post is already quite long. See <a class="reference external" href="https://realpython.com/copying-python-objects/">Dan Bader's</a>
+excellent post for more information.</p>
+</div>
+<div class="section" id="wrapping-up">
+<h3>Wrapping Up</h3>
+<p>In python all objects have a type, identity and values. Only the values can change after it is created
+and knowing a little bit more about how this works can help us prevent unintended bugs.</p>
+<p><strong>Notes:</strong></p>
+<ul class="simple">
+<li>assignment does not create copies</li>
+<li>nested mutable types within shallow copies are aliases</li>
+<li>equality has two different checks; identity, and values</li>
+</ul>
+</div>
+</div>
+</div>
+                <br>
+                
+                <p class="back-to-posts"><a href="/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

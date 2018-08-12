@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Flask, forms and http requests Date: 23/04/2018 Status: Published Tags:python, flask  Category:python, webdev    Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage’s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API.">
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Flask, forms and http requests Date: 23/04/2018 Status: Published Tags:python, flask  Category:python, webdev    Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage’s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/blog/08-http-post-and-get-in-flask/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+      
+
+</title>
+<link rel="canonical" href="http://example.org/blog/08-http-post-and-get-in-flask/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+
+</div>
+
+                    <div class="initials"><a href="http://example.org/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jan 1 0001 00:00:00 UTC'>Jan 1, 0001</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <div class="document" id="flask-forms-and-http-requests">
+<h1 class="title">Flask, forms and http requests</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Date:</th>
+<td>23/04/2018</td></tr>
+<tr><th class="docinfo-name">Status:</th>
+<td>Published</td></tr>
+<tr class="tags field"><th class="docinfo-name">Tags:</th><td class="field-body">python, flask</td>
+</tr>
+<tr class="category field"><th class="docinfo-name">Category:</th><td class="field-body">python, webdev</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Flask, Forms and HTTP Requests</h2>
+<div class="section" id="preface">
+<h3>Preface</h3>
+<p>This week I have been building a small webapp that leverage’s an
+external API to populate values in the user pages. And it pains me to
+say that I spent a silly length of time debugging what was a rather easy
+problem.</p>
+<p>The webapp uses Flask, jinja2 templates and the
+<a class="reference external" href="https://github.com/danielmichaels/fuelwatcher">fuelwatcher</a> API. The
+issue started when trying to institute a search bar that allows the user
+to select a series of parameters.</p>
+<p>In the end the following issues were present:</p>
+<ul class="simple">
+<li>My lack of understanding in regards to HTTP requests</li>
+<li>Not knowing how the Flask Request context functions</li>
+<li>Improper formatting of my HTML forms</li>
+</ul>
+</div>
+<div class="section" id="learn-you-some-http-for-great-good">
+<h3>Learn You Some HTTP For Great Good</h3>
+<p>Foolishly, I thought I understood HTTP requests. Sometimes you need to
+use your theoretical knowledge practically to fully grasp a concept. It
+turns out I was mixing <code>GET</code> and <code>POST</code> when submitting data to the
+server in conjunction with using HTML form attributes incorrectly.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="52%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">GET</th>
+<th class="head">POST</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td>Sends Parameters in URL</td>
+<td>Sends Parameters in body</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td>Used for fetching documents</td>
+<td>Used for updating data</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td>Has max length URL limitations</td>
+<td>No max length (theoretically)</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="4">
+<li></li>
+</ol>
+</td>
+<td>Often Cached</td>
+<td>Server does not cache</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="5">
+<li></li>
+</ol>
+</td>
+<td>Idempotent</td>
+<td>Not idempotent</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="6">
+<li></li>
+</ol>
+</td>
+<td>Should not change server data</td>
+<td>Can change server data</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>A key point for said webapp is item number 1; I was sending parameters
+in the URL when they really needed to be sent via the body. Expanding on
+this a little, in a <code>GET</code> request the parameters are transmitted using
+URI schema friendly syntax (see wiki
+<a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">here</a>).
+It is common to see query delimiters in the URL such as <code>&amp;`</code>, <code>=</code>,
+<code>+</code> and <code>#</code> and should of been a clue in the debugging process.
+Transmitting a <code>GET</code> request like this fetches data from another
+resource, where in contrast my data was needed to execute a function
+within the server application to pull information from a third party.</p>
+</div>
+<div class="section" id="flask-requests">
+<h3>Flask Requests</h3>
+<p>This is deep subject but is tightly coupled to the previous point. The
+request object in flask gives access to the global <em>request</em> object.
+Meaning it parses the incoming request data for you. This is important
+because it is checking for a <code>method</code> attribute within that request.
+Depending on which <code>method</code> is sent will affect how it/ you should
+check for the request object.</p>
+<p><strong>TL;DR:</strong> If you incorrectly set the method to <code>GET</code> when its
+actually a <code>POST</code> you will have problems.</p>
+<p>To receive the request object and parse for the data you want the
+following should be used:</p>
+<pre class="code python literal-block">
+<span class="comment single"># displaying both POST and GET for clarity</span>
+
+<span class="comment single"># POST request // Use 'form'</span>
+<span class="name decorator">&#64;app.route</span><span class="punctuation">(</span><span class="literal string double">&quot;/test&quot;</span> <span class="punctuation">,</span> <span class="name">methods</span><span class="operator">=</span><span class="punctuation">[</span><span class="literal string single">'GET'</span><span class="punctuation">,</span> <span class="literal string single">'POST'</span><span class="punctuation">])</span>
+<span class="keyword">def</span> <span class="name function">test</span><span class="punctuation">():</span>
+    <span class="name">select</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">form</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal string single">'attribute to be parsed'</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <span class="name">select</span> <span class="comment single"># or render_template with select=select etc</span>
+
+<span class="comment single"># GET request // Use 'args'</span>
+<span class="name decorator">&#64;app.route</span><span class="punctuation">(</span><span class="literal string single">'/data'</span><span class="punctuation">)</span>
+<span class="keyword">def</span> <span class="name function">data</span><span class="punctuation">():</span>
+    <span class="comment single"># here we want to get the value of user (i.e. ?user=some-value)</span>
+    <span class="name">user</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">args</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal string single">'user'</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <span class="name builtin">str</span><span class="punctuation">(</span><span class="name">user</span><span class="punctuation">)</span> <span class="comment single"># or how ever you want to use that data</span>
+</pre>
+<p>Given these snippets you can see how mixing <code>GET</code> with <code>POST</code> will
+lead to calling the wrong request method.</p>
+</div>
+<div class="section" id="html-form-tags-for-dummies">
+<h3>HTML form tags for Dummies</h3>
+<p>HTML, basic right? Don’t let hubris fool you, not learning HTML deeply
+is foolish. To be fair, this is the first app I have created that has
+not required the use of <code>flask-wtf</code>, which kindly generates forms and
+their tags for you.</p>
+<pre class="code html literal-block">
+<span class="comment">&lt;!-- standard form tags --&gt;</span>
+<span class="punctuation">&lt;</span><span class="name tag">form</span> <span class="name attribute">action</span><span class="operator">=</span><span class="literal string">&quot;{{ url_for('app.function')}}&quot;</span> <span class="name attribute">method</span><span class="operator">=</span><span class="literal string">&quot;post&quot;</span><span class="punctuation">&gt;</span>
+</pre>
+<p>Simple, right? Not if you:</p>
+<ul class="simple">
+<li>Mix up the HTTP request</li>
+<li>Use the wrong flask request method</li>
+<li>Don’t use an attribute which you can parse in using
+<code>request.form.get('attribute')</code></li>
+</ul>
+<p>Tightly coupled (I think there is a SOLID principle about this…) and
+frustrating when you don’t connect the dots.</p>
+<p>The last piece of the puzzle was the simplest of all, I had not set an
+attribute that the request object could get. In this example a
+<code>&lt;select&gt;</code> tag was used and simply appending
+<code>name=attribute_to_be_parsed</code> worked.</p>
+<p>For clarity, first the html.</p>
+<pre class="code html literal-block">
+<span class="comment">&lt;!-- html --&gt;</span>
+<span class="punctuation">&lt;</span><span class="name tag">select</span> <span class="name attribute">name</span><span class="operator">=</span><span class="literal string">'item1'</span><span class="punctuation">&gt;</span>                   <span class="punctuation">&lt;</span><span class="name tag">--</span> <span class="name attribute">attribute</span> <span class="name attribute">flask</span> <span class="name attribute">looks</span> <span class="name attribute">for</span>
+    <span class="error">{%</span> <span class="name attribute">for</span> <span class="name attribute">item</span> <span class="name attribute">in</span> <span class="name attribute">items</span> <span class="error">%}</span>
+        <span class="error">&lt;</span><span class="name attribute">option</span><span class="punctuation">&gt;</span>
+            {{ item }}                  <span class="punctuation">&lt;</span><span class="name tag">--</span> <span class="name attribute">what</span> <span class="name attribute">we</span> <span class="name attribute">get</span> <span class="name attribute">in</span> <span class="name attribute">the</span> <span class="name attribute">response</span>
+        <span class="error">&lt;/</span><span class="name attribute">option</span><span class="punctuation">&gt;</span>
+    {% endfor}
+<span class="punctuation">&lt;/</span><span class="name tag">select</span><span class="punctuation">&gt;</span>
+</pre>
+<p>And the flask part.</p>
+<pre class="code python literal-block">
+<span class="comment single"># python: flask</span>
+<span class="name decorator">&#64;app.route</span><span class="punctuation">(</span><span class="literal string single">'/test'</span><span class="punctuation">)</span>
+<span class="keyword">def</span> <span class="name function">test</span><span class="punctuation">():</span>
+    <span class="name">item_to_get</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">form</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal string single">'item1'</span><span class="punctuation">)</span>     <span class="operator">&lt;--</span> <span class="name">flask</span> <span class="name">request</span> <span class="name">parsing</span> <span class="name">the</span> <span class="name">response</span> <span class="name">body</span>
+    <span class="operator">...</span> <span class="name">snip</span> <span class="operator">...</span>
+</pre>
+<p>… My face when it worked.</p>
+<div class="figure">
+<img alt="Frankenstein; its alive scene" src="{filename}/images/its_alive.jpg" />
+</div>
+</div>
+<div class="section" id="learn-from-your-mistakes">
+<h3>Learn from your mistakes</h3>
+<p>Everyone makes mistakes, learn from it, be humble and don’t do it again.</p>
+</div>
+</div>
+</div>
+                <br>
+                
+                <p class="back-to-posts"><a href="/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

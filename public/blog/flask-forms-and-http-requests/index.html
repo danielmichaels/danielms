@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.">
+
+<meta property="og:title" content="Flask, forms and http requests" />
+<meta property="og:description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/flask-forms-and-http-requests/" />
+
+
+
+<meta property="article:published_time" content="2018-04-23T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-04-23T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Flask, forms and http requests 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/flask-forms-and-http-requests/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2018-08-10%2022%3a58%3a20.899860433%20%2b0000%20UTC%20m%3d%2b0.082247897">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2018-08-10%2022%3a58%3a20.899860433%20%2b0000%20UTC%20m%3d%2b0.082247897">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2018-08-10%2022%3a58%3a20.899860433%20%2b0000%20UTC%20m%3d%2b0.082247897">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2018-08-10%2022%3a58%3a20.899860433%20%2b0000%20UTC%20m%3d%2b0.082247897">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/you" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:you@example.space"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Flask, forms and http requests
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Apr 23 2018 00:00:00 UTC'>Apr 23, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="flask-forms-and-http-requests">Flask, Forms and HTTP Requests</h2>
+
+<h3 id="preface">Preface</h3>
+
+<p>This week I have been building a small webapp that leverage&rsquo;s an
+external API to populate values in the user pages. And it pains me to
+say that I spent a silly length of time debugging what was a rather easy
+problem.</p>
+
+<p>The webapp uses Flask, jinja2 templates and the
+<a href="https://github.com/danielmichaels/fuelwatcher">fuelwatcher</a> API. The
+issue started when trying to institute a search bar that allows the user
+to select a series of parameters.</p>
+
+<p>In the end the following issues were present:</p>
+
+<ul>
+<li>My lack of understanding in regards to HTTP requests</li>
+<li>Not knowing how the Flask Request context functions</li>
+<li>Improper formatting of my HTML forms</li>
+</ul>
+
+<h3 id="learn-you-some-http-for-great-good">Learn You Some HTTP For Great Good</h3>
+
+<p>Foolishly, I thought I understood HTTP requests. Sometimes you need to
+use your theoretical knowledge practically to fully grasp a concept. It
+turns out I was mixing <code>GET</code> and <code>POST</code> when
+submitting data to the server in conjunction with using HTML form
+attributes incorrectly.</p>
+
+<hr />
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Get</th>
+<th>Post</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.</td>
+<td>Sends Parameters in URL</td>
+<td>Sends Parameters in body</td>
+</tr>
+
+<tr>
+<td>2.</td>
+<td>Used for fetching documents</td>
+<td>Used for updating data</td>
+</tr>
+
+<tr>
+<td>3.</td>
+<td>Has max length URL limitations</td>
+<td>No max length (theoretically)</td>
+</tr>
+
+<tr>
+<td>4.</td>
+<td>Often Cached</td>
+<td>Server does not cache</td>
+</tr>
+
+<tr>
+<td>5.</td>
+<td>Idempotent</td>
+<td>Not idempotent</td>
+</tr>
+
+<tr>
+<td>6.</td>
+<td>Should not change server data</td>
+<td>Can change server data</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p>A key point for said webapp is item number 1; I was sending parameters
+in the URL when they really needed to be sent via the body. Expanding on
+this a little, in a <code>GET</code> request the parameters are
+transmitted using URI schema friendly syntax (see wiki
+<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">here</a>). It
+is common to see query delimiters in the URL such as <code>&amp;</code>,<code>=</code>, <code>+</code> and <code>#</code> and should
+of been a clue in the debugging process. Transmitting a
+<code>GET</code> request like this fetches data from another resource,
+where in contrast my data was needed to execute a function within the
+server application to pull information from a third party.</p>
+
+<h3 id="flask-requests">Flask Requests</h3>
+
+<p>This is deep subject but is tightly coupled to the previous point. The
+request object in flask gives access to the global <em>request</em> object.
+Meaning it parses the incoming request data for you. This is important
+because it is checking for a <code>method</code> attribute within that
+request. Depending on which <code>method</code> is sent will affect
+how it/ you should check for the request object.</p>
+
+<p><strong>TL;DR:</strong> If you incorrectly set the method to <code>GET</code> when
+its actually a <code>POST</code> you will have problems.</p>
+
+<p>To receive the request object and parse for the data you want the
+following should be used:</p>
+
+<pre><code class="language-python"># displaying both POST and GET for clarity
+
+# POST request // Use 'form'
+@app.route(&quot;/test&quot; , methods=['GET', 'POST'])
+def test():
+    select = request.form.get('attribute to be parsed')
+    return select # or render_template with select=select etc
+
+# GET request // Use 'args'
+@app.route('/data')
+def data():
+    # here we want to get the value of user (i.e. ?user=some-value)
+    user = request.args.get('user')
+    return str(user) # or how ever you want to use that data
+</code></pre>
+
+<p>Given these snippets you can see how mixing <code>GET</code> with
+<code>POST</code> will lead to calling the wrong request method.</p>
+
+<h3 id="html-form-tags-for-dummies">HTML form tags for Dummies</h3>
+
+<p>HTML, basic right? Don&rsquo;t let hubris fool you, not learning HTML deeply
+is foolish. To be fair, this is the first app I have created that has
+not required the use of <code>flask-wtf</code>, which kindly generates
+forms and their tags for you.</p>
+
+<pre><code class="language-html">&lt;!-- standard form tags --&gt;
+&lt;form action=&quot;{{ url_for('app.function')}}&quot; method=&quot;post&quot;&gt;
+</code></pre>
+
+<p>Simple, right? Not if you:</p>
+
+<ul>
+<li>Mix up the HTTP request</li>
+<li>Use the wrong flask request method</li>
+<li>Don&rsquo;t use an attribute which you can parse in using
+<code>request.form.get('attribute')</code></li>
+</ul>
+
+<p>Tightly coupled (I think there is a SOLID principle about this&hellip;) and
+frustrating when you don&rsquo;t connect the dots.</p>
+
+<p>The last piece of the puzzle was the simplest of all, I had not set an
+attribute that the request object could get. In this example a
+<code>&lt;select&gt;</code> tag was used and simply appending
+<code>name=attribute_to_be_parsed</code> worked.</p>
+
+<p>For clarity, first the html.</p>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;select name='item1'&gt;                   &lt;-- attribute flask looks for
+    {% for item in items %}
+        &lt;option&gt;
+            {{ item }}                  &lt;-- what we get in the response
+        &lt;/option&gt;
+    {% endfor}
+&lt;/select&gt;
+</code></pre>
+
+<p>And the flask part.</p>
+
+<pre><code class="language-python"># python: flask
+@app.route('/test')
+def test():
+    item_to_get = request.form.get('item1')     &lt;-- flask request parsing the response body
+    ... snip ...
+</code></pre>
+
+<p>&hellip; My face when it worked.</p>
+
+<p><img src="https://danielms.site/img/its_alive.jpg" alt="Face of surprise!" /></p>
+
+<h3 id="learn-from-your-mistakes">Learn from your mistakes</h3>
+
+<p>Everyone makes mistakes, learn from it, be humble and don&rsquo;t do it again.</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/python">python</a>
+                  
+                    <a href="https://danielms.site/tags/flask">flask</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Base64 ELI5 Date: 22 May 2018 Status: Published Tags:ELI5  Category:linux, ELI5    Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn&#39;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
+TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.">
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Base64 ELI5 Date: 22 May 2018 Status: Published Tags:ELI5  Category:linux, ELI5    Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn&#39;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
+TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/blog/09-base64-eil5/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+      
+
+</title>
+<link rel="canonical" href="http://example.org/blog/09-base64-eil5/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+
+</div>
+
+                    <div class="initials"><a href="http://example.org/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jan 1 0001 00:00:00 UTC'>Jan 1, 0001</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <div class="document" id="base64-eli5">
+<h1 class="title">Base64 ELI5</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Date:</th>
+<td>22 May 2018</td></tr>
+<tr><th class="docinfo-name">Status:</th>
+<td>Published</td></tr>
+<tr class="tags field"><th class="docinfo-name">Tags:</th><td class="field-body">ELI5</td>
+</tr>
+<tr class="category field"><th class="docinfo-name">Category:</th><td class="field-body">linux, ELI5</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="base64">
+<h2>Base64</h2>
+<p>I thought I understood Base64. I mean its the alphabet in upper and lowercase plus
+numbers and a couple characters. But, what I didn't know was how the 64 bits worked, like
+thats missing a whole extra two bits. Why?</p>
+<div class="section" id="tl-dr">
+<h3>TL;DR</h3>
+<p>Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its
+down into segments of 6 bits - six ones in binary equates to 64 which is where it
+derives its name.</p>
+<p>Let's look at an example using the three letter word &quot;The&quot;.</p>
+<pre class="code bash literal-block">
+<span class="comment single">#ascii       T (84)        h (104)       e (101) &lt;-- ASCII plus base10 number
+#binary   01010100      01101000     01100101    &lt;-- three bytes
+#base64   010101    000110    100001   100101    &lt;-- four segments of six bits</span>
+</pre>
+<p>Given the base64 binary digits we calculate the number for each segment.</p>
+<pre class="code bash literal-block">
+<span class="comment single">#base64   010101    000110    100001   100101
+#total      21        06        33       37</span>
+</pre>
+<p>So now that we've split the 8 bit binary down to 6, and found what that equals in
+base10 we can consult the base64 conversion table.</p>
+<hr class="docutils" />
+<div class="figure">
+<img alt="Base64 Conversion Table" src="{filename}/images/base64.png" />
+</div>
+<hr class="docutils" />
+<p>By cross referencing the binary representation of the four segments (21, 06, 33, 37)
+we get the ASCII characters; <code>VGhl</code>.</p>
+<div class="section" id="gotcha-s">
+<h4>Gotcha's</h4>
+<p>In the example we used a three byte word which can neatly be broken down into four
+segments of six. What if the word is four characters, or 32 bits? 32 / 6 is 5 with a
+remainder of 2.</p>
+<p>In that case we need to pad out the base64 to indicate that the last segment is not
+complete.</p>
+<p>The base2 decimal representation of &quot;Them&quot; is <code>84 104 101 109</code> or
+<code>VGhlbQ==</code> in base64. As you can see there is two <code>=</code> symbols tacked on
+to the end. This indicates that there is two empty segments of 6 bits at the end of
+the encoding.</p>
+<pre class="code bash literal-block">
+<span class="comment single">#ascii       T (84)        h (104)       e (101)     m (109)
+#binary   01010100      01101000     01100101      01101101
+#base64   010101    000110    100001   100101   001101  010000
+#total      21        06        33        37      13      16</span>
+</pre>
+<p>Looks like that works out perfectly, so where does the extra two segments of zero's
+come in that generates the <code>=</code>'s?</p>
+<p>The segementing of eight bits into six bits cannot delimit half way between a byte.
+Meaning the base64 encoding must continue until there is no remainder. Let's explore
+this again using just one character.</p>
+<pre class="code bash literal-block">
+<span class="comment single">#ascii       M (77)
+#binary   01011101   00000000   00000000
+#base64   010111  010000  000000  000000
+#total      19      16      00      00</span>
+</pre>
+<p>I chose the letter 'M' as it is easier to explain than 'T'. Looking at it you can see
+that even with only one byte, it takes three bytes for base64's segments of six to
+equally divide. Hence, this is why the letter 'M' in base64 would be padded with
+<code>==</code> to indicate as such. This example uses two equals signs but base64 can also
+be padded with just one. It all depends on how many segments extra are needed to
+generate a zero remainder.</p>
+</div>
+<div class="section" id="more-overhead">
+<h4>More overhead</h4>
+<p>Astute readers will see that using base64 requires more overhead than hexadecimal or
+binary. So why use it? Base64's genesis was in MIME (Multipurpose Internet Mail Extensions)
+where large streams of text are used to send emails and attachments. The problem is that
+streaming binary, or hexadecimal could of had unintended consequences as some systems
+or programs may interpret certain globs incorrectly. For instance, a null byte in some
+systems may indicate that the message has ended when in fact it has not.</p>
+</div>
+<div class="section" id="more-information">
+<h4>More information?</h4>
+<p>As always <a class="reference external" href="https://en.wikipedia.org/wiki/Base64">Wikipedia</a> has an excellent page
+on Base64.</p>
+</div>
+</div>
+</div>
+</div>
+                <br>
+                
+                <p class="back-to-posts"><a href="/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

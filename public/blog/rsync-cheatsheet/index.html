@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
+Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
+Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive.">
+
+<meta property="og:title" content="Rsync cheatsheet" />
+<meta property="og:description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
+Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
+Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/rsync-cheatsheet/" />
+
+
+
+<meta property="article:published_time" content="2018-01-24T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-01-24T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Rsync cheatsheet 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/rsync-cheatsheet/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2018-08-10%2022%3a58%3a20.915048372%20%2b0000%20UTC%20m%3d%2b0.097435856">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2018-08-10%2022%3a58%3a20.915048372%20%2b0000%20UTC%20m%3d%2b0.097435856">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2018-08-10%2022%3a58%3a20.915048372%20%2b0000%20UTC%20m%3d%2b0.097435856">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2018-08-10%2022%3a58%3a20.915048372%20%2b0000%20UTC%20m%3d%2b0.097435856">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/you" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:you@example.space"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Rsync cheatsheet
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jan 24 2018 00:00:00 UTC'>Jan 24, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>This is a short primer on the most simple of rsync&rsquo;s capabilities.</p>
+
+<p>Rsync is a fast and extraordinarily versatile file copying tool. It uses
+a delta transfer algorithm, which reduces the amount of data sent over
+the network by sending only the differences between the source and
+destination files. It can contact remote systems via SSH or through a
+rsync daemon over TCP.</p>
+
+<h3 id="basic-syntax">Basic Syntax</h3>
+
+<p><code>-r</code>: The &lsquo;r&rsquo; flag denotes that the operation is recursive.
+It will copy across all files and folders inside the source directory.
+However, if the source destination does not have a trailing slash it
+will copy the folder, rather than the files inside the folder.</p>
+
+<p><code>-a</code> Archive mode is superior to recursive mode as it will
+sustain symbolic links, special and device files, modification times,
+group, owner and permissions.</p>
+
+<p><code>--dry-run</code> or <code>-n</code> As a sanity check it is
+worth checking that your command is going to do what you <em>think</em> it is
+going to do. The dry run will not execute the command. It can (read:
+should) be coupled with the next command.</p>
+
+<p><code>-v</code>: Verbose will print out the what actions were
+undertaken by the command. If <code>-n</code> is not coupled with a
+verbose flag it will print nothing to the screen.</p>
+
+<p><code>--delete</code>: Will remove extra items in the destination
+folder that do not exist in the source directory. <strong>Caution:</strong> This can
+lead to complete deletion of the destination folder if incorrectly
+implemented.</p>
+
+<p><code>-z</code>: When transferring across the network rsync provides a
+compression option to save on bandwidth.</p>
+
+<p><code>-P</code>: Outputs a progress bar to the terminal.</p>
+
+<p><code>--exclude=important_file.txt</code>: Can be used to omit files
+or directories from being synced.</p>
+
+<p><code>--exclude=backups/ --include=backups/most_recent</code>: Inside
+the exclusion we can explicitly include certain file, folders or
+patterns that fall inside the broader exclude.</p>
+
+<p>example:</p>
+
+<pre><code>rsync -azvnP source_dir/ destination_dir/
+</code></pre>
+
+<h3 id="syncing-across-remote-systems">Syncing Across Remote Systems</h3>
+
+<p>Syncing can be either a &ldquo;pull&rdquo; or &ldquo;push&rdquo;.</p>
+
+<p>The &ldquo;push&rdquo;:</p>
+
+<pre><code>rsync -a ~/local_source_dir username@remote_host:/home/username/destination_dir
+</code></pre>
+
+<p><em>In this example weare</em>* copying the directory, not just its contents
+so we omit the trailing slash.* Here we are sending data from the
+source to the destination.</p>
+
+<p>The &ldquo;pull&rdquo;:</p>
+
+<pre><code>rsync -a username@remote_host:/home/username/destination_dir local_source_dir
+</code></pre>
+
+<p>This pull operation is syncing the remote directory with the local
+system. We might use this to backup a small database file for instance.</p>
+
+<h3 id="ssh">SSH</h3>
+
+<p>Syncing between systems if made much easier if key based authentication
+is enabled. If not, the user will be prompted with a password.</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/rsync">rsync</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

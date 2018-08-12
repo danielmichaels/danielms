@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Daniel Michaels</title>
+    <link>https://danielms.site/categories/programming/</link>
+    <description>Recent content in Programming on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Object References</title>
+      <link>https://danielms.site/blog/python-object-references/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/python-object-references/</guid>
+      <description>Python Object Reference ELI5 I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Linux file permissions Date: 4 Feb 2018 Category:administration  Tags:linux  Status: published   Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user&#64;example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.">
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Linux file permissions Date: 4 Feb 2018 Category:administration  Tags:linux  Status: published   Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user&#64;example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/blog/04-linux-permissions/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+      
+
+</title>
+<link rel="canonical" href="http://example.org/blog/04-linux-permissions/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+
+</div>
+
+                    <div class="initials"><a href="http://example.org/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jan 1 0001 00:00:00 UTC'>Jan 1, 0001</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <div class="document" id="linux-file-permissions">
+<h1 class="title">Linux file permissions</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Date:</th>
+<td>4 Feb 2018</td></tr>
+<tr class="category field"><th class="docinfo-name">Category:</th><td class="field-body">administration</td>
+</tr>
+<tr class="tags field"><th class="docinfo-name">Tags:</th><td class="field-body">linux</td>
+</tr>
+<tr><th class="docinfo-name">Status:</th>
+<td>published</td></tr>
+</tbody>
+</table>
+<div class="section" id="linux-chmod-and-chown">
+<h2>Linux: Chmod and Chown</h2>
+<div class="section" id="chmod-change-file-mode-bits">
+<h3><strong>Chmod: Change File Mode Bits</strong></h3>
+<pre class="code shell literal-block">
+<span class="literal number">15</span>:45:18 user&#64;example temporary
+total 12K
+drwxr-xr-x  <span class="literal number">2</span> <span class="name builtin">test</span> users <span class="literal number">4</span>.0K Feb  <span class="literal number">1</span> <span class="literal number">14</span>:29 .
+drwx------ <span class="literal number">33</span> <span class="name builtin">test</span> users <span class="literal number">4</span>.0K Feb  <span class="literal number">3</span> <span class="literal number">15</span>:45 ..
+-rw-r--r--  <span class="literal number">1</span> <span class="name builtin">test</span> users    <span class="literal number">0</span> Jan <span class="literal number">21</span> <span class="literal number">12</span>:14 <span class="literal number">1</span>
+-rw-r--r--  <span class="literal number">1</span> <span class="name builtin">test</span> users    <span class="literal number">0</span> Jan <span class="literal number">21</span> <span class="literal number">12</span>:14 <span class="literal number">3</span>
+-rw-r--r--  <span class="literal number">1</span> <span class="name builtin">test</span> users   <span class="literal number">16</span> Feb  <span class="literal number">1</span> <span class="literal number">14</span>:29 file.txt
+</pre>
+<p>In the above example output from left to right we have: filemode, number
+of links, user, group, size, date last modified, name of file.</p>
+<p>We will focus on the filemode for now.</p>
+<pre class="literal-block">
+drwxr-xr-x
+0123456789 &lt;-- this is our reference marker.
+</pre>
+<p>0: is either <code>-</code> meaning a file, or <code>d`</code> signifying that it is a
+directory.</p>
+<p>1-3: represents the user or owner of the file.</p>
+<p>4-6: is reference to the group that owns the file.</p>
+<p>7-9: everybody else, or other.</p>
+<p><strong>Change the filemodes:</strong></p>
+<p>The command <code>chmod</code> is used to change the modefiles of files. Its
+basic syntax is as follows:</p>
+<dl class="docutils">
+<dt><code>chmod u+x file.txt</code> – The <code>u</code> signifies <code>user</code>, the <code>+</code></dt>
+<dd>means add and the <code>x</code> refers to execute. This can be stacked, and used to
+takeaway permissions.</dd>
+</dl>
+<p><code>chmod -R g+rwx directory</code> would recursively (<code>-R</code>) change all
+<code>group</code> files within <code>directory</code> to read, write and execute.</p>
+<p>Importantly, if the user or group <strong>does not</strong> own the file or directory
+then the command <code>sudo</code> must be used. Otherwise it is not needed.</p>
+<p><strong>Octal:</strong> In the above examples we used <code>rwx</code> to note what
+permissions we wanted to add or remove from a file. Another method is to
+use the <em>octal</em> notation; numeral.</p>
+<p><code>chmod 777 file.txt</code> would mean that we are giving <code>rwx</code> to user,
+group and other. How does 7 equal <code>rwx</code>?</p>
+<p>This is because <code>4</code> gives read access, <code>2</code> is write and <code>1</code>,
+execute. When using octal we add the numbers together, so if we wanted
+read, write and execute we simply add 4,2,1 which equals 7.</p>
+<p><code>chmod 765 xxx.txt</code> would mean: - user: read, write and execute -
+group: read and write - other: read and execute</p>
+<p>Using this is very simple, but how do I remove permissions? Previosuly,
+we would <code>chmod u-x</code> i.e.&nbsp;we used the <code>-</code> to signify removal of
+priviledge. Using octal we just set new filemode to what we want and it
+will add or subtract the mode accordingly. An example below:</p>
+<p><code>chmod a+rwx</code> == give read, write and execute to all (user,group a)nd
+other) <em>or</em> <code>777</code>.</p>
+<p>But if we only wanted the user to have <code>rwx</code> and everyone else read
+and write we could call: <code>chmod 755</code>. To use non-octal here would be
+<code>chmod go-x</code>.</p>
+<p>Important note: As with all things linux there are many more advanced
+features. We are just touching the surface here.</p>
+</div>
+<div class="section" id="chown-change-file-owner-and-group">
+<h3><strong>Chown: Change File Owner and Group</strong></h3>
+<p>The <code>chown</code> command deals with changing the ownership of files and
+directories.</p>
+<pre class="literal-block">
+drwxrwxr-x  1 test users 14.0K Jan 21 12:14 dir_1
+
+-rw-r--r--  1   admin   root   16 Feb  1 14:29 file.txt
+[filemode]     [owner] [grp]
+</pre>
+<p>Above we have a break down of the important parts of our <code>ls -la</code>
+output.</p>
+<p>In the faked output we have <code>admin</code> in the first positon which is
+representing the owner/ creator of <code>file.txt</code>. In postition two we
+have the group that <code>file.txt</code> belongs to, in this case its <code>root</code>.</p>
+<p>The owner of a file can make changes to the filemode and ownsership of a
+file without super user priviledges. However, if another user wanted to
+change the ownership they would require this access.</p>
+<p>To make a change is as simple as <code>chown [user]:[group] [file/s]</code>.</p>
+<pre class="literal-block">
+$ sudo chown root file.txt # 1.
+$ ls -l
+-rw-r--r--  1 root root   16 Feb  1 14:29 file.txt
+</pre>
+<p>The simplest usage of <code>chown</code> is the command plus the new owner and
+file or directory to be affected.</p>
+<pre class="literal-block">
+$ sudo chown -R admin dir_1 # 2.
+$ ls -l
+drwxrwxr-x  1 admin users 14.0K Jan 21 12:14 dir_1
+</pre>
+<p>If we wanted to make the changes to all files and directories inside a
+directory we can add <code>-R</code>. This is a recursive function with the same
+syntax as <code>chmod</code>.</p>
+<pre class="literal-block">
+$ sudo chown admin:admin file.txt
+$ ls -l
+-rw-r--r--  1 admin admin   16 Feb  1 14:29 file.txt
+</pre>
+<p>To specify a new owner and group the use of <code>:</code> between the owner and
+group can be used. <code>admin:users</code>, ’root:root` and so on.</p>
+</div>
+</div>
+</div>
+                <br>
+                
+                <p class="back-to-posts"><a href="/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

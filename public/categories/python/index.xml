@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Daniel Michaels</title>
+    <link>https://danielms.site/categories/python/</link>
+    <description>Recent content in Python on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Object References</title>
+      <link>https://danielms.site/blog/python-object-references/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/python-object-references/</guid>
+      <description>Python Object Reference ELI5 I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+    </item>
+    
+    <item>
+      <title>Flask, forms and http requests</title>
+      <link>https://danielms.site/blog/flask-forms-and-http-requests/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/flask-forms-and-http-requests/</guid>
+      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.</description>
+    </item>
+    
+    <item>
+      <title>Uploading to PyPI</title>
+      <link>https://danielms.site/blog/uploading-to-pypi/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/uploading-to-pypi/</guid>
+      <description>Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &amp;ldquo;warehouse&amp;rdquo; as PyPI is going through an upgrade of its infrastructure and for the better.</description>
+    </item>
+    
+    <item>
+      <title>Scapy Snippets</title>
+      <link>https://danielms.site/blog/scapy-snippets/</link>
+      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/scapy-snippets/</guid>
+      <description>How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal  caveat: currently only tested on Ralink: RT5370 chipset</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &ldquo;warehouse&rdquo; as PyPI is going through an upgrade of its infrastructure and for the better.">
+
+<meta property="og:title" content="Uploading to PyPI" />
+<meta property="og:description" content="Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &ldquo;warehouse&rdquo; as PyPI is going through an upgrade of its infrastructure and for the better." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/uploading-to-pypi/" />
+
+
+
+<meta property="article:published_time" content="2018-04-07T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-04-07T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Uploading to PyPI 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/uploading-to-pypi/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2018-08-10%2022%3a58%3a20.903773476%20%2b0000%20UTC%20m%3d%2b0.086160956">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2018-08-10%2022%3a58%3a20.903773476%20%2b0000%20UTC%20m%3d%2b0.086160956">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2018-08-10%2022%3a58%3a20.903773476%20%2b0000%20UTC%20m%3d%2b0.086160956">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2018-08-10%2022%3a58%3a20.903773476%20%2b0000%20UTC%20m%3d%2b0.086160956">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/you" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:you@example.space"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Uploading to PyPI
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat Apr 7 2018 00:00:00 UTC'>Apr 7, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>7 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="python-package-index">Python Package Index</h2>
+
+<p>Python has a wonderful community and package ecosystem. It currently has
+over 130,000 packages for download and a large variety to choose from.
+To download a python package via the <code>pip</code> command, the
+package must be uploaded to the Python Package Index, or
+<a href="https://pypi.org/">PyPI</a>. Going forward it may be referred to as the
+&ldquo;warehouse&rdquo; as PyPI is going through an upgrade of its infrastructure
+and for the better.</p>
+
+<h3 id="have-application-now-what">Have application, now what?</h3>
+
+<p>PyPI offers two servers for the uploading of python packages; testing
+and production.</p>
+
+<p>Sending the package to the test server is a great idea as it allows you
+to download your tarball onto any system for testing. This allows you to
+do a few novel things like sharing it with friends or co-workers,
+spinning up virtual machine&rsquo;s with different operating systems or
+installing it into separate virtual environments with different versions
+of python.</p>
+
+<p>This article does assume you are using a version control system, and in
+particular GitHub but this is not a requirement for PyPI.</p>
+
+<h3 id="productionise-your-code">Productionise your code</h3>
+
+<p>Before looking at how to upload your modules, first it must be made
+ready for release into the wild.</p>
+
+<h3 id="directory-structure">Directory Structure</h3>
+
+<pre><code class="language-bashj">root-dir/           # The directory which all your files live.
+    setup.py        # covered below (Required)
+    setup.cfg       # if using markdown rather than ReStructuredText
+    LICENSE.txt     # should be required!
+    README.md       # Also should be required!
+    tests/          # tests are a good idea
+        test.py
+    your-package/
+        __init__.py
+        awesome.py
+        wicked.py
+</code></pre>
+
+<p>If you look at any great package such as
+<a href="https://github.com/requests/requests">Requests</a> or
+<a href="https://github.com/nicolargo/glances">Glances</a> you will see a similar
+(although much more intricate) structure. The key files we <strong>need</strong> are
+<code>setup.py</code> and <code>setup.cfg</code> if using Markdown.</p>
+
+<h3 id="setup-py">Setup.py</h3>
+
+<pre><code class="language-python"># setup.py
+
+from codecs import open
+# ensure consistent encoding
+from setuptools import setup
+# always prefer over distutils
+from os import path
+
+VERSION = '0.1.0'
+URL = 'https://github.com/username/package'
+DOWNLOAD_URL = (URL + '/tarball/' + VERSION)
+
+here = path.abspath(path.dirname(__file__))
+
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
+setup(
+    name='yourpackage',
+    packages=['yourpackage'],
+    version=VERSION,
+    description='blurb that users first see to decide if interesting',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    author='Optional',
+    author_email='Optional',
+    url=URL,
+    download_url=DOWNLOAD_URL,
+    classifiers=[
+        #   3 - Alpha
+        #   4 - Beta
+        #   5 - Production/Stable
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6', ]
+)
+</code></pre>
+
+<p>The information contained within <code>setup.py</code> and in
+particular its <code>setup()</code> function is what creates the
+package&rsquo;s metadata for parsing by PyPI once uploaded.</p>
+
+<p>This is a stripped down version of my own <code>setup.py</code>. Many
+tutorials which are older will use <code>distutils</code> but PyPI&rsquo;s
+<a href="https://github.com/pypa/sampleproject">example</a> structure explicitly
+states to favour the newer <code>setuptools</code>.</p>
+
+<p>By using a context manager and the <code>codecs.open</code> method we
+can read the README.md file for use in the
+<code>long_description</code> parameter within <code>setup()</code>.
+This is a requirement for the PyPI server as it by default only parses
+ReStructuredText. If using README.rst, this can be ignored. Further, the
+<code>long_description_content_type='text/markdown'</code> must be
+included or it will not format the content correctly. This is a very
+recent addition to PyPI - March 2018.</p>
+
+<p>Also, the <code>version</code> is what sets the tarball filename, so
+creating an easy to adjust global variable makes it a lot easier to
+amend this file when updating your package. As you can see there is
+three locations that need to be updated for it to function correctly.
+(Thanks to <a href="https://dbader.org">Dan Bader</a> for the
+idea.)</p>
+
+<p>Please refer to the example page for more information, particularly if
+your package is more complex than just a few modules.</p>
+
+<h3 id="setup-cfg">Setup.cfg</h3>
+
+<p>This is just required for Markdown parsing. As you may see it might just
+be easier to utilise the default supported .rst files. Something I may
+do in the future.</p>
+
+<pre><code class="language-bash">[metadata]
+description-file = README.md
+</code></pre>
+
+<h3 id="python-setup-py-sdist">Python setup.py sdist</h3>
+
+<p>Running this command will invoke the <code>setup.py</code> and create
+a folder called <code>dist/</code> inside your root directory. This is
+where your application&rsquo;s tarball will now live. It is also a good time
+to create or update your git tags for your repository.</p>
+
+<p>FYI, once you create a local tag it must be pushed to the remote.</p>
+
+<pre><code class="language-bash">git tag X.Y.Z -m &quot;Add a message such as; First!&quot;
+git push X.Y.Z      # preferred option
+git push --tags     # less preferred as it pushs ALL tags to the remote server
+</code></pre>
+
+<h3 id="upload-y-u-no-easy">Upload: y u no easy</h3>
+
+<p>In theory uploading to PyPI is just that simple. Unfortunately it isn&rsquo;t
+that easy and a lot of the helpful blogs and references out there aren&rsquo;t
+current with the new standards. As always the official user guide
+(<a href="https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">here</a>)
+is the holy grail but isn&rsquo;t the easiest reading when completely unsure!</p>
+
+<h3 id="1-register">1. Register</h3>
+
+<p>To upload anything to PyPI you must first register with it. And if you
+want to make use of the testing server, you must register with it
+separately. Although they use the same software, each server uses a
+separate database and this is why two different sign up&rsquo;s are required.
+They can be found here for <a href="https://pypi.org/account/register/">Live</a>
+and <a href="https://test.pypi.org/account/register/">Test</a>.</p>
+
+<h3 id="2-create-pypirc">2. Create .pypirc</h3>
+
+<p>This file allows your development machine to talk to the PyPI servers.
+It should look something like this.</p>
+
+<pre><code class="language-bash"># ~/.pypirc
+
+[distutils]
+index-servers = 
+  pypi
+  pypitest
+
+[pypi]
+repository=https://upload.pypi.org/legacy/
+username=username
+
+[pypitest]
+repository=https://test.pypi.org/legacy/
+username=username
+</code></pre>
+
+<p>This is current to today&rsquo;s date but the repository url may change as the
+PyPI warehouse continues its evolution. The file <strong>must</strong> be located in
+the home directory. Both username and password can be set in this file,
+or in environment variables.</p>
+
+<h3 id="3-install-twine">3. Install Twine</h3>
+
+<p>What is it and why use it? Twine is a package written by the PyPI
+maintainers that uses SSL by default when sending information to their
+endpoint. Python versions before 2.7.9 and 3.2 do not use this by
+default and spill user credentials over the air. Also twine separates
+the creation of the package tarball and uploading into two logical
+commands; setuptools does not - they are done in the same invocation.</p>
+
+<p>Tarball? To send your package to the server it first must be compressed
+into a single file. So basically, you zip your files to send and when
+<code>pip install xxxx</code> is called your tarball is downloaded and
+unzipped at the end user. This is an important point because any changes
+you make after creating your tarball are not included in the package so
+you will need to rezip it to include them.</p>
+
+<p>Personally, I install twine on the system interpreter and update it
+along with setup tools frequently.</p>
+
+<h3 id="4-upload">4. Upload!</h3>
+
+<pre><code class="language-bash">twine upload -r pypitest dist/package-version-i-select-explicitly.0.1.0.tar.gz
+&gt;&gt;&gt; Uploading distributions to https://test.pypi.org/legacy/
+&gt;&gt;&gt; Enter your password:
+&gt;&gt;&gt; Uploading package-version-i-select-explicitly.0.1.0.tar.gz
+</code></pre>
+
+<p>Using the <code>-r</code> flag allows you to set which server to send
+the file too. This file name is setup in the <code>.pypirc</code> file
+and if you have setup a username it will not prompt you for it.
+Likewise, it will not prompt for a password should you choose to enter
+that, and if you do consider <code>chmod 600</code> on that file for
+security reasons.</p>
+
+<p>In many examples you may see something like this:</p>
+
+<pre><code class="language-bash">twine upload -r pypitest dist/*
+</code></pre>
+
+<p>This will upload all of your tarball&rsquo;s located in the
+<code>dist/</code> directory. I personally choose which distribution
+to upload. Either, or. Once done, goto the test PyPI and check to see
+that it looks as expected, or as previously stated download the test
+file and check its functioning as expected.</p>
+
+<p>This can be done like so:</p>
+
+<pre><code class="language-bash">pip install --index-url https://test.pypi.org/simple/ yourPackageName
+</code></pre>
+
+<p>Once happy send that baby to the production PyPI by repeating the
+commands but this time specifying the <code>pypi</code> server like
+so:</p>
+
+<pre><code class="language-bash">twine upload -r pypi dist/package-version-i-select-explicitly.0.1.0.tar.gz
+</code></pre>
+
+<p>You now have a production package in the wild. Check out your code at
+<a href="https://libraries.io/">Libraries.io</a>.</p>
+
+<h3 id="5-help-pypi">5. Help PyPI</h3>
+
+<p>None of this would be possible with the tireless work of the Python
+Software Foundation and the handful of volunteers that make PyPI a
+reality. Join the PSF and maybe consider a donation, or convince your
+employer to contribute if they rely on python software! Without PSF and
+PyPI we wouldn&rsquo;t have python as we know it today. Please visit and sign
+up here: <a href="https://psfmember.org/">PSF</a></p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/python">python</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

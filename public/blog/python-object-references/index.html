@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="Python Object Reference ELI5 I first learnt about variables through the analogy of &ldquo;variables are boxes&rdquo; and that we assign things to those boxes Turns out, this isn&rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&rsquo;s that can cause unintended errors along the way. Instead of &ldquo;boxes&rdquo; it is better to think of variables as &ldquo;labels&rdquo; that we attach to objects.">
+
+<meta property="og:title" content="Python Object References" />
+<meta property="og:description" content="Python Object Reference ELI5 I first learnt about variables through the analogy of &ldquo;variables are boxes&rdquo; and that we assign things to those boxes Turns out, this isn&rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&rsquo;s that can cause unintended errors along the way. Instead of &ldquo;boxes&rdquo; it is better to think of variables as &ldquo;labels&rdquo; that we attach to objects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/python-object-references/" />
+
+
+
+<meta property="article:published_time" content="2018-07-09T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-07-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Python Object References 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/python-object-references/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2018-08-10%2022%3a58%3a20.911661564%20%2b0000%20UTC%20m%3d%2b0.094049073">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2018-08-10%2022%3a58%3a20.911661564%20%2b0000%20UTC%20m%3d%2b0.094049073">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2018-08-10%2022%3a58%3a20.911661564%20%2b0000%20UTC%20m%3d%2b0.094049073">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2018-08-10%2022%3a58%3a20.911661564%20%2b0000%20UTC%20m%3d%2b0.094049073">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/you" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:you@example.space"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Python Object References
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jul 9 2018 00:00:00 UTC'>Jul 9, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>6 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="python-object-reference-eli5">Python Object Reference ELI5</h1>
+
+<hr />
+
+<p>I first learnt about variables through the analogy of &ldquo;variables are
+boxes&rdquo; and that we assign things to those boxes Turns out, this isn&rsquo;t
+particularly helpful in objected orientated programming. This post is
+about how python treats object assignment and some of the hidden
+gotcha&rsquo;s that can cause unintended errors along the way. Instead of
+&ldquo;boxes&rdquo; it is better to think of variables as &ldquo;labels&rdquo; that we
+attach to objects. And, as everything in python is an object its
+important to remember that all objects have three things; identity, type
+and values. Values are the only things that change once an object is
+created, and it values that we often care about, and hence label.</p>
+
+<h3 id="labels-not-boxes">Labels not boxes</h3>
+
+<p>Extending the &ldquo;labels&rdquo; metaphor a little we look at the assignment of
+variables.</p>
+
+<pre><code class="language-python">a = 2 # we label the integer 2 as 'a'
+b = a # 'a' is now labelled as 'b'
+c = b # and 'b' is now labelled as 'c'
+</code></pre>
+
+<p>Above we can see that the object <code>2</code>} is assigned to the
+variable &lsquo;a&rsquo;. Each subsequent assignment thereafter is simply a
+reference to the same object. When viewed through this lense you can
+start to see how objects have labels. It is not feasible that the
+<code>2</code> can exist in three different boxes rather we visualise
+<code>2</code> having three sticky notes attached to it. If we changed
+<code>a</code> like this <code>a = 20</code> then it is just a
+matter of peeling off the sticky note with <code>a</code> written on
+it from <code>2</code> and attaching it to <code>20</code>. To
+further aid in this thinking, always read assignments from right to
+left. The right side is where the object is created or retrieved and the
+left is what we bind to it (the label.. Enough you get it already!)</p>
+
+<p>When an object like <code>2</code> has many labels we called this
+<em>aliasing</em>. Aliasing is an important concept to grasp, and to illustrate
+why we will examine the identity of <code>a</code>, <code>b</code>,
+and <code>c</code>.</p>
+
+<pre><code class="language-python">print(f'a id: {id(a)}') # original object')  # a id: 139886603774600
+print(f'b id: {id(b)}') # alias of a')       # b id: 139886603774600
+print(f'c id: {id(c)}') # copy of a')        # c id: 139886603774600
+</code></pre>
+
+<p>All aliases of <code>a</code> have the same identity which in python
+is unique integer representing its C memory address. If any change were
+to be made the identity integer would also change to reflect that.</p>
+
+<h3 id="when-is-true">When is == true?</h3>
+
+<p>Let&rsquo;s check out Equality and Identity (and aliases, too)</p>
+
+<p>An object&rsquo;s identity never changes once it has been created. However
+its values might, and generally this is what we care about more. Python
+gives us the option to check either like so:</p>
+
+<pre><code class="language-python">a == b # compares the values
+a is b # compares the identities
+</code></pre>
+
+<p>Lets extend this using a more complex example using some dictionaries.</p>
+
+<pre><code class="language-python">batman = {'name': 'Bruce Wayne', 'job': 'crime fighter'}
+bruce = batman
+print(batman == bruce)  # True
+print(batman is bruce)  # True
+</code></pre>
+
+<p>Both <code>batman</code> and <code>bruce</code> are equal in
+identity, and their values. Suppose we have a vigilante crime fighter
+out there pretending to be <code>batman</code>, named
+<code>manbat</code>, does he have the same equality?</p>
+
+<pre><code class="language-python">manbat = {'name': 'Bruce Wayne', 'job': 'crime fighter'}
+print(batman == manbat) # True
+print(batman is manbat) # False
+</code></pre>
+
+<p>In this case, both <code>manbat</code> and <code>batman</code> share
+equal values but not the same identity. <code>manbat</code> is not an
+alias of <code>bruce</code> or <code>batman</code>, and thus has his
+own unique identity. This is because we created an entirely new identity
+albeit with the same values as batman.</p>
+
+<p>Much of the time we care mostly about the values an object holds not its
+identity but you will see <code>is</code> in a lot during conditionals
+such as:</p>
+
+<pre><code class="language-python">if x is None:
+  do something
+if x is not None:
+  do something else
+</code></pre>
+
+<h3 id="alias-issues">Alias Issues</h3>
+
+<p>Something I didn&rsquo;t realise until it came back to haunt me much later is
+that aliases can have unintended side effects with mutable types. Let&rsquo;s
+say we have two lists, the original and its alias. The alias will have
+items added to it but we want the original untouched for whatever
+reason.</p>
+
+<pre><code class="language-python">orig = [10, 20, 30, [100, 200]]
+new = orig
+</code></pre>
+
+<p>Looks good, we can now make changes to <code>new</code>.</p>
+
+<pre><code class="language-python">new.append('FizzBuzz')
+print(orig) # [10, 20, 30, [100, 200], 'FizzBuzz']
+print(new)  # [10, 20, 30, [100, 200], 'FizzBuzz']
+</code></pre>
+
+<p>After appending to <code>new</code> it becomes apparent that this
+change has affected both lists. This happens because the alias works two
+way with mutable types. I think this is really important to know -
+aliases are not copies!</p>
+
+<h3 id="copies">Copies</h3>
+
+<p>If aliases aren\&rsquo;t copies then how do we copy?</p>
+
+<pre><code class="language-python">orig = [10, 20, 30, [100, 200]]
+new = list(orig)
+# dict(x) also works this way
+print('orig id:', id(orig)) # orig id: 140443406513496
+print('new id:', id(new))   # new id:  140443402343535
+</code></pre>
+
+<p>By using the <code>list()</code> class we successfully create two new
+objects. Now if we append or remove items from either list it does not
+propagate through. Except, it does sometimes.</p>
+
+<p>In this case we are only making a new copy of the overall object but not
+any <strong>mutable</strong> nested types within the copy. So while any changes made
+within the first layer of the object are contained within the copy, any
+mutable objects nested more deeply will be aliases.</p>
+
+<p>Confused, an example.</p>
+
+<pre><code class="language-python">orig = [10, 20, 30, [100, 200]]
+new = list(orig)
+new.append('not nested')
+print(orig) # [10, 20, 30, [100, 200]]
+print(new)  # [10, 20, 30, [100, 200], 'not nested']
+# first layer is not affected as it is a copy, not an alias
+orig[-1].append('i am aliased to orig')
+print(orig) # [10, 20, 30, [100, 200, 'i am aliased to a']]
+print(new)  # [10, 20, 30, [100, 200, 'i am aliased to a'], 'not nested']
+</code></pre>
+
+<p>While the <code>orig</code> and <code>new</code> are independent of
+each other when making changes to the first layer of abstraction, any
+mutable types within that are simply aliases of the copies source.</p>
+
+<p>Another example to check this out.</p>
+
+<pre><code class="language-python"># before we started making alterations to the lists
+print(id(orig))     # 140443390926984
+print(id(new))      # 140443392352593
+print(id(orig[-1])) # 140443395483400
+print(id(new[-1]))  # 140443395483400
+</code></pre>
+
+<p>Inspecting the identities reveals that only the overall object\&rsquo;s were
+initialised as new objects but the nested types within were bound to the
+original nested type - an alias!</p>
+
+<p>This is something to take into consideration when passing variables
+around that have nested types. To circumvent this immutable types such
+as tuples can be used in place.</p>
+
+<p>Python can do deep copies which will take care of this issue, but it has
+its own drawbacks. Of which we not be discussed here as this post is
+already quite long. See <a href="https://realpython.com/copying-python-objects/">Dan
+Bader\&rsquo;s</a> excellent post
+for more information.</p>
+
+<h3 id="wrapping-up">Wrapping Up</h3>
+
+<p>In python all objects have a type, identity and values. Only the values
+can change after it is created and knowing a little bit more about how
+this works can help us prevent unintended bugs.</p>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+<li>assignment does not create copies</li>
+<li>nested mutable types within shallow copies are aliases</li>
+<li>equality has two different checks; identity, and values</li>
+</ul>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/eli5">ELI5</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

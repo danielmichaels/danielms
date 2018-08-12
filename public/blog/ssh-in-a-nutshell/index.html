@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="SSH Definition Straight from the man pages:
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
+Setup (Old School Method) On a new machine we need to setup up ssh.">
+
+<meta property="og:title" content="SSH in a nutshell" />
+<meta property="og:description" content="SSH Definition Straight from the man pages:
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
+Setup (Old School Method) On a new machine we need to setup up ssh." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/ssh-in-a-nutshell/" />
+
+
+
+<meta property="article:published_time" content="2018-01-28T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-01-28T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     SSH in a nutshell 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/ssh-in-a-nutshell/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2018-08-10%2022%3a58%3a20.910910814%20%2b0000%20UTC%20m%3d%2b0.093298286">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2018-08-10%2022%3a58%3a20.910910814%20%2b0000%20UTC%20m%3d%2b0.093298286">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2018-08-10%2022%3a58%3a20.910910814%20%2b0000%20UTC%20m%3d%2b0.093298286">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2018-08-10%2022%3a58%3a20.910910814%20%2b0000%20UTC%20m%3d%2b0.093298286">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/you" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:you@example.space"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    SSH in a nutshell
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Jan 28 2018 00:00:00 UTC'>Jan 28, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="ssh">SSH</h2>
+
+<h3 id="definition">Definition</h3>
+
+<p>Straight from the man pages:</p>
+
+<p><em>SSH (SSH client) is a program for logging into a remote machine and
+for executing commands on a remote machine. It is intended to provide
+secure encrypted communications between two untrusted hosts over an
+insecure network. X11 connections, arbitrary TCP ports and UNIX-domain
+sockets can also be forwarded over the secure channel.</em></p>
+
+<h4 id="setup-old-school-method">Setup (Old School Method)</h4>
+
+<p>On a new machine we need to setup up ssh. This includes installation if
+its not installed by default (i.e. Arch Linux). It also includes the
+creation of our private and public keys (maybe write a post about the
+basics of pgp).</p>
+
+<p>To create a new key we use <code>ssh-keygen</code>. Taken straight
+from the man pages:</p>
+
+<ul>
+<li><strong>ssh-keygen</strong> generates, manages and converts authentication keys
+for ssh. It can create keys for use by SSH protocols versions one
+and two. Protocol one is depreciated and should not be used.</li>
+</ul>
+
+<p>When creating a key we need to specify the type. To do this we use the
+<code>-t</code> flag followed by one of the following specifications:</p>
+
+<ul>
+<li>RSA, DSA, ECDSA, ED25519</li>
+</ul>
+
+<p>If no flag is present it will default to RSA which is what we want.</p>
+
+<p>Also important is the number of bits in the key to generate. By default
+it will generate a key length of 2048 bits. In this article we will not
+discuss non-RSA configurations which require different lengths (refer to
+the man pages for more info). Generally it is recommended to use 4096
+bits of entropy, to do that we use the <code>-b</code> followed by the
+number, in this case 4096.</p>
+
+<p>Running <code>ssh-keygen -t rsa -b 4096</code> will create the ssh
+key.</p>
+
+<p><img src="https://danielms.site/img/sshcmdline.png" alt="" /></p>
+
+<p>It will ask for a password, this is up to the user but it does not limit
+your ability to login without entering password as we discuss below. It
+does however, offer protection should your device be stolen or
+compromised. The password can be bruteforced but it will give you time
+to manually for to your administered servers and delete the public key
+that matches the now stolen private key.</p>
+
+<h4 id="key-based-authentication">Key Based Authentication</h4>
+
+<p>Key based authentication allows seamless interaction between disparate
+hosts over the network. Generally, to ssh into a remote server the
+client will need to enter the servers password. Using ssh keys (unless
+they too are configured with a password) negates this.</p>
+
+<p>Below we see how to transfer the clients public key to the remote
+server.</p>
+
+<pre><code class="language-bash">scp ~/.ssh/id_rsa.pub user@remote.server.org:/home/user/.ssh/clients_public_key.pub
+</code></pre>
+
+<p><code>scp</code> is the Secure Copy program. It uses ssh for the data
+transfer and provides the same security. The basic syntax is to call
+<code>scp</code> then append the file to be copied, followed by the
+destination to send it to. The destination is punctuated by a colon
+<code>:</code> coupled with the location on the remote server in which
+the file should be saved to (as seen above).</p>
+
+<p>Next we need to authorize the key we have sent to the remote server. If
+we do not authorize it, it will not allow us to login using the key,
+i.e. we will be prompted for a password each time. To do that we can
+input the following:</p>
+
+<p><code>cat ~/.ssh/name_of_new_key.pub &gt;&gt; ~/.ssh/authorized_keys</code></p>
+
+<p>Firstly, in linux we do not need to append a file name at the end so
+this works as expected. And secondly, the <code>&gt;&gt;</code> will create
+the file for us if it does not already exist.</p>
+
+<p>Finally, it is important to set permissions on the new directory and its
+keys. Permissions is another topic, but we want the following:</p>
+
+<pre><code>chmod 700 /home/user
+chmod 700 /home/user/.ssh
+chmod 600 /home/user/.ssh/authorized_keys
+</code></pre>
+
+<p>We want our <code>/home</code> and <code>/home/.ssh</code> to have
+read, write and execute only by the user and
+<code>../authorized_keys</code> only read and writable by the user.
+This is on the remote server. We can also now delete the public key from
+within <code>~/.ssh/</code> as it is saved to the authorized keys
+although this is optional.</p>
+
+<h4 id="setup-v2-new-school">Setup V2 (New School)</h4>
+
+<p>After explaining the old way or more traditional (sometimes better) way
+we turn to <code>ssh-copy-id</code>.</p>
+
+<p>To do all of that in one command we can just enter:</p>
+
+<pre><code class="language-bash">ssh-copy-id user@remote_server
+</code></pre>
+
+<p>And, it will do everything in about 2 seconds (after you authenticate
+with the remotes password). To test it without committing anything use
+the <code>-n</code> flag (dry run). It is important to know what is
+happening in the background though, so do the old school method to get a
+better feel for linux &ndash; if you are old hat, just use this.</p>
+
+<h4 id="further-security-measures">Further Security Measures</h4>
+
+<p><strong>Disable Password Authentication</strong></p>
+
+<p>After we have setup key based authentication on the remote server we may
+want to close off all non-key authenticated access via ssh. This means
+that only those with authorized keys will be able to access the server.
+In a home network this may be overkill (dependent on the situation or
+security posture/threat model you need, or face) but if you are using
+ssh to administer a VPS this should be the minimum standard.</p>
+
+<p>To do this we need to edit our <code>/etc/ssh/sshd_config</code>
+<strong>back it up first!</strong>.</p>
+
+<p>To do this we just change <code>PasswordAuthentication</code> to
+<code>no</code> inside the file. After the change we need to restart
+the ssh daemon to make the change immediate.</p>
+
+<p><strong>Change SSH Default Port</strong></p>
+
+<p>Many of the automated botnets automatically search the web looking for
+open ports, and exploiting them by entering common default credentials.
+Whilst changing the ssh port from 22 to something else is security by
+obscurity it does enough to make elevate you above the &lsquo;low hanging
+fruit&rsquo; category.</p>
+
+<p>To alter the default port the <code>sshd_config</code> needs to be
+edited.</p>
+
+<pre><code>#Port 22 &lt;---- Uncomment this and change port
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+</code></pre>
+
+<p>You need to be root to do this. And the ssh daemon must be restarted.
+<code>systemctl restart sshd.service</code> on systemd.</p>
+
+<p><strong>Auto Deny/Fail2Ban</strong></p>
+
+<p>To access a host via ssh it needs to be open over the network. This is
+adds risk and creates an attack vector. <em>fail2ban</em> is a service that
+attempts to mitigate this by altering your firewalls configuration after
+a set number of unsuccessful login attempts.</p>
+
+<p><strong>Port Knocking</strong></p>
+
+<p>A method to surreptitiously open the port to ssh. By making connection
+attempts (&ldquo;knocking&rdquo;) on ports in a predefined manner the firewall
+allows access to ssh. Again, this is security through obscurity but
+coupled with several strategies does help to harden the system. Nmap can
+ascertain if a host has port knocking enabled.</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/ssh">ssh</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

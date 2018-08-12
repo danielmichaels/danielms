@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eli5 on Daniel Michaels</title>
+    <link>https://danielms.site/tags/eli5/</link>
+    <description>Recent content in Eli5 on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/tags/eli5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Object References</title>
+      <link>https://danielms.site/blog/python-object-references/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/python-object-references/</guid>
+      <description>Python Object Reference ELI5 I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+    </item>
+    
+    <item>
+      <title>Base64 ELI5</title>
+      <link>https://danielms.site/blog/base64-eli5/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/base64-eli5/</guid>
+      <description>Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn\&amp;rsquo;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
+TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.</description>
+    </item>
+    
+  </channel>
+</rss>

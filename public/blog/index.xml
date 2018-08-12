@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Daniel Michaels</title>
+    <link>https://danielms.site/blog/</link>
+    <description>Recent content in Blog on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Environment Variables &amp; PATH</title>
+      <link>https://danielms.site/blog/linux-environment-variables--path/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/linux-environment-variables--path/</guid>
+      <description> test </description>
+    </item>
+    
+    <item>
+      <title>Python Object References</title>
+      <link>https://danielms.site/blog/python-object-references/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/python-object-references/</guid>
+      <description>Python Object Reference ELI5 I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+    </item>
+    
+    <item>
+      <title>Public Key Crypto: The Basics</title>
+      <link>https://danielms.site/blog/public-key-crypto-the-basics/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/public-key-crypto-the-basics/</guid>
+      <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.
+Public Key Cryptography What problem does it solve?
+If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages?</description>
+    </item>
+    
+    <item>
+      <title>Base64 ELI5</title>
+      <link>https://danielms.site/blog/base64-eli5/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/base64-eli5/</guid>
+      <description>Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn\&amp;rsquo;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
+TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.</description>
+    </item>
+    
+    <item>
+      <title>Flask, forms and http requests</title>
+      <link>https://danielms.site/blog/flask-forms-and-http-requests/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/flask-forms-and-http-requests/</guid>
+      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.</description>
+    </item>
+    
+    <item>
+      <title>Uploading to PyPI</title>
+      <link>https://danielms.site/blog/uploading-to-pypi/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/uploading-to-pypi/</guid>
+      <description>Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &amp;ldquo;warehouse&amp;rdquo; as PyPI is going through an upgrade of its infrastructure and for the better.</description>
+    </item>
+    
+    <item>
+      <title>Mentoring at CoderDojo</title>
+      <link>https://danielms.site/blog/mentoring-at-coderdojo/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/mentoring-at-coderdojo/</guid>
+      <description>CoderDojo Today I volunteered my time at a local CoderDojo as a Mentor. The basic premise of a CoderDojo is it&amp;rsquo;s a place where children between 7 and 17 can learn programming, robotics or basically any technology that might inspire them. The kids are called &amp;lsquo;ninjas&amp;rsquo; whilst the program co-ordinators are known as champions, and people who help out in their area of expertise are the mentors.
+What did we do?</description>
+    </item>
+    
+    <item>
+      <title>TIL How Network Time Protocol Works</title>
+      <link>https://danielms.site/blog/til-how-network-time-protocol-works/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/til-how-network-time-protocol-works/</guid>
+      <description>Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
+What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by David L. Mills in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
+    </item>
+    
+    <item>
+      <title>Scapy Snippets</title>
+      <link>https://danielms.site/blog/scapy-snippets/</link>
+      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/scapy-snippets/</guid>
+      <description>How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal  caveat: currently only tested on Ralink: RT5370 chipset</description>
+    </item>
+    
+    <item>
+      <title>Linux file permissions</title>
+      <link>https://danielms.site/blog/linux-file-permissions/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/linux-file-permissions/</guid>
+      <description>Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt  In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.</description>
+    </item>
+    
+    <item>
+      <title>SSH in a nutshell</title>
+      <link>https://danielms.site/blog/ssh-in-a-nutshell/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/ssh-in-a-nutshell/</guid>
+      <description>SSH Definition Straight from the man pages:
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
+Setup (Old School Method) On a new machine we need to setup up ssh.</description>
+    </item>
+    
+    <item>
+      <title>Rsync cheatsheet</title>
+      <link>https://danielms.site/blog/rsync-cheatsheet/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/rsync-cheatsheet/</guid>
+      <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
+Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
+Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
+    </item>
+    
+  </channel>
+</rss>

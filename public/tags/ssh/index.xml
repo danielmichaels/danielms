@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on Daniel Michaels</title>
+    <link>https://danielms.site/tags/ssh/</link>
+    <description>Recent content in Ssh on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 28 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SSH in a nutshell</title>
+      <link>https://danielms.site/blog/ssh-in-a-nutshell/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/ssh-in-a-nutshell/</guid>
+      <description>SSH Definition Straight from the man pages:
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
+Setup (Old School Method) On a new machine we need to setup up ssh.</description>
+    </item>
+    
+  </channel>
+</rss>

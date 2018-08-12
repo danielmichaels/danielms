@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Daniel Michaels</title>
+    <link>https://danielms.site/tags/</link>
+    <description>Recent content in Tags on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eli5</title>
+      <link>https://danielms.site/tags/eli5/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/eli5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>https://danielms.site/tags/flask/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://danielms.site/tags/linux/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://danielms.site/tags/python/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rsync</title>
+      <link>https://danielms.site/tags/rsync/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/rsync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scapy</title>
+      <link>https://danielms.site/tags/scapy/</link>
+      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/scapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>https://danielms.site/tags/ssh/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Til</title>
+      <link>https://danielms.site/tags/til/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/til/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

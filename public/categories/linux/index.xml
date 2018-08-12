@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Daniel Michaels</title>
+    <link>https://danielms.site/categories/linux/</link>
+    <description>Recent content in Linux on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 22 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Base64 ELI5</title>
+      <link>https://danielms.site/blog/base64-eli5/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/base64-eli5/</guid>
+      <description>Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn\&amp;rsquo;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
+TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.</description>
+    </item>
+    
+  </channel>
+</rss>
