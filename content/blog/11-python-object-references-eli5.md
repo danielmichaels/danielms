@@ -137,7 +137,7 @@ aliases are not copies!
 
 ### Copies
 
-If aliases aren\'t copies then how do we copy?
+If aliases aren't copies then how do we copy?
 
 ```python 
 orig = [10, 20, 30, [100, 200]]
