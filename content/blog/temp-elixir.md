@@ -7,9 +7,9 @@ date = "25 aug 2018"
 Elixir
 ======
 
-    *Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM). Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design. The latter is supported by compile-time metaprogramming with macros and polymorphism via protocols*
+>    *Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM). Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design. The latter is supported by compile-time metaprogramming with macros and polymorphism via protocols*
 
--   ** *José Valim* - creator of Elixir**
+> *José Valim* - creator of Elixir
 
 It's pretty neat
 ----------------
@@ -30,8 +30,4 @@ We can do this through parallelism and concurrency, and elixir is a
 language built for this.
 
 Now I haven't played around with it enough yet to say much about its
-ease of use but I do think it has potential. So instead I will add a bro
-science case study on its performance below.
-
-Elixir and Bleach Report
-------------------------
+ease of use but I do think it has potential.
