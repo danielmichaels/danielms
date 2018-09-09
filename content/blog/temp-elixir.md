@@ -1,5 +1,5 @@
 +++
-status = "draft"
+draft = true
 title = "Elixir could be awesome"
 date = "25 aug 2018"
 +++
@@ -18,7 +18,7 @@ Elixir is pretty cool but python it is not. And that is a good thing.
 Sometimes it is worth exploring new things and learning something
 different. I have been learning more about design patterns and
 programming paradigms lately in an effort to round myself out. Something
-that comes up a lot if functional programming, or how understanding it
+that comes up a lot is functional programming, or how understanding it
 can aid the developer in new ways of thinking about problems.
 
 Dave Thomas gives a great intro to elixir's potential, and does it more
