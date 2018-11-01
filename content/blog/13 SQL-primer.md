@@ -158,7 +158,7 @@ INNER JOIN artists ON artists.artistid = albums.artistid;
 Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
 
 
-![input](http://www.sqlitetutorial.net/wp-content/uploads/2015/12/SQLite-Inner-Join-3-tables.jpg "result set of inner join on three tables.")
+![input](/images/SQLite-Inner-Join-3-tables.jpg "result set of inner join on three tables.")
 
 Fig. 1.2 is the result set of the above query.
 
