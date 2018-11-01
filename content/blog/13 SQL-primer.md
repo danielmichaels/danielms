@@ -25,7 +25,7 @@ SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This me
 **Durability**
 	- If a transaction is successfully committed, the changes are permanent going forward, if it is interrupted during the commit it will revert to its previous state.
 
-![Julia Evans ACID drawing](https://drawings.jvns.ca/drawings/acid.svg "ACID in cartoon format")
+![Julia Evans ACID drawing](/images/acid.svg "ACID in cartoon format")
 
 **Please check out Julia Evans work at https://jvns.ca**
 
@@ -139,7 +139,7 @@ In relation databases, data is often distributed amongst many related tables. Fo
 
 In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, ```INNER JOIN``` clauses return rows from table A that have corresponding rows in the B table.
 
-![example inner join](http://www.sqlitetutorial.net/wp-content/uploads/2015/12/SQLite-Inner-Join-Example.png "Example Inner Join")
+![example inner join](/images/SQLite-Inner-Join-Example.png "Example Inner Join")
 Fig 1.1 Inner Join
 
 ```INNER JOIN``` may connect more than two tables. This will require two inner join clauses form the ```SELECT``` statement. 
