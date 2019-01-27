@@ -140,7 +140,7 @@ In relation databases, data is often distributed amongst many related tables. Fo
 
 In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
 
-![input](/images/SQLite-Inner-Join-Example.png "example of inner join")
+![Inner Join](/images/SQLite-Inner-Join-Example.png "example of inner join")
 
 Fig 1.1 Inner Join
 
@@ -160,7 +160,7 @@ INNER JOIN artists ON artists.artistid = albums.artistid;
 
 Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
 
-![input](/images/SQLite-Inner-Join-3-tables.jpg "result set of inner join on three tables.")
+![Inner Join Example](/images/SQLite-Inner-Join-3-tables.jpg "result set of inner join on three tables.")
 
 Fig. 1.2 is the result set of the above query.
 
