@@ -140,7 +140,7 @@ In relation databases, data is often distributed amongst many related tables. Fo
 
 In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
 
-![Inner Join](/images/SQLite-Inner-Join-Example.png "example of inner join")
+![input](/images/SQLite-Inner-Join-Example.png "example of inner join")
 
 Fig 1.1 Inner Join
 
@@ -215,7 +215,7 @@ A **foreign key** is one or more columns in a table that refers to the primary k
 
 They unlike primary keys **can contain NULL, blank or duplicate values**. As they allow duplication it is best not to use a foreign key as a primary key, unless it is a one-to-one relationship.
 
-![example foreign key](/images/foreign_key.png "example foreign key") 
+![input](/images/foreign_key.png "example foreign key") 
 
 In the above picture we have a Students and Cities table. PERSON_ID and CITY_ID are unique, and therefore make good Primary keys (which they are). Inside the Students table it is possible for several students to be born in the same city. As such the BIRTH_PLACE column is the foreign key to the Cities table. This ensures that there is relationship between the tables and that relation points to something unique in the other table.
 
