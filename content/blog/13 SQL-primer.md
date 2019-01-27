@@ -60,7 +60,7 @@ A breakdown of each clause:
 
 - ```HAVING``` is another filter that checks for presence of the operator.
 
-```SELECT * FROM database_table``` is acceptable usage in testing or development but in production the query should be explicit.
+`SELECT * FROM database_table` is acceptable usage in testing or development but in production the query should be explicit.
 
 ### Insert
 
