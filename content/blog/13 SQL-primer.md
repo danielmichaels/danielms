@@ -135,14 +135,14 @@ WHERE
 
 In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.
 
-```INNER JOIN``` clause will combine columns from correlated tables.
+`INNER JOIN` clause will combine columns from correlated tables.
 
-In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, ```INNER JOIN``` clauses return rows from table A that have corresponding rows in the B table.
+In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
 
 ![example inner join](/images/SQLite-Inner-Join-Example.png "Example Inner Join")
 Fig 1.1 Inner Join
 
-```INNER JOIN``` may connect more than two tables. This will require two inner join clauses form the ```SELECT``` statement. 
+`INNER JOIN` may connect more than two tables. This will require two inner join clauses form the `SELECT` statement. 
 
 ```SQL
 SELECT
@@ -155,23 +155,24 @@ FROM
 INNER JOIN albums ON albums.albumid = tracks.albumid
 INNER JOIN artists ON artists.artistid = albums.artistid;
 ```
-Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
 
+Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
 
 ![input](/images/SQLite-Inner-Join-3-tables.jpg "result set of inner join on three tables.")
 
 Fig. 1.2 is the result set of the above query.
 
 ### Full Outer Join
+
 **this command is not in SQLite3**
 
-Theoretically, the result of a Right Join and Left Join with ```NULL``` values for every column of the table that does not have a matching row.
+Theoretically, the result of a Right Join and Left Join with `NULL` values for every column of the table that does not have a matching row.
 
 This is technically not available in SQLite3, however they do offer a workaround. 
 
-Given that SQLite3 does not have ```RIGHT JOIN``` or ```FULL OUTER JOIN``` it uses both ```UNION``` and ```LEFT JOIN``` to emulate it.
+Given that SQLite3 does not have `RIGHT JOIN` or `FULL OUTER JOIN` it uses both `UNION` and `LEFT JOIN` to emulate it.
 
-It achieves this by switching the position of the ```LEFT JOIN``` clause over both columns. SQLite also uses ```UNION ALL``` to duplicate rows from the result set of both queries. Finally, the use of a ```WHERE``` clause will remove rows already included in the result set of the first ```SELECT``` statement. See the below code for an example.
+It achieves this by switching the position of the `LEFT JOIN` clause over both columns. SQLite also uses `UNION ALL` to duplicate rows from the result set of both queries. Finally, the use of a `WHERE` clause will remove rows already included in the result set of the first `SELECT` statement. See the below code for an example.
 
 ```SQL
 SELECT d.type,
@@ -219,7 +220,7 @@ In the above picture we have a Students and Cities table. PERSON_ID and CITY_ID 
 
 *BLUF: combines result set of two or more queries into a single result set.*
 
-```UNION``` by default removes duplicate rows whereas ```UNION ALL``` does not. As ```UNION ALL``` does not remove duplicates it will process faster. Both statements have the following rules:
+`UNION` by default removes duplicate rows whereas `UNION ALL` does not. As `UNION ALL` does not remove duplicates it will process faster. Both statements have the following rules:
 
 - Must have the same number of columns,
 - Corresponding columns must be same data type,
