@@ -140,7 +140,6 @@ In relation databases, data is often distributed amongst many related tables. Fo
 
 In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
 
-![example inner join](/images/SQLite-Inner-Join-Example.png "Example Inner Join")
 Fig 1.1 Inner Join
 
 `INNER JOIN` may connect more than two tables. This will require two inner join clauses form the `SELECT` statement. 
