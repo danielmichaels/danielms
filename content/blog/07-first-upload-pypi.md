@@ -6,6 +6,10 @@ tags = ["python"]
 categories = ["TIL", "python"]
 +++
 
+**UPDATE 27/01/2019: This area of python and the PyPI is under going rapid
+development and as such the following may have parts which are no longer in date.
+In time I will update this post to reflect these changes.**
+
 Python Package Index
 --------------------
 
