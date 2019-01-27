@@ -7,6 +7,7 @@ title = "Sqlite3: A Primer"
 +++
 
 # SQL Reference
+
 ## SQLite3 Specific
 
 ### Transactions
@@ -175,6 +176,7 @@ Given that SQLite3 does not have `RIGHT JOIN` or `FULL OUTER JOIN` it uses both 
 It achieves this by switching the position of the `LEFT JOIN` clause over both columns. SQLite also uses `UNION ALL` to duplicate rows from the result set of both queries. Finally, the use of a `WHERE` clause will remove rows already included in the result set of the first `SELECT` statement. See the below code for an example.
 
 ```SQL
+
 SELECT d.type,
          d.color,
          c.type,
