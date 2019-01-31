@@ -6,10 +6,30 @@
     <description>Recent content in Python on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 09 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>On teaching</title>
+      <link>https://danielms.site/blog/on-teaching/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/on-teaching/</guid>
+      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&amp;rsquo;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
+    </item>
+    
+    <item>
+      <title>Python&#39;s bytes and strings</title>
+      <link>https://danielms.site/blog/python-bytes-and-strings/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/python-bytes-and-strings/</guid>
+      <description>Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
+Character Sequences In python there are two types that represent sequences of characters:
+Python 3</description>
+    </item>
     
     <item>
       <title>Python Object References</title>
@@ -36,7 +56,8 @@ The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue start
       <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/uploading-to-pypi/</guid>
-      <description>Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &amp;ldquo;warehouse&amp;rdquo; as PyPI is going through an upgrade of its infrastructure and for the better.</description>
+      <description>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid development and as such the following may have parts which are no longer in date. In time I will update this post to reflect these changes.
+Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI.</description>
     </item>
     
     <item>

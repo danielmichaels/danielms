@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Daniel Michaels</title>
+    <link>https://danielms.site/categories/sql/</link>
+    <description>Recent content in Sql on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://danielms.site/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sqlite3: A Primer</title>
+      <link>https://danielms.site/blog/sqlite3-primer/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/sqlite3-primer/</guid>
+      <description>SQL Reference SQLite3 Specific Transactions SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.
+Atomic - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.
+Consistent - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.</description>
+    </item>
+    
+  </channel>
+</rss>

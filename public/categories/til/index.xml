@@ -17,7 +17,8 @@
       <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/uploading-to-pypi/</guid>
-      <description>Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI. Going forward it may be referred to as the &amp;ldquo;warehouse&amp;rdquo; as PyPI is going through an upgrade of its infrastructure and for the better.</description>
+      <description>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid development and as such the following may have parts which are no longer in date. In time I will update this post to reflect these changes.
+Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI.</description>
     </item>
     
     <item>

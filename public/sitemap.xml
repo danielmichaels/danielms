@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://danielms.site/blog/on-teaching/</loc>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/python-bytes-and-strings/</loc>
+    <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/sqlite3-primer/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://danielms.site/about/</loc>
     <lastmod>2018-08-12T14:36:01+00:00</lastmod>
   </url>
@@ -75,7 +90,7 @@
   
   <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2018-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -87,19 +102,19 @@
   
   <url>
     <loc>https://danielms.site/</loc>
-    <lastmod>2018-08-12T14:36:01+00:00</lastmod>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/eli5/</loc>
-    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/eli5/</loc>
-    <lastmod>2018-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -123,19 +138,19 @@
   
   <url>
     <loc>https://danielms.site/categories/programming/</loc>
-    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/python/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/python/</loc>
-    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -152,6 +167,18 @@
   </url>
   
   <url>
+    <loc>https://danielms.site/tags/sql/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/sql/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://danielms.site/tags/ssh/</loc>
     <lastmod>2018-01-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -159,7 +186,7 @@
   
   <url>
     <loc>https://danielms.site/tags/</loc>
-    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

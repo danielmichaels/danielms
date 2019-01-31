@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
+Character Sequences In python there are two types that represent sequences of characters:
+Python 3">
+
+<meta property="og:title" content="Python&#39;s bytes and strings" />
+<meta property="og:description" content="Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
+Character Sequences In python there are two types that represent sequences of characters:
+Python 3" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/python-bytes-and-strings/" /><meta property="article:published_time" content="2018-10-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-23T00:00:00&#43;00:00"/>
+
+
+<title>
+
+
+     Python&#39;s bytes and strings 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/python-bytes-and-strings/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-01-31%2021%3a08%3a49.430947192%20%2b1100%20AEDT%20m%3d%2b0.222036329">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-01-31%2021%3a08%3a49.430947192%20%2b1100%20AEDT%20m%3d%2b0.222036329">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-01-31%2021%3a08%3a49.430947192%20%2b1100%20AEDT%20m%3d%2b0.222036329">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2019-01-31%2021%3a08%3a49.430947192%20%2b1100%20AEDT%20m%3d%2b0.222036329">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+              <h3 class="self-intro">I forget things so I write them down.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/not-exists" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:danielms@danielms.site"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Python&#39;s bytes and strings
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Oct 23 2018 00:00:00 UTC'>Oct 23, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p><img src="https://danielms.site/images/unicode_logic.png" alt="test" /></p>
+
+<h1 id="python-strings-and-bytes">Python: strings and bytes</h1>
+
+<p>Python 3 is the new python, and python 2 should be regarded as legacy. But,
+it is still being used heavily and will likely live beyond its end of life. Recently,
+a project forced me to use python 2.7 within a Centos environment and I hit some
+small encoding issues.</p>
+
+<h2 id="character-sequences">Character Sequences</h2>
+
+<p>In python there are two types that represent sequences of characters:</p>
+
+<p><strong>Python 3</strong></p>
+
+<ul>
+<li>Bytes: raw 8 bit values</li>
+<li>Strings: unicode characters</li>
+</ul>
+
+<p><strong>Python 2</strong></p>
+
+<ul>
+<li>Strings: raw 8 bit values</li>
+<li>Unicode: unicode characters</li>
+</ul>
+
+<p>Python 3&rsquo;s strings and python 2&rsquo;s unicode instances do not have binary encoding.
+Therefore, the user must implement the conversion manually by <code>encoding</code> and
+<code>decoding</code> the between binary and unicode.</p>
+
+<p>It is important that when constructing our program to deal with conversion between
+these data types that it is done at the furthest boundaries of our interfaces.
+This is sometimes referred to as the &lsquo;unicode sandwich&rsquo;.</p>
+
+<p><img src="https://danielms.site/images/unicode_sandwhich.jpg" alt="unicode sandwich" /></p>
+
+<p>This guarantee&rsquo;s a level of compliance when accepting alternate encodings and
+a much stricter output encoding scheme - generally <code>utf-8</code>. We should not be doing
+any encoding or decoding in the middle of our applications.</p>
+
+<p>This is of particular importance when dealing with file operations that are not
+text. In python 3, file operations do much of the encoding and decoding for you,
+returning <code>str</code> instances on read and write. But, python 3 will use the system
+default encoding where an encoding scheme is not specified. Much of the time
+we will receive <code>utf-8</code> but on some machines this is not guaranteed.</p>
+
+<p>If your application is expected to work across multiple operating systems and/or
+versions, you should set the <code>encoding=&lt;your-encoding type&gt;</code> keyword argument
+manually to prevent hidden bugs in the future.</p>
+
+<p>Subtle differences exist between python 2 and 3.</p>
+
+<pre><code class="language-python">with open('encoding.txt', 'w') as f:
+    f.write(os.urandom(10))
+</code></pre>
+
+<p>In python 2 this will work as by default <code>open</code> use binary encoding. However, python 3
+uses <code>utf-8</code> instead. If we tried to run this it will raise a <code>TypeError: must be str not bytes</code>.</p>
+
+<p>To make this work in both 2 and 3, we need to specify that it is binary.</p>
+
+<pre><code class="language-python">with open('encoding.txt', 'wb') as f:
+    f.write(os.urandom(10))
+</code></pre>
+
+<p>Writing binary to a file must also be specified with <code>rb</code> instead of <code>r</code>.</p>
+
+<pre><code class="language-python">with open('encoding.txt', 'rb') as f:
+    for line in f:
+      print(line)
+</code></pre>
+
+<h3 id="notable-mentions">Notable mentions</h3>
+
+<p>Other interesting points between python 2&rsquo;s <code>str</code> and <code>unicode</code>, and python 3&rsquo;s
+<code>str</code> and <code>bytes</code> are how they are compared, or typed. In python 2, if a
+<code>str</code> is ASCII (7-bits) it will pass an equality check with <code>unicode</code> characters.
+They can also be combined using the <code>+</code> operator, and can be formatted using
+<code>%s</code> string formatting.</p>
+
+<pre><code class="language-python">a = 'a'
+b = u'a'
+
+a == b # true
+c = a + b # u'aa'
+print 'as str a,b =%s%s' % (a,b) # as str a,b=aa
+</code></pre>
+
+<p>This means that in python 2 we could pass <code>unicode</code> or a <code>str</code> instance and expect
+the same result - if 7-bit ASCII. In python 3 <code>str</code> and <code>bytes</code> never cannot
+pass equality checks, not even empty strings.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Legacy python is still a thing, so having an understanding of how the encoding
+paradigms differ between each version is important. The differences in file operations
+can have significant effects within your applications, and is quite prominent in
+network level communications. Wherever possible work with <code>str</code> types inside
+your main business logic to alleviate any nasty surprises further down the line.</p>
+
+<p>And have a read over some these gems regarding <code>utf-8</code>, which I deliberately
+did not go over in any detail.</p>
+
+<h3 id="references">references</h3>
+
+<p>Ned Batchelder&rsquo;s <a href="https://nedbatchelder.com/text/unipain/unipain.html#1">How Do I Stop The Pain</a></p>
+
+<p>Joel Spolsky&rsquo;s <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/python">python</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

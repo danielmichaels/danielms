@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="SQL Reference SQLite3 Specific Transactions SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.
+Atomic - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.
+Consistent - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.">
+
+<meta property="og:title" content="Sqlite3: A Primer" />
+<meta property="og:description" content="SQL Reference SQLite3 Specific Transactions SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.
+Atomic - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.
+Consistent - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/sqlite3-primer/" /><meta property="article:published_time" content="2018-09-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-09-09T00:00:00&#43;00:00"/>
+
+
+<title>
+
+
+     Sqlite3: A Primer 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/sqlite3-primer/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-01-31%2021%3a08%3a49.439575755%20%2b1100%20AEDT%20m%3d%2b0.230664873">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-01-31%2021%3a08%3a49.439575755%20%2b1100%20AEDT%20m%3d%2b0.230664873">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-01-31%2021%3a08%3a49.439575755%20%2b1100%20AEDT%20m%3d%2b0.230664873">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2019-01-31%2021%3a08%3a49.439575755%20%2b1100%20AEDT%20m%3d%2b0.230664873">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+              <h3 class="self-intro">I forget things so I write them down.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/not-exists" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:danielms@danielms.site"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Sqlite3: A Primer
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Sep 9 2018 00:00:00 UTC'>Sep 9, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>6 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="sql-reference">SQL Reference</h1>
+
+<h2 id="sqlite3-specific">SQLite3 Specific</h2>
+
+<h3 id="transactions">Transactions</h3>
+
+<p>SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.</p>
+
+<p><strong>Atomic</strong>
+    - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.</p>
+
+<p><strong>Consistent</strong>
+    - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.</p>
+
+<p><strong>Isolated</strong>
+    - Transactions are isolated from one client to the next. When changes are made to the database the changes are only visible to that client until it is committed. If two people concurrently make changes to a database, they will be transacted sequentially. It does not ensure the order of transactions.</p>
+
+<p><strong>Durability</strong>
+    - If a transaction is successfully committed, the changes are permanent going forward, if it is interrupted during the commit it will revert to its previous state.</p>
+
+<p><img src="https://danielms.site/images/acid.svg" alt="Julia Evans ACID drawing" title="ACID in cartoon format" /></p>
+
+<p><strong>Please check out Julia Evans work at <a href="https://jvns.ca">https://jvns.ca</a></strong></p>
+
+<p>SQLite3 uses auto-commit mode by default.</p>
+
+<h3 id="select">Select</h3>
+
+<p>Used to query data from one or more tables. Example below:</p>
+
+<pre><code class="language-SQL">SELECT DISTINCT column_list
+FROM table_list
+  JOIN table ON join_condition
+WHERE row_filter
+ORDER BY column
+LIMIT count OFFSET offset
+GROUP BY column
+HAVING group_filter;
+</code></pre>
+
+<p>A breakdown of each clause:</p>
+
+<ul>
+<li><p><code>ORDER BY</code> sorts the result set,</p></li>
+
+<li><p><code>DISTINCT</code> gets unique rows in a table,</p></li>
+
+<li><p><code>WHERE</code> is a filter such as, <code>WHERE employees IS NULL</code>,</p></li>
+
+<li><p><code>LIMIT   OFFSET</code> will return a set number of rows,</p></li>
+
+<li><p><code>GROUP BY</code> sorts columns into groups and applies functions to each group,</p></li>
+
+<li><p><code>HAVING</code> is another filter that checks for presence of the operator.</p></li>
+</ul>
+
+<p><code>SELECT * FROM database_table</code> is acceptable usage in testing or development but in production the query should be explicit.</p>
+
+<h3 id="insert">Insert</h3>
+
+<p>Used to insert new data be it single row, multiple rows, and default data into tables.</p>
+
+<pre><code class="language-SQL">INSERT INTO table1 (
+ column1,
+ column2 ,..)
+VALUES
+ (
+ value1,
+ value2 ,...),
+ (
+ value1,
+ value2 ,...),
+        ...
+ (
+ value1,
+ value2 ,...);
+</code></pre>
+
+<p>The above example shows how to insert multiple rows into a table.</p>
+
+<pre><code class="language-SQL">INSERT INTO artists (name)
+VALUES
+ (&quot;Buddy Rich&quot;),
+ (&quot;Candido&quot;),
+ (&quot;Charlie Byrd&quot;);
+</code></pre>
+
+<p>An example of how to insert into column <code>name</code> within table <code>artists</code>.</p>
+
+<p>Data can also be inserted via a SELECT statement.</p>
+
+<h3 id="update">Update</h3>
+
+<p>Update already existing data in a table.</p>
+
+<pre><code class="language-SQL">UPDATE table
+SET column_1 = new_value_1,
+    column_2 = new_value_2
+WHERE
+    search_condition 
+ORDER column_or_expression
+LIMIT row_count OFFSET offset;
+</code></pre>
+
+<p>the <code>UPDATE</code> clause informs SQL that some part of the table is going to be amended. the <code>SET</code> clause signifies and allows the updating of the column/s that precede it. On the left of the assignment operator (=) is the column to be updated and on the right the new value, expression or data. Whilst the <code>WHERE</code> operator is optional if it is omitted all rows will be updated.</p>
+
+<h3 id="delete">Delete</h3>
+
+<p>The delete statement allows for deletion of one, multiple or all rows within a table.</p>
+
+<pre><code class="language-SQL">DELETE
+FROM
+ table
+WHERE
+ search_condition;
+</code></pre>
+
+<p>Like updating a table, <code>WHERE</code>, <code>ORDER BY</code> and <code>LIMIT</code> clauses can be applied to a delete operation. In addition deletes can be orchestrated through the <code>SELECT</code> operator.</p>
+
+<h2 id="joins">JOINS</h2>
+
+<h3 id="inner-joins">Inner Joins</h3>
+
+<p>In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.</p>
+
+<p><code>INNER JOIN</code> clause will combine columns from correlated tables.</p>
+
+<p>In fig 1.1 Table A&rsquo;s &lsquo;f&rsquo; column is compared with table B&rsquo;s &lsquo;f&rsquo; column. If the value of the &lsquo;f&rsquo; column in the A table equals that of B&rsquo;s &lsquo;f&rsquo; column it will return the match. More simply, <code>INNER JOIN</code> clauses return rows from table A that have corresponding rows in the B table.</p>
+
+<p><img src="https://danielms.site/images/SQLite-Inner-Join-Example.png" alt="Inner Join" title="example of inner join" /></p>
+
+<p>Fig 1.1 Inner Join</p>
+
+<p><code>INNER JOIN</code> may connect more than two tables. This will require two inner join clauses form the <code>SELECT</code> statement.</p>
+
+<pre><code class="language-SQL">SELECT
+ trackid,
+ tracks.name AS Track,
+ albums.title AS Album,
+ artists.name AS Artist
+FROM
+ tracks
+INNER JOIN albums ON albums.albumid = tracks.albumid
+INNER JOIN artists ON artists.artistid = albums.artistid;
+</code></pre>
+
+<p>Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite&rsquo;s website tutorial.)</p>
+
+<p><img src="https://danielms.site/images/SQLite-Inner-Join-3-tables.jpg" alt="Inner Join Example" title="result set of inner join on three tables." /></p>
+
+<p>Fig. 1.2 is the result set of the above query.</p>
+
+<h3 id="full-outer-join">Full Outer Join</h3>
+
+<p><strong>this command is not in SQLite3</strong></p>
+
+<p>Theoretically, the result of a Right Join and Left Join with <code>NULL</code> values for every column of the table that does not have a matching row.</p>
+
+<p>This is technically not available in SQLite3, however they do offer a workaround.</p>
+
+<p>Given that SQLite3 does not have <code>RIGHT JOIN</code> or <code>FULL OUTER JOIN</code> it uses both <code>UNION</code> and <code>LEFT JOIN</code> to emulate it.</p>
+
+<p>It achieves this by switching the position of the <code>LEFT JOIN</code> clause over both columns. SQLite also uses <code>UNION ALL</code> to duplicate rows from the result set of both queries. Finally, the use of a <code>WHERE</code> clause will remove rows already included in the result set of the first <code>SELECT</code> statement. See the below code for an example.</p>
+
+<pre><code class="language-SQL">
+SELECT d.type,
+         d.color,
+         c.type,
+         c.color
+FROM dogs d
+LEFT JOIN cats c USING(color)
+UNION ALL
+SELECT d.type,
+         d.color,
+         c.type,
+         c.color
+FROM cats c
+LEFT JOIN dogs d USING(color)
+WHERE d.color IS NULL;
+</code></pre>
+
+<h2 id="terms-definitions">Terms/ Definitions</h2>
+
+<h3 id="primary-key">Primary Key</h3>
+
+<p>In order to qualify as a relational table, it must have a primary key.</p>
+
+<p>The <strong>primary key</strong> consists of one or more columns whose data contained within is used to uniquely identify each row in the table.
+<em>metaphor</em> If rows were mailboxes the primary key would be the street address.</p>
+
+<p>To be a true primary key it must be:
+- Unique (data, not the name),
+- Must not be NULL or &ldquo;&rdquo;</p>
+
+<p>Tables must have primary keys, and these are stored in an index which is used to enforce the uniqueness requirement. Being indexed, accessing it does not necessitate scanning the entire table.</p>
+
+<h3 id="foreign-key">Foreign Key</h3>
+
+<p>A <strong>foreign key</strong> is one or more columns in a table that refers to the primary key or unique identifier in another table.</p>
+
+<p>They unlike primary keys <strong>can contain NULL, blank or duplicate values</strong>. As they allow duplication it is best not to use a foreign key as a primary key, unless it is a one-to-one relationship.</p>
+
+<p><img src="https://danielms.site/images/foreign_key.png" alt="input" title="example foreign key" /></p>
+
+<p>In the above picture we have a Students and Cities table. PERSON_ID and CITY_ID are unique, and therefore make good Primary keys (which they are). Inside the Students table it is possible for several students to be born in the same city. As such the BIRTH_PLACE column is the foreign key to the Cities table. This ensures that there is relationship between the tables and that relation points to something unique in the other table.</p>
+
+<h3 id="union-s">Union&rsquo;s</h3>
+
+<p><em>BLUF: combines result set of two or more queries into a single result set.</em></p>
+
+<p><code>UNION</code> by default removes duplicate rows whereas <code>UNION ALL</code> does not. As <code>UNION ALL</code> does not remove duplicates it will process faster. Both statements have the following rules:</p>
+
+<ul>
+<li>Must have the same number of columns,</li>
+<li>Corresponding columns must be same data type,</li>
+<li>The column names of the first query will determine the column of the combined result set,</li>
+<li>Any <code>GROUP BY</code> and <code>HAVING</code> clauses are applied to each individual query, not the final result set,</li>
+<li>The <code>ORDER BY</code> is applied to the combined result set, not the individual result sets.</li>
+</ul>
+
+<h3 id="transaction">Transaction</h3>
+
+<p>The basis of all interactions with the database. Inserts, updates, deletes, commits and table creation and deletion are all transactions.</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/sql">SQL</a>
+                  
+                    <a href="https://danielms.site/tags/eli5">eli5</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
