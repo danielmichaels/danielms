@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
+Why use it over other choices Straight from the creator himself:
+ How do I synchronize this file on all my devices?">
+
+<meta property="og:title" content="LessPass: A Primer" />
+<meta property="og:description" content="LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
+Why use it over other choices Straight from the creator himself:
+ How do I synchronize this file on all my devices?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/lesspass-eli5/" />
+<meta property="article:published_time" content="2019-04-15T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-15T00:00:00&#43;00:00"/>
+
+
+<title>
+
+
+     LessPass: A Primer 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/lesspass-eli5/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-04-22%2020%3a49%3a40.37368208%20%2b1000%20AEST%20m%3d%2b0.158898307">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-04-22%2020%3a49%3a40.37368208%20%2b1000%20AEST%20m%3d%2b0.158898307">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-04-22%2020%3a49%3a40.37368208%20%2b1000%20AEST%20m%3d%2b0.158898307">
+    
+        <link rel="stylesheet" href="https://danielms.site/css/override.css?t=2019-04-22%2020%3a49%3a40.37368208%20%2b1000%20AEST%20m%3d%2b0.158898307">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+              <h3 class="self-intro">I forget things so I write them down.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/not-exists" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:danielms@danielms.site"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    LessPass: A Primer
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Apr 15 2019 00:00:00 UTC'>Apr 15, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="lesspass">LessPass</h1>
+
+<h2 id="the-managerless-password-manager">The managerless password manager</h2>
+
+<p>LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.</p>
+
+<h2 id="why-use-it-over-other-choices">Why use it over other choices</h2>
+
+<p>Straight from the creator himself:</p>
+
+<ul>
+<li>How do I synchronize this file on all my devices?</li>
+<li>How do I access a password on my parents’ computer without installing my password manager?</li>
+<li>How do I access a password on my phone, without any installed app?</li>
+</ul>
+
+<p>For some of these I have my own workarounds but they are hacks and not very robust. For instance, I upload my password database to a cloud service and then pull it down on to my phone. It&rsquo;s a pain, not user friendly and exposes that database to a third-party vendor.</p>
+
+<p>LessPass is also Free as in free beer, open source and secure. It has a command line implementation, a web application, android app (sorry iOS) and browser extensions.</p>
+
+<p>I would also add another reason to use it, its easy and what is easy gets used. Good luck getting your dad to download an applicaton that requires you to go to github, clone the repo and then run an install script or bat file. Even worse, good luck explaining to dad why 1Password is worth the 5 bucks a month or whatever it is. The smallest barriers to entry can be enough to be prohibitive when the user isn&rsquo;t computer savvy.</p>
+
+<h2 id="how-does-it-work">How does it work</h2>
+
+<p>LessPass returns a unique password that it derives from three (or four, more on that later) pieces of information; <code>site</code>, <code>login</code> and a <code>master password</code>.
+If they are same it will always return the same output, a great example of idempotence or a <em>pure function</em>.</p>
+
+<p><img src="https://danielms.site/images/lesspass-hash.png" alt="alt text" title="LessPass image showing how hashing works." /></p>
+
+<p>An image from the creator&rsquo;s Medium <a href="https://blog.lesspass.com/lesspass-how-it-works-dde742dd18a4">post</a> giving a great visual representation of what is happening under the hood.</p>
+
+<p><img src="https://danielms.site/images/lesspass.gif" alt="alt text" title="LessPass fullmotion gif of the app in action." /></p>
+
+<p>The &lsquo;how&rsquo; of LessPass and it&rsquo;s ease of use.</p>
+
+<p>It also allows the user to set password rules such as using capitalised letters, special characters and numbers. So if certain websites require that the user <em>not</em> use special characters, LessPass can be configured for this. It defaults to 16 characters but can be set to a maximum of 32.</p>
+
+<p>You are also able to set whats called a <code>counter</code> meaning if you do not want to change your <code>master password</code> but are required to update your password you can issue a counter. It is an effective way to keep the three main pieces of information the same yet result in a new hash. Granted, this requires another level of cognitive load if you need to track several of these counters across sites.</p>
+
+<p><strong>There must be a better way</strong></p>
+
+<h2 id="lesspass-profiles">LessPass Profiles</h2>
+
+<p>The application also offers something called a <code>profile</code> which allows you to store such information. This requires a sign up to LessPass which is free, or you can host your own <a href="https://github.com/lesspass/lesspass">docker</a> image for extra security. Each <code>site</code> gets its own profile containing everything <strong>except</strong> the <code>master password</code> and the generated password.</p>
+
+<p>Each profile is stored as a <code>json</code> object like so:</p>
+
+<pre><code class="language-shell">{
+    &quot;login&quot;: &quot;danielmichaels&quot;,
+    &quot;site&quot;: &quot;www.github.com&quot;,
+    &quot;lowercase&quot;: true,
+    &quot;uppercase&quot;: false,
+    &quot;symbols&quot;: true,
+    &quot;numbers&quot;: true,
+    &quot;counter&quot;: 1,
+    &quot;length&quot;: 20
+}
+</code></pre>
+
+<h2 id="command-line-interface">Command Line Interface</h2>
+
+<p>I really like the CLI for LessPass - it suits my workflow by allowing me to set profiles on my machine via <code>alias</code>. I refer to this as a &lsquo;hardcoded&rsquo; approach - it helps me none when I&rsquo;m not on my box but I can just as easily hit lesspass.com for it in such a case so it&rsquo;s hardly a showstopper. As example this is how I grab my github password.</p>
+
+<pre><code class="language-shell">alias ghpw=&quot;lesspass -c github.com danielmichaels&quot;
+</code></pre>
+
+<p>This drops me straight into a prompt for my <code>master password</code> and then copies it to my clipboard. I could go further and set an environment variable but I have my dotfiles on github and would rather not accidently expose such information.</p>
+
+<h2 id="i-don-t-need-a-password-manager">I Don&rsquo;t Need A Password Manager</h2>
+
+<p>Said someone just waiting to get owned by a credential dump. We humans just simply cannot rememember suitably difficult passwords that are hard for a computer to guess and easy for us to remember.</p>
+
+<p>Password manager public enemy number one is; if my master gets cracked they own everything. Yep thats true. If my house key gets cloned they&rsquo;ve got unrestricted access to my house too. The mitigation lies in defeating the most likely avenue of exploitation and that is password attacks from credential dumps hoping to strike gold from someone that reuses their password on several sites. The bad guys are looking for the &lsquo;path of least resistance&rsquo;, just don&rsquo;t be that path! Using a password manager and some common sense will go a long way to protecting yourself online. It&rsquo;s not a panacea but its better than the alternative.</p>
+
+<h2 id="meta">Meta</h2>
+
+<p>You can find out more and get LessPass from <a href="https://lesspass.com">here</a>. The python package can be downloaded with <code>pip install lesspass</code> and both Chrome and Firefox extensions can be found in their respective stores. If you use LessPass be sure to give them a <a href="https://github.com/lesspass/lesspass">star here</a> on Github.</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/eli5">eli5</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
