@@ -44,7 +44,7 @@ dateform               = "Jan 2, 2006"
 dateformfull           = "Mon Jan 2 2006 15:04:05 MST"
 description            = "Another tech blog"
 email                  = "danielms@danielms.site"
-extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
+#extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
 faviconfile            = "extra/favicon.ico"
 github                 = "//github.com/danielmichaels"
 instagram              = "//instagram.com/not-exists"
@@ -53,7 +53,7 @@ lang                   = "en"
 #linkedin               = "//linkedin.com/in/you"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
 selfintro              = "I forget things so I write them down."  # appears in the site header when set to a non-empty string
-#twitter                = "//twitter.com/you"
+twitter                = "//twitter.com/danuqualsdan"
 #mastodon               = "//example.com/@you"
 
 highlightjs            = true
