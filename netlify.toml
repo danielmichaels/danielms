@@ -29,4 +29,18 @@ HUGO_VERSION = "0.46"
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
 
-
+[[redirects]]
+from = "https://www.danielmichaels.site/*"
+to = "https://www.danielms.site/:splat"
+status = 301
+force = true
+[[redirects]]
+from = "https://danielmichaels.site/*"
+to = "https://www.danielms.site/:splat"
+status = 301
+force = true
+[[redirects]]
+from = "https://confident-visvesvaraya-88fdc6.netlify.com/*"
+to = "https://www.danielms.site/:splat"
+status = 301
+force = true
