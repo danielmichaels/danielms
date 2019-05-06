@@ -17,7 +17,7 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/lesspass-eli5/</guid>
-      <description>LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
+      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?</description>
     </item>
@@ -171,6 +171,15 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://danielms.site/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/</guid>
+      <description></description>
     </item>
     
   </channel>

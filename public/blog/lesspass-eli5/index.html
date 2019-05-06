@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
+<meta name="description" content="LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?">
 
 <meta property="og:title" content="LessPass: A Primer" />
-<meta property="og:description" content="LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
+<meta property="og:description" content="LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?" />
 <meta property="og:type" content="article" />
@@ -47,9 +47,9 @@ Why use it over other choices Straight from the creator himself:
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-04-26%2006%3a50%3a37.371833439%20%2b1000%20AEST%20m%3d%2b0.118078552">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-04-26%2006%3a50%3a37.371833439%20%2b1000%20AEST%20m%3d%2b0.118078552">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-04-26%2006%3a50%3a37.371833439%20%2b1000%20AEST%20m%3d%2b0.118078552">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-05-04%2014%3a47%3a22.31818844%20%2b1000%20AEST%20m%3d%2b0.166460556">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-05-04%2014%3a47%3a22.31818844%20%2b1000%20AEST%20m%3d%2b0.166460556">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-05-04%2014%3a47%3a22.31818844%20%2b1000%20AEST%20m%3d%2b0.166460556">
     
 
 
@@ -180,7 +180,7 @@ Why use it over other choices Straight from the creator himself:
 
 <h1 id="lesspass">LessPass</h1>
 
-<h2 id="the-managerless-password-manager">The managerless password manager</h2>
+<h2 id="the-manager-less-password-manager">The manager-less password manager</h2>
 
 <p>LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&rsquo;t changed LessPass will always return the same password.</p>
 
@@ -198,7 +198,7 @@ Why use it over other choices Straight from the creator himself:
 
 <p>LessPass is also Free as in free beer, open source and secure. It has a command line implementation, a web application, android app (sorry iOS) and browser extensions.</p>
 
-<p>I would also add another reason to use it, its easy and what is easy gets used. Good luck getting your dad to download an applicaton that requires you to go to github, clone the repo and then run an install script or bat file. Even worse, good luck explaining to dad why 1Password is worth the 5 bucks a month or whatever it is. The smallest barriers to entry can be enough to be prohibitive when the user isn&rsquo;t computer savvy.</p>
+<p>I would also add another reason to use it, its easy and what is easy gets used. Good luck getting your dad to download an application that requires you to go to github, clone the repo and then run an install script or bat file. Even worse, good luck explaining to dad why 1Password is worth the 5 bucks a month or whatever it is. The smallest barriers to entry can be enough to be prohibitive when the user isn&rsquo;t computer savvy.</p>
 
 <h2 id="how-does-it-work">How does it work</h2>
 
@@ -239,16 +239,16 @@ If they are same it will always return the same output, a great example of idemp
 
 <h2 id="command-line-interface">Command Line Interface</h2>
 
-<p>I really like the CLI for LessPass - it suits my workflow by allowing me to set profiles on my machine via <code>alias</code>. I refer to this as a &lsquo;hardcoded&rsquo; approach - it helps me none when I&rsquo;m not on my box but I can just as easily hit lesspass.com for it in such a case so it&rsquo;s hardly a showstopper. As example this is how I grab my github password.</p>
+<p>I really like the CLI for LessPass - it suits my workflow by allowing me to set profiles on my machine via <code>alias</code>. I refer to this as a &lsquo;hardcoded&rsquo; approach - it helps me none when I&rsquo;m not on my box but I can just as easily hit lesspass.com for it in such a case so it&rsquo;s hardly a show stopper. As example this is how I grab my github password.</p>
 
 <pre><code class="language-shell">alias ghpw=&quot;lesspass -c github.com danielmichaels&quot;
 </code></pre>
 
-<p>This drops me straight into a prompt for my <code>master password</code> and then copies it to my clipboard. I could go further and set an environment variable but I have my dotfiles on github and would rather not accidently expose such information.</p>
+<p>This drops me straight into a prompt for my <code>master password</code> and then copies it to my clipboard. I could go further and set an environment variable but I have my dotfiles on github and would rather not accidentally expose such information.</p>
 
 <h2 id="i-don-t-need-a-password-manager">I Don&rsquo;t Need A Password Manager</h2>
 
-<p>Said someone just waiting to get owned by a credential dump. We humans just simply cannot rememember suitably difficult passwords that are hard for a computer to guess and easy for us to remember.</p>
+<p>Said someone just waiting to get owned by a credential dump. We humans just simply cannot remember suitably difficult passwords that are hard for a computer to guess and easy for us to remember.</p>
 
 <p>Password manager public enemy number one is; if my master gets cracked they own everything. Yep thats true. If my house key gets cloned they&rsquo;ve got unrestricted access to my house too. The mitigation lies in defeating the most likely avenue of exploitation and that is password attacks from credential dumps hoping to strike gold from someone that reuses their password on several sites. The bad guys are looking for the &lsquo;path of least resistance&rsquo;, just don&rsquo;t be that path! Using a password manager and some common sense will go a long way to protecting yourself online. It&rsquo;s not a panacea but its better than the alternative.</p>
 

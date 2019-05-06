@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Eli5</title>
+      <title>eli5</title>
       <link>https://danielms.site/tags/eli5/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -21,25 +21,7 @@
     </item>
     
     <item>
-      <title>Flask</title>
-      <link>https://danielms.site/tags/flask/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://danielms.site/tags/linux/</link>
-      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://danielms.site/tags/python/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -48,25 +30,7 @@
     </item>
     
     <item>
-      <title>Rsync</title>
-      <link>https://danielms.site/tags/rsync/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/rsync/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Scapy</title>
-      <link>https://danielms.site/tags/scapy/</link>
-      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/scapy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql</title>
+      <title>SQL</title>
       <link>https://danielms.site/tags/sql/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -75,7 +39,43 @@
     </item>
     
     <item>
-      <title>Ssh</title>
+      <title>linux</title>
+      <link>https://danielms.site/tags/linux/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flask</title>
+      <link>https://danielms.site/tags/flask/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TIL</title>
+      <link>https://danielms.site/tags/til/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scapy</title>
+      <link>https://danielms.site/tags/scapy/</link>
+      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/scapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
       <link>https://danielms.site/tags/ssh/</link>
       <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
       
@@ -84,11 +84,11 @@
     </item>
     
     <item>
-      <title>Til</title>
-      <link>https://danielms.site/tags/til/</link>
-      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      <title>rsync</title>
+      <link>https://danielms.site/tags/rsync/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://danielms.site/tags/til/</guid>
+      <guid>https://danielms.site/tags/rsync/</guid>
       <description></description>
     </item>
     

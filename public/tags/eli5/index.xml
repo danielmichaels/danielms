@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eli5 on Daniel Michaels | Developer | Technical Lead</title>
+    <title>eli5 on Daniel Michaels | Developer | Technical Lead</title>
     <link>https://danielms.site/tags/eli5/</link>
-    <description>Recent content in Eli5 on Daniel Michaels | Developer | Technical Lead</description>
+    <description>Recent content in eli5 on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/lesspass-eli5/</guid>
-      <description>LessPass The managerless password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
+      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?</description>
     </item>

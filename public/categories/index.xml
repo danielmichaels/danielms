@@ -6,22 +6,13 @@
     <description>Recent content in Categories on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 28 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Administration</title>
-      <link>https://danielms.site/categories/administration/</link>
-      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/administration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eli5</title>
+      <title>eli5</title>
       <link>https://danielms.site/categories/eli5/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -30,16 +21,7 @@
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://danielms.site/categories/linux/</link>
-      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Password</title>
+      <title>password</title>
       <link>https://danielms.site/categories/password/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -48,7 +30,7 @@
     </item>
     
     <item>
-      <title>Programming</title>
+      <title>programming</title>
       <link>https://danielms.site/categories/programming/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -57,7 +39,7 @@
     </item>
     
     <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://danielms.site/categories/python/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -66,7 +48,7 @@
     </item>
     
     <item>
-      <title>Sql</title>
+      <title>SQL</title>
       <link>https://danielms.site/categories/sql/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -75,7 +57,25 @@
     </item>
     
     <item>
-      <title>Til</title>
+      <title>linux</title>
+      <link>https://danielms.site/categories/linux/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webdev</title>
+      <link>https://danielms.site/categories/webdev/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/webdev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TIL</title>
       <link>https://danielms.site/categories/til/</link>
       <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
       
@@ -84,11 +84,11 @@
     </item>
     
     <item>
-      <title>Webdev</title>
-      <link>https://danielms.site/categories/webdev/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      <title>administration</title>
+      <link>https://danielms.site/categories/administration/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://danielms.site/categories/webdev/</guid>
+      <guid>https://danielms.site/categories/administration/</guid>
       <description></description>
     </item>
     
