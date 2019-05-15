@@ -6,17 +6,26 @@
     <description>Recent content in Categories on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>eli5</title>
+      <title>ELI5</title>
       <link>https://danielms.site/categories/eli5/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/eli5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://danielms.site/categories/programming/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/programming/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/password/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://danielms.site/categories/programming/</link>
-      <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/programming/</guid>
       <description></description>
     </item>
     

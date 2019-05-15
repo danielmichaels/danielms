@@ -6,10 +6,21 @@
     <description>Recent content in programming on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 15 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>User Agents 101</title>
+      <link>https://danielms.site/blog/user-agents-101/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/user-agents-101/</guid>
+      <description>User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
+Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
+If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
+    </item>
     
     <item>
       <title>On teaching</title>
