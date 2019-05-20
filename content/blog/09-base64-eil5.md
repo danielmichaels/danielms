@@ -119,7 +119,7 @@ excellent page on Base64.
 
 Shout out to [Ty Lewis] for his nice encoder which I have used for demonstration.
 
-[Ty Lewis]: (https://codepen.io/lewistg/pen/MEQbmB)
-[LiveOverFlow]: (https://www.youtube.com/watch?v=Jpaq0QkepgA)
+[Ty Lewis]: https://codepen.io/lewistg/pen/MEQbmB
+[LiveOverFlow]: https://www.youtube.com/watch?v=Jpaq0QkepgA
 [SANS]: https://www.sans.org/reading-room/whitepapers/detection/base64-pwned-33759
 [MalwareBytes]: https://blog.malwarebytes.com/threat-analysis/2013/03/obfuscation-malwares-best-friend/
