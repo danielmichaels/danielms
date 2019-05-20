@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>ELI5</title>
+      <title>eli5</title>
       <link>https://danielms.site/tags/eli5/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
@@ -89,6 +89,33 @@
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/tags/rsync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://danielms.site/tags/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://danielms.site/tags/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://danielms.site/tags/web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/web/</guid>
       <description></description>
     </item>
     

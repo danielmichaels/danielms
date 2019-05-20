@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ELI5 on Daniel Michaels | Developer | Technical Lead</title>
+    <title>eli5 on Daniel Michaels | Developer | Technical Lead</title>
     <link>https://danielms.site/tags/eli5/</link>
-    <description>Recent content in ELI5 on Daniel Michaels | Developer | Technical Lead</description>
+    <description>Recent content in eli5 on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
@@ -59,8 +59,9 @@ Consistent - A transaction must ensure to change the database from one valid sta
       <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/base64-eli5/</guid>
-      <description>Base64 I thought I understood Base64. I mean its the alphabet in upper and lowercase plus numbers and a couple characters. But, what I didn\&amp;rsquo;t know was how the 64 bits worked, like thats missing a whole extra two bits. Why?
-TL;DR Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.</description>
+      <description>Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
+TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
+ first, a demo Let&amp;rsquo;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
     </item>
     
   </channel>
