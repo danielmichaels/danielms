@@ -1,7 +1,7 @@
 +++
 title = "HTTP basics"
-date = "2019 apr 06"
-draft = false
+date = "06 apt 2019"
+draft = true
 slug = "http-security-basics"
 tags = ['HTTP','security','web']
 categories = ['HTTP','eli5']
@@ -13,7 +13,7 @@ this will be primer of many of the underlying technologies that power the web an
 
 ## The HTTP Protocol
 
-**BLUF**: Message based model where the client sends a request and the server retruns a response. HTTP uses a stateful protocl - TCP - but is stateless, where each request is autonomous and may use a different TCP connection.
+**BLUF**: Message based model where the client sends a request and the server returnns a response. HTTP uses a stateful protocl - TCP - but is stateless, where each request is autonomous and may use a different TCP connection.
 
 ### HTTP Requests
 
