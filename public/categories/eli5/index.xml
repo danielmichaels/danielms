@@ -66,16 +66,5 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
  first, a demo Let&amp;rsquo;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
     </item>
     
-    <item>
-      <title>HTTP basics</title>
-      <link>https://danielms.site/blog/http-security-basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/http-security-basics/</guid>
-      <description>WHH - Chapter 3 - Web App Technologies this will be primer of many of the underlying technologies that power the web and associated technologies.
-The HTTP Protocol BLUF: Message based model where the client sends a request and the server retruns a response. HTTP uses a stateful protocl - TCP - but is stateless, where each request is autonomous and may use a different TCP connection.
-HTTP Requests The first line of every HTTP request has three (3) items, separated by spaces:</description>
-    </item>
-    
   </channel>
 </rss>

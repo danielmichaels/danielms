@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DNS the easy parts</title>
+      <link>https://danielms.site/blog/dns-the-easy-parts/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
+      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
+    </item>
     
     <item>
       <title>User Agents 101</title>
@@ -183,17 +193,6 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
-    </item>
-    
-    <item>
-      <title>HTTP basics</title>
-      <link>https://danielms.site/blog/http-security-basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/http-security-basics/</guid>
-      <description>WHH - Chapter 3 - Web App Technologies this will be primer of many of the underlying technologies that power the web and associated technologies.
-The HTTP Protocol BLUF: Message based model where the client sends a request and the server retruns a response. HTTP uses a stateful protocl - TCP - but is stateless, where each request is autonomous and may use a different TCP connection.
-HTTP Requests The first line of every HTTP request has three (3) items, separated by spaces:</description>
     </item>
     
   </channel>

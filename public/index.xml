@@ -6,10 +6,20 @@
     <description>Recent content on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DNS the easy parts</title>
+      <link>https://danielms.site/blog/dns-the-easy-parts/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
+      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
+    </item>
     
     <item>
       <title>User Agents 101</title>
@@ -192,26 +202,6 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://danielms.site/blog%5C09-base64-eil5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog%5C09-base64-eil5/</guid>
-      <description>.anim-fade-in{-webkit-animation-name:fade-in;animation-name:fade-in;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}.anim-fade-in.fast{-webkit-animation-duration:300ms;animation-duration:300ms}@-webkit-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}.anim-fade-up{opacity:0;-webkit-animation-name:fade-up;animation-name:fade-up;-webkit-animation-duration:0.3s;animation-duration:0.3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;-webkit-animation-delay:1s;animation-delay:1s}@-webkit-keyframes fade-up{0%{opacity:0.8;-webkit-transform:translateY(100%);transform:translateY(100%)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes fade-up{0%{opacity:0.8;-webkit-transform:translateY(100%);transform:translateY(100%)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}.anim-fade-down{-webkit-animation-name:fade-down;animation-name:fade-down;-webkit-animation-duration:0.3s;animation-duration:0.3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}@-webkit-keyframes fade-down{0%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}100%{opacity:0.5;-webkit-transform:translateY(100%);transform:translateY(100%)}}@keyframes fade-down{0%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}100%{opacity:0.5;-webkit-transform:translateY(100%);transform:translateY(100%)}}.anim-grow-x{width:0%;-webkit-animation-name:grow-x;animation-name:grow-x;-webkit-animation-duration:0.3s;animation-duration:0.3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease;animation-timing-function:ease;-webkit-animation-delay:0.5s;animation-delay:0.5s}@-webkit-keyframes grow-x{to{width:100%}}@keyframes grow-x{to{width:100%}}.anim-shrink-x{-webkit-animation-name:shrink-x;animation-name:shrink-x;-webkit-animation-duration:0.3s;animation-duration:0.3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out;-webkit-animation-delay:0.5s;animation-delay:0.5s}@-webkit-keyframes shrink-x{to{width:0%}}@keyframes shrink-x{to{width:0%}}.anim-scale-in{-webkit-animation-name:scale-in;animation-name:scale-in;-webkit-animation-duration:0.15s;animation-duration:0.15s;-webkit-animation-timing-function:cubic-bezier(0.2, 0, 0.13, 1.5);animation-timing-function:cubic-bezier(0.2, 0, 0.13, 1.5)}@-webkit-keyframes scale-in{0%{opacity:0;-webkit-transform:scale(0.5);transform:scale(0.5)}100%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes scale-in{0%{opacity:0;-webkit-transform:scale(0.5);transform:scale(0.5)}100%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}.anim-pulse{-webkit-animation-name:pulse;animation-name:pulse;-webkit-animation-duration:2s;animation-duration:2s;-webkit-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}@-webkit-keyframes pulse{0%{opacity:0.3}10%{opacity:1}100%{opacity:0.3}}@keyframes pulse{0%{opacity:0.3}10%{opacity:1}100%{opacity:0.3}}.anim-pulse-in{-webkit-animation-name:pulse-in;animation-name:pulse-in;-webkit-animation-duration:0.5s;animation-duration:0.5s}@-webkit-keyframes pulse-in{0%{-webkit-transform:scale3d(1, 1, 1);transform:scale3d(1, 1, 1)}50%{-webkit-transform:scale3d(1.1, 1.1, 1.1);transform:scale3d(1.1, 1.1, 1.1)}100%{-webkit-transform:scale3d(1, 1, 1);transform:scale3d(1, 1, 1)}}@keyframes pulse-in{0%{-webkit-transform:scale3d(1, 1, 1);transform:scale3d(1, 1, 1)}50%{-webkit-transform:scale3d(1.1, 1.1, 1.1);transform:scale3d(1.1, 1.1, 1.1)}100%{-webkit-transform:scale3d(1, 1, 1);transform:scale3d(1, 1, 1)}}.border{border:1px #e1e4e8 solid !important}.border-top{border-top:1px #e1e4e8 solid !important}.border-right{border-right:1px #e1e4e8 solid !important}.border-bottom{border-bottom:1px #e1e4e8 solid !important}.border-left{border-left:1px #e1e4e8 solid !important}.border-y{border-top:1px #e1e4e8 solid !important;border-bottom:1px #e1e4e8 solid !important}.border-dashed{border-style:dashed !important}.border-blue{border-color:#0366d6 !</description>
-    </item>
-    
-    <item>
-      <title>HTTP basics</title>
-      <link>https://danielms.site/blog/http-security-basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/http-security-basics/</guid>
-      <description>WHH - Chapter 3 - Web App Technologies this will be primer of many of the underlying technologies that power the web and associated technologies.
-The HTTP Protocol BLUF: Message based model where the client sends a request and the server retruns a response. HTTP uses a stateful protocl - TCP - but is stateless, where each request is autonomous and may use a different TCP connection.
-HTTP Requests The first line of every HTTP request has three (3) items, separated by spaces:</description>
     </item>
     
   </channel>
