@@ -1,7 +1,7 @@
 +++
-title = "HTTP basics"
-date = "06 apt 2019"
-draft = true
+title = "HTTP Security Basics"
+date = "06 Jul 2019"
+draft = false
 slug = "http-security-basics"
 tags = ['HTTP','security','web']
 categories = ['HTTP','eli5']
@@ -9,10 +9,9 @@ categories = ['HTTP','eli5']
 
 # HTTP Basics
 
+![](/images/httpie.png 'http put image output')
 
 HTTP is an application level message based model where the client sends a request and the server returns a response. HTTP uses a stateful protocol - TCP - but is _stateless_, where each request is connectionless avoiding the need for servers to hold an open connection. 
-
-
 
 ## HTTP Requests
 
@@ -20,7 +19,7 @@ The first line of every HTTP request has three (3) items, separated by spaces:
 
 - The verb - `GET`,`PUT`,`DELETE`,`POST`,`TRACE`,`CONNECT`,`OPTIONS`, or `HEAD`
 - The requested URL, typically the name of the resource plus an optional query string. Query strings are noted by the `?` eg. `/auth/448/yourdetails.ashx?uid=345`
-- The HTTP version in use. Most commonn is 1.1 and will look like this `HTTP/1.1`
+- The HTTP version in use. Most common is 1.1 and will look like this `HTTP/1.1`
 
 ```shell
 # Example request
@@ -187,6 +186,8 @@ Some interesting and important headers:
 
 ### Cookies
 
+![](/images/cookies.png 'cookie output request headers')
+
 Many web applications rely on cookies as allow servers to send data to the client, and then have the client return that data in its transmissions within the server. Since HTTP is stateless, cookies allow functionality to persist over time. Login data, shopping carts and site settings all rely on cookies for a better user experience.
 
 ```shell
@@ -242,7 +243,7 @@ Given the stateless nature of HTTP, applications need a method in which to re-id
 
 ### Encoding Schemes
 
-HTTP has several encoding schemes to ensure the safe delivery of data. The following is some of the most common:
+HTTP has several encoding schemes to ensure the safe delivery of data. The following is some of the most common.
 
 #### URL Encoding
 
@@ -251,61 +252,51 @@ All URL encoded characters are prefixed by `%` followed by their hexadecimal rep
 
 Examples:
 
-- `%3d` - =
-- `%25` - %
-- `%0a` - New Line (\n)
-- `%00`- Null Byte
+- `%3d` &mdash; =
+- `%25` &mdash; %
+- `%0a` &mdash; New Line (\n)
+- `%00` &mdash; Null Byte
 
 **note**: `+` represents the 'space' in a URL.
 
 #### Unicode Encoding
 
-Unicode is the system that allows us to use many differnet character sets. For english speakers, `utf-8` will be the most common, but many more exists.
+Unicode is the system that allows us to use many different character sets. For English speakers, `utf-8` will be the most common, but many more exists.
 Encoding 16-bit unicode in a URL requires the prefix `%u` followed by the hexadecimal.
 
-example unicode
+Example unicode
 
-- `%u2215` - /
-- `u00e9` - é
+- `%u2215` &mdash; /
+- `u00e9` &mdash; é
 
 UTF-8 is a variable length encoding that uses one or more bytes for each character. To send this using URL encoding, each byte is delimited by a `%`.
 
-for instance:
+For instance:
 
-- `%c2%a9` - ©
-- `%e2%89%a0` - ≠
+- `%c2%a9` &mdash; ©
+- `%e2%89%a0` &mdash; ≠
 
 Unicode is an important part of attacking web applications as it can defeat input validation schemes.
 
 #### HTML Encoding
 
-Safe incorporation of HTML within web applications is important. Several HTML characters have special meaning and must be encodeded correctly.
+Safe incorporation of HTML within web applications is important. Several HTML characters have special meaning and must be encoded correctly.
 When attacking an application, HTML encoding will be most evident when probing for XSS vulnerabilities. If an application returns user input unmodified, it is likely vulnerable.
 
 #### Base64
 
-Its origins are in MIME or email; it allows the sending of ASCII strings over the wire for safe reassembly on the otherside in the original format. It is also used heavily in basic HTTP user authentication.
+Base64 allows any binary data to be represented as using only ASCII characters. It permits the sending of ASCII strings over the wire for safe reassembly on the other side in the original format. It is also used heavily in basic HTTP user authentication.
+
 Base64 splits the bytes into 6bit streams, allowing for 64 possible permutations - each chunk of 6 bits allows for 64 possible characters. It allows only the following characters:
 
-`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+`
+```ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+```
 
-If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by `=` or `==` which says that their may be one or two trailling blocks of zero's.
+If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by `=` or `==` which says that their may be one or two trailing blocks of zero's.
 
-Base64 is prevailent across the web and is often used to transmit binary data within cookies and other parameters. It is often used to obsfucate data in transit - security by obsecurity at its best. Always decode any intercepted Base64 data, it could be a goldmine. Base64 can often be identified quickly by the `=` trail, or if it is JSON it will start with `ey` whiich represents `{'`.
+Base64 is prevalent across the web and is often used to transmit binary data within cookies and other parameters. It is often used to obfuscate data in transit through security by obscurity. Always decode any intercepted Base64 data, it could be a goldmine. Base64 can often be identified quickly by the `=` trail, or if it is JSON it will start with `ey` which represents `{`.
 
-## Questions CHAPTER THREE
+## Fin
 
-1. What is `OPTIONS` method used for?
-- It will return all the HTTP methods the server is capable of.
-2. What are the `If-Modified-Since` and `If-None-Match` headers used for? Why are we interested in these?
-- These are used for caching purposes, they are sent on the request. If-Modified-Since gives the time it was last checked/ site was accessed and cached. If-None-Match is a hash of the cache that the server may have issued.
-- deleting these headers from the request we ensure that each time we recieve a fresh copy of the page and not an older cached copy.
-3. What is the significance of the `secure` flag when a server sets a cookie?
-- It will only send the cookie via HTTPS
-4. what is the difference between 301 and 302 status codes?
-- 301: moved permenently
-- 302: moved temporarily
-5. How does the browser interoperate with a web proxy when SSL is being used?
-- The proxy serves as a TCP low-level connection/ forwarding agent. It cannot inspect the HTTPS traffic but will create the connection at the socket level for transport via the proxy whilst maintaining security.
+HTTP is an important protocol not just for security and network engineers but for developers too. Having a cursory understanding aides every one who uses the web. Next time you look at the network tab in your browsers developer tools be sure to look at the headers, you might notice something worth exploring. 
 
 [RFC 7232]: https://www.rfc-editor.org/rfc/rfc7232.txt
