@@ -4,12 +4,76 @@
   
   <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/http/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/http/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/http-basic-methods-and-verbs/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/security/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/web/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/web/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/http-security-basics/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/eli5/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/dns/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -21,18 +85,12 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/dns/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/blog/dns-the-easy-parts/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://danielms.site/</loc>
+    <loc>https://danielms.site/categories/networking/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -44,30 +102,12 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/networking/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/blog/user-agents-101/</loc>
     <lastmod>2019-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/eli5/</loc>
-    <lastmod>2019-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/eli5/</loc>
     <lastmod>2019-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -95,13 +135,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/python/</loc>
+    <loc>https://danielms.site/categories/python/</loc>
     <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/python/</loc>
+    <loc>https://danielms.site/tags/python/</loc>
     <lastmod>2018-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -112,13 +152,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/sql/</loc>
+    <loc>https://danielms.site/categories/sql/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/sql/</loc>
+    <loc>https://danielms.site/tags/sql/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
