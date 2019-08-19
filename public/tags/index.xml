@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>curl</title>
+      <link>https://danielms.site/tags/curl/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://danielms.site/tags/web/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/web/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HTTP</title>
@@ -26,15 +44,6 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://danielms.site/tags/web/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/web/</guid>
       <description></description>
     </item>
     
@@ -57,7 +66,7 @@
     </item>
     
     <item>
-      <title>eli5</title>
+      <title>ELI5</title>
       <link>https://danielms.site/tags/eli5/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       

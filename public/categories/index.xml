@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>web</title>
+      <link>https://danielms.site/categories/web/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/web/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HTTP</title>
@@ -17,15 +26,6 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://danielms.site/categories/web/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/web/</guid>
       <description></description>
     </item>
     

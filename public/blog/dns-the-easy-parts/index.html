@@ -17,8 +17,8 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/dns-the-easy-parts/" />
-<meta property="article:published_time" content="2019-06-16T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-06-16T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2019-06-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-16T00:00:00+00:00" />
 
 
 <title>
@@ -45,9 +45,9 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-07-16%2012%3a35%3a03.166853612%20%2b1000%20AEST%20m%3d%2b0.187994275">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-07-16%2012%3a35%3a03.166853612%20%2b1000%20AEST%20m%3d%2b0.187994275">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-07-16%2012%3a35%3a03.166853612%20%2b1000%20AEST%20m%3d%2b0.187994275">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-08-19%2014%3a11%3a28.55126628%20%2b1000%20AEST%20m%3d%2b0.053079805">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-08-19%2014%3a11%3a28.55126628%20%2b1000%20AEST%20m%3d%2b0.053079805">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-08-19%2014%3a11%3a28.55126628%20%2b1000%20AEST%20m%3d%2b0.053079805">
     
 
 
@@ -425,8 +425,8 @@ This adds latency as another round trip must be conducted and generally chaining
 
 <ul>
 <li>Contains extra data such a sender policy framework and encryption information.</li>
-<li>Often contain valuable information about the domain, for instance:</li>
-</ul>
+
+<li><p>Often contain valuable information about the domain, for instance:</p>
 
 <pre><code class="language-sh">&gt;&gt; drill telstra.com.au txt
 
@@ -434,7 +434,8 @@ This adds latency as another round trip must be conducted and generally chaining
 telstra.com.au. 1303  IN  TXT &quot;v=spf1 include:_spf.telstra.com.au ~all&quot;
 telstra.com.au. 1303  IN  TXT &quot;google-site-verification=GeZnWLAmVtLSHbjW5VEawrbtjQzhSY-e4wsT9VBaJkU&quot;
 telstra.com.au. 1303  IN  TXT &quot;7EC66119-3393-46B7-9DA9-9AD7643925FA&quot;
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>The TXT returned some information about the <code>telstra.com.au</code> domain; they use Google Apps in their systems.</p>
 
@@ -464,8 +465,8 @@ vodafone.com.au.	506	IN	TXT	&quot;MS=ms13634633&quot;
 
 <ul>
 <li>Contains administrative info about a zone such as domain owner, contact details and serial number.</li>
-<li>Serial number is used to determine the currency of the zone&rsquo;s data.</li>
-</ul>
+
+<li><p>Serial number is used to determine the currency of the zone&rsquo;s data.</p>
 
 <pre><code class="language-sh">drill SOA taste.com.au
 
@@ -475,7 +476,8 @@ vodafone.com.au.	506	IN	TXT	&quot;MS=ms13634633&quot;
 &gt;&gt;&gt; ;; ANSWER SECTION:
 &gt;&gt;&gt; taste.com.au.   176     IN      SOA     dns0.news.com.au. hostmaster.news.com.au. 2019060600 900 600 604800 300
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>Each tabbed section in detail:</p>
 

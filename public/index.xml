@@ -6,10 +6,20 @@
     <description>Recent content on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Curl you an email for great good</title>
+      <link>https://danielms.site/blog/curl-emails-for-great-good/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/curl-emails-for-great-good/</guid>
+      <description>Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
+Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt  Let&amp;rsquo;s break down each component:</description>
+    </item>
     
     <item>
       <title>HTTP Methods Primer</title>

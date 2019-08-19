@@ -19,8 +19,8 @@ Atomic - Meaning changes cannot be broken down into smaller parts; either the en
 Consistent - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/sqlite3-primer/" />
-<meta property="article:published_time" content="2018-09-09T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-09-09T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-09T00:00:00+00:00" />
 
 
 <title>
@@ -47,9 +47,9 @@ Consistent - A transaction must ensure to change the database from one valid sta
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-07-16%2012%3a35%3a03.187185895%20%2b1000%20AEST%20m%3d%2b0.208326557">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-07-16%2012%3a35%3a03.187185895%20%2b1000%20AEST%20m%3d%2b0.208326557">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-07-16%2012%3a35%3a03.187185895%20%2b1000%20AEST%20m%3d%2b0.208326557">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-08-19%2014%3a11%3a28.555449959%20%2b1000%20AEST%20m%3d%2b0.057263495">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-08-19%2014%3a11%3a28.555449959%20%2b1000%20AEST%20m%3d%2b0.057263495">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-08-19%2014%3a11%3a28.555449959%20%2b1000%20AEST%20m%3d%2b0.057263495">
     
 
 
@@ -221,99 +221,116 @@ HAVING group_filter;
 <p>A breakdown of each clause:</p>
 
 <ul>
-<li><p><code>ORDER BY</code> sorts the result set,</p></li>
+<li><pre><code class="language-ORDER">
+- ```DISTINCT``` gets unique rows in a table,
+    
+- ```WHERE``` is a filter such as, ```WHERE employees IS NULL```,
 
-<li><p><code>DISTINCT</code> gets unique rows in a table,</p></li>
+- ```LIMIT   OFFSET``` will return a set number of rows,
 
-<li><p><code>WHERE</code> is a filter such as, <code>WHERE employees IS NULL</code>,</p></li>
+- ```GROUP BY``` sorts columns into groups and applies functions to each group,
 
-<li><p><code>LIMIT   OFFSET</code> will return a set number of rows,</p></li>
+- ```HAVING``` is another filter that checks for presence of the operator.
 
-<li><p><code>GROUP BY</code> sorts columns into groups and applies functions to each group,</p></li>
+`SELECT * FROM database_table` is acceptable usage in testing or development but in production the query should be explicit.
 
-<li><p><code>HAVING</code> is another filter that checks for presence of the operator.</p></li>
+### Insert
+
+Used to insert new data be it single row, multiple rows, and default data into tables.
+
+</code></pre>
+
+<p>SQL</p></li>
 </ul>
 
-<p><code>SELECT * FROM database_table</code> is acceptable usage in testing or development but in production the query should be explicit.</p>
-
-<h3 id="insert">Insert</h3>
-
-<p>Used to insert new data be it single row, multiple rows, and default data into tables.</p>
-
-<pre><code class="language-SQL">INSERT INTO table1 (
+<p>INSERT INTO table1 (
  column1,
  column2 ,..)
 VALUES
  (
  value1,
- value2 ,...),
+ value2 ,&hellip;),
  (
  value1,
- value2 ,...),
-        ...
+ value2 ,&hellip;),
+        &hellip;
  (
  value1,
- value2 ,...);
+ value2 ,&hellip;);</p>
+
+<pre><code>
+The above example shows how to insert multiple rows into a table. 
+
 </code></pre>
 
-<p>The above example shows how to insert multiple rows into a table.</p>
-
-<pre><code class="language-SQL">INSERT INTO artists (name)
+<p>SQL
+INSERT INTO artists (name)
 VALUES
- (&quot;Buddy Rich&quot;),
- (&quot;Candido&quot;),
- (&quot;Charlie Byrd&quot;);
+ (&ldquo;Buddy Rich&rdquo;),
+ (&ldquo;Candido&rdquo;),
+ (&ldquo;Charlie Byrd&rdquo;);</p>
+
+<pre><code>
+ An example of how to insert into column ```name``` within table ```artists```.
+
+ Data can also be inserted via a SELECT statement.
+
+### Update
+
+Update already existing data in a table.
+
 </code></pre>
 
-<p>An example of how to insert into column <code>name</code> within table <code>artists</code>.</p>
-
-<p>Data can also be inserted via a SELECT statement.</p>
-
-<h3 id="update">Update</h3>
-
-<p>Update already existing data in a table.</p>
-
-<pre><code class="language-SQL">UPDATE table
+<p>SQL
+UPDATE table
 SET column_1 = new_value_1,
     column_2 = new_value_2
 WHERE
-    search_condition 
+    search_condition
 ORDER column_or_expression
-LIMIT row_count OFFSET offset;
+LIMIT row_count OFFSET offset;</p>
+
+<pre><code>
+the ```UPDATE``` clause informs SQL that some part of the table is going to be amended. the ```SET``` clause signifies and allows the updating of the column/s that precede it. On the left of the assignment operator (=) is the column to be updated and on the right the new value, expression or data. Whilst the ```WHERE``` operator is optional if it is omitted all rows will be updated.
+
+
+### Delete
+
+The delete statement allows for deletion of one, multiple or all rows within a table.
+
 </code></pre>
 
-<p>the <code>UPDATE</code> clause informs SQL that some part of the table is going to be amended. the <code>SET</code> clause signifies and allows the updating of the column/s that precede it. On the left of the assignment operator (=) is the column to be updated and on the right the new value, expression or data. Whilst the <code>WHERE</code> operator is optional if it is omitted all rows will be updated.</p>
-
-<h3 id="delete">Delete</h3>
-
-<p>The delete statement allows for deletion of one, multiple or all rows within a table.</p>
-
-<pre><code class="language-SQL">DELETE
+<p>SQL
+DELETE
 FROM
  table
 WHERE
- search_condition;
+ search_condition;</p>
+
+<pre><code>
+ Like updating a table, ```WHERE```, ```ORDER BY``` and ```LIMIT``` clauses can be applied to a delete operation. In addition deletes can be orchestrated through the ```SELECT``` operator.
+
+
+## JOINS
+
+### Inner Joins
+
+In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.
+
+`INNER JOIN` clause will combine columns from correlated tables.
+
+In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
+
+![Inner Join](/images/SQLite-Inner-Join-Example.png &quot;example of inner join&quot;)
+
+Fig 1.1 Inner Join
+
+`INNER JOIN` may connect more than two tables. This will require two inner join clauses form the `SELECT` statement. 
+
 </code></pre>
 
-<p>Like updating a table, <code>WHERE</code>, <code>ORDER BY</code> and <code>LIMIT</code> clauses can be applied to a delete operation. In addition deletes can be orchestrated through the <code>SELECT</code> operator.</p>
-
-<h2 id="joins">JOINS</h2>
-
-<h3 id="inner-joins">Inner Joins</h3>
-
-<p>In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.</p>
-
-<p><code>INNER JOIN</code> clause will combine columns from correlated tables.</p>
-
-<p>In fig 1.1 Table A&rsquo;s &lsquo;f&rsquo; column is compared with table B&rsquo;s &lsquo;f&rsquo; column. If the value of the &lsquo;f&rsquo; column in the A table equals that of B&rsquo;s &lsquo;f&rsquo; column it will return the match. More simply, <code>INNER JOIN</code> clauses return rows from table A that have corresponding rows in the B table.</p>
-
-<p><img src="https://danielms.site/images/SQLite-Inner-Join-Example.png" alt="Inner Join" title="example of inner join" /></p>
-
-<p>Fig 1.1 Inner Join</p>
-
-<p><code>INNER JOIN</code> may connect more than two tables. This will require two inner join clauses form the <code>SELECT</code> statement.</p>
-
-<pre><code class="language-SQL">SELECT
+<p>SQL
+SELECT
  trackid,
  tracks.name AS Track,
  albums.title AS Album,
@@ -321,29 +338,32 @@ WHERE
 FROM
  tracks
 INNER JOIN albums ON albums.albumid = tracks.albumid
-INNER JOIN artists ON artists.artistid = albums.artistid;
+INNER JOIN artists ON artists.artistid = albums.artistid;</p>
+
+<pre><code>
+Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
+
+![Inner Join Example](/images/SQLite-Inner-Join-3-tables.jpg &quot;result set of inner join on three tables.&quot;)
+
+Fig. 1.2 is the result set of the above query.
+
+### Full Outer Join
+
+**this command is not in SQLite3**
+
+Theoretically, the result of a Right Join and Left Join with `NULL` values for every column of the table that does not have a matching row.
+
+This is technically not available in SQLite3, however they do offer a workaround. 
+
+Given that SQLite3 does not have `RIGHT JOIN` or `FULL OUTER JOIN` it uses both `UNION` and `LEFT JOIN` to emulate it.
+
+It achieves this by switching the position of the `LEFT JOIN` clause over both columns. SQLite also uses `UNION ALL` to duplicate rows from the result set of both queries. Finally, the use of a `WHERE` clause will remove rows already included in the result set of the first `SELECT` statement. See the below code for an example.
+
 </code></pre>
 
-<p>Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite&rsquo;s website tutorial.)</p>
+<p>SQL</p>
 
-<p><img src="https://danielms.site/images/SQLite-Inner-Join-3-tables.jpg" alt="Inner Join Example" title="result set of inner join on three tables." /></p>
-
-<p>Fig. 1.2 is the result set of the above query.</p>
-
-<h3 id="full-outer-join">Full Outer Join</h3>
-
-<p><strong>this command is not in SQLite3</strong></p>
-
-<p>Theoretically, the result of a Right Join and Left Join with <code>NULL</code> values for every column of the table that does not have a matching row.</p>
-
-<p>This is technically not available in SQLite3, however they do offer a workaround.</p>
-
-<p>Given that SQLite3 does not have <code>RIGHT JOIN</code> or <code>FULL OUTER JOIN</code> it uses both <code>UNION</code> and <code>LEFT JOIN</code> to emulate it.</p>
-
-<p>It achieves this by switching the position of the <code>LEFT JOIN</code> clause over both columns. SQLite also uses <code>UNION ALL</code> to duplicate rows from the result set of both queries. Finally, the use of a <code>WHERE</code> clause will remove rows already included in the result set of the first <code>SELECT</code> statement. See the below code for an example.</p>
-
-<pre><code class="language-SQL">
-SELECT d.type,
+<p>SELECT d.type,
          d.color,
          c.type,
          c.color
@@ -357,7 +377,7 @@ SELECT d.type,
 FROM cats c
 LEFT JOIN dogs d USING(color)
 WHERE d.color IS NULL;
-</code></pre>
+```</p>
 
 <h2 id="terms-definitions">Terms/ Definitions</h2>
 

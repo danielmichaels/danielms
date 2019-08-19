@@ -4,32 +4,52 @@
   
   <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/curl/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/curl-emails-for-great-good/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/http/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://danielms.site/tags/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/web/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/web/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/http/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/http/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -38,27 +58,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/tags/security/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/web/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/web/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://danielms.site/categories/eli5/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -67,21 +73,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/eli5/</loc>
-    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://danielms.site/tags/dns/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/dns/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/dns/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -90,32 +88,28 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/networking/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/tags/networking/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/user-agents-101/</loc>
-    <lastmod>2019-05-15T00:00:00+00:00</lastmod>
+    <loc>https://danielms.site/categories/networking/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/eli5/</loc>
     <lastmod>2019-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/programming/</loc>
     <lastmod>2019-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/user-agents-101/</loc>
+    <lastmod>2019-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -126,7 +120,6 @@
   <url>
     <loc>https://danielms.site/categories/password/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -135,15 +128,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/python/</loc>
+    <loc>https://danielms.site/tags/python/</loc>
     <lastmod>2018-12-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/python/</loc>
+    <loc>https://danielms.site/categories/python/</loc>
     <lastmod>2018-12-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -154,13 +145,11 @@
   <url>
     <loc>https://danielms.site/categories/sql/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/sql/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -184,14 +173,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/public-key-crypto-the-basics/</loc>
+    <loc>https://danielms.site/tags/linux/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/linux/</loc>
+    <loc>https://danielms.site/blog/public-key-crypto-the-basics/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -202,7 +190,11 @@
   <url>
     <loc>https://danielms.site/categories/linux/</loc>
     <lastmod>2018-05-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/flask/</loc>
+    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -211,21 +203,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/flask/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/categories/webdev/</loc>
     <lastmod>2018-04-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/til/</loc>
     <lastmod>2018-04-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -241,7 +225,6 @@
   <url>
     <loc>https://danielms.site/tags/til/</loc>
     <lastmod>2018-03-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -250,14 +233,13 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/scapy-snippets/</loc>
+    <loc>https://danielms.site/tags/scapy/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/scapy/</loc>
+    <loc>https://danielms.site/blog/scapy-snippets/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -266,31 +248,28 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/ssh-in-a-nutshell/</loc>
-    <lastmod>2018-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/categories/administration/</loc>
     <lastmod>2018-01-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/ssh/</loc>
     <lastmod>2018-01-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/rsync-cheatsheet/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <loc>https://danielms.site/blog/ssh-in-a-nutshell/</loc>
+    <lastmod>2018-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/tags/rsync/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/rsync-cheatsheet/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

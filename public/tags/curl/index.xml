@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>web on Daniel Michaels | Developer | Technical Lead</title>
-    <link>https://danielms.site/categories/web/</link>
-    <description>Recent content in web on Daniel Michaels | Developer | Technical Lead</description>
+    <title>curl on Daniel Michaels | Developer | Technical Lead</title>
+    <link>https://danielms.site/tags/curl/</link>
+    <description>Recent content in curl on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://danielms.site/categories/web/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://danielms.site/tags/curl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>https://danielms.site/blog/curl-emails-for-great-good/</guid>
       <description>Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
 Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt  Let&amp;rsquo;s break down each component:</description>
-    </item>
-    
-    <item>
-      <title>HTTP Methods Primer</title>
-      <link>https://danielms.site/blog/http-basic-methods-and-verbs/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/http-basic-methods-and-verbs/</guid>
-      <description>HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:
- The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address.</description>
     </item>
     
   </channel>

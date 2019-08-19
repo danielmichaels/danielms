@@ -19,8 +19,8 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
  The verb - GET,PUT,DELETE,POST,TRACE,CONNECT,OPTIONS, or HEAD The requested URL, typically the name of the resource plus an optional query string." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/http-security-basics/" />
-<meta property="article:published_time" content="2019-07-06T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-07-06T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2019-07-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-06T00:00:00+00:00" />
 
 
 <title>
@@ -47,9 +47,9 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-07-16%2012%3a35%3a03.141436553%20%2b1000%20AEST%20m%3d%2b0.162577219">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-07-16%2012%3a35%3a03.141436553%20%2b1000%20AEST%20m%3d%2b0.162577219">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-07-16%2012%3a35%3a03.141436553%20%2b1000%20AEST%20m%3d%2b0.162577219">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-08-19%2014%3a11%3a28.556780642%20%2b1000%20AEST%20m%3d%2b0.058594177">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-08-19%2014%3a11%3a28.556780642%20%2b1000%20AEST%20m%3d%2b0.058594177">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-08-19%2014%3a11%3a28.556780642%20%2b1000%20AEST%20m%3d%2b0.058594177">
     
 
 
@@ -191,8 +191,8 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
 <ul>
 <li>The verb - <code>GET</code>,<code>PUT</code>,<code>DELETE</code>,<code>POST</code>,<code>TRACE</code>,<code>CONNECT</code>,<code>OPTIONS</code>, or <code>HEAD</code></li>
 <li>The requested URL, typically the name of the resource plus an optional query string. Query strings are noted by the <code>?</code> eg. <code>/auth/448/yourdetails.ashx?uid=345</code></li>
-<li>The HTTP version in use. Most common is 1.1 and will look like this <code>HTTP/1.1</code></li>
-</ul>
+
+<li><p>The HTTP version in use. Most common is 1.1 and will look like this <code>HTTP/1.1</code></p>
 
 <pre><code class="language-shell"># Example request
  
@@ -206,7 +206,8 @@ Referer: https://duckduckgo.com/
 DNT: 1
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="http-responses">HTTP Responses</h2>
 
@@ -225,8 +226,8 @@ Upgrade-Insecure-Requests: 1
 <li><code>Set-Cookie</code>: Will set a cookie for future use, and it will be submitted via the <code>Cookie</code> header in future requests.</li>
 <li><code>Pragma</code>: Can be used to instruct the browser not the store the response in its cache. Likewise the <code>Expires</code> header says when the is set to cache expire, and if expired it won&rsquo;t load from the cache.</li>
 <li><code>Content-Type</code>: Almost all responses will contain a message body after the headers (separated by a single blank line). The <code>Content-Type</code> header indicates what is in the message body.</li>
-<li><code>Content-Length</code>: The total size of the response in bytes.</li>
-</ul>
+
+<li><p><code>Content-Length</code>: The total size of the response in bytes.</p>
 
 <pre><code class="language-shell"># Example response
 
@@ -251,7 +252,8 @@ Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Transfer-Encoding: chunked
 Content-Type: text/html; charset=UTF-8
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="http-methods">HTTP Methods</h3>
 
