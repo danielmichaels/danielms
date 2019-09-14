@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ssh on Daniel Michaels | Developer | Technical Lead</title>
-    <link>https://danielms.site/tags/ssh/</link>
-    <description>Recent content in ssh on Daniel Michaels | Developer | Technical Lead</description>
+    <title>AWS on Daniel Michaels | Developer | Technical Lead</title>
+    <link>https://danielms.site/categories/aws/</link>
+    <description>Recent content in AWS on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://danielms.site/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://danielms.site/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,17 +19,6 @@
       <guid>https://danielms.site/blog/dropbear-aws-pem-keys/</guid>
       <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&amp;rsquo;s Dropbear SSH client isn&amp;rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&amp;rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
 Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.</description>
-    </item>
-    
-    <item>
-      <title>SSH in a nutshell</title>
-      <link>https://danielms.site/blog/ssh-in-a-nutshell/</link>
-      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/ssh-in-a-nutshell/</guid>
-      <description>SSH Definition Straight from the man pages:
-SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
-Setup (Old School Method) On a new machine we need to setup up ssh.</description>
     </item>
     
   </channel>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.">
+
+<meta property="og:title" content="Dropbear and AWS" />
+<meta property="og:description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/dropbear-aws-pem-keys/" />
+<meta property="article:published_time" content="2019-09-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-10T00:00:00+00:00" />
+
+
+<title>
+
+
+     Dropbear and AWS 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/dropbear-aws-pem-keys/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-09-14%2022%3a09%3a08.236427876%20%2b1000%20AEST%20m%3d%2b0.135414814">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-09-14%2022%3a09%3a08.236427876%20%2b1000%20AEST%20m%3d%2b0.135414814">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-09-14%2022%3a09%3a08.236427876%20%2b1000%20AEST%20m%3d%2b0.135414814">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+              <h3 class="self-intro">I forget things so I write them down.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:danielms@danielms.site"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Dropbear and AWS
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Sep 10 2019 00:00:00 UTC'>Sep 10, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="busybox-ssh-and-ec2">BusyBox, SSH and EC2</h1>
+
+<p><img src="https://danielms.site/images/bash-terminal.png" alt="terminal" title="terminal graphic" /></p>
+
+<p>Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, <code>.pem</code> files are not compatible with <code>dropbear</code>, nor can you convert them to dropbear&rsquo;s key format with the built-in <code>dropbearconvert</code>. Secondly, depending on your version of <code>openssh</code> it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.</p>
+
+<h2 id="dropbear-ssh">Dropbear SSH</h2>
+
+<p>Dropbear is a lightweight client and server application mostly seen on embedded devices. It is designed to replace OpenSSH in low memory footprint systems as it can be compiled down to <a href="https://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2004q3/000022.html">110kb</a>.
+It is compatible with <code>.ssh/authorized_keys</code>, however it does have limitations.</p>
+
+<h2 id="those-limitations">Those limitations</h2>
+
+<p>Amazon Web Services such as Elastic Cloud Compute hand out private keys for passwordless login. Unfortunately for dropbear users, the format is <code>.pem</code> which is incompatible. And, <code>dropbearconvert</code> - the program provided for turning <code>openssh</code> keys into <code>dropbear</code> keys - does not accept <code>.pem</code> files.</p>
+
+<p>Dropbear&rsquo;s conversion tool will also not accept private keys from <code>openssh</code>, as seen below.</p>
+
+<pre><code class="language-sh">-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAYEAtNY9pkKAhGYD/qDIThmRd7Y8kMo7QvbSQj+tv5huz4hTqdgALmxP
+....
+FBuu7Rt2qQdJPBAAAADGRhbmllbEBBbm9hdAECAwQFBg==
+-----END OPENSSH PRIVATE KEY-----
+</code></pre>
+
+<p>Instead, it must be an <code>rsa</code> key like so.</p>
+
+<pre><code class="language-sh">-----BEGIN RSA PRIVATE KEY-----
+VY2Q002wQjJzfA783q0wPwPgdQVNBj8timSYHTmZLlZ54pPtBLhMvZ4tJ/AeXxSm
+MIIEpQIBAAKCAQEA4N5r5Z+/rl2lmNdxsmcqyhfZ49m1g/5mIMSdPbTXgKcn2T3o
+...
+pEJt+8fBAoGBAM2KBHEA5RFnv812nGJG6f2scaMxufbQh5vtc0tf7DDAPqmHlnqr
+-----END RSA PRIVATE KEY-----
+</code></pre>
+
+<h2 id="the-workaround">The workaround</h2>
+
+<p>I found the most reliable means to gain access to EC2 from <code>dropbear</code> on <code>busybox</code> was to create the keys elsewhere and then move them to the device manually.</p>
+
+<h3 id="the-steps">The steps</h3>
+
+<h4 id="1-create-a-public-and-private-key-on-either-the-aws-ec2-instance-or-your-local-machine-with">1. Create a public and private key on either the AWS EC2 instance, or your local machine with:</h4>
+
+<ul>
+<li><code>ssh-keygen -m PEM -t rsa -b 4096 -f &lt;new_privkey&gt;</code></li>
+</ul>
+
+<h4 id="2-copy-the-private-key-to-busybox">2. Copy the <em>private</em> key to BusyBox:</h4>
+
+<ul>
+<li><code>scp &lt;priv_key_filename&gt; &lt;user&gt;@&lt;busybox&gt;:/&lt;user&gt;/.ssh/</code></li>
+</ul>
+
+<h4 id="3-copy-the-private-key-to-the-cloud-only-if-doing-these-steps-on-your-local-system">3. Copy the private key to the cloud - <em>only if doing these steps on your local system</em>:</h4>
+
+<ul>
+<li><code>scp -i &lt;aws-ec2-private-key&gt;.pem &lt;new_privkey&gt; ec2-user@&lt;ec2-dns-address&gt;:/home/&lt;ubuntu&gt;/.ssh/</code></li>
+</ul>
+
+<h4 id="4-on-the-system-you-are-running-these-steps-inside-ssh-authorized-hosts-append-the-public-key">4. On the system you are running these steps, inside <code>.ssh/authorized_hosts</code> append the public key:</h4>
+
+<p><strong>from local machine</strong>:</p>
+
+<ul>
+<li><code>cat &lt;new_pubkey&gt;.pub | ssh -i &lt;aws-ec2-private_key&gt; | &quot;cat &gt;&gt; /home/ubuntu/.ssh/authorized_keys&quot;</code></li>
+</ul>
+
+<p><strong>inside ec2</strong>:</p>
+
+<ul>
+<li><code>cat &lt;new_pubkey&gt;.pub &gt;&gt; .ssh/authorized_keys</code></li>
+</ul>
+
+<h4 id="5-this-will-convert-our-rsa-key-into-a-dropbear-compatible-key">5. This will convert our rsa key into a dropbear compatible key</h4>
+
+<ul>
+<li>Login to busybox</li>
+<li><code>dropbearconvert openssh dropbear &lt;new_privkey&gt; &lt;new_privkey_dropbear_compat&gt;</code></li>
+</ul>
+
+<h4 id="6-login-in-to-aws">6. Login in to AWS</h4>
+
+<ul>
+<li><code>ssh -i &lt;new_privkey_dropbear_compat&gt; &lt;ec2-user&gt;@&lt;ec2-dns-address&gt;</code></li>
+<li>profit</li>
+</ul>
+
+<h2 id="get-to-work">Get to work</h2>
+
+<p>We can now access our AWS server from our <code>busybox</code> device. From here we can do whatever we need to do such as establish a reverse tunnel for administration 😉</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/ssh">ssh</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
