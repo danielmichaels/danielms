@@ -6,7 +6,6 @@ slug = "rsync-cheatsheet"
 title = "Rsync cheatsheet"
 +++
 
-
 This is a short primer on the most simple of rsync's capabilities.
 
 Rsync is a fast and extraordinarily versatile file copying tool. It uses
@@ -27,7 +26,7 @@ sustain symbolic links, special and device files, modification times,
 group, owner and permissions.
 
 `--dry-run` or `-n` As a sanity check it is
-worth checking that your command is going to do what you *think* it is
+worth checking that your command is going to do what you _think_ it is
 going to do. The dry run will not execute the command. It can (read:
 should) be coupled with the next command.
 
@@ -52,6 +51,8 @@ or directories from being synced.
 the exclusion we can explicitly include certain file, folders or
 patterns that fall inside the broader exclude.
 
+`-H`: Preserves hard links - very useful for back ups and snap shots as files that don't change are often hard linked to the original file.
+
 example:
 
     rsync -azvnP source_dir/ destination_dir/
@@ -60,22 +61,29 @@ example:
 
 Syncing can be either a "pull" or "push".
 
+_In this example we are_ copying the directory, not just its contents and sending it from the local system to a remote system.
+
+To copy the entire folder and not just the files within, we must **omit** the trailing slash.
+
 The "push":
 
     rsync -a ~/local_source_dir username@remote_host:/home/username/destination_dir
 
-*In this example weare*\* copying the directory, not just its contents
-so we omit the trailing slash.\* Here we are sending data from the
-source to the destination.
+Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the _entire_ directory so there's no trailing slash.
 
 The "pull":
 
     rsync -a username@remote_host:/home/username/destination_dir local_source_dir
 
-This pull operation is syncing the remote directory with the local
-system. We might use this to backup a small database file for instance.
-
 ### SSH
 
 Syncing between systems if made much easier if key based authentication
 is enabled. If not, the user will be prompted with a password.
+
+To use `rsync` over a `ssh` connection we need to specify the protocol `rsync` needs to use.
+
+`rsync -aznvPH -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/`
+
+The `-e` flag above, tells `rsync` to use a command, or in this case, another protocol to tunnel over.
+
+We wrap the `-e` flag command in quotations to encapsulate our private key - this is particularly useful when accessing AWS. Any `.ssh/config` settings are also respected by `rsync` making commonly accessed systems far easier to use.
