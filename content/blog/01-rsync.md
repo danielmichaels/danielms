@@ -44,6 +44,32 @@ compression option to save on bandwidth.
 
 `-P`: Outputs a progress bar to the terminal.
 
+`-H`: Preserves hard links - very useful for back ups and snap shots as files that don't change are often hard linked to the original file.
+
+`--stats`: will output a summary of what was sent. Use `--stats -h` to get a human readable output as seen below.
+
+```sh
+# rsync with --stats -h
+sending incremental file list
+
+Number of files: 2,265 (reg: 2,264, dir: 1)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 100.20M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 65.50K
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 108.52K
+Total bytes received: 17
+
+sent 108.52K bytes  received 17 bytes  19.73K bytes/sec
+total size is 100.20M  speedup is 923.17
+```
+
 `--exclude=important_file.txt`: Can be used to omit files
 or directories from being synced.
 
@@ -51,7 +77,6 @@ or directories from being synced.
 the exclusion we can explicitly include certain file, folders or
 patterns that fall inside the broader exclude.
 
-`-H`: Preserves hard links - very useful for back ups and snap shots as files that don't change are often hard linked to the original file.
 
 example:
 
