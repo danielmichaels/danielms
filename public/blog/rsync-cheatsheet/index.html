@@ -47,9 +47,9 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-09-18%2020%3a54%3a53.821909577%20%2b1000%20AEST%20m%3d%2b0.210841445">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-09-18%2020%3a54%3a53.821909577%20%2b1000%20AEST%20m%3d%2b0.210841445">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-09-18%2020%3a54%3a53.821909577%20%2b1000%20AEST%20m%3d%2b0.210841445">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-08%2014%3a48%3a35.062912904%20%2b1100%20AEDT%20m%3d%2b0.182796850">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-08%2014%3a48%3a35.062912904%20%2b1100%20AEDT%20m%3d%2b0.182796850">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-08%2014%3a48%3a35.062912904%20%2b1100%20AEDT%20m%3d%2b0.182796850">
     
 
 
@@ -171,7 +171,7 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
                     <div class="date" title='Wed Jan 24 2018 00:00:00 UTC'>Jan 24, 2018</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
                     
                 </div>
             </div>
@@ -216,6 +216,31 @@ compression option to save on bandwidth.</p>
 
 <p><code>-P</code>: Outputs a progress bar to the terminal.</p>
 
+<p><code>-H</code>: Preserves hard links - very useful for back ups and snap shots as files that don&rsquo;t change are often hard linked to the original file.</p>
+
+<p><code>--stats</code>: will output a summary of what was sent. Use <code>--stats -h</code> to get a human readable output as seen below.</p>
+
+<pre><code class="language-sh"># rsync with --stats -h
+sending incremental file list
+
+Number of files: 2,265 (reg: 2,264, dir: 1)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 100.20M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 65.50K
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 108.52K
+Total bytes received: 17
+
+sent 108.52K bytes  received 17 bytes  19.73K bytes/sec
+total size is 100.20M  speedup is 923.17
+</code></pre>
+
 <p><code>--exclude=important_file.txt</code>: Can be used to omit files
 or directories from being synced.</p>
 
@@ -232,27 +257,34 @@ patterns that fall inside the broader exclude.</p>
 
 <p>Syncing can be either a &ldquo;pull&rdquo; or &ldquo;push&rdquo;.</p>
 
+<p><em>In this example we are</em> copying the directory, not just its contents and sending it from the local system to a remote system.</p>
+
+<p>To copy the entire folder and not just the files within, we must <strong>omit</strong> the trailing slash.</p>
+
 <p>The &ldquo;push&rdquo;:</p>
 
 <pre><code>rsync -a ~/local_source_dir username@remote_host:/home/username/destination_dir
 </code></pre>
 
-<p><em>In this example weare</em>* copying the directory, not just its contents
-so we omit the trailing slash.* Here we are sending data from the
-source to the destination.</p>
+<p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there&rsquo;s no trailing slash.</p>
 
 <p>The &ldquo;pull&rdquo;:</p>
 
 <pre><code>rsync -a username@remote_host:/home/username/destination_dir local_source_dir
 </code></pre>
 
-<p>This pull operation is syncing the remote directory with the local
-system. We might use this to backup a small database file for instance.</p>
-
 <h3 id="ssh">SSH</h3>
 
 <p>Syncing between systems if made much easier if key based authentication
 is enabled. If not, the user will be prompted with a password.</p>
+
+<p>To use <code>rsync</code> over a <code>ssh</code> connection we need to specify the protocol <code>rsync</code> needs to use.</p>
+
+<p><code>rsync -aznvPH -e &quot;ssh -i ~/ec2_keyfile.pem&quot; user@remote:/home/folder /tmp/local_system/</code></p>
+
+<p>The <code>-e</code> flag above, tells <code>rsync</code> to use a command, or in this case, another protocol to tunnel over.</p>
+
+<p>We wrap the <code>-e</code> flag command in quotations to encapsulate our private key - this is particularly useful when accessing AWS. Any <code>.ssh/config</code> settings are also respected by <code>rsync</code> making commonly accessed systems far easier to use.</p>
 
                 <br>
                 
@@ -281,7 +313,7 @@ is enabled. If not, the user will be prompted with a password.</p>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-123-45', 'auto');
+	ga('create', 'UA-149607103-1', 'auto');
 	
 	ga('send', 'pageview');
 }

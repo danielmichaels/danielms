@@ -11,7 +11,7 @@ title               = "Daniel Michaels | Developer | Technical Lead"
 pygmentsuseclasses  = true
 #disqusshortname     = "cocoaexamplesite" # Comment out to disable Disqus.
 pluralizelisttitles = false
-googleAnalytics     = "UA-123-45"
+googleAnalytics     = "UA-149607103-1"
 
 [permalinks]
 blog  = "blog/:slug/"
