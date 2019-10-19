@@ -6,10 +6,21 @@
     <description>Recent content in Blog on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Defending your apps</title>
+      <link>https://danielms.site/blog/defence-mechanisms-for-web-apps/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/defence-mechanisms-for-web-apps/</guid>
+      <description>Web Application Defence Mechanisms  one rule; do not trust user input.
+ Core defences The methods by which we can defend against attackers.
+ Handling user access Handling user input Handling attacks or ensuring that the application works as intended when being directly targeted, and Handling the application itself so everything can be monitored, and configured correctly  User Access In most applications that have users, there will be several privileges or roles within the user space.</description>
+    </item>
     
     <item>
       <title>Dropbear and AWS</title>

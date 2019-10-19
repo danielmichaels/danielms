@@ -3,22 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://danielms.site/categories/aws/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/defence-mechanisms-for-web-apps/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/security/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/web/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/web/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/aws/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,27 +63,12 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/tags/curl/</loc>
     <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/blog/curl-emails-for-great-good/</loc>
-    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/web/</loc>
-    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/web/</loc>
     <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,11 +88,6 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/security/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/categories/eli5/</loc>
     <lastmod>2019-07-06T00:00:00+00:00</lastmod>
   </url>
@@ -93,12 +98,12 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/categories/dns/</loc>
+    <loc>https://danielms.site/tags/dns/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/dns/</loc>
+    <loc>https://danielms.site/categories/dns/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -285,6 +290,56 @@
   <url>
     <loc>https://danielms.site/blog/rsync-cheatsheet/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5C13102019-core-defence-mechanisms/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5C13122019-mapping-the-application/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5C14112019-attacking-auth/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5C18112019-bypass-client-side-controls/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5C23102019-attacking-sessions/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5Cwahh-2/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5Cwahh-4/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5Cwahh-5/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5Cwahh-6/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog%5Cwahh-7/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

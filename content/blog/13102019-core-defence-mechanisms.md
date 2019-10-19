@@ -3,7 +3,7 @@ title = "Defending your apps"
 categories = ["web"]
 tags = ["web", "security"]
 slug = "defence-mechanisms-for-web-apps"
-date = "2019-10-13"
+date = "2019-10-19"
 draft = "false"
 +++
 
