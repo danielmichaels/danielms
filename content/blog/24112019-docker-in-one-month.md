@@ -4,7 +4,7 @@ categories = ["docker", "development"]
 tags = ["docker"]
 slug = "learn-docker-in-one-month"
 date = "2019-11-24"
-draft = "false"
+draft = "true"
 +++
 
 # Learning Docker in one month
