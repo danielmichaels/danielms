@@ -47,9 +47,9 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.969361094%20%2b1100%20AEDT%20m%3d%2b0.050370484">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.969361094%20%2b1100%20AEDT%20m%3d%2b0.050370484">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.969361094%20%2b1100%20AEDT%20m%3d%2b0.050370484">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
     
 
 
@@ -132,8 +132,6 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -176,154 +174,104 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="http-basics">HTTP Basics</h1>
-
-<p><img src="https://danielms.site/images/httpie.png" alt="" title="http put image output" /></p>
-
+                <h1 id="http-basics">HTTP Basics</h1>
+<p><img src="https://danielms.site/images/httpie.png" alt="" title="http put image output"></p>
 <p>HTTP is an application level message based model where the client sends a request and the server returns a response. HTTP uses a stateful protocol - TCP - but is <em>stateless</em>, where each request is connectionless avoiding the need for servers to hold an open connection.</p>
-
 <h2 id="http-requests">HTTP Requests</h2>
-
 <p>The first line of every HTTP request has three (3) items, separated by spaces:</p>
-
 <ul>
 <li>The verb - <code>GET</code>,<code>PUT</code>,<code>DELETE</code>,<code>POST</code>,<code>TRACE</code>,<code>CONNECT</code>,<code>OPTIONS</code>, or <code>HEAD</code></li>
 <li>The requested URL, typically the name of the resource plus an optional query string. Query strings are noted by the <code>?</code> eg. <code>/auth/448/yourdetails.ashx?uid=345</code></li>
-
-<li><p>The HTTP version in use. Most common is 1.1 and will look like this <code>HTTP/1.1</code></p>
-
-<pre><code class="language-shell"># Example request
+<li>The HTTP version in use. Most common is 1.1 and will look like this <code>HTTP/1.1</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example request</span>
  
 GET /Protocols/rfc2616/rfc2616-sec5.html HTTP/1.1
 Host: www.w3.org
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
+User-Agent: Mozilla/5.0 <span class="o">(</span>X11<span class="p">;</span> Linux x86_64<span class="p">;</span> rv:60.0<span class="o">)</span> Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml<span class="p">;</span><span class="nv">q</span><span class="o">=</span>0.9,*/*<span class="p">;</span><span class="nv">q</span><span class="o">=</span>0.8
+Accept-Language: en-US,en<span class="p">;</span><span class="nv">q</span><span class="o">=</span>0.5
 Accept-Encoding: gzip, deflate, br
 Referer: https://duckduckgo.com/
-DNT: 1
+DNT: <span class="m">1</span>
 Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-</code></pre></li>
-</ul>
-
-<h2 id="http-responses">HTTP Responses</h2>
-
+Upgrade-Insecure-Requests: <span class="m">1</span>
+</code></pre></div><h2 id="http-responses">HTTP Responses</h2>
 <p>Like the request, each responses first line will return three items:</p>
-
 <ul>
 <li>The HTTP version in use,</li>
 <li>The status code - <code>200</code>, <code>302</code> and <code>404</code> being most common,</li>
 <li>The response &ldquo;phrase&rdquo; that further describes the status of the response - legacy and not required by browsers.</li>
 </ul>
-
 <p>Responses can contain many more items after the first line, such as:</p>
-
 <ul>
 <li><code>Server</code>: This may contain information about the server such as what engine it is running or modules installed. It may or may not be correct.</li>
 <li><code>Set-Cookie</code>: Will set a cookie for future use, and it will be submitted via the <code>Cookie</code> header in future requests.</li>
-<li><code>Pragma</code>: Can be used to instruct the browser not the store the response in its cache. Likewise the <code>Expires</code> header says when the is set to cache expire, and if expired it won&rsquo;t load from the cache.</li>
+<li><code>Pragma</code>: Can be used to instruct the browser not the store the response in its cache. Likewise the <code>Expires</code> header says when the is set to cache expire, and if expired it won't load from the cache.</li>
 <li><code>Content-Type</code>: Almost all responses will contain a message body after the headers (separated by a single blank line). The <code>Content-Type</code> header indicates what is in the message body.</li>
+<li><code>Content-Length</code>: The total size of the response in bytes.</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example response</span>
 
-<li><p><code>Content-Length</code>: The total size of the response in bytes.</p>
-
-<pre><code class="language-shell"># Example response
-
-HTTP/1.1 200 OK
-Date: Mon, 18 Jun 2018 04:29:32 GMT
-Server: Apache/2.2.22 (Debian)
+HTTP/1.1 <span class="m">200</span> OK
+Date: Mon, <span class="m">18</span> Jun <span class="m">2018</span> 04:29:32 GMT
+Server: Apache/2.2.22 <span class="o">(</span>Debian<span class="o">)</span>
 Content-Location: rfc7230.html
 Vary: negotiate,Accept-Encoding
 TCN: choice
-Last-Modified: Sun, 17 Jun 2018 07:19:43 GMT
-ETag: &quot;3c9fe1-417e4-56ed145dec1c0;56ee301a89430&quot;
+Last-Modified: Sun, <span class="m">17</span> Jun <span class="m">2018</span> 07:19:43 GMT
+ETag: <span class="s2">&#34;3c9fe1-417e4-56ed145dec1c0;56ee301a89430&#34;</span>
 Accept-Ranges: bytes
-Cache-Control: max-age=604800
-Expires: Mon, 25 Jun 2018 04:29:32 GMT
+Cache-Control: max-age<span class="o">=</span><span class="m">604800</span>
+Expires: Mon, <span class="m">25</span> Jun <span class="m">2018</span> 04:29:32 GMT
 Content-Encoding: gzip
-Strict-Transport-Security: max-age=3600
+Strict-Transport-Security: max-age<span class="o">=</span><span class="m">3600</span>
 X-Frame-Options: SAMEORIGIN
-X-Xss-Protection: 1; mode=block
+X-Xss-Protection: 1<span class="p">;</span> <span class="nv">mode</span><span class="o">=</span>block
 X-Content-Type-Options: nosniff
 X-Clacks-Overhead: GNU Terry Pratchett
-Keep-Alive: timeout=5, max=100
+Keep-Alive: <span class="nv">timeout</span><span class="o">=</span>5, <span class="nv">max</span><span class="o">=</span><span class="m">100</span>
 Connection: Keep-Alive
 Transfer-Encoding: chunked
-Content-Type: text/html; charset=UTF-8
-</code></pre></li>
-</ul>
-
-<h3 id="http-methods">HTTP Methods</h3>
-
+Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+</code></pre></div><h3 id="http-methods">HTTP Methods</h3>
 <h4 id="get">GET</h4>
-
 <p>The most common method. When clicking on a hyperlink, you are likely sending a <code>GET</code> request. <code>GET</code> requests can also be used to send information via a URL query string such as <code>?</code>.</p>
-
-<pre><code class="language-shell">http://example.com/over/there?name=ferret
-</code></pre>
-
-<p>URL&rsquo;s are displayed on screen and also logged in places such as browser history and web access logs. They are also transmitted via the <code>Referrer</code> header when clicking on an link that takes you an external resource. In such an example sensitive information in a query string would be logged in an external servers logs. Further, these strings (if unencrypted, or SSLstripped) could be sniffed by a malicious actor. Never use <code>GET</code> requests for transmission of sensitive data.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">http://example.com/over/there?name<span class="o">=</span>ferret
+</code></pre></div><p>URL's are displayed on screen and also logged in places such as browser history and web access logs. They are also transmitted via the <code>Referrer</code> header when clicking on an link that takes you an external resource. In such an example sensitive information in a query string would be logged in an external servers logs. Further, these strings (if unencrypted, or SSLstripped) could be sniffed by a malicious actor. Never use <code>GET</code> requests for transmission of sensitive data.</p>
 <h4 id="post">POST</h4>
-
 <p><code>POST</code> is used to submit data to a resource. A <code>POST</code> can submit this information via the URL query string, or via the message body (preferred method, imo). If the <code>POST</code> is coupled with URL query strings, any bookmarking would remove the query from the URL, in an attempt to provide security. Using this method also ensures that only one request is sent with that information at a time. That is, if a user submits a <code>POST</code> request and then hits the &lsquo;back&rsquo; button, they will likely see a prompt stating something along the lines of &lsquo;having to resubmit&rsquo;. This ensures that the user can only submit the <code>POST</code> once per action, as the browser will not automatically reissue the request - unlike a <code>GET</code>.</p>
-
 <h4 id="head">HEAD</h4>
-
 <p>This functions in the same manner as a <code>GET</code> except it only returns the header information.</p>
-
 <h4 id="trace">TRACE</h4>
-
 <p>Used for diagnostic purposes only. The server should return in the response body the exact contents that it received. Often used to diagnose issues and check if proxies are working correctly/ intercepting data unexpectedly. Commonly disallowed option returning <code>405 Method Not Allowed</code></p>
-
 <h4 id="options">OPTIONS</h4>
-
 <p>Returns what HTTP methods are available for a particular resource.</p>
-
 <h4 id="put">PUT</h4>
-
-<p>Allows uploading of resources to the server. Used by API&rsquo;s to update existing records or data.  Can provide the attacker with an avenue to upload malicious scripts to the server for execution.</p>
-
+<p>Allows uploading of resources to the server. Used by API's to update existing records or data.  Can provide the attacker with an avenue to upload malicious scripts to the server for execution.</p>
 <h2 id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h2>
+<p>URL's are unique identifiers for web resources.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example URI specification from RFC 3986</span>
 
-<p>URL&rsquo;s are unique identifiers for web resources.</p>
-
-<pre><code class="language-shell"># Example URI specification from RFC 3986
-
-         foo://example.com:8042/over/there?name=ferret#nose
-         \_/   \______________/\_________/ \_________/ \__/
-          |           |            |            |        |
+         foo://example.com:8042/over/there?name<span class="o">=</span>ferret#nose
+         <span class="se">\_</span>/   <span class="se">\_</span>_____________/<span class="se">\_</span>________/ <span class="se">\_</span>________/ <span class="se">\_</span>_/
+          <span class="p">|</span>           <span class="p">|</span>            <span class="p">|</span>            <span class="p">|</span>        <span class="p">|</span>
        scheme     authority       path        query   fragment
-          |   _____________________|__
-         / \ /                        \
-         urn:example:animal:ferret:nose
-</code></pre>
-
-<p>Within the <code>authority</code> a port number is delimited by <code>:</code>, this is optional and generally only included if not default for the protocol in use.</p>
-
+          <span class="p">|</span>   _____________________<span class="p">|</span>__
+         / <span class="se">\ </span>/                        <span class="se">\
+</span><span class="se"></span>         urn:example:animal:ferret:nose
+</code></pre></div><p>Within the <code>authority</code> a port number is delimited by <code>:</code>, this is optional and generally only included if not default for the protocol in use.</p>
 <h3 id="rest">REST</h3>
-
 <p>Representational State Transfer (ReST) is a style of architecture for distributed systems in which requests and responses contain representations of the current state of the systems resources.
 What is means is that RESTful applications will have their parameters within the path, rather than in the query string.</p>
-
 <p><strong>Non-RESTful</strong></p>
-
 <p><code>https://example.com/search?manuf=samsung&amp;model=galaxy</code></p>
-
 <p><strong>RESTful</strong></p>
-
 <p><code>https://example.com/search/samsung/galaxy</code></p>
-
 <p>See <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">here</a> for more information.</p>
-
 <h3 id="http-headers">HTTP Headers</h3>
-
 <p>Some interesting and important headers:</p>
-
 <p><strong>General Headers</strong></p>
-
 <ul>
 <li><code>Connection</code>: Lets the other end know whether to shutdown communication or keep it open for future messages. Defaults to <code>keep-alive</code> in HTTP/1.1 but <em>must not</em> be used in HTTP/2 as header metadata is handled differently due to HPACK.</li>
 <li><code>Content-Encoding</code>: Specifies what encoding is used. <code>gzip</code> being very common as it compresses the data for faster transmission.</li>
@@ -331,9 +279,7 @@ What is means is that RESTful applications will have their parameters within the
 <li><code>Content-Type</code>: What type of contents are in the message body such as <code>text/html</code>, or <code>application/json</code>. Very important during <code>POST</code> requests in determining the type of data that will be sent in the body, and how the server should expect to parse it. One type is <code>multipart/form-data</code> which will set a <code>boundary=</code> string, allowing the server to accept each field as a new <em>part</em> and separate them according to the boundary defined in the <code>Content-Type</code>. Another method is the <code>application/x-www-form-urlencode</code> type which will place the data from the form into the body of the message, rather than in the query string.</li>
 <li><code>Transfer-Encoding</code>: If any encoding has been done on the message body, typically seen when chunking has been performed.</li>
 </ul>
-
 <p><strong>Request Headers</strong></p>
-
 <ul>
 <li><code>Accept</code>: Tells the server what kind of content the client is willing to accept, such as image types etc.</li>
 <li><code>Accept-Encoding</code>: What encoding types the server will accept.</li>
@@ -345,9 +291,7 @@ What is means is that RESTful applications will have their parameters within the
 <li><code>Referer</code>: From which URL this request has originated.</li>
 <li><code>User-Agent</code>: Information about the browser or application making this request.</li>
 </ul>
-
 <p><strong>Response Headers</strong></p>
-
 <ul>
 <li><code>Access-Control-Allow-Origin</code>: Whether this resource can be retrieved via a cross-domain request.</li>
 <li><code>Cache-Control</code>: Passes caching directives to the browser.</li>
@@ -355,38 +299,27 @@ What is means is that RESTful applications will have their parameters within the
 <li><code>Expires</code>: How long the contents of the message body are valid for. Cached copies may be used until this time.</li>
 <li><code>Location</code>: Used in redirect responses (3XX) to specify the target of the redirect.</li>
 <li><code>Pragma</code>: Passes caching directives to the browser.</li>
-<li><code>Server</code>: Information about the server&rsquo;s software.</li>
+<li><code>Server</code>: Information about the server's software.</li>
 <li><code>Set-Cookie</code>: Issues cookies to the browser which it will send back to the server in subsequent requests.</li>
 <li><code>WWW-Authenticate</code>: Provides details on types of authentication that server supports after 401 status code.</li>
 <li><code>X-Frame-Options</code>: Whether responses can be loaded within browsers frame and how to do it.</li>
 </ul>
-
 <h3 id="cookies">Cookies</h3>
-
-<p><img src="https://danielms.site/images/cookies.png" alt="" title="cookie output request headers" /></p>
-
+<p><img src="https://danielms.site/images/cookies.png" alt="" title="cookie output request headers"></p>
 <p>Many web applications rely on cookies as allow servers to send data to the client, and then have the client return that data in its transmissions within the server. Since HTTP is stateless, cookies allow functionality to persist over time. Login data, shopping carts and site settings all rely on cookies for a better user experience.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example of setting a cookie</span>
 
-<pre><code class="language-shell"># Example of setting a cookie
-
-Cookie: tracking=dw34tad23590ddfsawWcsTs
-</code></pre>
-
-<p>Cookies are usually made up of a key value pair but may consist of any string that does not contain a space. A server can send more than one <code>Set-Cookie</code> per response by using a semi-colon to separate the cookies.</p>
-
+Cookie: <span class="nv">tracking</span><span class="o">=</span>dw34tad23590ddfsawWcsTs
+</code></pre></div><p>Cookies are usually made up of a key value pair but may consist of any string that does not contain a space. A server can send more than one <code>Set-Cookie</code> per response by using a semi-colon to separate the cookies.</p>
 <p><code>Set-Cookie</code> can also include optional attributes such as:</p>
-
 <ul>
 <li><code>expires</code>: The date at which the cookie will become invalid. This means that cookies are stored by the browser on disk and may be reused repeatedly until that date. If no expires is set, it will only remain valid for the current browser session.</li>
 <li><code>domain</code>: Which domain the cookie is valid for.</li>
 <li><code>secure</code>: Whether that cookie must be sent via HTTPS or not.</li>
 <li><code>HttpOnly</code>: if this is it set, it prevents javascript from accessing it.</li>
 </ul>
-
 <h3 id="status-codes">Status Codes</h3>
-
 <p>Five (5) groupings:</p>
-
 <ul>
 <li><code>1xx</code> - Informational.</li>
 <li><code>2xx</code> - Request successful.</li>
@@ -394,9 +327,7 @@ Cookie: tracking=dw34tad23590ddfsawWcsTs
 <li><code>4xx</code> - Request error of some type.</li>
 <li><code>5xx</code>- Server error of some type.</li>
 </ul>
-
 <p>The most common status codes are:</p>
-
 <ul>
 <li><code>100 continue</code>: Sometimes sent when a server receives a request containing a body. It means that the headers were received and the client should continue sending the message. Once all is received a further response will be sent.</li>
 <li><code>200 OK</code>: Successfully received.</li>
@@ -414,77 +345,48 @@ Cookie: tracking=dw34tad23590ddfsawWcsTs
 <li><code>500 Internal Server Error</code>: The server hit some error processing your request. A good hint that you are trying to exploit something it is not configured to handle properly. Always try and identify the nature of this error.</li>
 <li><code>503 Service Unavailable</code>: An indication that the server is responding but the application is not.</li>
 </ul>
-
 <h3 id="state-and-sessions">State and Sessions</h3>
-
 <p>Although HTTP is stateless there is a requirement for the client and server to process long running requests. An example of this is a sites Shopping Cart. A user can browse and add items to their cart whilst making several requests over a period of time. To make this possible the server maintains a User Session, which allows it to track the users actions across the site.</p>
-
 <p>In some cases, state information is stored on the client side. Instead of the server storing the session, now the data is sent to the client in each server response and the client will send it back in each request. It is important that the server does not trust the client, as it may alter the session information for nefarious reasons. One mitigation is using a hash of the state, which the server validates before accepting the clients session data.</p>
-
 <p>Given the stateless nature of HTTP, applications need a method in which to re-identify clients. Typically, this is achieved through the use of tokens - a unique identifier for each user such as cookie.</p>
-
 <h3 id="encoding-schemes">Encoding Schemes</h3>
-
 <p>HTTP has several encoding schemes to ensure the safe delivery of data. The following is some of the most common.</p>
-
 <h4 id="url-encoding">URL Encoding</h4>
-
-<p>URL&rsquo;s can only contain characters from the US-ASCII set; 0x20 through to 0x7e. Several characters within this set are restricted as they have special meaning in the scheme or HTTP.
+<p>URL's can only contain characters from the US-ASCII set; 0x20 through to 0x7e. Several characters within this set are restricted as they have special meaning in the scheme or HTTP.
 All URL encoded characters are prefixed by <code>%</code> followed by their hexadecimal representation of the ASCII character.</p>
-
 <p>Examples:</p>
-
 <ul>
-<li><code>%3d</code> &mdash; =</li>
-<li><code>%25</code> &mdash; %</li>
-<li><code>%0a</code> &mdash; New Line (\n)</li>
-<li><code>%00</code> &mdash; Null Byte</li>
+<li><code>%3d</code> — =</li>
+<li><code>%25</code> — %</li>
+<li><code>%0a</code> — New Line (\n)</li>
+<li><code>%00</code> — Null Byte</li>
 </ul>
-
 <p><strong>note</strong>: <code>+</code> represents the &lsquo;space&rsquo; in a URL.</p>
-
 <h4 id="unicode-encoding">Unicode Encoding</h4>
-
 <p>Unicode is the system that allows us to use many different character sets. For English speakers, <code>utf-8</code> will be the most common, but many more exists.
 Encoding 16-bit unicode in a URL requires the prefix <code>%u</code> followed by the hexadecimal.</p>
-
 <p>Example unicode</p>
-
 <ul>
-<li><code>%u2215</code> &mdash; /</li>
-<li><code>u00e9</code> &mdash; é</li>
+<li><code>%u2215</code> — /</li>
+<li><code>u00e9</code> — é</li>
 </ul>
-
 <p>UTF-8 is a variable length encoding that uses one or more bytes for each character. To send this using URL encoding, each byte is delimited by a <code>%</code>.</p>
-
 <p>For instance:</p>
-
 <ul>
-<li><code>%c2%a9</code> &mdash; ©</li>
-<li><code>%e2%89%a0</code> &mdash; ≠</li>
+<li><code>%c2%a9</code> — ©</li>
+<li><code>%e2%89%a0</code> — ≠</li>
 </ul>
-
 <p>Unicode is an important part of attacking web applications as it can defeat input validation schemes.</p>
-
 <h4 id="html-encoding">HTML Encoding</h4>
-
 <p>Safe incorporation of HTML within web applications is important. Several HTML characters have special meaning and must be encoded correctly.
 When attacking an application, HTML encoding will be most evident when probing for XSS vulnerabilities. If an application returns user input unmodified, it is likely vulnerable.</p>
-
 <h4 id="base64">Base64</h4>
-
 <p>Base64 allows any binary data to be represented as using only ASCII characters. It permits the sending of ASCII strings over the wire for safe reassembly on the other side in the original format. It is also used heavily in basic HTTP user authentication.</p>
-
 <p>Base64 splits the bytes into 6bit streams, allowing for 64 possible permutations - each chunk of 6 bits allows for 64 possible characters. It allows only the following characters:</p>
-
 <p><code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+</code></p>
-
-<p>If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by <code>=</code> or <code>==</code> which says that their may be one or two trailing blocks of zero&rsquo;s.</p>
-
+<p>If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by <code>=</code> or <code>==</code> which says that their may be one or two trailing blocks of zero's.</p>
 <p>Base64 is prevalent across the web and is often used to transmit binary data within cookies and other parameters. It is often used to obfuscate data in transit through security by obscurity. Always decode any intercepted Base64 data, it could be a goldmine. Base64 can often be identified quickly by the <code>=</code> trail, or if it is JSON it will start with <code>ey</code> which represents <code>{</code>.</p>
-
 <h2 id="fin">Fin</h2>
-
 <p>HTTP is an important protocol not just for security and network engineers but for developers too. Having a cursory understanding aides every one who uses the web. Next time you look at the network tab in your browsers developer tools be sure to look at the headers, you might notice something worth exploring.</p>
 
                 <br>

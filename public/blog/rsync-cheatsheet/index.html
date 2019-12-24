@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
+<meta name="description" content="This is a short primer on the most simple of rsync&#39;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive.">
 
 <meta property="og:title" content="Rsync cheatsheet" />
-<meta property="og:description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
+<meta property="og:description" content="This is a short primer on the most simple of rsync&#39;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive." />
 <meta property="og:type" content="article" />
@@ -47,9 +47,9 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.977901465%20%2b1100%20AEDT%20m%3d%2b0.058910838">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.977901465%20%2b1100%20AEDT%20m%3d%2b0.058910838">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.977901465%20%2b1100%20AEDT%20m%3d%2b0.058910838">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
     
 
 
@@ -132,8 +132,6 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -176,114 +174,80 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p>This is a short primer on the most simple of rsync&rsquo;s capabilities.</p>
-
+                <p>This is a short primer on the most simple of rsync's capabilities.</p>
 <p>Rsync is a fast and extraordinarily versatile file copying tool. It uses
 a delta transfer algorithm, which reduces the amount of data sent over
 the network by sending only the differences between the source and
 destination files. It can contact remote systems via SSH or through a
 rsync daemon over TCP.</p>
-
 <h3 id="basic-syntax">Basic Syntax</h3>
-
 <p><code>-r</code>: The &lsquo;r&rsquo; flag denotes that the operation is recursive.
 It will copy across all files and folders inside the source directory.
 However, if the source destination does not have a trailing slash it
 will copy the folder, rather than the files inside the folder.</p>
-
 <p><code>-a</code> Archive mode is superior to recursive mode as it will
 sustain symbolic links, special and device files, modification times,
 group, owner and permissions.</p>
-
 <p><code>--dry-run</code> or <code>-n</code> As a sanity check it is
 worth checking that your command is going to do what you <em>think</em> it is
 going to do. The dry run will not execute the command. It can (read:
 should) be coupled with the next command.</p>
-
 <p><code>-v</code>: Verbose will print out the what actions were
 undertaken by the command. If <code>-n</code> is not coupled with a
 verbose flag it will print nothing to the screen.</p>
-
 <p><code>--delete</code>: Will remove extra items in the destination
 folder that do not exist in the source directory. <strong>Caution:</strong> This can
 lead to complete deletion of the destination folder if incorrectly
 implemented.</p>
-
 <p><code>-z</code>: When transferring across the network rsync provides a
 compression option to save on bandwidth.</p>
-
 <p><code>-P</code>: Outputs a progress bar to the terminal.</p>
-
-<p><code>-H</code>: Preserves hard links - very useful for back ups and snap shots as files that don&rsquo;t change are often hard linked to the original file.</p>
-
+<p><code>-H</code>: Preserves hard links - very useful for back ups and snap shots as files that don't change are often hard linked to the original file.</p>
 <p><code>--stats</code>: will output a summary of what was sent. Use <code>--stats -h</code> to get a human readable output as seen below.</p>
-
-<pre><code class="language-sh"># rsync with --stats -h
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># rsync with --stats -h</span>
 sending incremental file list
 
-Number of files: 2,265 (reg: 2,264, dir: 1)
-Number of created files: 0
-Number of deleted files: 0
-Number of regular files transferred: 0
+Number of files: 2,265 <span class="o">(</span>reg: 2,264, dir: 1<span class="o">)</span>
+Number of created files: <span class="m">0</span>
+Number of deleted files: <span class="m">0</span>
+Number of regular files transferred: <span class="m">0</span>
 Total file size: 100.20M bytes
-Total transferred file size: 0 bytes
-Literal data: 0 bytes
-Matched data: 0 bytes
+Total transferred file size: <span class="m">0</span> bytes
+Literal data: <span class="m">0</span> bytes
+Matched data: <span class="m">0</span> bytes
 File list size: 65.50K
 File list generation time: 0.001 seconds
 File list transfer time: 0.000 seconds
 Total bytes sent: 108.52K
-Total bytes received: 17
+Total bytes received: <span class="m">17</span>
 
-sent 108.52K bytes  received 17 bytes  19.73K bytes/sec
+sent 108.52K bytes  received <span class="m">17</span> bytes  19.73K bytes/sec
 total size is 100.20M  speedup is 923.17
-</code></pre>
-
-<p><code>--exclude=important_file.txt</code>: Can be used to omit files
+</code></pre></div><p><code>--exclude=important_file.txt</code>: Can be used to omit files
 or directories from being synced.</p>
-
 <p><code>--exclude=backups/ --include=backups/most_recent</code>: Inside
 the exclusion we can explicitly include certain file, folders or
 patterns that fall inside the broader exclude.</p>
-
 <p>example:</p>
-
 <pre><code>rsync -azvnP source_dir/ destination_dir/
 </code></pre>
-
 <h3 id="syncing-across-remote-systems">Syncing Across Remote Systems</h3>
-
 <p>Syncing can be either a &ldquo;pull&rdquo; or &ldquo;push&rdquo;.</p>
-
 <p><em>In this example we are</em> copying the directory, not just its contents and sending it from the local system to a remote system.</p>
-
 <p>To copy the entire folder and not just the files within, we must <strong>omit</strong> the trailing slash.</p>
-
 <p>The &ldquo;push&rdquo;:</p>
-
 <pre><code>rsync -a ~/local_source_dir username@remote_host:/home/username/destination_dir
 </code></pre>
-
-<p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there&rsquo;s no trailing slash.</p>
-
+<p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there's no trailing slash.</p>
 <p>The &ldquo;pull&rdquo;:</p>
-
 <pre><code>rsync -a username@remote_host:/home/username/destination_dir local_source_dir
 </code></pre>
-
 <h3 id="ssh">SSH</h3>
-
 <p>Syncing between systems if made much easier if key based authentication
 is enabled. If not, the user will be prompted with a password.</p>
-
 <p>To use <code>rsync</code> over a <code>ssh</code> connection we need to specify the protocol <code>rsync</code> needs to use.</p>
-
 <p><code>rsync -aznvPH -e &quot;ssh -i ~/ec2_keyfile.pem&quot; user@remote:/home/folder /tmp/local_system/</code></p>
-
 <p>The <code>-e</code> flag above, tells <code>rsync</code> to use a command, or in this case, another protocol to tunnel over.</p>
-
 <p>We wrap the <code>-e</code> flag command in quotations to encapsulate our private key - this is particularly useful when accessing AWS. Any <code>.ssh/config</code> settings are also respected by <code>rsync</code> making commonly accessed systems far easier to use.</p>
 
                 <br>

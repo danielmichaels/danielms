@@ -10,11 +10,11 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
-What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by David L. Mills in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.">
+ What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by [David L. Mills] (https://en.wikipedia.org/wiki/David_L._Mills) in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.">
 
 <meta property="og:title" content="TIL How Network Time Protocol Works" />
 <meta property="og:description" content="Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
-What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by David L. Mills in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking." />
+ What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by [David L. Mills] (https://en.wikipedia.org/wiki/David_L._Mills) in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/til-how-network-time-protocol-works/" />
 <meta property="article:published_time" content="2018-03-23T00:00:00+00:00" />
@@ -45,9 +45,9 @@ What is it? Network Time Protocol allows clocks between computers to be synchron
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.976706193%20%2b1100%20AEDT%20m%3d%2b0.057715540">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.976706193%20%2b1100%20AEDT%20m%3d%2b0.057715540">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.976706193%20%2b1100%20AEDT%20m%3d%2b0.057715540">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
     
 
 
@@ -130,8 +130,6 @@ What is it? Network Time Protocol allows clocks between computers to be synchron
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,27 +172,20 @@ What is it? Network Time Protocol allows clocks between computers to be synchron
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h2 id="network-time-protocol">Network Time Protocol</h2>
-
+                <h2 id="network-time-protocol">Network Time Protocol</h2>
 <p>So today I watched a <a href="https://www.youtube.com/watch?v=MDmNvVG9AnQ">talk</a>
 on NTP and it was amazing. I will do my best to summarise the core parts
 in this post.</p>
-
-<hr />
-
+<hr>
 <h3 id="what-is-it">What is it?</h3>
-
 <p>Network Time Protocol allows clocks between computers to be synchronised
-over the internet or local area network. It was developed by <a href="https://en.wikipedia.org/wiki/David_L._Mills">David L.
-Mills</a> in
+over the internet or local area network. It was developed by [David L.
+Mills]
+(<a href="https://en.wikipedia.org/wiki/David_L._Mills">https://en.wikipedia.org/wiki/David_L._Mills</a>) in
 1985 and is currently in its fourth version. Accurate to a few
 milliseconds of Coordinated Universal Time, NTP is a fundamental
 instrument in modern networking.</p>
-
 <h3 id="why-do-we-need-it">Why do we need it?</h3>
-
 <p>Its pretty important that we all agree on what time it is. It is even
 more important that banks and other financial institutions agree on a
 universal time stamp when conducting transactions, especially if they
@@ -202,17 +193,15 @@ are ordered chronologically. Things like SSL certificates could be
 spoofed or bypassed if NTP did not ensure a universal time. There is
 probably many other security related issues that NTP solves but I think
 the point is clear, its a necessary protocol.</p>
-
 <h3 id="how-does-it-get-the-right-time">How does it get the &ldquo;right&rdquo; time?</h3>
-
-<p>Most people have heard of <a href="https://en.wikipedia.org/wiki/Atomic_clock">atomic clocks</a> or GPS
+<p>Most people have heard of [atomic clocks]
+(<a href="https://en.wikipedia.org/wiki/Atomic_clock">https://en.wikipedia.org/wiki/Atomic_clock</a>) or GPS
 time. Basically, these methods are considered as accurate as humans can
 calculate to &lsquo;real&rsquo; time. It would be simplistic to say that NTP polls
-these sources for the current time - but nonetheless that&rsquo;s the basic
+these sources for the current time - but nonetheless that's the basic
 premise.</p>
-
 <p>Diving deeper, NTP actually uses things called a &lsquo;Stratum&rsquo;. An atomic
-clock is a Stratum 0, also known as a reference clock. The Stratum&rsquo;s go
+clock is a Stratum 0, also known as a reference clock. The Stratum's go
 from 0 all the way to 16. Stratum 1 is the closest an NTP server can get
 to the reference clock, and is usually within a few milliseconds. These
 are referred to as primary time servers. Each Stratum refers to the
@@ -220,13 +209,9 @@ preceding number, and polls that server for its time. Stratum 3 will
 synchronise to a Stratum 2 server for example. They can and often do
 peer with servers in their own Stratum as a sanity check and backup. Of
 note Stratum 16 means &lsquo;unsynchronised&rsquo;.</p>
-
-<hr />
-
+<hr>
 <h3 id="the-process">The Process</h3>
-
 <p>Roughly the process follows something like this:</p>
-
 <ul>
 <li>ask for the time,</li>
 <li>get the roundtrip times,</li>
@@ -234,60 +219,46 @@ note Stratum 16 means &lsquo;unsynchronised&rsquo;.</p>
 <li>make any adjustments,</li>
 <li>repeat every 64 seconds, forever.</li>
 </ul>
-
 <h4 id="roundtrip-times">Roundtrip Times</h4>
-
 <p>After asking the time from a server, NTP needs to factor in how long it
 took to get the response back because the time from when it sent the
 response to receiving it will now be out of sync.</p>
-
-<pre><code class="language-shell"># The four timestamps needed for calculating the time
-t1 = timestamp of request packet
-t2 = timestamp when server received packet
-t3 = timestamp of servers reply transmission
-t4 = clients response packet reception timestamp
-</code></pre>
-
-<p>Example of NTP packet</p>
-
-<pre><code class="language-shell">13:11:58.155997 IP (tos 0x0, ttl 56, id 42684, offset 0, flags [none], proto UDP (17), length 76)
-    cpe-110-141-196-84.vic.asp.telstra.net.ntp &gt; client.local.lan.ntp: [udp sum ok] NTPv4, length 48
-    Server, Leap indicator:  (0), Stratum 1 (primary reference), poll 10 (1024s), precision -23
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># The four timestamps needed for calculating the time</span>
+<span class="nv">t1</span> <span class="o">=</span> timestamp of request packet
+<span class="nv">t2</span> <span class="o">=</span> timestamp when server received packet
+<span class="nv">t3</span> <span class="o">=</span> timestamp of servers reply transmission
+<span class="nv">t4</span> <span class="o">=</span> clients response packet reception timestamp
+</code></pre></div><p>Example of NTP packet</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">13:11:58.155997 IP <span class="o">(</span>tos 0x0, ttl 56, id 42684, offset 0, flags <span class="o">[</span>none<span class="o">]</span>, proto UDP <span class="o">(</span>17<span class="o">)</span>, length 76<span class="o">)</span>
+    cpe-110-141-196-84.vic.asp.telstra.net.ntp &gt; client.local.lan.ntp: <span class="o">[</span>udp sum ok<span class="o">]</span> NTPv4, length <span class="m">48</span>
+    Server, Leap indicator:  <span class="o">(</span>0<span class="o">)</span>, Stratum <span class="m">1</span> <span class="o">(</span>primary reference<span class="o">)</span>, poll <span class="m">10</span> <span class="o">(</span>1024s<span class="o">)</span>, precision -23
     Root Delay: 0.000000, Root dispersion: 0.001953, Reference-ID: PPS^@
-      Reference Timestamp:  3730684254.163282214 (2018/03/22 13:10:54) # t1
-      Originator Timestamp: 3730684318.091658531 (2018/03/22 13:11:58) # t2
-      Receive Timestamp:    3730684318.125586175 (2018/03/22 13:11:58) # t3
-      Transmit Timestamp:   3730684318.125623665 (2018/03/22 13:11:58) # t4
+      Reference Timestamp:  3730684254.163282214 <span class="o">(</span>2018/03/22 13:10:54<span class="o">)</span> <span class="c1"># t1</span>
+      Originator Timestamp: 3730684318.091658531 <span class="o">(</span>2018/03/22 13:11:58<span class="o">)</span> <span class="c1"># t2</span>
+      Receive Timestamp:    3730684318.125586175 <span class="o">(</span>2018/03/22 13:11:58<span class="o">)</span> <span class="c1"># t3</span>
+      Transmit Timestamp:   3730684318.125623665 <span class="o">(</span>2018/03/22 13:11:58<span class="o">)</span> <span class="c1"># t4</span>
         Originator - Receive Timestamp:  +0.033927643
         Originator - Transmit Timestamp: +0.033965133
-</code></pre>
-
-<p>To calculate the current time from the servers response NTP does the
+</code></pre></div><p>To calculate the current time from the servers response NTP does the
 following calculation:</p>
-
 <pre><code>t4 - t1 = roundtrip time
 roundtrip time / 2 = one-way latency
 t3 + one-way latency = current time
 </code></pre>
-
 <p>The next part of this is whether or not the client trusts the NTP
 server. This is done in a few ways. Firstly, by sending out several
 queries to several servers rather than trusting that the response from
 one server is correct. NTP then favours the lowest latency and discards
 any outliers. Secondly, NTP uses some statistical analysis of its
 responses over a period of minutes to determines who is accurate and who
-isn&rsquo;t based off those statistics.</p>
-
+isn't based off those statistics.</p>
 <h4 id="make-adjustments">Make Adjustments</h4>
-
 <p>What NTP tries to never do is go backwards in time. Sometimes it has to
 and we will get to that. But for the most part what it does it &lsquo;slew&rsquo;
 the clock. Simply it just slows or speeds up the clock to match the
 correct time and does this in a gradual way with small increments.</p>
-
 <p>At its max adjustment speed of 500ppm it would take 2000 seconds to make
 an adjustment of just one second!</p>
-
 <p>Given the slow slew rate, slewing is capped to 128 milliseconds.
 Anything above that cannot be slewed and must be &lsquo;stepped&rsquo; or jumped to
 the correct time, be it forward or backward. This does not happen often
@@ -295,13 +266,10 @@ except in cases such as bringing a machine back online after maintenance
 or during initial setup. Any machine that is over 1000 seconds out must
 be manually configured within that threshold or it will not be able to
 receive adjustments.</p>
-
-<hr />
-
+<hr>
 <h3 id="conclusion">Conclusion</h3>
-
-<p>That&rsquo;s Network Time Protocol in a nutshell. I had never paid much heed
-to NTP prior to <a href="https://twitter.com/jpotischj">Joel Potischman&rsquo;s</a> talk
+<p>That's Network Time Protocol in a nutshell. I had never paid much heed
+to NTP prior to <a href="https://twitter.com/jpotischj">Joel Potischman's</a> talk
 at !!Con. He gave a great talk and it only goes for ten minutes and uses
 some good graphs and visualisations that are missing from this post. If
 you want to see NTP in action on your computer you can use

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh on Daniel Michaels | Developer | Technical Lead</title>
@@ -17,7 +17,7 @@
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dropbear-aws-pem-keys/</guid>
-      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&amp;rsquo;s Dropbear SSH client isn&amp;rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&amp;rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&#39;s Dropbear SSH client isn&#39;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&#39;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
 Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.</description>
     </item>
     

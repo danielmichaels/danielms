@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Daniel Michaels | Developer | Technical Lead</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://danielms.site/tags/docker/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/docker/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>security</title>
@@ -48,7 +57,7 @@
     </item>
     
     <item>
-      <title>http</title>
+      <title>HTTP</title>
       <link>https://danielms.site/tags/http/</link>
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       

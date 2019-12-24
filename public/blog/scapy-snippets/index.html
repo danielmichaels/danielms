@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal  caveat: currently only tested on Ralink: RT5370 chipset">
+<meta name="description" content="How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal caveat: currently only tested on Ralink: RT5370 chipset">
 
 <meta property="og:title" content="Scapy Snippets" />
-<meta property="og:description" content="How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal  caveat: currently only tested on Ralink: RT5370 chipset" />
+<meta property="og:description" content="How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal caveat: currently only tested on Ralink: RT5370 chipset" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/scapy-snippets/" />
 <meta property="article:published_time" content="2018-02-28T00:00:00+00:00" />
@@ -43,9 +43,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.976734426%20%2b1100%20AEDT%20m%3d%2b0.057743805">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.976734426%20%2b1100%20AEDT%20m%3d%2b0.057743805">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.976734426%20%2b1100%20AEDT%20m%3d%2b0.057743805">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.99387414%20%2b1100%20AEDT%20m%3d%2b0.253757415">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.99387414%20%2b1100%20AEDT%20m%3d%2b0.253757415">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.99387414%20%2b1100%20AEDT%20m%3d%2b0.253757415">
     
 
 
@@ -128,8 +128,6 @@
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -172,18 +170,13 @@
                 </div>
             </div>
             <div class="markdown">
-                
+                <h3 id="how-to-get-rssi-from-wlan-packet">How to get RSSI from WLAN packet</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scapy.layers.dot11</span> <span class="kn">import</span> <span class="n">RadioTap</span><span class="p">,</span> <span class="n">Dot11</span>
 
-<h3 id="how-to-get-rssi-from-wlan-packet">How to get RSSI from WLAN packet</h3>
-
-<pre><code class="language-python">from scapy.layers.dot11 import RadioTap, Dot11
-
-def get_rssi(packet):
-    if packet.haslayer(RadioTap):
-        return packet.dbm_antsignal
-</code></pre>
-
-<p><strong>caveat: currently only tested on Ralink: RT5370 chipset</strong></p>
+<span class="k">def</span> <span class="nf">get_rssi</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">packet</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">RadioTap</span><span class="p">)</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">packet</span><span class="o">.</span><span class="n">dbm_antsignal</span>
+</code></pre></div><p><strong>caveat: currently only tested on Ralink: RT5370 chipset</strong></p>
 
                 <br>
                 

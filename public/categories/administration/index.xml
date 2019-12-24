@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>administration on Daniel Michaels | Developer | Technical Lead</title>
@@ -28,7 +28,7 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/rsync-cheatsheet/</guid>
-      <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
+      <description>This is a short primer on the most simple of rsync&#39;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
     </item>

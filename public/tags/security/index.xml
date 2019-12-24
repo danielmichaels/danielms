@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>security on Daniel Michaels | Developer | Technical Lead</title>
@@ -29,7 +29,7 @@
       
       <guid>https://danielms.site/blog/http-basic-methods-and-verbs/</guid>
       <description>HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:
- The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address.</description>
+ The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address. If the connection is successful, a response will be sent from the server and its data will be rendered using HTTP.</description>
     </item>
     
     <item>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>eli5 on Daniel Michaels | Developer | Technical Lead</title>
@@ -19,7 +19,7 @@
       <guid>https://danielms.site/blog/user-agents-101/</guid>
       <description>User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
 Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
+If you&#39;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;l
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/lesspass-eli5/</guid>
-      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
+      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&#39;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?</description>
     </item>
@@ -50,7 +50,7 @@ Consistent - A transaction must ensure to change the database from one valid sta
       <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/python-object-references/</guid>
-      <description>Python Object Reference ELI5 I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&#39;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&#39;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ Consistent - A transaction must ensure to change the database from one valid sta
       <guid>https://danielms.site/blog/base64-eli5/</guid>
       <description>Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
 TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
- first, a demo Let&amp;rsquo;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
+ first, a demo Let&#39;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
     </item>
     
   </channel>

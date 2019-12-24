@@ -10,11 +10,11 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:
- The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address.">
+ The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address. If the connection is successful, a response will be sent from the server and its data will be rendered using HTTP.">
 
 <meta property="og:title" content="HTTP Methods Primer" />
 <meta property="og:description" content="HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:
- The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address." />
+ The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address. If the connection is successful, a response will be sent from the server and its data will be rendered using HTTP." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/http-basic-methods-and-verbs/" />
 <meta property="article:published_time" content="2019-07-11T00:00:00+00:00" />
@@ -45,9 +45,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.967366999%20%2b1100%20AEDT%20m%3d%2b0.048376362">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.967366999%20%2b1100%20AEDT%20m%3d%2b0.048376362">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.967366999%20%2b1100%20AEDT%20m%3d%2b0.048376362">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
     
 
 
@@ -130,8 +130,6 @@
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,163 +172,99 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="http-101">HTTP 101</h1>
-
-<p><img src="https://danielms.site/images/http-verbs.png" alt="" title="Fetching a page across the internet" /></p>
-
+                <h1 id="http-101">HTTP 101</h1>
+<p><img src="https://danielms.site/images/http-verbs.png" alt="" title="Fetching a page across the internet"></p>
 <h2 id="prefetch">Prefetch</h2>
-
 <p>What happens when you type an address into the search bar and hit enter:</p>
-
 <ol>
 <li>The browser extracts the domain name from the search bar.</li>
 <li>The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server.</li>
 <li>After getting the IP address via DNS, the host will initiate a TCP connection with that address.</li>
 <li>If the connection is successful, a response will be sent from the server and its data will be rendered using HTTP.</li>
 </ol>
-
 <p>For a more detailed explanation of DNS resolution in step 2, check out my <a href="https://danielms.site/blog/dns-the-easy-parts/">post</a> on the subject.</p>
-
 <h2 id="http">HTTP</h2>
-
 <p>Hyper-Text Transfer Protocol (HTTP) is an application layer protocol for communications between a client and web server. It operates on a request-response model with the client initiating any connection to the server.</p>
-
 <h2 id="http-methods">HTTP Methods</h2>
-
 <p>Each request starts with a HTTP method which defines the request semantics, indicating the purpose of the clients request and what the client expects in a successful response. More succinctly, the method tells the server what sort of data it is sending or wants to receive. The server can then respond appropriately to the request.</p>
-
 <p>The nine methods available are listed below.</p>
-
 <h3 id="get"><strong>GET</strong></h3>
-
 <p>The most common request, it broadly asks the remote host to send the requested data back to the client. In general, <code>GET</code> requests will retrieve the data from a Uniform Request Identifier (URI).</p>
-
 <p>Responses to a <code>GET</code> request are cacheable, meaning a cache can elect to use the it on subsequent <code>GET</code> and <code>HEAD</code> requests.</p>
-
 <h3 id="head"><strong>HEAD</strong></h3>
-
 <p>Very similar to the <code>GET</code> request except that it only retrieves the header information. All body content is omitted.</p>
-
 <p>Responses to a <code>HEAD</code> request are cacheable, meaning a cache can elect to use the it on subsequent <code>GET</code> and <code>HEAD</code> requests.</p>
-
 <h3 id="post"><strong>POST</strong></h3>
-
 <p>A <code>POST</code> request will typically be sent via a HTML form and will effect some change on the server. According the <a href="https://tools.ietf.org/html/rfc7231#section-4.3.://tools.ietf.org/html/rfc7231#section-4.3.3">specification</a> it is indicated by the <code>Content-Type</code> header.</p>
-
 <p>Common <code>POST</code> actions are things like adding new users, or payment processing. The <code>POST</code> sends that information to the server for it to be processed and declares the scheme it will use to send the data. The server needs this information so it knows how to handle the request.</p>
-
 <p><strong>Schemes:</strong></p>
-
 <ul>
 <li><code>application/x-www-form-urlencoded</code></li>
 <li><code>multipart/form-data</code></li>
 <li><code>application/json</code></li>
 </ul>
-
 <p><strong>Example:</strong></p>
-
-<pre><code class="language-sh"># Request
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Request</span>
 POST /payments HTTP/1.1
 Host: bank.com
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 34
+Content-Length: <span class="m">34</span>
 
-accountNumber=123&amp;amount=9999&amp;toAccount=789
-</code></pre>
-
-<p>Successful <code>POST</code> requests should get a <code>201 Created</code> response and a <code>Location</code> header pointing to the data&rsquo;s new URI.</p>
-
-<pre><code class="language-sh"># Response
-HTTP/1.1 201 Created
+<span class="nv">accountNumber</span><span class="o">=</span>123<span class="p">&amp;</span><span class="nv">amount</span><span class="o">=</span>9999<span class="p">&amp;</span><span class="nv">toAccount</span><span class="o">=</span><span class="m">789</span>
+</code></pre></div><p>Successful <code>POST</code> requests should get a <code>201 Created</code> response and a <code>Location</code> header pointing to the data's new URI.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Response</span>
+HTTP/1.1 <span class="m">201</span> Created
 Location: /payments/&lt;ID&gt;/&lt;transactionID&gt;
-</code></pre>
-
-<h3 id="put"><strong>PUT</strong></h3>
-
+</code></pre></div><h3 id="put"><strong>PUT</strong></h3>
 <p>Similar to a <code>POST</code> request, a <code>PUT</code> references an already existing entity, and requests a update to it. The server must verify the validity of the data to be updated, and is not obligated to action the request.</p>
-
 <p>Every <code>PUT</code> is <a href="https://www.youtube.com/watch?v=UaKZ4wKytcA">idempotent</a> whereas <code>POST</code> requests are not. Each <code>POST</code> will have an updating effect on the data. For instance, repeatedly sending a <code>POST</code> on endpoints like payment processing could see that payment processed as many times as the request was sent.
 This is one of the differences between the two at the HTTP level. But, the most important difference is how the each request interacts with the URI it is requesting.</p>
-
 <p>A <code>PUT</code> request must know the exact URI it intends to influence.</p>
-
 <p>For example:</p>
-
-<pre><code class="language-sh"># Updates an existing record 
-# OR adds a record to that exact URI
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Updates an existing record</span> 
+<span class="c1"># OR adds a record to that exact URI</span>
 PUT /api/v1/books/3452 HTTP/1.1
 Host: https://library-store.com/
-</code></pre>
-
-<p>Should return a <code>200 OK</code> or in some cases a <code>201 Created</code>.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> API&rsquo;s usually adhere to the correct use of <code>PUT</code> and <code>POST</code> requests. A URI such as above is a good indication of a REST conforming web application.</p>
-
-<h3 id="patch"><strong>PATCH</strong></h3>
-
+</code></pre></div><p>Should return a <code>200 OK</code> or in some cases a <code>201 Created</code>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> API's usually adhere to the correct use of <code>PUT</code> and <code>POST</code> requests. A URI such as above is a good indication of a REST conforming web application.</p>
+<h3 id="--patch--"><strong>PATCH</strong></h3>
 <p>Unlike <code>PUT</code> which will replace an existing entity, <code>PATCH</code> only modifies a portion of it. This makes it an non-idempotent method. Similar to <code>POST</code>, it will make alterations or add data for each request. However, a <code>PATCH</code> can be made idempotent - it depends on context and the data being modified.</p>
-
 <p>This method is relatively new in comparison to its siblings, having been introduced as early as  <a href="https://tools.ietf.org/html/rfc2616">RFC 2616</a> but only being ratified in <a href="https://tools.ietf.org/html/rfc5789">RFC 5789</a> circa 2010.</p>
-
-<pre><code class="language-sh"># Request
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Request</span>
 PATCH /file.txt HTTP/1.1
 Host: www.example.com
 Content-Type: application/example
-If-Match: &quot;e0023aa4e&quot;
-Content-Length: 100
-</code></pre>
-
-<p>A successful response generally yields a <code>204 No Content</code> as no message body is present. A <code>200 OK</code> requires a message body. Other codes can be configured by the server if required.</p>
-
-<pre><code class="language-sh"># Response
-HTTP/1.1 204 No Content
+If-Match: <span class="s2">&#34;e0023aa4e&#34;</span>
+Content-Length: <span class="m">100</span>
+</code></pre></div><p>A successful response generally yields a <code>204 No Content</code> as no message body is present. A <code>200 OK</code> requires a message body. Other codes can be configured by the server if required.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Response</span>
+HTTP/1.1 <span class="m">204</span> No Content
 Content-Location: /file.txt
-ETag: &quot;e0023aa4f&quot;
-</code></pre>
-
-<p>Note how the <code>If-Match</code> and <code>ETag</code> data match. This will be covered in a later post.</p>
-
+ETag: <span class="s2">&#34;e0023aa4f&#34;</span>
+</code></pre></div><p>Note how the <code>If-Match</code> and <code>ETag</code> data match. This will be covered in a later post.</p>
 <h3 id="delete"><strong>DELETE</strong></h3>
-
 <p>Is a request to the server that calls a function capable of deleting a specified entity. The server is responsible for checking and carrying out the function.</p>
-
-<pre><code class="language-sh"># Request
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Request</span>
 DELETE /user/2341 HTTP/1.1
-</code></pre>
-
-<p>Should return a <code>202 Accepted</code>, <code>204 No Content</code> or <code>200 OK</code>.</p>
-
+</code></pre></div><p>Should return a <code>202 Accepted</code>, <code>204 No Content</code> or <code>200 OK</code>.</p>
 <h3 id="trace"><strong>TRACE</strong></h3>
-
 <p>An uncommon request that is often seen during diagnostics such as Traceroute. Can see what the server was delivered.</p>
-
 <p>Often this method is disabled as its an attack vector for <a href="https://www.owasp.org/index.php/Cross_Site_Tracing">Cross Site Tracing</a>.</p>
-
 <h3 id="connect"><strong>CONNECT</strong></h3>
-
 <p>For use with a proxy to initiate the connection.</p>
-
 <h3 id="options"><strong>OPTIONS</strong></h3>
-
 <p>A utility call that asks the server which HTTP methods are supported.</p>
-
 <p>The <code>allow</code> header shows which options are authorized. Some applications prohibit the <code>OPTIONS</code> method and will return a <code>4XX</code> status code.</p>
-
-<pre><code class="language-sh">HTTP/2 200 
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">HTTP/2 <span class="m">200</span> 
 allow: OPTIONS, GET, HEAD, POST
-cache-control: max-age=604800
-content-type: text/html; charset=UTF-8
-date: Sun, 14 Jul 2019 05:17:14 GMT
-expires: Sun, 21 Jul 2019 05:17:14 GMT
-server: EOS (vny006/044F)
-content-length: 0
-</code></pre>
-
-<h2 id="summary">Summary</h2>
-
-<p>Digging into the HTTP specifications and RFC&rsquo;s has not been wasted effort. They underpin the Internet and all associated technologies that power it. Learn some for great good.</p>
+cache-control: max-age<span class="o">=</span><span class="m">604800</span>
+content-type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+date: Sun, <span class="m">14</span> Jul <span class="m">2019</span> 05:17:14 GMT
+expires: Sun, <span class="m">21</span> Jul <span class="m">2019</span> 05:17:14 GMT
+server: EOS <span class="o">(</span>vny006/044F<span class="o">)</span>
+content-length: <span class="m">0</span>
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>Digging into the HTTP specifications and RFC's has not been wasted effort. They underpin the Internet and all associated technologies that power it. Learn some for great good.</p>
 
                 <br>
                 

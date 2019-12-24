@@ -10,11 +10,11 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
-Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt  Let&rsquo;s break down each component:">
+Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt Let&#39;s break down each component:">
 
 <meta property="og:title" content="Curl you an email for great good" />
 <meta property="og:description" content="Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
-Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt  Let&rsquo;s break down each component:" />
+Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-reqd \ --mail-from &#39;username@gmail.com&#39; --mail-rcpt &#39;rcpt@email.com&#39; \ --user &#39;username@gmail.com:password&#39; --insecure \ --upload-file fileToBeUploaded.txt Let&#39;s break down each component:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/curl-emails-for-great-good/" />
 <meta property="article:published_time" content="2019-08-12T00:00:00+00:00" />
@@ -45,9 +45,9 @@ Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-re
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.965167266%20%2b1100%20AEDT%20m%3d%2b0.046176624">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.965167266%20%2b1100%20AEDT%20m%3d%2b0.046176624">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.965167266%20%2b1100%20AEDT%20m%3d%2b0.046176624">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.904056758%20%2b1100%20AEDT%20m%3d%2b0.163939929">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.904056758%20%2b1100%20AEDT%20m%3d%2b0.163939929">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.904056758%20%2b1100%20AEDT%20m%3d%2b0.163939929">
     
 
 
@@ -130,8 +130,6 @@ Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-re
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,25 +172,16 @@ Syntax # gmail specific curl --url &#39;smtps://smtp.gmail.com:587&#39; --ssl-re
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="curl">Curl</h1>
-
-<p><img src="https://danielms.site/images/curl-logo.svg" alt="" title="curl icon" /></p>
-
+                <h1 id="curl">Curl</h1>
+<p><img src="https://danielms.site/images/curl-logo.svg" alt="" title="curl icon"></p>
 <p>Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, <code>curl</code> is installed on these devices, greatly simplifying things.</p>
-
 <h2 id="syntax">Syntax</h2>
-
-<pre><code class="language-sh"># gmail specific
-curl --url 'smtps://smtp.gmail.com:587' --ssl-reqd \
---mail-from 'username@gmail.com' --mail-rcpt 'rcpt@email.com' \
---user 'username@gmail.com:password' --insecure \
---upload-file fileToBeUploaded.txt
-</code></pre>
-
-<p>Let&rsquo;s break down each component:</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># gmail specific</span>
+curl --url <span class="s1">&#39;smtps://smtp.gmail.com:587&#39;</span> --ssl-reqd <span class="se">\
+</span><span class="se"></span>--mail-from <span class="s1">&#39;username@gmail.com&#39;</span> --mail-rcpt <span class="s1">&#39;rcpt@email.com&#39;</span> <span class="se">\
+</span><span class="se"></span>--user <span class="s1">&#39;username@gmail.com:password&#39;</span> --insecure <span class="se">\
+</span><span class="se"></span>--upload-file fileToBeUploaded.txt
+</code></pre></div><p>Let's break down each component:</p>
 <ul>
 <li><code>--url</code> - specifies the SMTP server address and port</li>
 <li><code>--ssl-reqd</code> - mandates SSL/TLS must be used</li>
@@ -202,50 +191,40 @@ curl --url 'smtps://smtp.gmail.com:587' --ssl-reqd \
 <li><code>--insecure</code> - a <code>curl</code> idiom that tells <code>curl</code> to ignore CA errors and continue</li>
 <li><code>upload-file</code> - <code>curl</code> cannot send a body, but will accept an <a href="https://tools.ietf.org/html/rfc5322.htm">RFC 5322</a> compliant text file as its message. Json, HTML and text data can be sent by adding a <code>Content-Type</code> header appropriate to the type of data being sent.</li>
 </ul>
-
 <p>Curl <a href="https://ec.haxx.se/usingcurl-smtp.html">documentation</a>.</p>
-
 <h2 id="bash-script">Bash script</h2>
-
 <p>A simple example bash script to illustrate some of the potential that this curl functionality provides us. The code can be found <a href="https://github.com/danielmichaels/databank/blob/master/utils/mailer">here</a>.</p>
+<p><img src="https://danielms.site/images/bash.png" alt="" title="bash icon"></p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># A simple email script that takes a recipient and</span>
+<span class="c1"># RFC5322 compliant text file as the message body.</span>
 
-<p><img src="https://danielms.site/images/bash.png" alt="" title="bash icon" /></p>
+<span class="nb">echo</span> <span class="s2">&#34;Curl auto-emailer&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;SUPPORTS GMAIL ONLY&#34;</span>
 
-<pre><code class="language-sh">#!/bin/bash
-# A simple email script that takes a recipient and
-# RFC5322 compliant text file as the message body.
+<span class="nv">RCPT</span><span class="o">=</span><span class="nv">$1</span> <span class="c1"># &#39;username@example.com&#39;</span>
+<span class="nv">FILE</span><span class="o">=</span><span class="nv">$2</span> <span class="c1"># takes a filename, relative or abs path</span>
+<span class="nv">FROM</span><span class="o">=</span>server@gmail.com <span class="c1"># &#39;me@me.com&#39;</span>
+<span class="nv">EMAIL</span><span class="o">=</span>server@gmail.com:p@ssword <span class="c1"># &#39;username@gmail.com:password&#39;</span>
 
-echo &quot;Curl auto-emailer&quot;
-echo &quot;SUPPORTS GMAIL ONLY&quot;
-
-RCPT=$1 # 'username@example.com'
-FILE=$2 # takes a filename, relative or abs path
-FROM=server@gmail.com # 'me@me.com'
-EMAIL=server@gmail.com:p@ssword # 'username@gmail.com:password'
-
-if [ -z &quot;$1&quot; ]
-  then
-    echo &quot;Missing argument 1; recipient address\
-      eg username@gmail.com&quot;
-    exit
-elif [ -z &quot;$2&quot; ]
-then
-  echo &quot;Missing argument; File to be uploaded&quot;
-  exit
-else
-  curl --url 'smtp://smtp.gmail.com:587' --ssl-reqd \
-    --mail-from $FROM --mail-rcpt $RCPT \
-    --user $EMAIL --upload-file $FILE  --insecure
-fi
-</code></pre>
-
-<p>This is for demonstration purposes only. Also, its worth mentioning that entering credentials in the commandline without the appropriate safe guards can be a security issue!</p>
-
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span>
+  <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Missing argument 1; recipient address\
+</span><span class="s2">      eg username@gmail.com&#34;</span>
+    <span class="nb">exit</span>
+<span class="k">elif</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$2</span><span class="s2">&#34;</span> <span class="o">]</span>
+<span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Missing argument; File to be uploaded&#34;</span>
+  <span class="nb">exit</span>
+<span class="k">else</span>
+  curl --url <span class="s1">&#39;smtp://smtp.gmail.com:587&#39;</span> --ssl-reqd <span class="se">\
+</span><span class="se"></span>    --mail-from <span class="nv">$FROM</span> --mail-rcpt <span class="nv">$RCPT</span> <span class="se">\
+</span><span class="se"></span>    --user <span class="nv">$EMAIL</span> --upload-file <span class="nv">$FILE</span>  --insecure
+<span class="k">fi</span>
+</code></pre></div><p>This is for demonstration purposes only. Also, its worth mentioning that entering credentials in the commandline without the appropriate safe guards can be a security issue!</p>
 <h2 id="further-reading">Further Reading</h2>
-
 <p>Check out <code>curl wttr.in</code> and <code>curl rates.sx</code> in your terminal for some of the more interactive things that can be done with this great tool.
 The possibilities of <code>curl</code> are nearly endless and its used by many of us everyday.</p>
-
 <p>If you want to learn more about sending emails from the commandline then <a href="https://blog.edmdesigner.com/send-email-from-linux-command-line/">this</a> might be worth a read. More information about sending HTML RFC5322 complaint message body files can be found <a href="https://blog.edmdesigner.com/send-email-from-linux-command-line/#sendingemailusingcurlcommand">here</a>.</p>
 
                 <br>

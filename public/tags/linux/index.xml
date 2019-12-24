@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on Daniel Michaels | Developer | Technical Lead</title>
@@ -19,7 +19,7 @@
       <guid>https://danielms.site/blog/public-key-crypto-the-basics/</guid>
       <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.
 Public Key Cryptography What problem does it solve?
-If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages?</description>
+If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages? Symmetric key cryptography would make this untenable for the most part.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ If two parties wish to exchange information to one another but the medium which 
       
       <guid>https://danielms.site/blog/til-how-network-time-protocol-works/</guid>
       <description>Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
-What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by David L. Mills in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
+ What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by [David L. Mills] (https://en.wikipedia.org/wiki/David_L._Mills) in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ What is it? Network Time Protocol allows clocks between computers to be synchron
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/linux-file-permissions/</guid>
-      <description>Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt  In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.</description>
+      <description>Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.</description>
     </item>
     
   </channel>

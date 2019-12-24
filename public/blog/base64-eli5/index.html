@@ -11,12 +11,12 @@
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
 TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
- first, a demo Let&rsquo;s look at an example using the three letter word &ldquo;The&rdquo;.">
+ first, a demo Let&#39;s look at an example using the three letter word &ldquo;The&rdquo;.">
 
 <meta property="og:title" content="Base64 ELI5" />
 <meta property="og:description" content="Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
 TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
- first, a demo Let&rsquo;s look at an example using the three letter word &ldquo;The&rdquo;." />
+ first, a demo Let&#39;s look at an example using the three letter word &ldquo;The&rdquo;." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/base64-eli5/" />
 <meta property="article:published_time" content="2018-05-22T00:00:00+00:00" />
@@ -47,9 +47,9 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.975005561%20%2b1100%20AEDT%20m%3d%2b0.056014923">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.975005561%20%2b1100%20AEDT%20m%3d%2b0.056014923">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.975005561%20%2b1100%20AEDT%20m%3d%2b0.056014923">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.972539718%20%2b1100%20AEDT%20m%3d%2b0.232422888">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.972539718%20%2b1100%20AEDT%20m%3d%2b0.232422888">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.972539718%20%2b1100%20AEDT%20m%3d%2b0.232422888">
     
 
 
@@ -132,8 +132,6 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -176,114 +174,69 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h2 id="base64">Base64</h2>
-
+                <h2 id="base64">Base64</h2>
 <p>Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?</p>
-
-<h3 id="tl-dr">TL;DR</h3>
-
+<h3 id="tldr">TL;DR</h3>
 <blockquote>
 <p>Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.</p>
 </blockquote>
-
 <h2 id="first-a-demo">first, a demo</h2>
-
-<p>Let&rsquo;s look at an example using the three letter word &ldquo;The&rdquo;.</p>
-
-<p>This tabulated data below shows how the word &lsquo;The&rsquo; is represented in both binary and base64. Each letter corresponds with an integer. For instance, &rsquo;T&rsquo; is mapped to the number 84. This is then converted into binary, and the entire word &lsquo;The&rsquo; can be expressed in three bytes.</p>
-
-<pre><code class="language-bash">#ascii       T (84)        h (104)       e (101) &lt;-- ASCII plus base10 number
-#binary   01010100      01101000     01100101    &lt;-- three bytes
-#base64   010101    000110    100001   100101    &lt;-- four segments of six bits
-</code></pre>
-
-<p>While binary takes 8 bits, base64 only accepts 6. This means that the last two bits are clipped from the end and become the first two bits of the next segment.</p>
-
+<p>Let's look at an example using the three letter word &ldquo;The&rdquo;.</p>
+<p>This tabulated data below shows how the word &lsquo;The&rsquo; is represented in both binary and base64. Each letter corresponds with an integer. For instance, &lsquo;T&rsquo; is mapped to the number 84. This is then converted into binary, and the entire word &lsquo;The&rsquo; can be expressed in three bytes.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#ascii       T (84)        h (104)       e (101) &lt;-- ASCII plus base10 number</span>
+<span class="c1">#binary   01010100      01101000     01100101    &lt;-- three bytes</span>
+<span class="c1">#base64   010101    000110    100001   100101    &lt;-- four segments of six bits</span>
+</code></pre></div><p>While binary takes 8 bits, base64 only accepts 6. This means that the last two bits are clipped from the end and become the first two bits of the next segment.</p>
 <p>Now that we have base64 binary we can calculate the base10 integer. This is done so we can map that integer to its base64 character.</p>
-
-<pre><code class="language-bash">#base64   010101    000110    100001   100101
-#total      21        06        33       37
-</code></pre>
-
-<p>Or, a graphical representation for mobile users.</p>
-
-<p><img src="https://danielms.site/images/base64the.png" alt="Base 64 THE" title="The in base64 image" /></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#base64   010101    000110    100001   100101</span>
+<span class="c1">#total      21        06        33       37</span>
+</code></pre></div><p>Or, a graphical representation for mobile users.</p>
+<p><img src="https://danielms.site/images/base64the.png" alt="Base 64 THE" title="The in base64 image"></p>
 <p>Character to value conversion chart for base64. By cross referencing the binary representation of the four segments (21, 06, 33, 37) we get the ASCII characters; <code>VGhl</code>.</p>
-
-<p><img src="https://danielms.site/img/base64.png" alt="Base64 Chart" title="base64 char to int conversion chart" /></p>
-
-<h4 id="gotcha-s">Gotcha&rsquo;s</h4>
-
+<p><img src="https://danielms.site/img/base64.png" alt="Base64 Chart" title="base64 char to int conversion chart"></p>
+<h4 id="gotchas">Gotcha's</h4>
 <p>In the example we used a three byte word which can neatly be broken down
 into four segments of six. What if the word is four characters equalling 32
 bits. Dividing 32 by 6 gives us 5 with a remaining two bits.</p>
-
 <p>We can see this clearly using <code>python</code> (because, why not.)</p>
-
-<pre><code class="language-python">32 / 6
-&gt;&gt; 5.33333333333
-32 % 6
-&gt;&gt; 2
-</code></pre>
-
-<p>In that case we need to pad out the base64 to indicate that the last
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="mi">32</span> <span class="o">/</span> <span class="mi">6</span>
+<span class="o">&gt;&gt;</span> <span class="mf">5.33333333333</span>
+<span class="mi">32</span> <span class="o">%</span> <span class="mi">6</span>
+<span class="o">&gt;&gt;</span> <span class="mi">2</span>
+</code></pre></div><p>In that case we need to pad out the base64 to indicate that the last
 segment is not complete.</p>
-
 <p>The decimal representation of &ldquo;Them&rdquo; is <code>84 104 101 109</code> or <code>VGhlbQ==</code> in base64. As you can see there are two <code>=</code> symbols tacked on to the end. This indicates that there is two empty segments of 6 bits at the end of the encoding.</p>
-
-<pre><code class="language-bash">#ascii       T (84)        h (104)       e (101)     m (109)
-#binary   01010100      01101000     01100101      01101101
-#base64   010101    000110    100001   100101   001101  010000
-#total      21        06        33        37      13      16
-</code></pre>
-
-<p>Looks like that works out perfectly, so where does the extra two
-segments of zero&rsquo;s come in that generates the <code>=</code>&rsquo;s?</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#ascii       T (84)        h (104)       e (101)     m (109)</span>
+<span class="c1">#binary   01010100      01101000     01100101      01101101</span>
+<span class="c1">#base64   010101    000110    100001   100101   001101  010000</span>
+<span class="c1">#total      21        06        33        37      13      16</span>
+</code></pre></div><p>Looks like that works out perfectly, so where does the extra two
+segments of zero's come in that generates the <code>=</code>'s?</p>
 <p>The segmenting of eight bits into six bits cannot delimit or end half way
 between a byte. Meaning the base64 encoding must continue until there is
-no remainder. Let&rsquo;s explore this again using just one character.</p>
-
+no remainder. Let's explore this again using just one character.</p>
 <p>In text format</p>
-
-<pre><code class="language-bash">#ascii       M (77)
-#binary   01011101   00000000   00000000
-#base64   010111  010000  000000  000000
-#total      19      16      00      00
-</code></pre>
-
-<p>A pretty picture, too.</p>
-
-<p><img src="https://danielms.site/images/base64M.png" alt="Base 64 M" title="M in base64 image" /></p>
-
-<p>I chose the letter &rsquo;M&rsquo; as it is easier to explain than &rsquo;T&rsquo;. Looking at it you can see that even with only one byte (read: character), it takes three bytes for base64&rsquo;s segments of six to equally divide - (18 / 6 = 3). This is why the letter &rsquo;M&rsquo; in base64 would be padded with <code>==</code>.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#ascii       M (77)</span>
+<span class="c1">#binary   01011101   00000000   00000000</span>
+<span class="c1">#base64   010111  010000  000000  000000</span>
+<span class="c1">#total      19      16      00      00</span>
+</code></pre></div><p>A pretty picture, too.</p>
+<p><img src="https://danielms.site/images/base64M.png" alt="Base 64 M" title="M in base64 image"></p>
+<p>I chose the letter &lsquo;M&rsquo; as it is easier to explain than &lsquo;T&rsquo;. Looking at it you can see that even with only one byte (read: character), it takes three bytes for base64's segments of six to equally divide - (18 / 6 = 3). This is why the letter &lsquo;M&rsquo; in base64 would be padded with <code>==</code>.</p>
 <p>This example uses two equals signs but base64 can also be padded with just one as seen below.</p>
-
-<p><img src="https://danielms.site/images/base64Ya.png" alt="Base 64 Ya" title="Ya in base64 image" /></p>
-
+<p><img src="https://danielms.site/images/base64Ya.png" alt="Base 64 Ya" title="Ya in base64 image"></p>
 <p>If you are wondering about the <code>-1</code> in the columns, ignore them, its just how the JavaScript that powers the encoder has been developed. See <a href="https://codepen.io/lewistg/pen/MEQbmB">Ty Lewis</a>&rsquo; CodePen to see it in action.</p>
-
-<p>Base64 increases the size of the data transmission as more packets are required to be sent. So why use it? Base64&rsquo;s genesis was in MIME (Multipurpose Internet Mail Extensions) where large streams of text are used to send emails and attachments.</p>
-
+<p>Base64 increases the size of the data transmission as more packets are required to be sent. So why use it? Base64's genesis was in MIME (Multipurpose Internet Mail Extensions) where large streams of text are used to send emails and attachments.</p>
 <p>In the early days of email, everything was plain text but the inclusion of HTML and attachments created problems. Email is sent as a stream and streaming binary, or hexadecimal could of had unintended consequences as some systems or programs may interpret binary incorrectly. For instance, a null byte in some systems may indicate that the message has ended when in fact it has not.</p>
-
 <p>Today base64 is used everywhere on the net, mostly as a obfuscation technique. A poor one at that. Here is some more information on base64 in the modern web skewed towards infosec.</p>
-
 <ul>
 <li><a href="https://www.youtube.com/watch?v=Jpaq0QkepgA">LiveOverFlow</a> highlighting base64 patterns in hiding JSON data.</li>
 <li><a href="https://www.sans.org/reading-room/whitepapers/detection/base64-pwned-33759">SANS</a> whitepaper on how base64 can get you pwned.</li>
 <li><a href="https://blog.malwarebytes.com/threat-analysis/2013/03/obfuscation-malwares-best-friend/">MalwareBytes</a> looking at malware obfuscation techniques.</li>
 </ul>
-
 <h3 id="more-information">More information?</h3>
-
 <p>As always <a href="https://en.wikipedia.org/wiki/Base64">Wikipedia</a> has an
 excellent page on Base64.</p>
-
 <p>Shout out to <a href="https://codepen.io/lewistg/pen/MEQbmB">Ty Lewis</a> for his nice encoder which I have used for demonstration.</p>
 
                 <br>

@@ -45,9 +45,9 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.976740315%20%2b1100%20AEDT%20m%3d%2b0.057749666">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.976740315%20%2b1100%20AEDT%20m%3d%2b0.057749666">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.976740315%20%2b1100%20AEDT%20m%3d%2b0.057749666">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
     
 
 
@@ -130,8 +130,6 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,14 +172,10 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p><strong>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid
+                <p><strong>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid
 development and as such the following may have parts which are no longer in date.
 In time I will update this post to reflect these changes.</strong></p>
-
 <h2 id="python-package-index">Python Package Index</h2>
-
 <p>Python has a wonderful community and package ecosystem. It currently has
 over 130,000 packages for download and a large variety to choose from.
 To download a python package via the <code>pip</code> command, the
@@ -189,30 +183,22 @@ package must be uploaded to the Python Package Index, or
 <a href="https://pypi.org/">PyPI</a>. Going forward it may be referred to as the
 &ldquo;warehouse&rdquo; as PyPI is going through an upgrade of its infrastructure
 and for the better.</p>
-
 <h3 id="have-application-now-what">Have application, now what?</h3>
-
 <p>PyPI offers two servers for the uploading of python packages; testing
 and production.</p>
-
 <p>Sending the package to the test server is a great idea as it allows you
 to download your tarball onto any system for testing. This allows you to
 do a few novel things like sharing it with friends or co-workers,
-spinning up virtual machine&rsquo;s with different operating systems or
+spinning up virtual machine's with different operating systems or
 installing it into separate virtual environments with different versions
 of python.</p>
-
 <p>This article does assume you are using a version control system, and in
 particular GitHub but this is not a requirement for PyPI.</p>
-
 <h3 id="productionise-your-code">Productionise your code</h3>
-
 <p>Before looking at how to upload your modules, first it must be made
 ready for release into the wild.</p>
-
 <h3 id="directory-structure">Directory Structure</h3>
-
-<pre><code class="language-bashj">root-dir/           # The directory which all your files live.
+<pre><code class="language-bashj" data-lang="bashj">root-dir/           # The directory which all your files live.
     setup.py        # covered below (Required)
     setup.cfg       # if using markdown rather than ReStructuredText
     LICENSE.txt     # should be required!
@@ -223,66 +209,58 @@ ready for release into the wild.</p>
         __init__.py
         awesome.py
         wicked.py
-</code></pre>
-
-<p>If you look at any great package such as
+</code></pre><p>If you look at any great package such as
 <a href="https://github.com/requests/requests">Requests</a> or
 <a href="https://github.com/nicolargo/glances">Glances</a> you will see a similar
 (although much more intricate) structure. The key files we <strong>need</strong> are
 <code>setup.py</code> and <code>setup.cfg</code> if using Markdown.</p>
+<h3 id="setuppy">Setup.py</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># setup.py</span>
 
-<h3 id="setup-py">Setup.py</h3>
+<span class="kn">from</span> <span class="nn">codecs</span> <span class="kn">import</span> <span class="nb">open</span>
+<span class="c1"># ensure consistent encoding</span>
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="c1"># always prefer over distutils</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
 
-<pre><code class="language-python"># setup.py
+<span class="n">VERSION</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">0.1.0</span><span class="s1">&#39;</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">https://github.com/username/package</span><span class="s1">&#39;</span>
+<span class="n">DOWNLOAD_URL</span> <span class="o">=</span> <span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">/tarball/</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span>
 
-from codecs import open
-# ensure consistent encoding
-from setuptools import setup
-# always prefer over distutils
-from os import path
+<span class="n">here</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="p">)</span>
 
-VERSION = '0.1.0'
-URL = 'https://github.com/username/package'
-DOWNLOAD_URL = (URL + '/tarball/' + VERSION)
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">README.md</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">utf-8</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">long_description</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="p">)</span>
 
-here = path.abspath(path.dirname(__file__))
-
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
-
-setup(
-    name='yourpackage',
-    packages=['yourpackage'],
-    version=VERSION,
-    description='blurb that users first see to decide if interesting',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    author='Optional',
-    author_email='Optional',
-    url=URL,
-    download_url=DOWNLOAD_URL,
-    classifiers=[
-        #   3 - Alpha
-        #   4 - Beta
-        #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6', ]
-)
-</code></pre>
-
-<p>The information contained within <code>setup.py</code> and in
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">yourpackage</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">yourpackage</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">blurb that users first see to decide if interesting</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">text/markdown</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Optional</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Optional</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span>
+    <span class="n">download_url</span><span class="o">=</span><span class="n">DOWNLOAD_URL</span><span class="p">,</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="c1">#   3 - Alpha</span>
+        <span class="c1">#   4 - Beta</span>
+        <span class="c1">#   5 - Production/Stable</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Development Status :: 3 - Alpha</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Intended Audience :: Developers</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">License :: OSI Approved :: MIT License</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3.5</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3.6</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div><p>The information contained within <code>setup.py</code> and in
 particular its <code>setup()</code> function is what creates the
-package&rsquo;s metadata for parsing by PyPI once uploaded.</p>
-
+package's metadata for parsing by PyPI once uploaded.</p>
 <p>This is a stripped down version of my own <code>setup.py</code>. Many
-tutorials which are older will use <code>distutils</code> but PyPI&rsquo;s
+tutorials which are older will use <code>distutils</code> but PyPI's
 <a href="https://github.com/pypa/sampleproject">example</a> structure explicitly
 states to favour the newer <code>setuptools</code>.</p>
-
 <p>By using a context manager and the <code>codecs.open</code> method we
 can read the README.md file for use in the
 <code>long_description</code> parameter within <code>setup()</code>.
@@ -291,151 +269,110 @@ ReStructuredText. If using README.rst, this can be ignored. Further, the
 <code>long_description_content_type='text/markdown'</code> must be
 included or it will not format the content correctly. This is a very
 recent addition to PyPI - March 2018.</p>
-
 <p>Also, the <code>version</code> is what sets the tarball filename, so
 creating an easy to adjust global variable makes it a lot easier to
 amend this file when updating your package. As you can see there is
 three locations that need to be updated for it to function correctly.
-(Thanks to <a href="https://dbader.org">Dan Bader</a> for the
+(Thanks to [Dan Bader] (<a href="https://dbader.org">https://dbader.org</a>) for the
 idea.)</p>
-
 <p>Please refer to the example page for more information, particularly if
 your package is more complex than just a few modules.</p>
-
-<h3 id="setup-cfg">Setup.cfg</h3>
-
+<h3 id="setupcfg">Setup.cfg</h3>
 <p>This is just required for Markdown parsing. As you may see it might just
 be easier to utilise the default supported .rst files. Something I may
 do in the future.</p>
-
-<pre><code class="language-bash">[metadata]
-description-file = README.md
-</code></pre>
-
-<h3 id="python-setup-py-sdist">Python setup.py sdist</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>metadata<span class="o">]</span>
+description-file <span class="o">=</span> README.md
+</code></pre></div><h3 id="python-setuppy-sdist">Python setup.py sdist</h3>
 <p>Running this command will invoke the <code>setup.py</code> and create
 a folder called <code>dist/</code> inside your root directory. This is
-where your application&rsquo;s tarball will now live. It is also a good time
+where your application's tarball will now live. It is also a good time
 to create or update your git tags for your repository.</p>
-
 <p>FYI, once you create a local tag it must be pushed to the remote.</p>
-
-<pre><code class="language-bash">git tag X.Y.Z -m &quot;Add a message such as; First!&quot;
-git push X.Y.Z      # preferred option
-git push --tags     # less preferred as it pushs ALL tags to the remote server
-</code></pre>
-
-<h3 id="upload-y-u-no-easy">Upload: y u no easy</h3>
-
-<p>In theory uploading to PyPI is just that simple. Unfortunately it isn&rsquo;t
-that easy and a lot of the helpful blogs and references out there aren&rsquo;t
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git tag X.Y.Z -m <span class="s2">&#34;Add a message such as; First!&#34;</span>
+git push X.Y.Z      <span class="c1"># preferred option</span>
+git push --tags     <span class="c1"># less preferred as it pushs ALL tags to the remote server</span>
+</code></pre></div><h3 id="upload-y-u-no-easy">Upload: y u no easy</h3>
+<p>In theory uploading to PyPI is just that simple. Unfortunately it isn't
+that easy and a lot of the helpful blogs and references out there aren't
 current with the new standards. As always the official user guide
 (<a href="https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">here</a>)
-is the holy grail but isn&rsquo;t the easiest reading when completely unsure!</p>
-
+is the holy grail but isn't the easiest reading when completely unsure!</p>
 <h3 id="1-register">1. Register</h3>
-
 <p>To upload anything to PyPI you must first register with it. And if you
 want to make use of the testing server, you must register with it
 separately. Although they use the same software, each server uses a
-separate database and this is why two different sign up&rsquo;s are required.
+separate database and this is why two different sign up's are required.
 They can be found here for <a href="https://pypi.org/account/register/">Live</a>
 and <a href="https://test.pypi.org/account/register/">Test</a>.</p>
-
 <h3 id="2-create-pypirc">2. Create .pypirc</h3>
-
 <p>This file allows your development machine to talk to the PyPI servers.
 It should look something like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># ~/.pypirc</span>
 
-<pre><code class="language-bash"># ~/.pypirc
-
-[distutils]
-index-servers = 
+<span class="o">[</span>distutils<span class="o">]</span>
+index-servers <span class="o">=</span> 
   pypi
   pypitest
 
-[pypi]
-repository=https://upload.pypi.org/legacy/
-username=username
+<span class="o">[</span>pypi<span class="o">]</span>
+<span class="nv">repository</span><span class="o">=</span>https://upload.pypi.org/legacy/
+<span class="nv">username</span><span class="o">=</span>username
 
-[pypitest]
-repository=https://test.pypi.org/legacy/
-username=username
-</code></pre>
-
-<p>This is current to today&rsquo;s date but the repository url may change as the
+<span class="o">[</span>pypitest<span class="o">]</span>
+<span class="nv">repository</span><span class="o">=</span>https://test.pypi.org/legacy/
+<span class="nv">username</span><span class="o">=</span>username
+</code></pre></div><p>This is current to today's date but the repository url may change as the
 PyPI warehouse continues its evolution. The file <strong>must</strong> be located in
 the home directory. Both username and password can be set in this file,
 or in environment variables.</p>
-
 <h3 id="3-install-twine">3. Install Twine</h3>
-
 <p>What is it and why use it? Twine is a package written by the PyPI
 maintainers that uses SSL by default when sending information to their
 endpoint. Python versions before 2.7.9 and 3.2 do not use this by
 default and spill user credentials over the air. Also twine separates
 the creation of the package tarball and uploading into two logical
 commands; setuptools does not - they are done in the same invocation.</p>
-
 <p>Tarball? To send your package to the server it first must be compressed
 into a single file. So basically, you zip your files to send and when
 <code>pip install xxxx</code> is called your tarball is downloaded and
 unzipped at the end user. This is an important point because any changes
 you make after creating your tarball are not included in the package so
 you will need to rezip it to include them.</p>
-
 <p>Personally, I install twine on the system interpreter and update it
 along with setup tools frequently.</p>
-
 <h3 id="4-upload">4. Upload!</h3>
-
-<pre><code class="language-bash">twine upload -r pypitest dist/package-version-i-select-explicitly.0.1.0.tar.gz
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">twine upload -r pypitest dist/package-version-i-select-explicitly.0.1.0.tar.gz
 &gt;&gt;&gt; Uploading distributions to https://test.pypi.org/legacy/
 &gt;&gt;&gt; Enter your password:
 &gt;&gt;&gt; Uploading package-version-i-select-explicitly.0.1.0.tar.gz
-</code></pre>
-
-<p>Using the <code>-r</code> flag allows you to set which server to send
+</code></pre></div><p>Using the <code>-r</code> flag allows you to set which server to send
 the file too. This file name is setup in the <code>.pypirc</code> file
 and if you have setup a username it will not prompt you for it.
 Likewise, it will not prompt for a password should you choose to enter
 that, and if you do consider <code>chmod 600</code> on that file for
 security reasons.</p>
-
 <p>In many examples you may see something like this:</p>
-
-<pre><code class="language-bash">twine upload -r pypitest dist/*
-</code></pre>
-
-<p>This will upload all of your tarball&rsquo;s located in the
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">twine upload -r pypitest dist/*
+</code></pre></div><p>This will upload all of your tarball's located in the
 <code>dist/</code> directory. I personally choose which distribution
 to upload. Either, or. Once done, goto the test PyPI and check to see
 that it looks as expected, or as previously stated download the test
 file and check its functioning as expected.</p>
-
 <p>This can be done like so:</p>
-
-<pre><code class="language-bash">pip install --index-url https://test.pypi.org/simple/ yourPackageName
-</code></pre>
-
-<p>Once happy send that baby to the production PyPI by repeating the
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pip install --index-url https://test.pypi.org/simple/ yourPackageName
+</code></pre></div><p>Once happy send that baby to the production PyPI by repeating the
 commands but this time specifying the <code>pypi</code> server like
 so:</p>
-
-<pre><code class="language-bash">twine upload -r pypi dist/package-version-i-select-explicitly.0.1.0.tar.gz
-</code></pre>
-
-<p>You now have a production package in the wild. Check out your code at
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">twine upload -r pypi dist/package-version-i-select-explicitly.0.1.0.tar.gz
+</code></pre></div><p>You now have a production package in the wild. Check out your code at
 <a href="https://libraries.io/">Libraries.io</a>.</p>
-
 <h3 id="5-help-pypi">5. Help PyPI</h3>
-
 <p>None of this would be possible with the tireless work of the Python
 Software Foundation and the handful of volunteers that make PyPI a
 reality. Join the PSF and maybe consider a donation, or convince your
 employer to contribute if they rely on python software! Without PSF and
-PyPI we wouldn&rsquo;t have python as we know it today. Please visit and sign
+PyPI we wouldn't have python as we know it today. Please visit and sign
 up here: <a href="https://psfmember.org/">PSF</a></p>
 
                 <br>

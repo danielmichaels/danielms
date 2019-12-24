@@ -11,12 +11,14 @@
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
 Character Sequences In python there are two types that represent sequences of characters:
-Python 3">
+Python 3
+ Bytes: raw 8 bit values Strings: unicode characters  Python 2">
 
 <meta property="og:title" content="Python&#39;s bytes and strings" />
 <meta property="og:description" content="Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
 Character Sequences In python there are two types that represent sequences of characters:
-Python 3" />
+Python 3
+ Bytes: raw 8 bit values Strings: unicode characters  Python 2" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/python-bytes-and-strings/" />
 <meta property="article:published_time" content="2018-10-23T00:00:00+00:00" />
@@ -47,9 +49,9 @@ Python 3" />
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.971962547%20%2b1100%20AEDT%20m%3d%2b0.052971908">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.971962547%20%2b1100%20AEDT%20m%3d%2b0.052971908">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.971962547%20%2b1100%20AEDT%20m%3d%2b0.052971908">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
     
 
 
@@ -132,8 +134,6 @@ Python 3" />
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -176,117 +176,80 @@ Python 3" />
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p><img src="https://danielms.site/images/unicode_logic.png" alt="test" /></p>
-
+                <p><img src="https://danielms.site/images/unicode_logic.png" alt="test"></p>
 <h1 id="python-strings-and-bytes">Python: strings and bytes</h1>
-
 <p>Python 3 is the new python, and python 2 should be regarded as legacy. But,
 it is still being used heavily and will likely live beyond its end of life. Recently,
 a project forced me to use python 2.7 within a Centos environment and I hit some
 small encoding issues.</p>
-
 <h2 id="character-sequences">Character Sequences</h2>
-
 <p>In python there are two types that represent sequences of characters:</p>
-
 <p><strong>Python 3</strong></p>
-
 <ul>
 <li>Bytes: raw 8 bit values</li>
 <li>Strings: unicode characters</li>
 </ul>
-
 <p><strong>Python 2</strong></p>
-
 <ul>
 <li>Strings: raw 8 bit values</li>
 <li>Unicode: unicode characters</li>
 </ul>
-
-<p>Python 3&rsquo;s strings and python 2&rsquo;s unicode instances do not have binary encoding.
+<p>Python 3's strings and python 2's unicode instances do not have binary encoding.
 Therefore, the user must implement the conversion manually by <code>encoding</code> and
 <code>decoding</code> the between binary and unicode.</p>
-
 <p>It is important that when constructing our program to deal with conversion between
 these data types that it is done at the furthest boundaries of our interfaces.
 This is sometimes referred to as the &lsquo;unicode sandwich&rsquo;.</p>
-
-<p><img src="https://danielms.site/images/unicode_sandwhich.jpg" alt="unicode sandwich" /></p>
-
-<p>This guarantee&rsquo;s a level of compliance when accepting alternate encodings and
+<p><img src="https://danielms.site/images/unicode_sandwhich.jpg" alt="unicode sandwich"></p>
+<p>This guarantee's a level of compliance when accepting alternate encodings and
 a much stricter output encoding scheme - generally <code>utf-8</code>. We should not be doing
 any encoding or decoding in the middle of our applications.</p>
-
 <p>This is of particular importance when dealing with file operations that are not
 text. In python 3, file operations do much of the encoding and decoding for you,
 returning <code>str</code> instances on read and write. But, python 3 will use the system
 default encoding where an encoding scheme is not specified. Much of the time
 we will receive <code>utf-8</code> but on some machines this is not guaranteed.</p>
-
 <p>If your application is expected to work across multiple operating systems and/or
 versions, you should set the <code>encoding=&lt;your-encoding type&gt;</code> keyword argument
 manually to prevent hidden bugs in the future.</p>
-
 <p>Subtle differences exist between python 2 and 3.</p>
-
-<pre><code class="language-python">with open('encoding.txt', 'w') as f:
-    f.write(os.urandom(10))
-</code></pre>
-
-<p>In python 2 this will work as by default <code>open</code> use binary encoding. However, python 3
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">w</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">)</span>
+</code></pre></div><p>In python 2 this will work as by default <code>open</code> use binary encoding. However, python 3
 uses <code>utf-8</code> instead. If we tried to run this it will raise a <code>TypeError: must be str not bytes</code>.</p>
-
 <p>To make this work in both 2 and 3, we need to specify that it is binary.</p>
-
-<pre><code class="language-python">with open('encoding.txt', 'wb') as f:
-    f.write(os.urandom(10))
-</code></pre>
-
-<p>Writing binary to a file must also be specified with <code>rb</code> instead of <code>r</code>.</p>
-
-<pre><code class="language-python">with open('encoding.txt', 'rb') as f:
-    for line in f:
-      print(line)
-</code></pre>
-
-<h3 id="notable-mentions">Notable mentions</h3>
-
-<p>Other interesting points between python 2&rsquo;s <code>str</code> and <code>unicode</code>, and python 3&rsquo;s
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">wb</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">)</span>
+</code></pre></div><p>Writing binary to a file must also be specified with <code>rb</code> instead of <code>r</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">rb</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre></div><h3 id="notable-mentions">Notable mentions</h3>
+<p>Other interesting points between python 2's <code>str</code> and <code>unicode</code>, and python 3's
 <code>str</code> and <code>bytes</code> are how they are compared, or typed. In python 2, if a
 <code>str</code> is ASCII (7-bits) it will pass an equality check with <code>unicode</code> characters.
 They can also be combined using the <code>+</code> operator, and can be formatted using
 <code>%s</code> string formatting.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span>
 
-<pre><code class="language-python">a = 'a'
-b = u'a'
-
-a == b # true
-c = a + b # u'aa'
-print 'as str a,b =%s%s' % (a,b) # as str a,b=aa
-</code></pre>
-
-<p>This means that in python 2 we could pass <code>unicode</code> or a <code>str</code> instance and expect
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="c1"># true</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># u&#39;aa&#39;</span>
+<span class="k">print</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">as str a,b =</span><span class="si">%s</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="c1"># as str a,b=aa</span>
+</code></pre></div><p>This means that in python 2 we could pass <code>unicode</code> or a <code>str</code> instance and expect
 the same result - if 7-bit ASCII. In python 3 <code>str</code> and <code>bytes</code> never cannot
 pass equality checks, not even empty strings.</p>
-
 <h2 id="summary">Summary</h2>
-
 <p>Legacy python is still a thing, so having an understanding of how the encoding
 paradigms differ between each version is important. The differences in file operations
 can have significant effects within your applications, and is quite prominent in
 network level communications. Wherever possible work with <code>str</code> types inside
 your main business logic to alleviate any nasty surprises further down the line.</p>
-
 <p>And have a read over some these gems regarding <code>utf-8</code>, which I deliberately
 did not go over in any detail.</p>
-
 <h3 id="references">references</h3>
-
-<p>Ned Batchelder&rsquo;s <a href="https://nedbatchelder.com/text/unipain/unipain.html#1">How Do I Stop The Pain</a></p>
-
-<p>Joel Spolsky&rsquo;s <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
+<p>Ned Batchelder's <a href="https://nedbatchelder.com/text/unipain/unipain.html#1">How Do I Stop The Pain</a></p>
+<p>Joel Spolsky's <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
 
                 <br>
                 

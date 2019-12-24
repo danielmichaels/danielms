@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DNS on Daniel Michaels | Developer | Technical Lead</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
-      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+      <description>DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
     </item>
     

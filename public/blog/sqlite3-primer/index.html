@@ -47,9 +47,9 @@ Consistent - A transaction must ensure to change the database from one valid sta
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.97367107%20%2b1100%20AEDT%20m%3d%2b0.054680447">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.97367107%20%2b1100%20AEDT%20m%3d%2b0.054680447">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.97367107%20%2b1100%20AEDT%20m%3d%2b0.054680447">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.990989202%20%2b1100%20AEDT%20m%3d%2b0.250872396">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.990989202%20%2b1100%20AEDT%20m%3d%2b0.250872396">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.990989202%20%2b1100%20AEDT%20m%3d%2b0.250872396">
     
 
 
@@ -132,8 +132,6 @@ Consistent - A transaction must ensure to change the database from one valid sta
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -176,240 +174,155 @@ Consistent - A transaction must ensure to change the database from one valid sta
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="sql-reference">SQL Reference</h1>
-
+                <h1 id="sql-reference">SQL Reference</h1>
 <h2 id="sqlite3-specific">SQLite3 Specific</h2>
-
 <h3 id="transactions">Transactions</h3>
-
 <p>SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.</p>
-
 <p><strong>Atomic</strong>
-    - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.</p>
-
+- Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.</p>
 <p><strong>Consistent</strong>
-    - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.</p>
-
+- A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.</p>
 <p><strong>Isolated</strong>
-    - Transactions are isolated from one client to the next. When changes are made to the database the changes are only visible to that client until it is committed. If two people concurrently make changes to a database, they will be transacted sequentially. It does not ensure the order of transactions.</p>
-
+- Transactions are isolated from one client to the next. When changes are made to the database the changes are only visible to that client until it is committed. If two people concurrently make changes to a database, they will be transacted sequentially. It does not ensure the order of transactions.</p>
 <p><strong>Durability</strong>
-    - If a transaction is successfully committed, the changes are permanent going forward, if it is interrupted during the commit it will revert to its previous state.</p>
-
-<p><img src="https://danielms.site/images/acid.svg" alt="Julia Evans ACID drawing" title="ACID in cartoon format" /></p>
-
+- If a transaction is successfully committed, the changes are permanent going forward, if it is interrupted during the commit it will revert to its previous state.</p>
+<p><img src="https://danielms.site/images/acid.svg" alt="Julia Evans ACID drawing" title="ACID in cartoon format"></p>
 <p><strong>Please check out Julia Evans work at <a href="https://jvns.ca">https://jvns.ca</a></strong></p>
-
 <p>SQLite3 uses auto-commit mode by default.</p>
-
 <h3 id="select">Select</h3>
-
 <p>Used to query data from one or more tables. Example below:</p>
-
-<pre><code class="language-SQL">SELECT DISTINCT column_list
-FROM table_list
-  JOIN table ON join_condition
-WHERE row_filter
-ORDER BY column
-LIMIT count OFFSET offset
-GROUP BY column
-HAVING group_filter;
-</code></pre>
-
-<p>A breakdown of each clause:</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">column_list</span>
+<span class="k">FROM</span> <span class="n">table_list</span>
+  <span class="k">JOIN</span> <span class="k">table</span> <span class="k">ON</span> <span class="n">join_condition</span>
+<span class="k">WHERE</span> <span class="n">row_filter</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">column</span>
+<span class="k">LIMIT</span> <span class="k">count</span> <span class="k">OFFSET</span> <span class="k">offset</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">column</span>
+<span class="k">HAVING</span> <span class="n">group_filter</span><span class="p">;</span>
+</code></pre></div><p>A breakdown of each clause:</p>
 <ul>
-<li><pre><code class="language-ORDER">
-- ```DISTINCT``` gets unique rows in a table,
-    
-- ```WHERE``` is a filter such as, ```WHERE employees IS NULL```,
-
-- ```LIMIT   OFFSET``` will return a set number of rows,
-
-- ```GROUP BY``` sorts columns into groups and applies functions to each group,
-
-- ```HAVING``` is another filter that checks for presence of the operator.
-
-`SELECT * FROM database_table` is acceptable usage in testing or development but in production the query should be explicit.
-
-### Insert
-
-Used to insert new data be it single row, multiple rows, and default data into tables.
-
-</code></pre>
-
-<p>SQL</p></li>
+<li>
+<p><code>ORDER BY</code> sorts the result set,</p>
+</li>
+<li>
+<p><code>DISTINCT</code> gets unique rows in a table,</p>
+</li>
+<li>
+<p><code>WHERE</code> is a filter such as, <code>WHERE employees IS NULL</code>,</p>
+</li>
+<li>
+<p><code>LIMIT   OFFSET</code> will return a set number of rows,</p>
+</li>
+<li>
+<p><code>GROUP BY</code> sorts columns into groups and applies functions to each group,</p>
+</li>
+<li>
+<p><code>HAVING</code> is another filter that checks for presence of the operator.</p>
+</li>
 </ul>
-
-<p>INSERT INTO table1 (
- column1,
- column2 ,..)
-VALUES
- (
- value1,
- value2 ,&hellip;),
- (
- value1,
- value2 ,&hellip;),
-        &hellip;
- (
- value1,
- value2 ,&hellip;);</p>
-
-<pre><code>
-The above example shows how to insert multiple rows into a table. 
-
-</code></pre>
-
-<p>SQL
-INSERT INTO artists (name)
-VALUES
- (&ldquo;Buddy Rich&rdquo;),
- (&ldquo;Candido&rdquo;),
- (&ldquo;Charlie Byrd&rdquo;);</p>
-
-<pre><code>
- An example of how to insert into column ```name``` within table ```artists```.
-
- Data can also be inserted via a SELECT statement.
-
-### Update
-
-Update already existing data in a table.
-
-</code></pre>
-
-<p>SQL
-UPDATE table
-SET column_1 = new_value_1,
-    column_2 = new_value_2
-WHERE
-    search_condition
-ORDER column_or_expression
-LIMIT row_count OFFSET offset;</p>
-
-<pre><code>
-the ```UPDATE``` clause informs SQL that some part of the table is going to be amended. the ```SET``` clause signifies and allows the updating of the column/s that precede it. On the left of the assignment operator (=) is the column to be updated and on the right the new value, expression or data. Whilst the ```WHERE``` operator is optional if it is omitted all rows will be updated.
-
-
-### Delete
-
-The delete statement allows for deletion of one, multiple or all rows within a table.
-
-</code></pre>
-
-<p>SQL
-DELETE
-FROM
- table
-WHERE
- search_condition;</p>
-
-<pre><code>
- Like updating a table, ```WHERE```, ```ORDER BY``` and ```LIMIT``` clauses can be applied to a delete operation. In addition deletes can be orchestrated through the ```SELECT``` operator.
-
-
-## JOINS
-
-### Inner Joins
-
-In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.
-
-`INNER JOIN` clause will combine columns from correlated tables.
-
-In fig 1.1 Table A's 'f' column is compared with table B's 'f' column. If the value of the 'f' column in the A table equals that of B's 'f' column it will return the match. More simply, `INNER JOIN` clauses return rows from table A that have corresponding rows in the B table.
-
-![Inner Join](/images/SQLite-Inner-Join-Example.png &quot;example of inner join&quot;)
-
-Fig 1.1 Inner Join
-
-`INNER JOIN` may connect more than two tables. This will require two inner join clauses form the `SELECT` statement. 
-
-</code></pre>
-
-<p>SQL
-SELECT
- trackid,
- tracks.name AS Track,
- albums.title AS Album,
- artists.name AS Artist
-FROM
- tracks
-INNER JOIN albums ON albums.albumid = tracks.albumid
-INNER JOIN artists ON artists.artistid = albums.artistid;</p>
-
-<pre><code>
-Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)
-
-![Inner Join Example](/images/SQLite-Inner-Join-3-tables.jpg &quot;result set of inner join on three tables.&quot;)
-
-Fig. 1.2 is the result set of the above query.
-
-### Full Outer Join
-
-**this command is not in SQLite3**
-
-Theoretically, the result of a Right Join and Left Join with `NULL` values for every column of the table that does not have a matching row.
-
-This is technically not available in SQLite3, however they do offer a workaround. 
-
-Given that SQLite3 does not have `RIGHT JOIN` or `FULL OUTER JOIN` it uses both `UNION` and `LEFT JOIN` to emulate it.
-
-It achieves this by switching the position of the `LEFT JOIN` clause over both columns. SQLite also uses `UNION ALL` to duplicate rows from the result set of both queries. Finally, the use of a `WHERE` clause will remove rows already included in the result set of the first `SELECT` statement. See the below code for an example.
-
-</code></pre>
-
-<p>SQL</p>
-
-<p>SELECT d.type,
-         d.color,
-         c.type,
-         c.color
-FROM dogs d
-LEFT JOIN cats c USING(color)
-UNION ALL
-SELECT d.type,
-         d.color,
-         c.type,
-         c.color
-FROM cats c
-LEFT JOIN dogs d USING(color)
-WHERE d.color IS NULL;
-```</p>
-
-<h2 id="terms-definitions">Terms/ Definitions</h2>
-
+<p><code>SELECT * FROM database_table</code> is acceptable usage in testing or development but in production the query should be explicit.</p>
+<h3 id="insert">Insert</h3>
+<p>Used to insert new data be it single row, multiple rows, and default data into tables.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span>
+ <span class="n">column1</span><span class="p">,</span>
+ <span class="n">column2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">)</span>
+<span class="k">VALUES</span>
+ <span class="p">(</span>
+ <span class="n">value1</span><span class="p">,</span>
+ <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">,</span>
+ <span class="p">(</span>
+ <span class="n">value1</span><span class="p">,</span>
+ <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">,</span>
+        <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+ <span class="p">(</span>
+ <span class="n">value1</span><span class="p">,</span>
+ <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>The above example shows how to insert multiple rows into a table.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">artists</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">VALUES</span>
+ <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Buddy Rich</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">,</span>
+ <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Candido</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">,</span>
+ <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Charlie Byrd</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>An example of how to insert into column <code>name</code> within table <code>artists</code>.</p>
+<p>Data can also be inserted via a SELECT statement.</p>
+<h3 id="update">Update</h3>
+<p>Update already existing data in a table.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">UPDATE</span> <span class="k">table</span>
+<span class="k">SET</span> <span class="n">column_1</span> <span class="o">=</span> <span class="n">new_value_1</span><span class="p">,</span>
+    <span class="n">column_2</span> <span class="o">=</span> <span class="n">new_value_2</span>
+<span class="k">WHERE</span>
+    <span class="n">search_condition</span> 
+<span class="k">ORDER</span> <span class="n">column_or_expression</span>
+<span class="k">LIMIT</span> <span class="k">row_count</span> <span class="k">OFFSET</span> <span class="k">offset</span><span class="p">;</span>
+</code></pre></div><p>the <code>UPDATE</code> clause informs SQL that some part of the table is going to be amended. the <code>SET</code> clause signifies and allows the updating of the column/s that precede it. On the left of the assignment operator (=) is the column to be updated and on the right the new value, expression or data. Whilst the <code>WHERE</code> operator is optional if it is omitted all rows will be updated.</p>
+<h3 id="delete">Delete</h3>
+<p>The delete statement allows for deletion of one, multiple or all rows within a table.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">DELETE</span>
+<span class="k">FROM</span>
+ <span class="k">table</span>
+<span class="k">WHERE</span>
+ <span class="n">search_condition</span><span class="p">;</span>
+</code></pre></div><p>Like updating a table, <code>WHERE</code>, <code>ORDER BY</code> and <code>LIMIT</code> clauses can be applied to a delete operation. In addition deletes can be orchestrated through the <code>SELECT</code> operator.</p>
+<h2 id="joins">JOINS</h2>
+<h3 id="inner-joins">Inner Joins</h3>
+<p>In relation databases, data is often distributed amongst many related tables. Foreign Keys are used to associate these tables.</p>
+<p><code>INNER JOIN</code> clause will combine columns from correlated tables.</p>
+<p>In fig 1.1 Table A's &lsquo;f&rsquo; column is compared with table B's &lsquo;f&rsquo; column. If the value of the &lsquo;f&rsquo; column in the A table equals that of B's &lsquo;f&rsquo; column it will return the match. More simply, <code>INNER JOIN</code> clauses return rows from table A that have corresponding rows in the B table.</p>
+<p><img src="https://danielms.site/images/SQLite-Inner-Join-Example.png" alt="Inner Join" title="example of inner join"></p>
+<p>Fig 1.1 Inner Join</p>
+<p><code>INNER JOIN</code> may connect more than two tables. This will require two inner join clauses form the <code>SELECT</code> statement.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">SELECT</span>
+ <span class="n">trackid</span><span class="p">,</span>
+ <span class="n">tracks</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Track</span><span class="p">,</span>
+ <span class="n">albums</span><span class="p">.</span><span class="n">title</span> <span class="k">AS</span> <span class="n">Album</span><span class="p">,</span>
+ <span class="n">artists</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Artist</span>
+<span class="k">FROM</span>
+ <span class="n">tracks</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">albums</span> <span class="k">ON</span> <span class="n">albums</span><span class="p">.</span><span class="n">albumid</span> <span class="o">=</span> <span class="n">tracks</span><span class="p">.</span><span class="n">albumid</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">artists</span> <span class="k">ON</span> <span class="n">artists</span><span class="p">.</span><span class="n">artistid</span> <span class="o">=</span> <span class="n">albums</span><span class="p">.</span><span class="n">artistid</span><span class="p">;</span>
+</code></pre></div><p>Example code of a query joining three tables by their Artist. (from Chinook.db found at SQLite's website tutorial.)</p>
+<p><img src="https://danielms.site/images/SQLite-Inner-Join-3-tables.jpg" alt="Inner Join Example" title="result set of inner join on three tables."></p>
+<p>Fig. 1.2 is the result set of the above query.</p>
+<h3 id="full-outer-join">Full Outer Join</h3>
+<p><strong>this command is not in SQLite3</strong></p>
+<p>Theoretically, the result of a Right Join and Left Join with <code>NULL</code> values for every column of the table that does not have a matching row.</p>
+<p>This is technically not available in SQLite3, however they do offer a workaround.</p>
+<p>Given that SQLite3 does not have <code>RIGHT JOIN</code> or <code>FULL OUTER JOIN</code> it uses both <code>UNION</code> and <code>LEFT JOIN</code> to emulate it.</p>
+<p>It achieves this by switching the position of the <code>LEFT JOIN</code> clause over both columns. SQLite also uses <code>UNION ALL</code> to duplicate rows from the result set of both queries. Finally, the use of a <code>WHERE</code> clause will remove rows already included in the result set of the first <code>SELECT</code> statement. See the below code for an example.</p>
+<div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL">
+<span class="k">SELECT</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span><span class="p">,</span>
+         <span class="n">d</span><span class="p">.</span><span class="n">color</span><span class="p">,</span>
+         <span class="k">c</span><span class="p">.</span><span class="k">type</span><span class="p">,</span>
+         <span class="k">c</span><span class="p">.</span><span class="n">color</span>
+<span class="k">FROM</span> <span class="n">dogs</span> <span class="n">d</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">cats</span> <span class="k">c</span> <span class="k">USING</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="k">UNION</span> <span class="k">ALL</span>
+<span class="k">SELECT</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span><span class="p">,</span>
+         <span class="n">d</span><span class="p">.</span><span class="n">color</span><span class="p">,</span>
+         <span class="k">c</span><span class="p">.</span><span class="k">type</span><span class="p">,</span>
+         <span class="k">c</span><span class="p">.</span><span class="n">color</span>
+<span class="k">FROM</span> <span class="n">cats</span> <span class="k">c</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">dogs</span> <span class="n">d</span> <span class="k">USING</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">d</span><span class="p">.</span><span class="n">color</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">;</span>
+</code></pre></div><h2 id="terms-definitions">Terms/ Definitions</h2>
 <h3 id="primary-key">Primary Key</h3>
-
 <p>In order to qualify as a relational table, it must have a primary key.</p>
-
 <p>The <strong>primary key</strong> consists of one or more columns whose data contained within is used to uniquely identify each row in the table.
 <em>metaphor</em> If rows were mailboxes the primary key would be the street address.</p>
-
-<p>To be a true primary key it must be:
-- Unique (data, not the name),
-- Must not be NULL or &ldquo;&rdquo;</p>
-
+<p>To be a true primary key it must be:</p>
+<ul>
+<li>Unique (data, not the name),</li>
+<li>Must not be NULL or &quot;&rdquo;</li>
+</ul>
 <p>Tables must have primary keys, and these are stored in an index which is used to enforce the uniqueness requirement. Being indexed, accessing it does not necessitate scanning the entire table.</p>
-
 <h3 id="foreign-key">Foreign Key</h3>
-
 <p>A <strong>foreign key</strong> is one or more columns in a table that refers to the primary key or unique identifier in another table.</p>
-
 <p>They unlike primary keys <strong>can contain NULL, blank or duplicate values</strong>. As they allow duplication it is best not to use a foreign key as a primary key, unless it is a one-to-one relationship.</p>
-
-<p><img src="https://danielms.site/images/foreign_key.png" alt="input" title="example foreign key" /></p>
-
+<p><img src="https://danielms.site/images/foreign_key.png" alt="input" title="example foreign key"></p>
 <p>In the above picture we have a Students and Cities table. PERSON_ID and CITY_ID are unique, and therefore make good Primary keys (which they are). Inside the Students table it is possible for several students to be born in the same city. As such the BIRTH_PLACE column is the foreign key to the Cities table. This ensures that there is relationship between the tables and that relation points to something unique in the other table.</p>
-
-<h3 id="union-s">Union&rsquo;s</h3>
-
+<h3 id="unions">Union's</h3>
 <p><em>BLUF: combines result set of two or more queries into a single result set.</em></p>
-
 <p><code>UNION</code> by default removes duplicate rows whereas <code>UNION ALL</code> does not. As <code>UNION ALL</code> does not remove duplicates it will process faster. Both statements have the following rules:</p>
-
 <ul>
 <li>Must have the same number of columns,</li>
 <li>Corresponding columns must be same data type,</li>
@@ -417,9 +330,7 @@ WHERE d.color IS NULL;
 <li>Any <code>GROUP BY</code> and <code>HAVING</code> clauses are applied to each individual query, not the final result set,</li>
 <li>The <code>ORDER BY</code> is applied to the combined result set, not the individual result sets.</li>
 </ul>
-
 <h3 id="transaction">Transaction</h3>
-
 <p>The basis of all interactions with the database. Inserts, updates, deletes, commits and table creation and deletion are all transactions.</p>
 
                 <br>

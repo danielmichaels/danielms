@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TIL on Daniel Michaels | Developer | Technical Lead</title>
@@ -18,7 +18,7 @@
       
       <guid>https://danielms.site/blog/til-how-network-time-protocol-works/</guid>
       <description>Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
-What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by David L. Mills in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
+ What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by [David L. Mills] (https://en.wikipedia.org/wiki/David_L._Mills) in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
     </item>
     
   </channel>

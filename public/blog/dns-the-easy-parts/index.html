@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+<meta name="description" content="DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.">
 
 <meta property="og:title" content="DNS the easy parts" />
-<meta property="og:description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+<meta property="og:description" content="DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/dns-the-easy-parts/" />
@@ -45,9 +45,9 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.969212808%20%2b1100%20AEDT%20m%3d%2b0.050222192">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.969212808%20%2b1100%20AEDT%20m%3d%2b0.050222192">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.969212808%20%2b1100%20AEDT%20m%3d%2b0.050222192">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
     
 
 
@@ -130,8 +130,6 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,41 +172,25 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="dns">DNS</h1>
-
-<p><img src="https://danielms.site/images/dns.png" alt="DNS" title="dns logo" /></p>
-
-<p>The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.</p>
-
+                <h1 id="dns">DNS</h1>
+<p><img src="https://danielms.site/images/dns.png" alt="DNS" title="dns logo"></p>
+<p>The Internet's success is predicated on the Domain Name System or DNS. We've all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.</p>
 <p>When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down. Sadly, during my CCNA studies, it did not get much more than the cursory explanation.</p>
-
 <h1 id="overview">Overview</h1>
-
 <p>DNS is a protocol that can map IP addresses to human readable names. When a user types <code>example.com</code> into their browser bar and hits enter, the machine does not know how to reach <code>example.com</code> without first translating it into an IP routable address.</p>
-
 <p>Before any network activity takes place between the client and the destination, a DNS lookup must first be conducted. Luckily, DNS is fast but it does add latency to the request. If this transaction fails the client will be unable to make a connection to the server. A user could, alternatively manually enter the servers IP address and this would work - as long as the server is up. But if we could remember IP addresses as readily as we do names, DNS would be redundant.</p>
-
 <p>It is worth noting that DNS also allows us to clump many IP addresses under one namespace. For instance, we can reach hosts on our local network using domain names instead of IP addresses. We use DNS for more than just browsing the web; emails, IoT devices and many other services that make networks invisible to the majority of users are powered by this system.</p>
-
 <p>From ten thousand feet, lets examine how a simple name to IP address translation takes place.</p>
-
 <h2 id="dns-resolution">DNS Resolution</h2>
-
 <p>In the below diagram we have a series queries starting with the browser asking for the address to <code>example.com</code> and ending with the server delivering content back to the browser.</p>
-
-<p><img src="https://danielms.site/images/dns-lookup-diagram.png" alt="dns-lookup" title="dns ten step lookup - simple" />
+<p><img src="https://danielms.site/images/dns-lookup-diagram.png" alt="dns-lookup" title="dns ten step lookup - simple">
 Figure 1. Simple DNS Lookup - <a href="https://www.cloudflare.com/learning/dns/what-is-dns/">attrib</a></p>
-
 <p>When our above client types <code>example.com</code> into the browser and hits enter, a series of steps are taken by the client and external servers to translate the human readable name into a machine readable IP address.</p>
-
 <p><strong>Each step broken down:</strong></p>
-
 <ol>
 <li>After the user hits enter, the browser will check to see if the address has been cached, if not the operating systems cache will queried, and if both fail, the system will send out a request to a DNS resolver.</li>
 <li>Our resolver will parse its own cache and if nothing matches, will then forward a request to one of the DNS root name servers. Root name servers are at the top of the DNS hierarchy and are represented by the right most <code>.</code> of our websites name.</li>
-<li>Once received, the root name server will check its <em>zone file</em> for the Top-Level Domain (TLD) matching the request - in this case <code>com</code>. It returns the address of <code>com</code>&rsquo;s name server back to our resolver.</li>
+<li>Once received, the root name server will check its <em>zone file</em> for the Top-Level Domain (TLD) matching the request - in this case <code>com</code>. It returns the address of <code>com</code>'s name server back to our resolver.</li>
 <li>Our resolver now forwards a new request, this time to the <code>com</code> TLD <em>authoritative</em> name server.</li>
 <li>The <code>com</code> name server checks its zone file for the subdomain <code>example</code> and returns that address to the resolver.</li>
 <li>Now our resolver can ask the DNS server responsible (authoritative) for the <code>example</code> domains address.</li>
@@ -217,60 +199,39 @@ Figure 1. Simple DNS Lookup - <a href="https://www.cloudflare.com/learning/dns/w
 <li>The browser will now initiate a connection using <code>HTTP</code> with <code>example.com</code>.</li>
 <li><code>example.com</code> having received the connection request, begins transferring data to the clients browser.</li>
 </ol>
-
 <p>This is a very simplistic resolution. It works well in common household networks where your wireless router is not a DNS server. If you are instituting a firewall or managing your own name server, the below diagram is a more likely reflection of what is happening.</p>
-
-<p><img src="https://danielms.site/images/dns-resolver-forwarding.JPG" alt="DNS resolver in LAN" />
+<p><img src="https://danielms.site/images/dns-resolver-forwarding.JPG" alt="DNS resolver in LAN">
 Figure 2. Forwarding Queries</p>
-
 <p>In the above example, the local DNS server sends a query to a recursive resolver from a large DNS provider. As stated in Figure 2, this can also be called a Forward DNS Server. The forward resolver will conduct all the iterative requests on our behalf before returning the answer back to our local DNS server, who forwards it to the client.</p>
-
 <h2 id="why-root">Why Root?</h2>
-
 <p>DNS works in a hierarchical structure with the root or <code>.</code> being at the top of the tree - very similar to the Linux file structure.</p>
-
 <p>So why does the recursive resolver go straight to the root name server, and not say the <code>com</code> domain?</p>
-
-<p><img src="https://danielms.site/images/dns-root.png" alt="DNS hierarchy" title="DNS heirarchy" /></p>
-
+<p><img src="https://danielms.site/images/dns-root.png" alt="DNS hierarchy" title="DNS heirarchy"></p>
 <p>Looking at the above example we can see that everything is connected to root. So, the resolver must start with the only known address it has; root. Logically, it is the only server that can reach <em>all</em> possible domains.</p>
-
 <h2 id="top-level-domains">Top-Level Domains</h2>
-
 <p>After querying the root server, it will return the TLD name server for the domain being queried. The TLD server contains all the information for domains that share a common extension, such as <code>edu</code>, <code>com</code>, or whatever comes directly after the last dot in the url. More simply, the name server for <code>net</code> will have the address for every website that ends with <code>net</code>.</p>
-
 <p>So, when the user requests <code>example.com</code>, the TLD name server of the <code>com</code> domain will reply with the address of the authoritative server for the <code>example</code> domain. Simply put, the name server who looks after the <code>com</code> domain knows where to find every single domain that uses a <code>.com</code> and will return the websites address back to the resolver, completing the lookup.</p>
-
 <p>Top-level domains can be broken into two groups:</p>
-
 <ul>
 <li>Generic (gTLD):
-
 <ul>
 <li>Addresses such as <code>com</code>, <code>net</code>, and <code>gov</code>.</li>
-</ul></li>
+</ul>
+</li>
 <li>Country code (ccTLD):
-
 <ul>
 <li>Country specific, <code>jp</code>, <code>au</code>, <code>ca</code>.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>With an address such as <code>example.com.au</code> the resolver will still query the root name servers but it will send the resolver to the country specific top level domain of <code>au</code>. The domain to the <strong>right</strong> of the last <code>.</code> will always be queried first.</p>
-
 <p>We can demonstrate this by running <code>drill bbc.co.uk -T</code> or <code>dig bbc.co.uk +trace</code>.</p>
-
 <h2 id="subdomains">Subdomains</h2>
-
 <p>Technically, after the TLD, each domain down the tree can be referenced as a subdomain; <code>example</code> in <code>example.com</code> being a subdomain of the <code>com</code> TLD.</p>
-
 <p>Typically, subdomains more often refer to addresses such as <code>api.github.com</code> with <code>api</code> being a subdomain of <code>github</code>.</p>
-
 <p>You can see the resolution by running <code>drill m.facebook.com -T</code> or <code>dig m.facebook.com +trace</code>.</p>
-
 <p>At the date of publication, the facebook lookup provided a good example of subdomain and CNAME resolution. I have included a truncated output below.</p>
-
-<pre><code class="language-sh">&gt;&gt; drill m.facebook.com -T
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&gt;&gt; drill m.facebook.com -T
 
 ...snip...
 .	518400	IN	NS	l.root-servers.net.
@@ -284,218 +245,149 @@ m.facebook.com.	3600	IN	CNAME	star-mini.c10r.facebook.com.
 c10r.facebook.com.	3600	IN	NS	a.ns.c10r.facebook.com.
 c10r.facebook.com.	3600	IN	NS	b.ns.c10r.facebook.com.
 star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
-</code></pre>
-
-<h2 id="terms">Terms</h2>
-
+</code></pre></div><h2 id="terms">Terms</h2>
 <blockquote>
-<p>Essentially all technical efforts wallow in acronyms and special &ldquo;terms of art&rdquo; [&hellip;] with several non-obvious terms to confuse those who have not been involved for a while.
- - <em>RFC 4144 - How to Gain Prominence and Influence in Standards Organizations</em></p>
+<p>Essentially all technical efforts wallow in acronyms and special &ldquo;terms of art&rdquo; [&hellip;] with several non-obvious terms to confuse those who have not been involved for a while.</p>
+<ul>
+<li><em>RFC 4144 - How to Gain Prominence and Influence in Standards Organizations</em></li>
+</ul>
 </blockquote>
-
 <p>Sums up many of the terms used to express components of the domain name system. A brief description of the main offenders follows and how to examine them using <code>drill</code>. If <code>drill</code> is unfamiliar to you, <code>dig</code> will work just the same. <code>nslookup</code> is not covered in this post, but will essentially do the same thing.</p>
-
 <h3 id="dns-resolver">DNS resolver</h3>
-
 <p>The &lsquo;resolver&rsquo; is the agent between the client and the name servers. A resolver will start the queries that eventually return a valid address translation for the client.</p>
-
 <p>A recursive resolver knows how to traverse the tree to deliver a response to a query.</p>
-
 <h3 id="authoritative-server">Authoritative Server</h3>
-
 <p>Owns the domain, or has all the records for that domain. E.g. the <code>com</code> name server, knows the whereabouts of every single domain that uses it. Popular sites such as <code>google.com</code>, <code>yahoo.com</code> and <code>github.com</code> are all domains under the <code>com</code> authoritative server, it knows the address to each of those sites DNS server within their network.</p>
-
 <h3 id="top-level-domain-tld">Top-level Domain (TLD)</h3>
-
 <p>Domains that are one level below the root are known as top level domains.</p>
-
 <ul>
 <li>Examples:
 <code>com</code>, <code>jp</code>, <code>edu</code></li>
 </ul>
-
-<p>Country Code TLD&rsquo;s such as <code>au</code>, <code>uk</code> and <code>nz</code> are examples.  <code>taste.com.au</code> will be resolved in the following order:</p>
-
+<p>Country Code TLD's such as <code>au</code>, <code>uk</code> and <code>nz</code> are examples.  <code>taste.com.au</code> will be resolved in the following order:</p>
 <ol>
 <li><code>.</code> - Root</li>
 <li>-&gt; <code>.au</code></li>
 <li>-&gt; <code>com.au</code></li>
 <li>-&gt; <code>taste.com.au</code></li>
 </ol>
-
 <p>This can be seen via <code>drill -T taste.com.au</code> which will trace (what <code>-T</code> does) through each root name server all the way to the A record of <code>taste.com.au</code>.</p>
-
 <h3 id="recursive-request">Recursive request</h3>
-
-<p>When the client needs to get the address of a URL, it first checks its cache and if not found will send a request to its recursive resolver asking for the address. Often, the resolver being queried will be your ISP&rsquo;s default name server (please don&rsquo;t do this; they monetize it), or something like Google&rsquo;s public DNS server; <code>8.8.8.8</code>. <strong>My opinion</strong>: use <code>1.1.1.1</code> or some other provider - Google are using you, too.
+<p>When the client needs to get the address of a URL, it first checks its cache and if not found will send a request to its recursive resolver asking for the address. Often, the resolver being queried will be your ISP's default name server (please don't do this; they monetize it), or something like Google's public DNS server; <code>8.8.8.8</code>. <strong>My opinion</strong>: use <code>1.1.1.1</code> or some other provider - Google are using you, too.
 The recursive resolver will then begin a series of iterative requests on your behalf.</p>
-
 <p>For the most part recursive queries begin with the client and end at the recursive resolver in a kind of A-&gt;B, B-&gt;A relationship. This is because the resolver is doing iterative queries on your behalf and here lies the big difference between recursive and iterative requests.</p>
-
 <p><em>Recursive queries require an answer</em></p>
-
 <p>As <a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-root-hints">Microsoft</a> puts it:</p>
-
 <blockquote>
 <p>recursive query indicates that the client wants a definitive answer to its query. The response to the recursive query must be a valid address or a message indicating that the address cannot be found.</p>
 </blockquote>
-
 <p>Meaning a recursive can only reply with either the address, or an error (NXDOMAIN) but not a referral to another name server.</p>
-
 <h3 id="iterative-request">Iterative request</h3>
-
 <p>Generally, the queries <em>from</em> a recursive resolver to other name servers are iterative. They leave the resolver and start at the top of the DNS tree via the root name servers. The root replies with the appropriate domains name server. The resolver then makes another query to that server. The iterations continue down the hierarchy until an address is resolved.</p>
-
 <p>Unlike recursive queries, iterative requests will accept any answer; address, error or a referral to someone who knows more.</p>
-
 <p><a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-root-hints">Microsoft</a> again:</p>
-
 <blockquote>
 <p>An iterative query indicates that the server will accept a referral to another server in place of a definitive answer to the query.</p>
 </blockquote>
-
 <h3 id="non-iterative-request">Non-Iterative request</h3>
-
 <p>When a query is made and the resolver has the address mapping in its cache, it will refer the client immediately to it. No further queries are made and this is known as a non-iterative request.</p>
-
 <h2 id="record-types">Record Types</h2>
-
 <h3 id="a">A:</h3>
-
 <ul>
 <li>IPv4 address associated to domain name.</li>
 <li>Running <code>drill example.com</code> defaults to returning an A record.</li>
 </ul>
-
 <h3 id="aaaa">AAAA:</h3>
-
 <ul>
 <li>IPv6 address association.</li>
 <li><code>drill aaaa example.com</code> will explicitly return the IPv6 address, if it has one.</li>
 </ul>
-
 <h3 id="mail-exchanger-mx">Mail Exchanger (MX):</h3>
-
 <ul>
 <li>Mail exchanger records containing the emails associated to the domain.</li>
 <li><code>drill mx google.com</code> will return all the mail exchangers, and each ones priority.</li>
 </ul>
-
 <h3 id="name-server-ns">Name Server (NS):</h3>
-
 <ul>
 <li>A list of name servers connected to the domain.</li>
 <li><code>drill ns cloudflare.com</code> outputs their name server domains.</li>
 </ul>
-
 <h3 id="pointer-ptr">Pointer (PTR):</h3>
-
 <ul>
 <li>Pointer file for reverse DNS lookups</li>
 <li>For example, do the following: <code>drill defence.gov.au</code>. Take the IP address - <code>203.6.74.5</code> and do a reverse lookup using only the IP address. <code>drill -x 203.6.74.5</code>. It should return <code>www.defence.gov.au.</code></li>
 <li>When both the forward (name-to-address) and reverse (address-to-name) entries match, this is known as a <em>forward-confirmed reverse DNS</em>. Its a weak form of authentication - it proves the IP and domain are owned by the same entity. Sender Policy Framework and MX records are often better indicators of authenticity. Nonetheless, it can be a method used to whitelist a domain, or a reason for other mail exchangers to blacklist, or drop mail to that domain, if the lookup fails.</li>
 </ul>
-
 <h3 id="canonical-name-cname">Canonical Name (CNAME):</h3>
-
 <ul>
 <li>Can be used to alias one name to another, most often to an A record. It operates a bit like a treasure map with clues pointing to the treasure - the A record.</li>
 <li><code>drill blog.cloudflare.com</code> returns <code>CNAME cloudflare.ghost.io</code> which directs to the <code>A</code> record.</li>
 </ul>
-
 <p>As a example of how to read a zone file, or response with CNAME information:</p>
-
-<pre><code class="language-shell">   NAME                    TYPE   VALUE
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">   NAME                    TYPE   VALUE
 --------------------------------------------------
 bar.example.com.        CNAME  foo.example.com.
 foo.example.com.        A      192.0.2.23
 
-</code></pre>
-
-<p>This should be interpreted as:</p>
-
+</code></pre></div><p>This should be interpreted as:</p>
 <blockquote>
 <p><code>bar.example.com.</code> is an alias for the CNAME <code>foo.example.com.</code>. A client request for <code>bar.example.com.</code> will be returned <code>foo.example.com.</code></p>
 </blockquote>
-
 <p>The next query to the <code>example</code> domain will be asking for the <code>foo</code> subdomain. Which will be returned an <code>A</code> record with address <code>192.0.2.23</code>.
-This adds latency as another round trip must be conducted and generally chaining CNAME&rsquo;s is considered bad form.</p>
-
+This adds latency as another round trip must be conducted and generally chaining CNAME's is considered bad form.</p>
 <h3 id="text-record-txt">Text record (TXT):</h3>
-
 <ul>
 <li>Contains extra data such a sender policy framework and encryption information.</li>
-
-<li><p>Often contain valuable information about the domain, for instance:</p>
-
-<pre><code class="language-sh">&gt;&gt; drill telstra.com.au txt
-
-;; ANSWER SECTION:
-telstra.com.au. 1303  IN  TXT &quot;v=spf1 include:_spf.telstra.com.au ~all&quot;
-telstra.com.au. 1303  IN  TXT &quot;google-site-verification=GeZnWLAmVtLSHbjW5VEawrbtjQzhSY-e4wsT9VBaJkU&quot;
-telstra.com.au. 1303  IN  TXT &quot;7EC66119-3393-46B7-9DA9-9AD7643925FA&quot;
-</code></pre></li>
+<li>Often contain valuable information about the domain, for instance:</li>
 </ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&gt;&gt; drill telstra.com.au txt
 
-<p>The TXT returned some information about the <code>telstra.com.au</code> domain; they use Google Apps in their systems.</p>
-
+<span class="p">;</span><span class="p">;</span> ANSWER SECTION:
+telstra.com.au. <span class="m">1303</span>  IN  TXT <span class="s2">&#34;v=spf1 include:_spf.telstra.com.au ~all&#34;</span>
+telstra.com.au. <span class="m">1303</span>  IN  TXT <span class="s2">&#34;google-site-verification=GeZnWLAmVtLSHbjW5VEawrbtjQzhSY-e4wsT9VBaJkU&#34;</span>
+telstra.com.au. <span class="m">1303</span>  IN  TXT <span class="s2">&#34;7EC66119-3393-46B7-9DA9-9AD7643925FA&#34;</span>
+</code></pre></div><p>The TXT returned some information about the <code>telstra.com.au</code> domain; they use Google Apps in their systems.</p>
 <p>A better one is <code>vodafone.com.au</code> who I know for certain use Salesforce (I saw it on their systems in store recently) and that is readily confirmed in their TXT response.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&gt;&gt;&gt; drill vodafone.com.au txt -t
 
-<pre><code class="language-sh">&gt;&gt;&gt; drill vodafone.com.au txt -t
-
-;; ANSWER SECTION:
-vodafone.com.au.	506	IN	TXT	&quot;MS=ms76000886&quot;
-vodafone.com.au.	506	IN	TXT	&quot;407D-EB23-4E8F-A96D-CA1D-27F0-1FD5-B8DC&quot;
-vodafone.com.au.	506	IN	TXT	&quot;google-site-verification=s_5FhJrgc0EtEXFv6eikEih2i1fjH18PIz2e93qxOLE&quot;
-vodafone.com.au.	506	IN	TXT	&quot;NrkgBWZQJfU+vkg4E7z1RchofBb+WL+Ab0NdlXM6OZ4lo5KJLtj7U8LVEV+iASwT/7Zrn4OqBQ5ETPOrPn9cwA==&quot;
-vodafone.com.au.	506	IN	TXT	&quot;v=spf1 ip4:54.171.206.163 ip4:101.119.57.42 ip4:119.11.1.42 ip4:101.119.57.43 ip4:119.11.1.43 ip4:101.119.57.14 ip4:119.11.1.14 ip4:216.9.247.4 ip4:216.9.247.48 ip4:216.9.247.49 ip4:216.9.247.68&quot; &quot; include:_spf.salesforce.com include:herald.responsetek.com include:srs.bis3.ap.blackberry.com include:taleo.net include:production.fxdms.net a:mail1.hutchison.com.au a:mail2.hutchison.com.au a:mail3.hutchison.com.au a:mail4.hutchison.com.au ~all&quot;
-vodafone.com.au.	506	IN	TXT	&quot;BR6ST3VIM&quot;
-vodafone.com.au.	506	IN	TXT	&quot;MS=ms13634633&quot;
-</code></pre>
-
-<p>The <code>-t</code> flag indicated the response needed TCP as the message size was too large to fit in one UDP packet.</p>
-
+<span class="p">;</span><span class="p">;</span> ANSWER SECTION:
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms76000886&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;407D-EB23-4E8F-A96D-CA1D-27F0-1FD5-B8DC&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;google-site-verification=s_5FhJrgc0EtEXFv6eikEih2i1fjH18PIz2e93qxOLE&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;NrkgBWZQJfU+vkg4E7z1RchofBb+WL+Ab0NdlXM6OZ4lo5KJLtj7U8LVEV+iASwT/7Zrn4OqBQ5ETPOrPn9cwA==&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;v=spf1 ip4:54.171.206.163 ip4:101.119.57.42 ip4:119.11.1.42 ip4:101.119.57.43 ip4:119.11.1.43 ip4:101.119.57.14 ip4:119.11.1.14 ip4:216.9.247.4 ip4:216.9.247.48 ip4:216.9.247.49 ip4:216.9.247.68&#34;</span> <span class="s2">&#34; include:_spf.salesforce.com include:herald.responsetek.com include:srs.bis3.ap.blackberry.com include:taleo.net include:production.fxdms.net a:mail1.hutchison.com.au a:mail2.hutchison.com.au a:mail3.hutchison.com.au a:mail4.hutchison.com.au ~all&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;BR6ST3VIM&#34;</span>
+vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms13634633&#34;</span>
+</code></pre></div><p>The <code>-t</code> flag indicated the response needed TCP as the message size was too large to fit in one UDP packet.</p>
 <p><code>drill</code> lets you know:</p>
-
-<pre><code class="language-sh">;; WARNING: The answer packet was truncated; you might want to
-;; query again with TCP (-t argument), or EDNS0 (-b for buffer size)
-</code></pre>
-
-<h3 id="start-of-authority-soa">Start of Authority (SOA):</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="p">;</span><span class="p">;</span> WARNING: The answer packet was truncated<span class="p">;</span> you might want to
+<span class="p">;</span><span class="p">;</span> query again with TCP <span class="o">(</span>-t argument<span class="o">)</span>, or EDNS0 <span class="o">(</span>-b <span class="k">for</span> buffer size<span class="o">)</span>
+</code></pre></div><h3 id="start-of-authority-soa">Start of Authority (SOA):</h3>
 <ul>
 <li>Contains administrative info about a zone such as domain owner, contact details and serial number.</li>
-
-<li><p>Serial number is used to determine the currency of the zone&rsquo;s data.</p>
-
-<pre><code class="language-sh">drill SOA taste.com.au
-
-&gt;&gt;&gt; ;; QUESTION SECTION:
-&gt;&gt;&gt; ;; taste.com.au.        IN      SOA
-&gt;&gt;&gt; 
-&gt;&gt;&gt; ;; ANSWER SECTION:
-&gt;&gt;&gt; taste.com.au.   176     IN      SOA     dns0.news.com.au. hostmaster.news.com.au. 2019060600 900 600 604800 300
-
-</code></pre></li>
+<li>Serial number is used to determine the currency of the zone's data.</li>
 </ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">drill SOA taste.com.au
 
-<p>Each tabbed section in detail:</p>
+&gt;&gt;&gt; <span class="p">;</span><span class="p">;</span> QUESTION SECTION:
+&gt;&gt;&gt; <span class="p">;</span><span class="p">;</span> taste.com.au.        IN      SOA
+&gt;&gt;&gt; 
+&gt;&gt;&gt; <span class="p">;</span><span class="p">;</span> ANSWER SECTION:
+&gt;&gt;&gt; taste.com.au.   <span class="m">176</span>     IN      SOA     dns0.news.com.au. hostmaster.news.com.au. <span class="m">2019060600</span> <span class="m">900</span> <span class="m">600</span> <span class="m">604800</span> <span class="m">300</span>
 
+</code></pre></div><p>Each tabbed section in detail:</p>
 <ul>
 <li><code>IN</code> and <code>SOA</code>; Internet and Start of Authority.</li>
 <li><code>dns0.news.com.au</code> is the primary name server.</li>
-<li>The email contact for the domain; <code>hostmaster.news.com.au</code> is equal to <code>hostmaster@news.com.au</code>. The first <code>.</code> should be replaced by an <code>@</code> symbol.</li>
+<li>The email contact for the domain; <code>hostmaster.news.com.au</code> is equal to <a href="mailto:%60hostmaster@news.com.au">`hostmaster@news.com.au</a><code>. The first </code>.<code>should be replaced by an</code>@` symbol.</li>
 <li><code>2019060600</code> is the current serial number for the domain. Serial numbers are used by other DNS servers to check its trustworthiness in delivering up to date information.</li>
-<li><code>900</code> The time in seconds the secondary name server should wait before checking the master&rsquo;s SOA record for changes. Also known as the <code>refresh</code> rate. More aptly this means; how long am I willing to accept my secondary server having out-of-date information.</li>
+<li><code>900</code> The time in seconds the secondary name server should wait before checking the master's SOA record for changes. Also known as the <code>refresh</code> rate. More aptly this means; how long am I willing to accept my secondary server having out-of-date information.</li>
 <li><code>600</code> is the <code>retry</code> time it should wait before trying another <code>refresh</code> if the last one failed.</li>
 <li><code>604800</code> is the <code>expire</code> counter in seconds. It lets the secondary name server know how long to hold their information before it is no longer considered authoritative. Generally, this is a large number, and should always be greater than <code>refresh</code> and <code>retry</code> counters.</li>
 <li><code>300</code> is the <code>minimum</code> time-to-live in seconds before the records in the zone are considered invalid.</li>
 </ul>
-
-<p>Today, the <code>refresh</code>, <code>retry</code>, <code>expire</code> and <code>minimum</code> are still important but used much less frequently. RFC&rsquo;s <a href="https://www.ietf.org/rfc/rfc1996.txt">1996</a> and <a href="https://www.ietf.org/rfc/rfc2136.txt">2136</a> have included the NOTIFY and UPDATE <a href="http://networksorcery.com/enp/protocol/dns.htm#Rcode,%20Return%20code">opcodes</a> to allow the master DNS server to send updates to its slaves, rather than waiting for them to poll the master for changes.</p>
-
+<p>Today, the <code>refresh</code>, <code>retry</code>, <code>expire</code> and <code>minimum</code> are still important but used much less frequently. RFC's <a href="https://www.ietf.org/rfc/rfc1996.txt">1996</a> and <a href="https://www.ietf.org/rfc/rfc2136.txt">2136</a> have included the NOTIFY and UPDATE <a href="http://networksorcery.com/enp/protocol/dns.htm#Rcode,%20Return%20code">opcodes</a> to allow the master DNS server to send updates to its slaves, rather than waiting for them to poll the master for changes.</p>
 <h2 id="wrapping-up">Wrapping Up</h2>
-
 <p>The domain name system is far too technically rich to even scratch the surface in one short post, but hopefully it helps to cover off a few confusing points. If nothing else, it may serve as a launch pad for some to go out and read more on this incredible and interesting protocol. One which we use hundreds of times a day.</p>
 
                 <br>

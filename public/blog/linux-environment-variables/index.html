@@ -45,9 +45,9 @@ The environment variables are available to all applications, and allow these pro
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-10-19%2016%3a11%3a08.97456134%20%2b1100%20AEDT%20m%3d%2b0.055570719">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-10-19%2016%3a11%3a08.97456134%20%2b1100%20AEDT%20m%3d%2b0.055570719">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-10-19%2016%3a11%3a08.97456134%20%2b1100%20AEDT%20m%3d%2b0.055570719">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.949153534%20%2b1100%20AEDT%20m%3d%2b0.209036764">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.949153534%20%2b1100%20AEDT%20m%3d%2b0.209036764">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.949153534%20%2b1100%20AEDT%20m%3d%2b0.209036764">
     
 
 
@@ -130,8 +130,6 @@ The environment variables are available to all applications, and allow these pro
         
 
         
-
-        
             <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -174,20 +172,12 @@ The environment variables are available to all applications, and allow these pro
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="environment-variables">Environment Variables</h1>
-
+                <h1 id="environment-variables">Environment Variables</h1>
 <p>Simply put, environment variables are a collection of key value strings held by the current shell or process. Each process has access to an array of environment variables held in its user-space memory.</p>
-
 <p>The environment variables are available to all applications, and allow these programs or scripts use them within the shell environment. They can allow custom modification to defaults that permeate throughout the user-space rather than be homed within each applications configuration.</p>
-
-<p>Each process that is created via <code>fork()</code>, will inherit a copy of its parent&rsquo;s environment. This ensures the communication and transfer of variables from the parent is a once-only one-way transaction. This is important to prevent updated environment variables from one child polluting the global user-space should it go wrong.</p>
-
+<p>Each process that is created via <code>fork()</code>, will inherit a copy of its parent's environment. This ensures the communication and transfer of variables from the parent is a once-only one-way transaction. This is important to prevent updated environment variables from one child polluting the global user-space should it go wrong.</p>
 <h1 id="path">PATH</h1>
-
 <p>Each environment will have access to several default or standard variables such as:</p>
-
 <ul>
 <li>PATH</li>
 <li>HOME</li>
@@ -196,84 +186,52 @@ The environment variables are available to all applications, and allow these pro
 <li>EDITOR</li>
 <li>MAIL</li>
 </ul>
-
 <p>By typing <code>echo $HOME</code> the users home location will be printed to the terminal. Environmental variables are <strong>case sensitive</strong>, and by convention the key is written in capitals.</p>
-
 <p>echoing <code>$PATH</code> on a unix platform will output a <code>:</code> separated list of file paths such as:</p>
-
-<pre><code class="language-shell">/usr/local/bin:/usr/local/sbin:/usr/bin
-</code></pre>
-
-<p>The <code>PATH</code> is set by system and user start-up scripts - the exact process can change between implementations.
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">/usr/local/bin:/usr/local/sbin:/usr/bin
+</code></pre></div><p>The <code>PATH</code> is set by system and user start-up scripts - the exact process can change between implementations.
 Its function is to search in the <code>PATH</code> locations for the name of any program being called for execution.
 In linux everything is file, and when a file is set with the execution bit, that file can be called with the <code>exec()</code> method.
 What the <code>PATH</code> does is search recursively through each location, from left to right as its printed, looking for that file if its not given with an absolute path.</p>
-
 <h2 id="example">Example</h2>
-
-<pre><code class="language-shell">$ which echo
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ which <span class="nb">echo</span>
 /bin/echo
 $ ls -l /bin/echo
--rwxr-xr-x 1 root root 30k Dec 29 2017 /bin/echo
-$ echo $PATH
-/home/userName/bin:/usr/local/bin:/usr/bin:/bin  # /bin in PATH
-</code></pre>
-
-<p>Above we see that calling <code>which echo</code> returns the location of <code>echo</code> (in my distro it returns <code>echo: shell built-in command</code> but <code>/bin/echo</code> will call the file nonetheless).
+-rwxr-xr-x <span class="m">1</span> root root 30k Dec <span class="m">29</span> <span class="m">2017</span> /bin/echo
+$ <span class="nb">echo</span> <span class="nv">$PATH</span>
+/home/userName/bin:/usr/local/bin:/usr/bin:/bin  <span class="c1"># /bin in PATH</span>
+</code></pre></div><p>Above we see that calling <code>which echo</code> returns the location of <code>echo</code> (in my distro it returns <code>echo: shell built-in command</code> but <code>/bin/echo</code> will call the file nonetheless).
 Now when we call <code>echo</code> which is not an absolute path, the <code>PATH</code> variable is consulted. Moving left to right the system checks for an executable file named <code>echo</code>, which is finds inside <code>/bin</code>. Once found it executes and ceases the search. If we called <code>/bin/echo</code> the <code>PATH</code> would be searched.</p>
-
 <h2 id="example-two">Example Two</h2>
-
-<p>In a real world case, I use Go&rsquo;s <code>/bin</code> location as an exemplar of why you may need to add to the <code>PATH</code> variable.</p>
-
+<p>In a real world case, I use Go's <code>/bin</code> location as an exemplar of why you may need to add to the <code>PATH</code> variable.</p>
 <p>Dave Cheney has a pretty sweet Go knock off of an awesome package by the same name <code>httpstat</code>. The TL;DR is that it gives you statistic on a site by simply calling <code>httpstat https://reorx.com</code>. Astute readers will see that this requires <code>httpstat</code> to be on the <code>PATH</code> or it will generate an error.</p>
-
 <p>Fixing this was simple as we see below.</p>
-
-<h1 id="creation-deletion">Creation &amp; Deletion</h1>
-
+<h1 id="creation--deletion">Creation &amp; Deletion</h1>
 <p>Environment variables are key value pairs, case sensitive and by convention have the key written in caps.</p>
-
 <h2 id="creation">Creation</h2>
-
 <p>Adding to your current shell environments list of variables is simple.</p>
-
-<pre><code class="language-bash"># method 1
-$ VAR=foo       # create key:value
-$ export VAR    # export is called on VAR
-$ echo $VAR     # echo VAR to terminal
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># method 1</span>
+$ <span class="nv">VAR</span><span class="o">=</span>foo       <span class="c1"># create key:value</span>
+$ <span class="nb">export</span> VAR    <span class="c1"># export is called on VAR</span>
+$ <span class="nb">echo</span> <span class="nv">$VAR</span>     <span class="c1"># echo VAR to terminal</span>
 foo
 
-# method 2
-$ export VAR=foo # combine export and variable assignment
-$ echo $VAR
+<span class="c1"># method 2</span>
+$ <span class="nb">export</span> <span class="nv">VAR</span><span class="o">=</span>foo <span class="c1"># combine export and variable assignment</span>
+$ <span class="nb">echo</span> <span class="nv">$VAR</span>
 foo
-</code></pre>
-
-<p>Bourne shells accept the second method, and its probably the most common and convenient method. <code>export</code> is unix command to set the attribute for a variable. See <code>man export</code> for more information.</p>
-
+</code></pre></div><p>Bourne shells accept the second method, and its probably the most common and convenient method. <code>export</code> is unix command to set the attribute for a variable. See <code>man export</code> for more information.</p>
 <h2 id="deletion">Deletion</h2>
-
-<pre><code class="language-bash">$ unset VAR
-$ echo $VAR
-# will echo empty string
-</code></pre>
-
-<p>Continuing with the <code>httpstat</code> example we will append the location of Go&rsquo;s package binaries to our <code>PATH</code>.</p>
-
-<pre><code class="language-bash">$ export PATH=~/go/bin:$PATH # now added to PATH
-</code></pre>
-
-<p>Once the variable is exported, it will only live within the current shell. If we close it down, that updated <code>PATH</code> is now lost.</p>
-
-<p>To make the variables persistent we add them to our shell&rsquo;s <code>.profile</code> or <code>.bashrc</code> if using bash. In my case, I use Zsh so its added to <code>.zshrc</code>. Calling <code>source .zshrc</code> will reload <code>.zshrc</code> and make the new variables available if not already. And, because each process inherits form the parent, removing it form the file will prevent it being added to the environment list if needed in the future.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">unset</span> VAR
+$ <span class="nb">echo</span> <span class="nv">$VAR</span>
+<span class="c1"># will echo empty string</span>
+</code></pre></div><p>Continuing with the <code>httpstat</code> example we will append the location of Go's package binaries to our <code>PATH</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/go/bin:<span class="nv">$PATH</span> <span class="c1"># now added to PATH</span>
+</code></pre></div><p>Once the variable is exported, it will only live within the current shell. If we close it down, that updated <code>PATH</code> is now lost.</p>
+<p>To make the variables persistent we add them to our shell's <code>.profile</code> or <code>.bashrc</code> if using bash. In my case, I use Zsh so its added to <code>.zshrc</code>. Calling <code>source .zshrc</code> will reload <code>.zshrc</code> and make the new variables available if not already. And, because each process inherits form the parent, removing it form the file will prevent it being added to the environment list if needed in the future.</p>
 <h1 id="security-tidbits">Security tidbits</h1>
-
 <p>Of note linux implements a security measure within the Superusers <code>PATH</code>. The current working directory is normally omitted from the <code>PATH</code> meaning files must be called using <code>./</code> as the prefix or as an absolute path. This prevents malicious users from placing an executable file with the same name as a system-wide executable such as <code>ls</code> being run as root.</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <ul>
 <li>Environment variables allows the system to access a list of values for use in applications</li>
 <li>Users can set and unset variables</li>
