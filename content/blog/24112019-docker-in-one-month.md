@@ -225,9 +225,9 @@ So far, we have only pulled and ran docker images, or added a mount to a local c
 From [Docker][7]:
 > Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.
 
-When creating a docker image, we most often want to pull from an existing image within a registry such as [Docker hub][8] and extend it. 
+When creating a docker image, we most often want to pull from an existing image within a registry such as [Docker hub][8] and extend it.
 
-## Example 
+## Example
 
 ```sh
 # simple example
