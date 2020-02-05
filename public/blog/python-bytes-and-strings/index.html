@@ -49,9 +49,9 @@ Python 3
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.935438752%20%2b1100%20AEDT%20m%3d%2b0.195321913">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
     
 
 
@@ -194,14 +194,14 @@ small encoding issues.</p>
 <li>Strings: raw 8 bit values</li>
 <li>Unicode: unicode characters</li>
 </ul>
-<p>Python 3's strings and python 2's unicode instances do not have binary encoding.
+<p>Python 3&rsquo;s strings and python 2&rsquo;s unicode instances do not have binary encoding.
 Therefore, the user must implement the conversion manually by <code>encoding</code> and
 <code>decoding</code> the between binary and unicode.</p>
 <p>It is important that when constructing our program to deal with conversion between
 these data types that it is done at the furthest boundaries of our interfaces.
 This is sometimes referred to as the &lsquo;unicode sandwich&rsquo;.</p>
 <p><img src="https://danielms.site/images/unicode_sandwhich.jpg" alt="unicode sandwich"></p>
-<p>This guarantee's a level of compliance when accepting alternate encodings and
+<p>This guarantee&rsquo;s a level of compliance when accepting alternate encodings and
 a much stricter output encoding scheme - generally <code>utf-8</code>. We should not be doing
 any encoding or decoding in the middle of our applications.</p>
 <p>This is of particular importance when dealing with file operations that are not
@@ -225,7 +225,7 @@ uses <code>utf-8</code> instead. If we tried to run this it will raise a <code>T
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
       <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </code></pre></div><h3 id="notable-mentions">Notable mentions</h3>
-<p>Other interesting points between python 2's <code>str</code> and <code>unicode</code>, and python 3's
+<p>Other interesting points between python 2&rsquo;s <code>str</code> and <code>unicode</code>, and python 3&rsquo;s
 <code>str</code> and <code>bytes</code> are how they are compared, or typed. In python 2, if a
 <code>str</code> is ASCII (7-bits) it will pass an equality check with <code>unicode</code> characters.
 They can also be combined using the <code>+</code> operator, and can be formatted using
@@ -248,8 +248,8 @@ your main business logic to alleviate any nasty surprises further down the line.
 <p>And have a read over some these gems regarding <code>utf-8</code>, which I deliberately
 did not go over in any detail.</p>
 <h3 id="references">references</h3>
-<p>Ned Batchelder's <a href="https://nedbatchelder.com/text/unipain/unipain.html#1">How Do I Stop The Pain</a></p>
-<p>Joel Spolsky's <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
+<p>Ned Batchelder&rsquo;s <a href="https://nedbatchelder.com/text/unipain/unipain.html#1">How Do I Stop The Pain</a></p>
+<p>Joel Spolsky&rsquo;s <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
 
                 <br>
                 

@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="This is a short primer on the most simple of rsync&#39;s capabilities.
+<meta name="description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive.">
 
 <meta property="og:title" content="Rsync cheatsheet" />
-<meta property="og:description" content="This is a short primer on the most simple of rsync&#39;s capabilities.
+<meta property="og:description" content="This is a short primer on the most simple of rsync&rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursive." />
 <meta property="og:type" content="article" />
@@ -47,9 +47,9 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a11.001223487%20%2b1100%20AEDT%20m%3d%2b0.261106667">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.615237193%20%2b1100%20AEDT%20m%3d%2b0.401555204">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.615237193%20%2b1100%20AEDT%20m%3d%2b0.401555204">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.615237193%20%2b1100%20AEDT%20m%3d%2b0.401555204">
     
 
 
@@ -174,7 +174,7 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
                 </div>
             </div>
             <div class="markdown">
-                <p>This is a short primer on the most simple of rsync's capabilities.</p>
+                <p>This is a short primer on the most simple of rsync&rsquo;s capabilities.</p>
 <p>Rsync is a fast and extraordinarily versatile file copying tool. It uses
 a delta transfer algorithm, which reduces the amount of data sent over
 the network by sending only the differences between the source and
@@ -202,7 +202,7 @@ implemented.</p>
 <p><code>-z</code>: When transferring across the network rsync provides a
 compression option to save on bandwidth.</p>
 <p><code>-P</code>: Outputs a progress bar to the terminal.</p>
-<p><code>-H</code>: Preserves hard links - very useful for back ups and snap shots as files that don't change are often hard linked to the original file.</p>
+<p><code>-H</code>: Preserves hard links - very useful for back ups and snap shots as files that don&rsquo;t change are often hard linked to the original file.</p>
 <p><code>--stats</code>: will output a summary of what was sent. Use <code>--stats -h</code> to get a human readable output as seen below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># rsync with --stats -h</span>
 sending incremental file list
@@ -238,7 +238,7 @@ patterns that fall inside the broader exclude.</p>
 <p>The &ldquo;push&rdquo;:</p>
 <pre><code>rsync -a ~/local_source_dir username@remote_host:/home/username/destination_dir
 </code></pre>
-<p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there's no trailing slash.</p>
+<p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there&rsquo;s no trailing slash.</p>
 <p>The &ldquo;pull&rdquo;:</p>
 <pre><code>rsync -a username@remote_host:/home/username/destination_dir local_source_dir
 </code></pre>

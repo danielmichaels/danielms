@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+<meta name="description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.">
 
 <meta property="og:title" content="DNS the easy parts" />
-<meta property="og:description" content="DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+<meta property="og:description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/dns-the-easy-parts/" />
@@ -45,9 +45,9 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.916878527%20%2b1100%20AEDT%20m%3d%2b0.176761702">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.489483807%20%2b1100%20AEDT%20m%3d%2b0.275801817">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.489483807%20%2b1100%20AEDT%20m%3d%2b0.275801817">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.489483807%20%2b1100%20AEDT%20m%3d%2b0.275801817">
     
 
 
@@ -174,7 +174,7 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
             <div class="markdown">
                 <h1 id="dns">DNS</h1>
 <p><img src="https://danielms.site/images/dns.png" alt="DNS" title="dns logo"></p>
-<p>The Internet's success is predicated on the Domain Name System or DNS. We've all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.</p>
+<p>The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.</p>
 <p>When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down. Sadly, during my CCNA studies, it did not get much more than the cursory explanation.</p>
 <h1 id="overview">Overview</h1>
 <p>DNS is a protocol that can map IP addresses to human readable names. When a user types <code>example.com</code> into their browser bar and hits enter, the machine does not know how to reach <code>example.com</code> without first translating it into an IP routable address.</p>
@@ -264,7 +264,7 @@ star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
 <li>Examples:
 <code>com</code>, <code>jp</code>, <code>edu</code></li>
 </ul>
-<p>Country Code TLD's such as <code>au</code>, <code>uk</code> and <code>nz</code> are examples.  <code>taste.com.au</code> will be resolved in the following order:</p>
+<p>Country Code TLD&rsquo;s such as <code>au</code>, <code>uk</code> and <code>nz</code> are examples.  <code>taste.com.au</code> will be resolved in the following order:</p>
 <ol>
 <li><code>.</code> - Root</li>
 <li>-&gt; <code>.au</code></li>
@@ -273,7 +273,7 @@ star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
 </ol>
 <p>This can be seen via <code>drill -T taste.com.au</code> which will trace (what <code>-T</code> does) through each root name server all the way to the A record of <code>taste.com.au</code>.</p>
 <h3 id="recursive-request">Recursive request</h3>
-<p>When the client needs to get the address of a URL, it first checks its cache and if not found will send a request to its recursive resolver asking for the address. Often, the resolver being queried will be your ISP's default name server (please don't do this; they monetize it), or something like Google's public DNS server; <code>8.8.8.8</code>. <strong>My opinion</strong>: use <code>1.1.1.1</code> or some other provider - Google are using you, too.
+<p>When the client needs to get the address of a URL, it first checks its cache and if not found will send a request to its recursive resolver asking for the address. Often, the resolver being queried will be your ISP&rsquo;s default name server (please don&rsquo;t do this; they monetize it), or something like Google&rsquo;s public DNS server; <code>8.8.8.8</code>. <strong>My opinion</strong>: use <code>1.1.1.1</code> or some other provider - Google are using you, too.
 The recursive resolver will then begin a series of iterative requests on your behalf.</p>
 <p>For the most part recursive queries begin with the client and end at the recursive resolver in a kind of A-&gt;B, B-&gt;A relationship. This is because the resolver is doing iterative queries on your behalf and here lies the big difference between recursive and iterative requests.</p>
 <p><em>Recursive queries require an answer</em></p>
@@ -334,7 +334,7 @@ foo.example.com.        A      192.0.2.23
 <p><code>bar.example.com.</code> is an alias for the CNAME <code>foo.example.com.</code>. A client request for <code>bar.example.com.</code> will be returned <code>foo.example.com.</code></p>
 </blockquote>
 <p>The next query to the <code>example</code> domain will be asking for the <code>foo</code> subdomain. Which will be returned an <code>A</code> record with address <code>192.0.2.23</code>.
-This adds latency as another round trip must be conducted and generally chaining CNAME's is considered bad form.</p>
+This adds latency as another round trip must be conducted and generally chaining CNAME&rsquo;s is considered bad form.</p>
 <h3 id="text-record-txt">Text record (TXT):</h3>
 <ul>
 <li>Contains extra data such a sender policy framework and encryption information.</li>
@@ -365,7 +365,7 @@ vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms13634633&#34;</span>
 </code></pre></div><h3 id="start-of-authority-soa">Start of Authority (SOA):</h3>
 <ul>
 <li>Contains administrative info about a zone such as domain owner, contact details and serial number.</li>
-<li>Serial number is used to determine the currency of the zone's data.</li>
+<li>Serial number is used to determine the currency of the zone&rsquo;s data.</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">drill SOA taste.com.au
 
@@ -379,14 +379,14 @@ vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms13634633&#34;</span>
 <ul>
 <li><code>IN</code> and <code>SOA</code>; Internet and Start of Authority.</li>
 <li><code>dns0.news.com.au</code> is the primary name server.</li>
-<li>The email contact for the domain; <code>hostmaster.news.com.au</code> is equal to <a href="mailto:%60hostmaster@news.com.au">`hostmaster@news.com.au</a><code>. The first </code>.<code>should be replaced by an</code>@` symbol.</li>
+<li>The email contact for the domain; <code>hostmaster.news.com.au</code> is equal to <code>hostmaster@news.com.au</code>. The first <code>.</code> should be replaced by an <code>@</code> symbol.</li>
 <li><code>2019060600</code> is the current serial number for the domain. Serial numbers are used by other DNS servers to check its trustworthiness in delivering up to date information.</li>
-<li><code>900</code> The time in seconds the secondary name server should wait before checking the master's SOA record for changes. Also known as the <code>refresh</code> rate. More aptly this means; how long am I willing to accept my secondary server having out-of-date information.</li>
+<li><code>900</code> The time in seconds the secondary name server should wait before checking the master&rsquo;s SOA record for changes. Also known as the <code>refresh</code> rate. More aptly this means; how long am I willing to accept my secondary server having out-of-date information.</li>
 <li><code>600</code> is the <code>retry</code> time it should wait before trying another <code>refresh</code> if the last one failed.</li>
 <li><code>604800</code> is the <code>expire</code> counter in seconds. It lets the secondary name server know how long to hold their information before it is no longer considered authoritative. Generally, this is a large number, and should always be greater than <code>refresh</code> and <code>retry</code> counters.</li>
 <li><code>300</code> is the <code>minimum</code> time-to-live in seconds before the records in the zone are considered invalid.</li>
 </ul>
-<p>Today, the <code>refresh</code>, <code>retry</code>, <code>expire</code> and <code>minimum</code> are still important but used much less frequently. RFC's <a href="https://www.ietf.org/rfc/rfc1996.txt">1996</a> and <a href="https://www.ietf.org/rfc/rfc2136.txt">2136</a> have included the NOTIFY and UPDATE <a href="http://networksorcery.com/enp/protocol/dns.htm#Rcode,%20Return%20code">opcodes</a> to allow the master DNS server to send updates to its slaves, rather than waiting for them to poll the master for changes.</p>
+<p>Today, the <code>refresh</code>, <code>retry</code>, <code>expire</code> and <code>minimum</code> are still important but used much less frequently. RFC&rsquo;s <a href="https://www.ietf.org/rfc/rfc1996.txt">1996</a> and <a href="https://www.ietf.org/rfc/rfc2136.txt">2136</a> have included the NOTIFY and UPDATE <a href="http://networksorcery.com/enp/protocol/dns.htm#Rcode,%20Return%20code">opcodes</a> to allow the master DNS server to send updates to its slaves, rather than waiting for them to poll the master for changes.</p>
 <h2 id="wrapping-up">Wrapping Up</h2>
 <p>The domain name system is far too technically rich to even scratch the surface in one short post, but hopefully it helps to cover off a few confusing points. If nothing else, it may serve as a launch pad for some to go out and read more on this incredible and interesting protocol. One which we use hundreds of times a day.</p>
 

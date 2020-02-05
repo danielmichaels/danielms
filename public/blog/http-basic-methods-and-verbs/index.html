@@ -45,9 +45,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.921004165%20%2b1100%20AEDT%20m%3d%2b0.180887339">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.456350897%20%2b1100%20AEDT%20m%3d%2b0.242668905">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.456350897%20%2b1100%20AEDT%20m%3d%2b0.242668905">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.456350897%20%2b1100%20AEDT%20m%3d%2b0.242668905">
     
 
 
@@ -211,7 +211,7 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: <span class="m">34</span>
 
 <span class="nv">accountNumber</span><span class="o">=</span>123<span class="p">&amp;</span><span class="nv">amount</span><span class="o">=</span>9999<span class="p">&amp;</span><span class="nv">toAccount</span><span class="o">=</span><span class="m">789</span>
-</code></pre></div><p>Successful <code>POST</code> requests should get a <code>201 Created</code> response and a <code>Location</code> header pointing to the data's new URI.</p>
+</code></pre></div><p>Successful <code>POST</code> requests should get a <code>201 Created</code> response and a <code>Location</code> header pointing to the data&rsquo;s new URI.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Response</span>
 HTTP/1.1 <span class="m">201</span> Created
 Location: /payments/&lt;ID&gt;/&lt;transactionID&gt;
@@ -226,8 +226,8 @@ This is one of the differences between the two at the HTTP level. But, the most 
 PUT /api/v1/books/3452 HTTP/1.1
 Host: https://library-store.com/
 </code></pre></div><p>Should return a <code>200 OK</code> or in some cases a <code>201 Created</code>.</p>
-<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> API's usually adhere to the correct use of <code>PUT</code> and <code>POST</code> requests. A URI such as above is a good indication of a REST conforming web application.</p>
-<h3 id="--patch--"><strong>PATCH</strong></h3>
+<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> API&rsquo;s usually adhere to the correct use of <code>PUT</code> and <code>POST</code> requests. A URI such as above is a good indication of a REST conforming web application.</p>
+<h3 id="__patch__"><strong>PATCH</strong></h3>
 <p>Unlike <code>PUT</code> which will replace an existing entity, <code>PATCH</code> only modifies a portion of it. This makes it an non-idempotent method. Similar to <code>POST</code>, it will make alterations or add data for each request. However, a <code>PATCH</code> can be made idempotent - it depends on context and the data being modified.</p>
 <p>This method is relatively new in comparison to its siblings, having been introduced as early as  <a href="https://tools.ietf.org/html/rfc2616">RFC 2616</a> but only being ratified in <a href="https://tools.ietf.org/html/rfc5789">RFC 5789</a> circa 2010.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Request</span>
@@ -264,7 +264,7 @@ expires: Sun, <span class="m">21</span> Jul <span class="m">2019</span> 05:17:14
 server: EOS <span class="o">(</span>vny006/044F<span class="o">)</span>
 content-length: <span class="m">0</span>
 </code></pre></div><h2 id="summary">Summary</h2>
-<p>Digging into the HTTP specifications and RFC's has not been wasted effort. They underpin the Internet and all associated technologies that power it. Learn some for great good.</p>
+<p>Digging into the HTTP specifications and RFC&rsquo;s has not been wasted effort. They underpin the Internet and all associated technologies that power it. Learn some for great good.</p>
 
                 <br>
                 

@@ -6,10 +6,22 @@
     <description>Recent content in web on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ecosia</title>
+      <link>https://danielms.site/blog/ecosia-tree-saving-browser/</link>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/ecosia-tree-saving-browser/</guid>
+      <description>Ecosia Building awareness The search engine that plants trees.
+As we welcome 2020, lets acknowledge that doing something to help make our planet more sustainable is worth our time and effort.
+Not everyone need agree on this topic, but those that do and have yet to hear about Ecosia let me give you some background.
+The tree planting search engine  79 million trees have been planted to date and every 0.</description>
+    </item>
     
     <item>
       <title>Defending your apps</title>
@@ -29,7 +41,7 @@
       
       <guid>https://danielms.site/blog/curl-emails-for-great-good/</guid>
       <description>Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
-Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; --ssl-reqd \ --mail-from &amp;#39;username@gmail.com&amp;#39; --mail-rcpt &amp;#39;rcpt@email.com&amp;#39; \ --user &amp;#39;username@gmail.com:password&amp;#39; --insecure \ --upload-file fileToBeUploaded.txt Let&#39;s break down each component:</description>
+Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; --ssl-reqd \ --mail-from &amp;#39;username@gmail.com&amp;#39; --mail-rcpt &amp;#39;rcpt@email.com&amp;#39; \ --user &amp;#39;username@gmail.com:password&amp;#39; --insecure \ --upload-file fileToBeUploaded.txt Let&amp;rsquo;s break down each component:</description>
     </item>
     
     <item>

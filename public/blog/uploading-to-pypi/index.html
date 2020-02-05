@@ -45,9 +45,9 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.998347811%20%2b1100%20AEDT%20m%3d%2b0.258230987">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
     
 
 
@@ -189,7 +189,7 @@ and production.</p>
 <p>Sending the package to the test server is a great idea as it allows you
 to download your tarball onto any system for testing. This allows you to
 do a few novel things like sharing it with friends or co-workers,
-spinning up virtual machine's with different operating systems or
+spinning up virtual machine&rsquo;s with different operating systems or
 installing it into separate virtual environments with different versions
 of python.</p>
 <p>This article does assume you are using a version control system, and in
@@ -256,9 +256,9 @@ ready for release into the wild.</p>
 <span class="p">)</span>
 </code></pre></div><p>The information contained within <code>setup.py</code> and in
 particular its <code>setup()</code> function is what creates the
-package's metadata for parsing by PyPI once uploaded.</p>
+package&rsquo;s metadata for parsing by PyPI once uploaded.</p>
 <p>This is a stripped down version of my own <code>setup.py</code>. Many
-tutorials which are older will use <code>distutils</code> but PyPI's
+tutorials which are older will use <code>distutils</code> but PyPI&rsquo;s
 <a href="https://github.com/pypa/sampleproject">example</a> structure explicitly
 states to favour the newer <code>setuptools</code>.</p>
 <p>By using a context manager and the <code>codecs.open</code> method we
@@ -286,23 +286,23 @@ description-file <span class="o">=</span> README.md
 </code></pre></div><h3 id="python-setuppy-sdist">Python setup.py sdist</h3>
 <p>Running this command will invoke the <code>setup.py</code> and create
 a folder called <code>dist/</code> inside your root directory. This is
-where your application's tarball will now live. It is also a good time
+where your application&rsquo;s tarball will now live. It is also a good time
 to create or update your git tags for your repository.</p>
 <p>FYI, once you create a local tag it must be pushed to the remote.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git tag X.Y.Z -m <span class="s2">&#34;Add a message such as; First!&#34;</span>
 git push X.Y.Z      <span class="c1"># preferred option</span>
 git push --tags     <span class="c1"># less preferred as it pushs ALL tags to the remote server</span>
 </code></pre></div><h3 id="upload-y-u-no-easy">Upload: y u no easy</h3>
-<p>In theory uploading to PyPI is just that simple. Unfortunately it isn't
-that easy and a lot of the helpful blogs and references out there aren't
+<p>In theory uploading to PyPI is just that simple. Unfortunately it isn&rsquo;t
+that easy and a lot of the helpful blogs and references out there aren&rsquo;t
 current with the new standards. As always the official user guide
 (<a href="https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">here</a>)
-is the holy grail but isn't the easiest reading when completely unsure!</p>
+is the holy grail but isn&rsquo;t the easiest reading when completely unsure!</p>
 <h3 id="1-register">1. Register</h3>
 <p>To upload anything to PyPI you must first register with it. And if you
 want to make use of the testing server, you must register with it
 separately. Although they use the same software, each server uses a
-separate database and this is why two different sign up's are required.
+separate database and this is why two different sign up&rsquo;s are required.
 They can be found here for <a href="https://pypi.org/account/register/">Live</a>
 and <a href="https://test.pypi.org/account/register/">Test</a>.</p>
 <h3 id="2-create-pypirc">2. Create .pypirc</h3>
@@ -322,7 +322,7 @@ index-servers <span class="o">=</span>
 <span class="o">[</span>pypitest<span class="o">]</span>
 <span class="nv">repository</span><span class="o">=</span>https://test.pypi.org/legacy/
 <span class="nv">username</span><span class="o">=</span>username
-</code></pre></div><p>This is current to today's date but the repository url may change as the
+</code></pre></div><p>This is current to today&rsquo;s date but the repository url may change as the
 PyPI warehouse continues its evolution. The file <strong>must</strong> be located in
 the home directory. Both username and password can be set in this file,
 or in environment variables.</p>
@@ -354,7 +354,7 @@ that, and if you do consider <code>chmod 600</code> on that file for
 security reasons.</p>
 <p>In many examples you may see something like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">twine upload -r pypitest dist/*
-</code></pre></div><p>This will upload all of your tarball's located in the
+</code></pre></div><p>This will upload all of your tarball&rsquo;s located in the
 <code>dist/</code> directory. I personally choose which distribution
 to upload. Either, or. Once done, goto the test PyPI and check to see
 that it looks as expected, or as previously stated download the test
@@ -372,7 +372,7 @@ so:</p>
 Software Foundation and the handful of volunteers that make PyPI a
 reality. Join the PSF and maybe consider a donation, or convince your
 employer to contribute if they rely on python software! Without PSF and
-PyPI we wouldn't have python as we know it today. Please visit and sign
+PyPI we wouldn&rsquo;t have python as we know it today. Please visit and sign
 up here: <a href="https://psfmember.org/">PSF</a></p>
 
                 <br>

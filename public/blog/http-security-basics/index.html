@@ -47,9 +47,9 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.946780258%20%2b1100%20AEDT%20m%3d%2b0.206663447">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.494406909%20%2b1100%20AEDT%20m%3d%2b0.280724883">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.494406909%20%2b1100%20AEDT%20m%3d%2b0.280724883">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.494406909%20%2b1100%20AEDT%20m%3d%2b0.280724883">
     
 
 
@@ -207,7 +207,7 @@ Upgrade-Insecure-Requests: <span class="m">1</span>
 <ul>
 <li><code>Server</code>: This may contain information about the server such as what engine it is running or modules installed. It may or may not be correct.</li>
 <li><code>Set-Cookie</code>: Will set a cookie for future use, and it will be submitted via the <code>Cookie</code> header in future requests.</li>
-<li><code>Pragma</code>: Can be used to instruct the browser not the store the response in its cache. Likewise the <code>Expires</code> header says when the is set to cache expire, and if expired it won't load from the cache.</li>
+<li><code>Pragma</code>: Can be used to instruct the browser not the store the response in its cache. Likewise the <code>Expires</code> header says when the is set to cache expire, and if expired it won&rsquo;t load from the cache.</li>
 <li><code>Content-Type</code>: Almost all responses will contain a message body after the headers (separated by a single blank line). The <code>Content-Type</code> header indicates what is in the message body.</li>
 <li><code>Content-Length</code>: The total size of the response in bytes.</li>
 </ul>
@@ -238,7 +238,7 @@ Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><
 <h4 id="get">GET</h4>
 <p>The most common method. When clicking on a hyperlink, you are likely sending a <code>GET</code> request. <code>GET</code> requests can also be used to send information via a URL query string such as <code>?</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">http://example.com/over/there?name<span class="o">=</span>ferret
-</code></pre></div><p>URL's are displayed on screen and also logged in places such as browser history and web access logs. They are also transmitted via the <code>Referrer</code> header when clicking on an link that takes you an external resource. In such an example sensitive information in a query string would be logged in an external servers logs. Further, these strings (if unencrypted, or SSLstripped) could be sniffed by a malicious actor. Never use <code>GET</code> requests for transmission of sensitive data.</p>
+</code></pre></div><p>URL&rsquo;s are displayed on screen and also logged in places such as browser history and web access logs. They are also transmitted via the <code>Referrer</code> header when clicking on an link that takes you an external resource. In such an example sensitive information in a query string would be logged in an external servers logs. Further, these strings (if unencrypted, or SSLstripped) could be sniffed by a malicious actor. Never use <code>GET</code> requests for transmission of sensitive data.</p>
 <h4 id="post">POST</h4>
 <p><code>POST</code> is used to submit data to a resource. A <code>POST</code> can submit this information via the URL query string, or via the message body (preferred method, imo). If the <code>POST</code> is coupled with URL query strings, any bookmarking would remove the query from the URL, in an attempt to provide security. Using this method also ensures that only one request is sent with that information at a time. That is, if a user submits a <code>POST</code> request and then hits the &lsquo;back&rsquo; button, they will likely see a prompt stating something along the lines of &lsquo;having to resubmit&rsquo;. This ensures that the user can only submit the <code>POST</code> once per action, as the browser will not automatically reissue the request - unlike a <code>GET</code>.</p>
 <h4 id="head">HEAD</h4>
@@ -248,9 +248,9 @@ Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><
 <h4 id="options">OPTIONS</h4>
 <p>Returns what HTTP methods are available for a particular resource.</p>
 <h4 id="put">PUT</h4>
-<p>Allows uploading of resources to the server. Used by API's to update existing records or data.  Can provide the attacker with an avenue to upload malicious scripts to the server for execution.</p>
+<p>Allows uploading of resources to the server. Used by API&rsquo;s to update existing records or data.  Can provide the attacker with an avenue to upload malicious scripts to the server for execution.</p>
 <h2 id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h2>
-<p>URL's are unique identifiers for web resources.</p>
+<p>URL&rsquo;s are unique identifiers for web resources.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example URI specification from RFC 3986</span>
 
          foo://example.com:8042/over/there?name<span class="o">=</span>ferret#nose
@@ -299,7 +299,7 @@ What is means is that RESTful applications will have their parameters within the
 <li><code>Expires</code>: How long the contents of the message body are valid for. Cached copies may be used until this time.</li>
 <li><code>Location</code>: Used in redirect responses (3XX) to specify the target of the redirect.</li>
 <li><code>Pragma</code>: Passes caching directives to the browser.</li>
-<li><code>Server</code>: Information about the server's software.</li>
+<li><code>Server</code>: Information about the server&rsquo;s software.</li>
 <li><code>Set-Cookie</code>: Issues cookies to the browser which it will send back to the server in subsequent requests.</li>
 <li><code>WWW-Authenticate</code>: Provides details on types of authentication that server supports after 401 status code.</li>
 <li><code>X-Frame-Options</code>: Whether responses can be loaded within browsers frame and how to do it.</li>
@@ -352,7 +352,7 @@ Cookie: <span class="nv">tracking</span><span class="o">=</span>dw34tad23590ddfs
 <h3 id="encoding-schemes">Encoding Schemes</h3>
 <p>HTTP has several encoding schemes to ensure the safe delivery of data. The following is some of the most common.</p>
 <h4 id="url-encoding">URL Encoding</h4>
-<p>URL's can only contain characters from the US-ASCII set; 0x20 through to 0x7e. Several characters within this set are restricted as they have special meaning in the scheme or HTTP.
+<p>URL&rsquo;s can only contain characters from the US-ASCII set; 0x20 through to 0x7e. Several characters within this set are restricted as they have special meaning in the scheme or HTTP.
 All URL encoded characters are prefixed by <code>%</code> followed by their hexadecimal representation of the ASCII character.</p>
 <p>Examples:</p>
 <ul>
@@ -384,7 +384,7 @@ When attacking an application, HTML encoding will be most evident when probing f
 <p>Base64 allows any binary data to be represented as using only ASCII characters. It permits the sending of ASCII strings over the wire for safe reassembly on the other side in the original format. It is also used heavily in basic HTTP user authentication.</p>
 <p>Base64 splits the bytes into 6bit streams, allowing for 64 possible permutations - each chunk of 6 bits allows for 64 possible characters. It allows only the following characters:</p>
 <p><code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+</code></p>
-<p>If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by <code>=</code> or <code>==</code> which says that their may be one or two trailing blocks of zero's.</p>
+<p>If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by <code>=</code> or <code>==</code> which says that their may be one or two trailing blocks of zero&rsquo;s.</p>
 <p>Base64 is prevalent across the web and is often used to transmit binary data within cookies and other parameters. It is often used to obfuscate data in transit through security by obscurity. Always decode any intercepted Base64 data, it could be a goldmine. Base64 can often be identified quickly by the <code>=</code> trail, or if it is JSON it will start with <code>ey</code> which represents <code>{</code>.</p>
 <h2 id="fin">Fin</h2>
 <p>HTTP is an important protocol not just for security and network engineers but for developers too. Having a cursory understanding aides every one who uses the web. Next time you look at the network tab in your browsers developer tools be sure to look at the headers, you might notice something worth exploring.</p>

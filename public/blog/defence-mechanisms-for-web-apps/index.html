@@ -47,9 +47,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.881214451%20%2b1100%20AEDT%20m%3d%2b0.141097648">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.881214451%20%2b1100%20AEDT%20m%3d%2b0.141097648">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.881214451%20%2b1100%20AEDT%20m%3d%2b0.141097648">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.39364141%20%2b1100%20AEDT%20m%3d%2b0.179959393">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.39364141%20%2b1100%20AEDT%20m%3d%2b0.179959393">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.39364141%20%2b1100%20AEDT%20m%3d%2b0.179959393">
     
 
 
@@ -188,7 +188,7 @@
 <li>Handling the application itself so everything can be monitored, and configured correctly</li>
 </ul>
 <h3 id="user-access">User Access</h3>
-<p>In most applications that have users, there will be several privileges or roles within the user space. For instance, a social-networking site might have the base user, a group administrator and overall application administrator accounts. Likewise, the owner of an account should be able to view their own data but not that of others. Mitigation's, or security mechanisms in place within this spectrum are:</p>
+<p>In most applications that have users, there will be several privileges or roles within the user space. For instance, a social-networking site might have the base user, a group administrator and overall application administrator accounts. Likewise, the owner of an account should be able to view their own data but not that of others. Mitigation&rsquo;s, or security mechanisms in place within this spectrum are:</p>
 <ul>
 <li>Authentication,</li>
 <li>Session Management,</li>
@@ -209,7 +209,7 @@
 <h2 id="approaches-to-input-handling">Approaches to Input Handling</h2>
 <h3 id="reject-known-bad">Reject Known Bad</h3>
 <p>Blacklisting known bad things. The weakest form of defence, as spoofing or encoding arbitrary code blocks could slip past this measure.</p>
-<p>For example, if <code>SELECT</code> is blocked, <code>SeLeCt</code> might not be! or if <code>alert('xss')</code> is blocked maybe <code>prompt('xsss')</code> isn't. In addition, some tokensing parsers which detect these blacklisted words may stop searching when the detect a NULL Byte. <code>%00&lt;script&gt;alert(1)&lt;/script&gt;</code> may get through.</p>
+<p>For example, if <code>SELECT</code> is blocked, <code>SeLeCt</code> might not be! or if <code>alert('xss')</code> is blocked maybe <code>prompt('xsss')</code> isn&rsquo;t. In addition, some tokensing parsers which detect these blacklisted words may stop searching when the detect a NULL Byte. <code>%00&lt;script&gt;alert(1)&lt;/script&gt;</code> may get through.</p>
 <h3 id="accept-known-good">Accept Known Good</h3>
 <p>This method is very effective against stopping code injection as it is based off only allowing accepted elements to be input. The flaw in this is where accepting a known good can conflict with the requirements of the application itself. For instance, a name field in a form will likely necessitate the use of <code>-</code>, as some people legitimately have hyphenated names. But, <code>-</code> are commonly used to attack databases on the backend, so it may not be used in all cases where it could detract from the user experience.</p>
 <h3 id="sanitisation">Sanitisation</h3>
@@ -249,8 +249,8 @@
 <h3 id="reacting-to-attacks">Reacting to Attacks</h3>
 <p>Alerts signifying an attack is nothing without a response. Reactive approaches will should be unique to the application in question but many are generic. Things such as slowing or putting up things to block simple attacks will not defeat a prudent and patient attacker, but should stop a lot of automated broad brush attacks.</p>
 <h2 id="summary">Summary</h2>
-<p>The above methods for protecting web applications are nothing new, in fact, much of this content is taken from old resources such as the <a href="https://portswigger.net/web-security/web-application-hackers-handbook">web application hackers handbook</a>. That is because the advice still holds true even in today's &ldquo;modern&rdquo; web app's. Attacks and methods may change slightly, or evolve to overcome new frameworks securities mechanisms but the vast majority of attacks simply exploit what could be defended against by implementing whats contained in this post.</p>
-<p>Things don't change that much.</p>
+<p>The above methods for protecting web applications are nothing new, in fact, much of this content is taken from old resources such as the <a href="https://portswigger.net/web-security/web-application-hackers-handbook">web application hackers handbook</a>. That is because the advice still holds true even in today&rsquo;s &ldquo;modern&rdquo; web app&rsquo;s. Attacks and methods may change slightly, or evolve to overcome new frameworks securities mechanisms but the vast majority of attacks simply exploit what could be defended against by implementing whats contained in this post.</p>
+<p>Things don&rsquo;t change that much.</p>
 
                 <br>
                 

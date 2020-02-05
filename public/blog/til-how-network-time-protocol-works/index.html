@@ -45,9 +45,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.996694675%20%2b1100%20AEDT%20m%3d%2b0.256577925">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.592449629%20%2b1100%20AEDT%20m%3d%2b0.378767756">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.592449629%20%2b1100%20AEDT%20m%3d%2b0.378767756">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.592449629%20%2b1100%20AEDT%20m%3d%2b0.378767756">
     
 
 
@@ -198,10 +198,10 @@ the point is clear, its a necessary protocol.</p>
 (<a href="https://en.wikipedia.org/wiki/Atomic_clock">https://en.wikipedia.org/wiki/Atomic_clock</a>) or GPS
 time. Basically, these methods are considered as accurate as humans can
 calculate to &lsquo;real&rsquo; time. It would be simplistic to say that NTP polls
-these sources for the current time - but nonetheless that's the basic
+these sources for the current time - but nonetheless that&rsquo;s the basic
 premise.</p>
 <p>Diving deeper, NTP actually uses things called a &lsquo;Stratum&rsquo;. An atomic
-clock is a Stratum 0, also known as a reference clock. The Stratum's go
+clock is a Stratum 0, also known as a reference clock. The Stratum&rsquo;s go
 from 0 all the way to 16. Stratum 1 is the closest an NTP server can get
 to the reference clock, and is usually within a few milliseconds. These
 are referred to as primary time servers. Each Stratum refers to the
@@ -251,7 +251,7 @@ queries to several servers rather than trusting that the response from
 one server is correct. NTP then favours the lowest latency and discards
 any outliers. Secondly, NTP uses some statistical analysis of its
 responses over a period of minutes to determines who is accurate and who
-isn't based off those statistics.</p>
+isn&rsquo;t based off those statistics.</p>
 <h4 id="make-adjustments">Make Adjustments</h4>
 <p>What NTP tries to never do is go backwards in time. Sometimes it has to
 and we will get to that. But for the most part what it does it &lsquo;slew&rsquo;
@@ -268,8 +268,8 @@ be manually configured within that threshold or it will not be able to
 receive adjustments.</p>
 <hr>
 <h3 id="conclusion">Conclusion</h3>
-<p>That's Network Time Protocol in a nutshell. I had never paid much heed
-to NTP prior to <a href="https://twitter.com/jpotischj">Joel Potischman's</a> talk
+<p>That&rsquo;s Network Time Protocol in a nutshell. I had never paid much heed
+to NTP prior to <a href="https://twitter.com/jpotischj">Joel Potischman&rsquo;s</a> talk
 at !!Con. He gave a great talk and it only goes for ten minutes and uses
 some good graphs and visualisations that are missing from this post. If
 you want to see NTP in action on your computer you can use

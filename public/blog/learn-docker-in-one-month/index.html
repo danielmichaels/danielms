@@ -47,9 +47,9 @@ Why Some of the core reasons to use docker." />
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.884808297%20%2b1100%20AEDT%20m%3d%2b0.144691450">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.884808297%20%2b1100%20AEDT%20m%3d%2b0.144691450">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.884808297%20%2b1100%20AEDT%20m%3d%2b0.144691450">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.451546596%20%2b1100%20AEDT%20m%3d%2b0.237864588">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.451546596%20%2b1100%20AEDT%20m%3d%2b0.237864588">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.451546596%20%2b1100%20AEDT%20m%3d%2b0.237864588">
     
 
 
@@ -190,10 +190,10 @@ These containers bundle together applications and dependancies without the need 
 <li>Version pinning is possible making compatibility issues on new release cycles less problematic, and testing of packages easier to implement,</li>
 <li>Continious Integration is a perfectly paired with docker allowing each new release, or push to the repository to be built automatically with a new docker image, and tested to ensure against regression.</li>
 </ul>
-<h3 id="virtual-machines-arent-docker">Virtual Machines aren't docker</h3>
+<h3 id="virtual-machines-arent-docker">Virtual Machines aren&rsquo;t docker</h3>
 <p>Docker and virtual machines differ in their implementation and uses cases. They are complimentary rather than competitors and service different needs through each use-case.</p>
 <p><img src="https://danielms.site/images/dockervm.png" alt="" title="docker versus virtual machines"></p>
-<p>Containers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host's operating system, its application are seperated from the kernel ensuring isolation via the docker engine.</p>
+<p>Containers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host&rsquo;s operating system, its application are seperated from the kernel ensuring isolation via the docker engine.</p>
 <p>Regardless, each technology should be utilised as a method to achieve an outcome rather than be a dogmatic position for any one developer to live and die by. In fact, both methods can be used in conjunction, it is possible to run docker contianers within virtual machines - this being something I do often in Vagrant.</p>
 <h2 id="docker-processes">Docker processes</h2>
 <p>An important distinction with docker is its process orientation. Containers are designed to execute one process and then quit - the length of the running process arbitary but once its is complete the container will effectively exit.</p>
@@ -216,7 +216,7 @@ These containers bundle together applications and dependancies without the need 
 <li>One process per container</li>
 </ul>
 <h2 id="demo-1">Demo #1</h2>
-<p>Let's start a docker application.</p>
+<p>Let&rsquo;s start a docker application.</p>
 <p><code>docker run --rm danielmichaels/http-tracer http://nyti.ms/1QETHgV</code></p>
 <p>You should see something similar to the following:</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">Unable to find image <span class="s1">&#39;danielmichaels/http-tracer:latest&#39;</span> locally
@@ -228,21 +228,21 @@ c87736221ed0: Already exists
 Digest: sha256:b463068aec6a475854277d8e0a485281166d1fa18eb7c9c8e09cb858e3031684
 Status: Downloaded newer image <span class="k">for</span> danielmichaels/http-tracer:latest
 </code></pre></div><p>Docker always checks the local machine for any images matching the request. If it does not find any it will check its upstream repository for any matches, in this case, <a href="https://hub.docker.com">Docker Hub</a>.</p>
-<p>If found, docker will then start to pull down the container's image. Once its finished downloading, docker executes the <code>docker run</code> command. Try it out.</p>
-<p>In this example, we've downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.</p>
-<p>Let's look at a long lived process, such as a webserver.</p>
+<p>If found, docker will then start to pull down the container&rsquo;s image. Once its finished downloading, docker executes the <code>docker run</code> command. Try it out.</p>
+<p>In this example, we&rsquo;ve downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.</p>
+<p>Let&rsquo;s look at a long lived process, such as a webserver.</p>
 <h2 id="demo-2">Demo #2</h2>
 <p><code>docker run --rm -it -p 8081:80 nginx</code></p>
-<p>Again, an image will be downloaded (don't worry we'll go over deleting images) before it finally runs the container.</p>
+<p>Again, an image will be downloaded (don&rsquo;t worry we&rsquo;ll go over deleting images) before it finally runs the container.</p>
 <p>This time, nothing should happen and it may appear to have hung. In a browser, navigate to <a href="http://127.0.0.1:8081">localhost:8081</a> and observe the terminal where the container is running. Requests will be printed to the screen.</p>
 <p>If you are wondering about the <code>-p</code> flag, it is shorthand for <code>--publish</code> and is the mechanism for mapping the <em>host</em> and <em>container</em> port. The host port is first, container second or <code>-p &lt;host&gt;:&lt;container&gt;</code>. For nginx, it expects port 80 so we set the container to that however the host port could be set to any realistic port.</p>
-<p>So we should have the <em>nginx</em> default page in the browser, and the request for that page in our terminal. This is a good example of how docker processes can be long running - the webserver is a process and it's still running.</p>
+<p>So we should have the <em>nginx</em> default page in the browser, and the request for that page in our terminal. This is a good example of how docker processes can be long running - the webserver is a process and it&rsquo;s still running.</p>
 <p>We can also make this process run without printing anything to the screen by omitting the <code>-it</code> and replacing it with <code>-d</code> or <code>--detach</code>. The terminal should output a long alphanumeric string indicating its <em>container id</em>. Confirm this with <code>docker ps</code>.</p>
 <p>To stop detached containers use <code>docker stop &lt;container id|container name&gt;</code>. Again, the id or name used to kill the process should be echoed to the terminal. A <code>docker ps</code> will confirm this.</p>
 <p>Lastly, the <code>--rm</code> flag simply removes the non-dead container from the host filesystem. For our purposes, we do not need or want to keep copies of our containers on the system. Generally, its a good idea to keep them for debugging but can really start to absorb a lot of disk space on the host during testing.
 To check for this run <code>docker ps -a</code> which will print out any old containers that can be cleaned up. To clean away these container use the <code>prune</code> command: <code>docker container prune</code>.</p>
 <h2 id="bind-mounts">Bind Mounts</h2>
-<p>So far the utility has lacked any real substance. I've got a web app, how does my code get on here?</p>
+<p>So far the utility has lacked any real substance. I&rsquo;ve got a web app, how does my code get on here?</p>
 <p>There are two methods to mount data to contianers; using <code>--volume/-v</code> or <code>--mount</code>. Docker <a href="https://docs.docker.com/storage/bind-mounts/">recommends</a> using the <code>--mount</code> method for a few reasons, namely the ability to share mounts between contianers.</p>
 <h3 id="using--v">Using <code>-v</code></h3>
 <h2 id="short-running-container">Short running container</h2>
@@ -339,9 +339,9 @@ RUN pip install http-tracer
 ENTRYPOINT <span class="o">[</span><span class="s2">&#34;http-tracer&#34;</span><span class="o">]</span>
 
 CMD <span class="o">[</span><span class="s2">&#34;pfsense.org&#34;</span><span class="o">]</span>
-</code></pre></div><p>The above Dockerfile, has some keyword's denoted by capitals, followed by an argument. This is the general structure of a Dockerfile and the layout is very important as we will see below. There are many more keywords but that's reserved for your own experimentation.</p>
-<p>All dockerfile's start with <code>FROM</code> - which basically means &ldquo;pull this image and extend it with the following..&rdquo;</p>
-<p>In this particular application, we need to ensure the languages are set correctly. Dockerfile's allow users to set Environment Variables with the <code>ENV</code> keyword.</p>
+</code></pre></div><p>The above Dockerfile, has some keyword&rsquo;s denoted by capitals, followed by an argument. This is the general structure of a Dockerfile and the layout is very important as we will see below. There are many more keywords but that&rsquo;s reserved for your own experimentation.</p>
+<p>All dockerfile&rsquo;s start with <code>FROM</code> - which basically means &ldquo;pull this image and extend it with the following..&rdquo;</p>
+<p>In this particular application, we need to ensure the languages are set correctly. Dockerfile&rsquo;s allow users to set Environment Variables with the <code>ENV</code> keyword.</p>
 <p>Perhaps the most important and well known command is <code>RUN</code> which tells docker to call the following commands within the container. In this case, as we are building atop of an alpine-linux minimal python version, <code>pip</code> comes bundled with it. If the image was <code>ubuntu</code> based we could call <code>apt-get</code> and so on.</p>
 <p>The next two lines (layers) are special to this commandline application. <code>ENTRYPOINT</code> defines the command we want to execute within the container and because our app, <code>http-tracer</code> is installed in the <code>PATH</code> as apart of its <code>pip</code> installation, it is executable. Typically, <code>ENTRYPOINT</code> is used in contianers that are designed to be run as an executable, which this application is.</p>
 <p><code>CMD</code> is similar to <code>ENTRYPOINT</code> except we can only use it once and it is used to set default commands or parameters. the argument that follows a <code>CMD</code> keyword will run anytime the container is executed without specifying any arguments with it. So in this case, out <code>http-tracer</code> container will be executed with <code>&quot;pfense.org&quot;</code> as its default argument. If the container runs with a command, this default will be overwritten.</p>
@@ -411,7 +411,7 @@ ping test_mysql <span class="c1"># from node /bin/bash shell</span>
 <span class="c1"># unless explicitly denied, this gives access to internet</span>
 ping 1.1.1.1
 </code></pre></div><h2 id="docker-enough-to-get-by">Docker enough to get by</h2>
-<p>That is really enough docker to start playing around and learning to be comfortable in it. This hasn't covered <code>docker-compose</code> which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It's okay to be slow - its all <em>time under tension</em> and repeated small exposures that eventualy lead to true understanding.</p>
+<p>That is really enough docker to start playing around and learning to be comfortable in it. This hasn&rsquo;t covered <code>docker-compose</code> which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It&rsquo;s okay to be slow - its all <em>time under tension</em> and repeated small exposures that eventualy lead to true understanding.</p>
 
                 <br>
                 

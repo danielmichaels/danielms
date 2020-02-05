@@ -19,7 +19,7 @@
       <guid>https://danielms.site/blog/user-agents-101/</guid>
       <description>User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
 Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&#39;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
+If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ If you&#39;ve ever been surfing the net on your mobile and selected &amp;ldquo;R
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/on-teaching/</guid>
-      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&#39;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
+      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&amp;rsquo;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ Python 3
       <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/python-object-references/</guid>
-      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&#39;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&#39;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
     </item>
     
   </channel>

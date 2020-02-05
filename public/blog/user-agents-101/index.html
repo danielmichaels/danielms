@@ -11,12 +11,12 @@
 <meta name="author" content="Daniel Michaels">
 <meta name="description" content="User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
 Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&#39;ve ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent.">
+If you&rsquo;ve ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent.">
 
 <meta property="og:title" content="User Agents 101" />
 <meta property="og:description" content="User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
 Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&#39;ve ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent." />
+If you&rsquo;ve ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/user-agents-101/" />
 <meta property="article:published_time" content="2019-05-15T00:00:00+00:00" />
@@ -47,9 +47,9 @@ If you&#39;ve ever been surfing the net on your mobile and selected &ldquo;Reque
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.925758501%20%2b1100%20AEDT%20m%3d%2b0.185641701">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.925758501%20%2b1100%20AEDT%20m%3d%2b0.185641701">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.925758501%20%2b1100%20AEDT%20m%3d%2b0.185641701">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.491112701%20%2b1100%20AEDT%20m%3d%2b0.277430686">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.491112701%20%2b1100%20AEDT%20m%3d%2b0.277430686">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.491112701%20%2b1100%20AEDT%20m%3d%2b0.277430686">
     
 
 
@@ -178,17 +178,17 @@ If you&#39;ve ever been surfing the net on your mobile and selected &ldquo;Reque
 <h2 id="what">What</h2>
 <p>Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.</p>
 <p>Heres mine: <code>Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</code> but it could just as easily be <code>Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko)</code>.</p>
-<p>If you've ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent. And, if you have done that you might have noticed a significant change in that sites resolution. Its all to do with that string of data, and what the website does with that information.</p>
+<p>If you&rsquo;ve ever been surfing the net on your mobile and selected &ldquo;Request Desktop Site&rdquo; then you have changed your phone browsers user agent. And, if you have done that you might have noticed a significant change in that sites resolution. Its all to do with that string of data, and what the website does with that information.</p>
 <p>Not only will each browser have its own user agent but so will any program used to query a web site. Google uses a series of &ldquo;spiders&rdquo; which crawl the internet and index it giving us Google search. Googlebot, cURL, wget, Postman and your latest smart light bulb all have user agents.</p>
 <p>You can find yours by typing &ldquo;user agent&rdquo; into <a href="https://duckduckgo.com/?q=user+agent">DuckDuckGo</a>. Or, you could open your browsers <em>Development Tools</em> with <code>Ctrl + Shift I</code> and then select the <em>Network</em> tab. Once inside look for a subsection named <em>Headers</em>. Your user agent will be located in the request headers section.</p>
 <h2 id="why-do-i-need-to-know-this">Why do I need to know this</h2>
-<p>Knowing is half the battle. My bank once wouldn't let me login unless I used Chrome or Edge which is ridiculous. I choose my browser not the web application, so I just changed the user agent, and wouldn't you know, <em>&hellip;I got in</em>.</p>
-<p>Maybe you are an app developer, or for some reason need to verify something by assessing the user agent. At least now you know that it isn't a fool-proof way to confirm a device - you will need more than one method to ascertain the true origin. Don't rely on user agents alone as you can see below.</p>
-<p>As a developer, or user if you repeatedly request a website it is possible to be served a <code>HTTP/1.1 429 Too Many Requests</code>. It's probable that your user agent in conjunction with your IP address has triggered that.</p>
+<p>Knowing is half the battle. My bank once wouldn&rsquo;t let me login unless I used Chrome or Edge which is ridiculous. I choose my browser not the web application, so I just changed the user agent, and wouldn&rsquo;t you know, <em>&hellip;I got in</em>.</p>
+<p>Maybe you are an app developer, or for some reason need to verify something by assessing the user agent. At least now you know that it isn&rsquo;t a fool-proof way to confirm a device - you will need more than one method to ascertain the true origin. Don&rsquo;t rely on user agents alone as you can see below.</p>
+<p>As a developer, or user if you repeatedly request a website it is possible to be served a <code>HTTP/1.1 429 Too Many Requests</code>. It&rsquo;s probable that your user agent in conjunction with your IP address has triggered that.</p>
 <p>Web scraping is a common programming task, and allows developers to access information from sites that do not offer an application programming interface (API).
-Some pages offer API's but a programmer may choose not to use it. Usually this is to circumvent having to pay for it, or maybe the API does not offer a certain, wanted piece of information. More often then not, scraping is in violation of the web applications terms of service. It's best to utilise an API whenever possible.</p>
+Some pages offer API&rsquo;s but a programmer may choose not to use it. Usually this is to circumvent having to pay for it, or maybe the API does not offer a certain, wanted piece of information. More often then not, scraping is in violation of the web applications terms of service. It&rsquo;s best to utilise an API whenever possible.</p>
 <p>So how do people get around this?</p>
-<h2 id="its-just-a-string">It's just a string</h2>
+<h2 id="its-just-a-string">It&rsquo;s just a string</h2>
 <p>Thankfully, HTTP is stateless (yes, even HTTP/2) and thus we can influence each request and its headers.</p>
 <p>We can demonstrate this with a simple script which will choose a user agent at random from a list and then send it with its request. Every language has the ability to get information from the internet and will likely already have a way to do the same thing. This example will be in python using the <code>requests</code> library.</p>
 <p><strong>Step 1. Set the user agents to be selected randomly.</strong></p>
@@ -213,7 +213,7 @@ Some pages offer API's but a programmer may choose not to use it. Usually this i
     <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">User-Agent</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">)</span>
     <span class="n">ua</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">ua</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">rawUa</span><span class="s1">&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">ua</span>
-</code></pre></div><p>We override the default <code>headers</code> with our <code>user_agent</code> function and are returned a response. In this case we've hit an endpoint that will return our user agent as a JSON object.</p>
+</code></pre></div><p>We override the default <code>headers</code> with our <code>user_agent</code> function and are returned a response. In this case we&rsquo;ve hit an endpoint that will return our user agent as a JSON object.</p>
 <p>The source for this script can be found <a href="https://github.com/danielmichaels/utils/blob/master/user_agent_mixer.py">here</a></p>
 <p>So changing a user agent is that easy. Firefox has extensions, Chrome would, Opera has it built-in. PC, laptop or mobile handset its all the same after all its just HTTP.</p>
 

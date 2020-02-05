@@ -47,9 +47,9 @@ If two parties wish to exchange information to one another but the medium which 
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.960215995%20%2b1100%20AEDT%20m%3d%2b0.220099424">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.960215995%20%2b1100%20AEDT%20m%3d%2b0.220099424">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.960215995%20%2b1100%20AEDT%20m%3d%2b0.220099424">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.531729495%20%2b1100%20AEDT%20m%3d%2b0.318047458">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.531729495%20%2b1100%20AEDT%20m%3d%2b0.318047458">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.531729495%20%2b1100%20AEDT%20m%3d%2b0.318047458">
     
 
 
@@ -193,16 +193,16 @@ public key can be transferred or published globally without worry, as it
 requires the private key to unlock the cipher.</p>
 <p><em>how does it work?</em></p>
 <p>We have two actors whom wish to send a secure message; <em>Bob</em> and
-<em>Alice</em>. If Alice wants to send a message to Bob, first she finds Bob's
+<em>Alice</em>. If Alice wants to send a message to Bob, first she finds Bob&rsquo;s
 public key either by looking it up globally, or getting it directly from
-Bob. Alice now encrypts her message using Bob's public key. This is safe
-because Bob's public key cannot decrypt this message, meaning it does
-not matter if anyone else has Bob's public key.</p>
-<p>When Bob receives Alice's encrypted message, he uses his private key
+Bob. Alice now encrypts her message using Bob&rsquo;s public key. This is safe
+because Bob&rsquo;s public key cannot decrypt this message, meaning it does
+not matter if anyone else has Bob&rsquo;s public key.</p>
+<p>When Bob receives Alice&rsquo;s encrypted message, he uses his private key
 -which only Bob has access to - and decrypts the message. Should Bob
-wish to reply, he simply repeats the process, now using Alice's public
+wish to reply, he simply repeats the process, now using Alice&rsquo;s public
 key to encrypt his message to her.</p>
-<p>At it's core, this is the principle of asymmetric or public key
+<p>At it&rsquo;s core, this is the principle of asymmetric or public key
 encryption.</p>
 <h2 id="digital-signatures">Digital Signatures</h2>
 <p>In the physical world, a signature is a form of validation. It certifies
@@ -214,7 +214,7 @@ someone else?</p>
 object in a way that verifies the signature is from the party in
 question. If Alice wants to digitally verify a document with her name,
 she can sign it using public key cryptography.</p>
-<p>When Bob receives Alice's encrypted message everyone can decrypt this
+<p>When Bob receives Alice&rsquo;s encrypted message everyone can decrypt this
 message as they can get her public key, but no-one else has her private
 key. This means that no-one could of altered the message, or forged it
 entirely because Alice is the sole owner of the private key.</p>

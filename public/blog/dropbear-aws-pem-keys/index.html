@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&#39;s Dropbear SSH client isn&#39;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&#39;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+<meta name="description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
 Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.">
 
 <meta property="og:title" content="Dropbear and AWS" />
-<meta property="og:description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&#39;s Dropbear SSH client isn&#39;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&#39;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+<meta property="og:description" content="BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
 Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/dropbear-aws-pem-keys/" />
@@ -45,9 +45,9 @@ Dropbear SSH Dropbear is a lightweight client and server application mostly seen
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.892714308%20%2b1100%20AEDT%20m%3d%2b0.152597459">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.892714308%20%2b1100%20AEDT%20m%3d%2b0.152597459">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.892714308%20%2b1100%20AEDT%20m%3d%2b0.152597459">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.404054036%20%2b1100%20AEDT%20m%3d%2b0.190372033">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.404054036%20%2b1100%20AEDT%20m%3d%2b0.190372033">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.404054036%20%2b1100%20AEDT%20m%3d%2b0.190372033">
     
 
 
@@ -174,13 +174,13 @@ Dropbear SSH Dropbear is a lightweight client and server application mostly seen
             <div class="markdown">
                 <h1 id="busybox-ssh-and-ec2">BusyBox, SSH and EC2</h1>
 <p><img src="https://danielms.site/images/bash-terminal.png" alt="terminal" title="terminal graphic"></p>
-<p>Accessing an EC2 instance from BusyBox's Dropbear SSH client isn't easy. Firstly, <code>.pem</code> files are not compatible with <code>dropbear</code>, nor can you convert them to dropbear's key format with the built-in <code>dropbearconvert</code>. Secondly, depending on your version of <code>openssh</code> it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.</p>
+<p>Accessing an EC2 instance from BusyBox&rsquo;s Dropbear SSH client isn&rsquo;t easy. Firstly, <code>.pem</code> files are not compatible with <code>dropbear</code>, nor can you convert them to dropbear&rsquo;s key format with the built-in <code>dropbearconvert</code>. Secondly, depending on your version of <code>openssh</code> it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.</p>
 <h2 id="dropbear-ssh">Dropbear SSH</h2>
 <p>Dropbear is a lightweight client and server application mostly seen on embedded devices. It is designed to replace OpenSSH in low memory footprint systems as it can be compiled down to <a href="https://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2004q3/000022.html">110kb</a>.
 It is compatible with <code>.ssh/authorized_keys</code>, however it does have limitations.</p>
 <h2 id="those-limitations">Those limitations</h2>
 <p>Amazon Web Services such as Elastic Cloud Compute hand out private keys for passwordless login. Unfortunately for dropbear users, the format is <code>.pem</code> which is incompatible. And, <code>dropbearconvert</code> - the program provided for turning <code>openssh</code> keys into <code>dropbear</code> keys - does not accept <code>.pem</code> files.</p>
-<p>Dropbear's conversion tool will also not accept private keys from <code>openssh</code>, as seen below.</p>
+<p>Dropbear&rsquo;s conversion tool will also not accept private keys from <code>openssh</code>, as seen below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAYEAtNY9pkKAhGYD/qDIThmRd7Y8kMo7QvbSQj+tv5huz4hTqdgALmxP
@@ -201,15 +201,15 @@ pEJt+8fBAoGBAM2KBHEA5RFnv812nGJG6f2scaMxufbQh5vtc0tf7DDAPqmHlnqr
 <ul>
 <li><code>ssh-keygen -m PEM -t rsa -b 4096 -f &lt;new_privkey&gt;</code></li>
 </ul>
-<h4 id="2-copy-the--private--key-to-busybox">2. Copy the <em>private</em> key to BusyBox:</h4>
+<h4 id="2-copy-the-_private_-key-to-busybox">2. Copy the <em>private</em> key to BusyBox:</h4>
 <ul>
 <li><code>scp &lt;priv_key_filename&gt; &lt;user&gt;@&lt;busybox&gt;:/&lt;user&gt;/.ssh/</code></li>
 </ul>
-<h4 id="3-copy-the-private-key-to-the-cloud----only-if-doing-these-steps-on-your-local-system-">3. Copy the private key to the cloud - <em>only if doing these steps on your local system</em>:</h4>
+<h4 id="3-copy-the-private-key-to-the-cloud---_only-if-doing-these-steps-on-your-local-system_">3. Copy the private key to the cloud - <em>only if doing these steps on your local system</em>:</h4>
 <ul>
 <li><code>scp -i &lt;aws-ec2-private-key&gt;.pem &lt;new_privkey&gt; ec2-user@&lt;ec2-dns-address&gt;:/home/&lt;ubuntu&gt;/.ssh/</code></li>
 </ul>
-<h4 id="4-on-the-system-you-are-running-these-steps-inside-sshauthorized-hosts-append-the-public-key">4. On the system you are running these steps, inside <code>.ssh/authorized_hosts</code> append the public key:</h4>
+<h4 id="4-on-the-system-you-are-running-these-steps-inside-sshauthorized_hosts-append-the-public-key">4. On the system you are running these steps, inside <code>.ssh/authorized_hosts</code> append the public key:</h4>
 <p><strong>from local machine</strong>:</p>
 <ul>
 <li><code>cat &lt;new_pubkey&gt;.pub | ssh -i &lt;aws-ec2-private_key&gt; | &quot;cat &gt;&gt; /home/ubuntu/.ssh/authorized_keys&quot;</code></li>

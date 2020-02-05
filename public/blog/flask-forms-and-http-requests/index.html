@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&#39;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+<meta name="description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
 The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.">
 
 <meta property="og:title" content="Flask, forms and http requests" />
-<meta property="og:description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&#39;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+<meta property="og:description" content="Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
 The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/flask-forms-and-http-requests/" />
@@ -45,9 +45,9 @@ The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue start
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2019-12-24%2016%3a27%3a10.987846388%20%2b1100%20AEDT%20m%3d%2b0.247729557">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2019-12-24%2016%3a27%3a10.987846388%20%2b1100%20AEDT%20m%3d%2b0.247729557">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2019-12-24%2016%3a27%3a10.987846388%20%2b1100%20AEDT%20m%3d%2b0.247729557">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
     
 
 
@@ -174,7 +174,7 @@ The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue start
             <div class="markdown">
                 <h2 id="flask-forms-and-http-requests">Flask, Forms and HTTP Requests</h2>
 <h3 id="preface">Preface</h3>
-<p>This week I have been building a small webapp that leverage's an
+<p>This week I have been building a small webapp that leverage&rsquo;s an
 external API to populate values in the user pages. And it pains me to
 say that I spent a silly length of time debugging what was a rather easy
 problem.</p>
@@ -275,7 +275,7 @@ following should be used:</p>
 </code></pre></div><p>Given these snippets you can see how mixing <code>GET</code> with
 <code>POST</code> will lead to calling the wrong request method.</p>
 <h3 id="html-form-tags-for-dummies">HTML form tags for Dummies</h3>
-<p>HTML, basic right? Don't let hubris fool you, not learning HTML deeply
+<p>HTML, basic right? Don&rsquo;t let hubris fool you, not learning HTML deeply
 is foolish. To be fair, this is the first app I have created that has
 not required the use of <code>flask-wtf</code>, which kindly generates
 forms and their tags for you.</p>
@@ -285,11 +285,11 @@ forms and their tags for you.</p>
 <ul>
 <li>Mix up the HTTP request</li>
 <li>Use the wrong flask request method</li>
-<li>Don't use an attribute which you can parse in using
+<li>Don&rsquo;t use an attribute which you can parse in using
 <code>request.form.get('attribute')</code></li>
 </ul>
 <p>Tightly coupled (I think there is a SOLID principle about this&hellip;) and
-frustrating when you don't connect the dots.</p>
+frustrating when you don&rsquo;t connect the dots.</p>
 <p>The last piece of the puzzle was the simplest of all, I had not set an
 attribute that the request object could get. In this example a
 <code>&lt;select&gt;</code> tag was used and simply appending
@@ -312,7 +312,7 @@ attribute that the request object could get. In this example a
 </code></pre></div><p>&hellip; My face when it worked.</p>
 <p><img src="https://danielms.site/img/its_alive.jpg" alt="Face of surprise!"></p>
 <h3 id="learn-from-your-mistakes">Learn from your mistakes</h3>
-<p>Everyone makes mistakes, learn from it, be humble and don't do it again.</p>
+<p>Everyone makes mistakes, learn from it, be humble and don&rsquo;t do it again.</p>
 
                 <br>
                 

@@ -6,10 +6,33 @@
     <description>Recent content in Blog on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wagtail embeded YouTube videos</title>
+      <link>https://danielms.site/blog/wagtail-embedurl-youtube-tags/</link>
+      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/wagtail-embedurl-youtube-tags/</guid>
+      <description>Wagtail Embed Video Wagtail is a brilliant content management service built atop of Django. It comes with all of Django&amp;rsquo;s functionality and Django Rest Framework built in for headless work making life a lot easier.
+In all, I really love it, especially its StreamFields. But I did stumble on one component, getting embedded videos to work correctly.
+Embedding videos This is harder than I feel it should be and poorly explained by the Wagtail documentation.</description>
+    </item>
+    
+    <item>
+      <title>Ecosia</title>
+      <link>https://danielms.site/blog/ecosia-tree-saving-browser/</link>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/ecosia-tree-saving-browser/</guid>
+      <description>Ecosia Building awareness The search engine that plants trees.
+As we welcome 2020, lets acknowledge that doing something to help make our planet more sustainable is worth our time and effort.
+Not everyone need agree on this topic, but those that do and have yet to hear about Ecosia let me give you some background.
+The tree planting search engine  79 million trees have been planted to date and every 0.</description>
+    </item>
     
     <item>
       <title>learn docker in one month</title>
@@ -39,7 +62,7 @@ Why Some of the core reasons to use docker.</description>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dropbear-aws-pem-keys/</guid>
-      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&#39;s Dropbear SSH client isn&#39;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&#39;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
+      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&amp;rsquo;s Dropbear SSH client isn&amp;rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&amp;rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
 Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.</description>
     </item>
     
@@ -50,7 +73,7 @@ Dropbear SSH Dropbear is a lightweight client and server application mostly seen
       
       <guid>https://danielms.site/blog/curl-emails-for-great-good/</guid>
       <description>Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
-Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; --ssl-reqd \ --mail-from &amp;#39;username@gmail.com&amp;#39; --mail-rcpt &amp;#39;rcpt@email.com&amp;#39; \ --user &amp;#39;username@gmail.com:password&amp;#39; --insecure \ --upload-file fileToBeUploaded.txt Let&#39;s break down each component:</description>
+Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; --ssl-reqd \ --mail-from &amp;#39;username@gmail.com&amp;#39; --mail-rcpt &amp;#39;rcpt@email.com&amp;#39; \ --user &amp;#39;username@gmail.com:password&amp;#39; --insecure \ --upload-file fileToBeUploaded.txt Let&amp;rsquo;s break down each component:</description>
     </item>
     
     <item>
@@ -80,7 +103,7 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
-      <description>DNS The Internet&#39;s success is predicated on the Domain Name System or DNS. We&#39;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
 When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
     </item>
     
@@ -92,7 +115,7 @@ When it comes to diagnosing network issues, understanding adblocking, speeding u
       <guid>https://danielms.site/blog/user-agents-101/</guid>
       <description>User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
 Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&#39;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
+If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
     </item>
     
     <item>
@@ -101,7 +124,7 @@ If you&#39;ve ever been surfing the net on your mobile and selected &amp;ldquo;R
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/lesspass-eli5/</guid>
-      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&#39;t changed LessPass will always return the same password.
+      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
 Why use it over other choices Straight from the creator himself:
  How do I synchronize this file on all my devices?</description>
     </item>
@@ -112,7 +135,7 @@ Why use it over other choices Straight from the creator himself:
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/on-teaching/</guid>
-      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&#39;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
+      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&amp;rsquo;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
     </item>
     
     <item>
@@ -154,7 +177,7 @@ The environment variables are available to all applications, and allow these pro
       <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/python-object-references/</guid>
-      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&#39;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&#39;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
     </item>
     
     <item>
@@ -176,7 +199,7 @@ If two parties wish to exchange information to one another but the medium which 
       <guid>https://danielms.site/blog/base64-eli5/</guid>
       <description>Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
 TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
- first, a demo Let&#39;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
+ first, a demo Let&amp;rsquo;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -185,7 +208,7 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/flask-forms-and-http-requests/</guid>
-      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&#39;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
 The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.</description>
     </item>
     
@@ -205,7 +228,7 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/mentoring-at-coderdojo/</guid>
-      <description>CoderDojo Today I volunteered my time at a local CoderDojo as a Mentor. The basic premise of a CoderDojo is it&#39;s a place where children between 7 and 17 can learn programming, robotics or basically any technology that might inspire them. The kids are called &amp;lsquo;ninjas&amp;rsquo; whilst the program co-ordinators are known as champions, and people who help out in their area of expertise are the mentors.
+      <description>CoderDojo Today I volunteered my time at a local CoderDojo as a Mentor. The basic premise of a CoderDojo is it&amp;rsquo;s a place where children between 7 and 17 can learn programming, robotics or basically any technology that might inspire them. The kids are called &amp;lsquo;ninjas&amp;rsquo; whilst the program co-ordinators are known as champions, and people who help out in their area of expertise are the mentors.
  What did we do?</description>
     </item>
     
@@ -254,7 +277,7 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/rsync-cheatsheet/</guid>
-      <description>This is a short primer on the most simple of rsync&#39;s capabilities.
+      <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
 Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
 Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
     </item>

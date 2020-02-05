@@ -17,7 +17,7 @@
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/flask-forms-and-http-requests/</guid>
-      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&#39;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
+      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
 The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.</description>
     </item>
     
