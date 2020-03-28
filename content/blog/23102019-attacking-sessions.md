@@ -3,7 +3,7 @@ title = "Attacks against session management"
 categories = ["web"]
 tags = ["web", "security"]
 slug = "session-management-attacks"
-date = "2019-10-23"
+date = "2020-02-02"
 draft = "true"
 +++
 

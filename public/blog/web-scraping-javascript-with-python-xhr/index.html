@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Daniel Michaels">
+<meta name="description" content="Scraping Dynamic Pages with Python Web scraping Python is a great tool for web scraping tasks, it is efficient, easy to read and fast. Whenever looking to grab data from a site, the canonical packages are BeautifulSoup and Requests. Unfortunately, when our target site is dynamically rendered, BeautifulSoup can&rsquo;t &ldquo;see&rdquo; those parts leading to a lot of head scratching. The often touted answer to this is Selenium which spins up a browser thereby rendering the JavaScript making it possible to scrape data from it.">
+
+<meta property="og:title" content="Web Scraping Javascript with Python" />
+<meta property="og:description" content="Scraping Dynamic Pages with Python Web scraping Python is a great tool for web scraping tasks, it is efficient, easy to read and fast. Whenever looking to grab data from a site, the canonical packages are BeautifulSoup and Requests. Unfortunately, when our target site is dynamically rendered, BeautifulSoup can&rsquo;t &ldquo;see&rdquo; those parts leading to a lot of head scratching. The often touted answer to this is Selenium which spins up a browser thereby rendering the JavaScript making it possible to scrape data from it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/web-scraping-javascript-with-python-xhr/" />
+<meta property="article:published_time" content="2020-03-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-13T00:00:00+00:00" />
+
+
+<title>
+
+
+     Web Scraping Javascript with Python 
+
+</title>
+<link rel="canonical" href="https://danielms.site/blog/web-scraping-javascript-with-python-xhr/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.814063715%20%2b1100%20AEDT%20m%3d%2b0.108722684">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.814063715%20%2b1100%20AEDT%20m%3d%2b0.108722684">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.814063715%20%2b1100%20AEDT%20m%3d%2b0.108722684">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://danielms.site/extra/favicon.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://danielms.site/"><img class="avatar" src="https://danielms.site/extra/cover.jpeg" srcset="https://danielms.site/extra/cover.jpeg 1x"></a>
+            
+            <a href="https://danielms.site/"><div class="name">Daniel Michaels</div></a>
+            
+              <h3 class="self-intro">I forget things so I write them down.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://danielms.site/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://danielms.site/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://github.com/danielmichaels"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/danielmichaels" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/extrapancakes_" target="_blank" rel="noopener"><img class="icon" src="https://danielms.site/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:danielms@danielms.site"><img class="icon" src="https://danielms.site/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Web Scraping Javascript with Python
+
+</div>
+
+                    <div class="initials"><a href="https://danielms.site/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Fri Mar 13 2020 00:00:00 UTC'>Mar 13, 2020</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <h1 id="scraping-dynamic-pages-with-python">Scraping Dynamic Pages with Python</h1>
+<p><img src="https://danielms.site/images/scraping.png" alt="" title="web scraping diagram"></p>
+<h2 id="web-scraping">Web scraping</h2>
+<p>Python is a great tool for web scraping tasks, it is efficient, easy to read and fast. Whenever looking to grab data from a site, the canonical packages are <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> and <a href="https://github.com/psf/requests/">Requests</a>. Unfortunately, when our target site is dynamically rendered, BeautifulSoup can&rsquo;t &ldquo;see&rdquo; those parts leading to a lot of head scratching. The often touted answer to this is <a href="https://selenium-python.readthedocs.io/">Selenium</a> which spins up a browser thereby rendering the JavaScript making it possible to scrape data from it.</p>
+<p>While selenium does work it kinda sucks, can be a pain to setup and introduces more complexity. On big projects where scrolling, pagination or link traversal is required you may be best served by using Selenium. Though I would recommend <a href="https://scrapy.org/">Scrapy</a>, which is excellent and is built for scraping - Selenium is not.</p>
+<p>In some cases, there is another way.</p>
+<h2 id="an-alternative">An alternative</h2>
+<p>Many modern web applications render data from third party API&rsquo;s or other backend services. When a site uses JavaScript to do this, then we can get a lot of data from it by using only Requests, <a href="https://www.postman.com/">Postman</a> and <a href="https://curl.haxx.se/">cURL</a>.</p>
+<p>The basic steps:</p>
+<ul>
+<li>find the API endpoint using the browser&rsquo;s development tools,</li>
+<li>copy the URL as a curl command,</li>
+<li>import that command into postman, checking it works,</li>
+<li>get postman to auto generate the request into Python code, and</li>
+<li>plug that into your script, and profit!</li>
+</ul>
+<p>This will provide you repeatable python code which will always return a response with the data you require.</p>
+<h3 id="step-1-find-the-url">Step 1: Find the URL</h3>
+<p>Let&rsquo;s use an example <a href="https://lic-investing.online">website</a> which uses an <a href="https://en.wikipedia.org/wiki/XMLHttpRequest">XMLHttpRequest</a> pull data from another server and populate a table with stock data.</p>
+<p>After navigating to the site, open the development tools and click on the network pane. You may need to refresh the page to populate the network pane with its requests.</p>
+<p>Searching through the requests, we find what we are looking for, in this case the requests are named after the stock symbols. There is no standard but you can filter by XHR in the network pane to make finding juicy targets easier.</p>
+<p>For the uninitiated, when clicking on the XHR request, select the response pane and look at the JSON data it has returned.</p>
+<p><img src="https://danielms.site/images/scrape-net-tab.png" alt="" title="dev tools network tab with json xhr response data"></p>
+<h3 id="step-2-copy-as-curl">Step 2: Copy as cURL</h3>
+<p>After finding the appropriate XHR endpoint, we now need to replicate the GET request.</p>
+<p>In the network tab, as seen above, right click and hover over <em>Copy</em> which will show you an option to <em>Copy as cURL</em>. Selecting this will output something like the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl <span class="s1">&#39;https://lic-investing.online/api/stocks/bki&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;Accept: application/json, text/plain, */*&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;Accept-Language: en-US,en;q=0.5&#39;</span> --compressed <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;DNT: 1&#39;</span> -H <span class="s1">&#39;Connection: keep-alive&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;Referer: https://lic-investing.online/&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;Pragma: no-cache&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;Cache-Control: no-cache&#39;</span> <span class="se">\
+</span><span class="se"></span>-H <span class="s1">&#39;TE: Trailers&#39;</span>
+<span class="c1"># formatted for easier reading</span>
+</code></pre></div><p>You can test that this works by running the command in your console on MacOS or Linux. On Windows? 🤷 soz, I don&rsquo;t know.</p>
+<h3 id="step-3-import-into-postman">Step 3: Import into Postman</h3>
+<p>After copying as cURL above, open up <a href="https://www.postman.com/">Postman</a>.</p>
+<p>In the top left will be a orange box titled <em>New</em>, and to the right of it will be <em>Import</em>. Select <em>Import</em> and then click on the <em>Paste Raw Text</em> tab. Paste in the cURL command and hit <em>Import</em>. This process should resemble the image below.</p>
+<p><img src="https://danielms.site/images/scrape-postman.png" alt="" title="Postman import raw text example"></p>
+<p>After importing the command, Postman will populate all the GET parameters needed to make a request in its main window. Clicking on the blue <em>Send</em> button will fire the request and once Postman receives the response you will see it in the main body of the screen.</p>
+<p>Right now we have returned a JSON object from our target without needing to be on their website proving we can simulate a request from their frontend to the backend. This is how we will scrape the site in a repeatable and reliable way.</p>
+<h3 id="step-4-get-the-python-code">Step 4: Get the python code</h3>
+<p>So far, we&rsquo;ve created a request to retrieve data from the server. But now we need to turn this request into something we can replicate using Python.</p>
+<p>Let&rsquo;s use Postman to automatically generate some Python code for us.</p>
+<p>To get this auto generated code simply select the <em>Code</em> text block which is directly below the <em>Save</em> drop-down on the right hand side of Postman&rsquo;s main screen.</p>
+<p>Scroll down to find Python code nicely generated for us. In this example I have chosen Requests, though it also offers <code>http.client</code> as well.</p>
+<p><img src="https://danielms.site/images/scrape-python.png" alt="" title="Postman code auto generator example"></p>
+<h3 id="step-5-win">Step 5: Win</h3>
+<p>Now we have fully functional Python code which can make a request to the endpoint we are targeting and it will return a response as if we were the website. What we do now is pure business logic but the main thing is we did not need to reach for Selenium, and that is worth its weight in code.</p>
+<h2 id="closing-points">Closing points</h2>
+<p>Be wary of hitting the endpoint repeatedly, you may get black listed by the site. To prevent this, use a library such as <a href="https://github.com/reclosedev/requests-cache">Requests-cache</a>. Give them a star if you can!</p>
+<p>This is also helpful when playing with API&rsquo;s which have request or rate limits imposed.</p>
+<p>Not related to XHR but always look over the source of a webpage in a browser, and then contrast that with BeautifulSoup&rsquo;s response data. I have had success on React sites by grabbing their Props data that I couldn&rsquo;t even see rendered in the browser. To get at custom, hard to scrape data like this, Regex is your friend.</p>
+<p>If its on the internet, its possible to scrape (within legal limits of course).</p>
+
+                <br>
+                
+                  <div class="tags">
+                    <strong>Tags:</strong>
+                  
+                    <a href="https://danielms.site/tags/python">python</a>
+                  
+                    <a href="https://danielms.site/tags/web">web</a>
+                  
+                  </div>
+                  <br />
+                
+                <p class="back-to-posts"><a href="https://danielms.site/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149607103-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

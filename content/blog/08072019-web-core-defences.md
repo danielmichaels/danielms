@@ -1,4 +1,3 @@
-
 +++
 title = "Web Application Defence Mechanisms"
 categories = ["web", "security"]
@@ -47,7 +46,7 @@ Common attacks against session management is stealing tokens, guessing tokens or
 
 ### Access Control
 
-Simply put, the applications ability to assess whether a user has the required bona-fides to gain access to the system resources they are requesting. This often requires some fine-grained logic and thus can be exploited if developers make too many assumptions about how a "user" will access the resources. 
+Simply put, the applications ability to assess whether a user has the required bona-fides to gain access to the system resources they are requesting. This often requires some fine-grained logic and thus can be exploited if developers make too many assumptions about how a "user" will access the resources.
 
 
 ## User Input
@@ -63,23 +62,23 @@ Limiting what a user can input is common practice. For example, a user sign up p
 
 ### "Reject Known Bad"
 
-Blacklisting known bad things. The weakest form of defence, as spoofing or encoding arbitrary code blocks could slip past this form of defence. 
+Blacklisting known bad things. The weakest form of defence, as spoofing or encoding arbitrary code blocks could slip past this form of defence.
 
 For example, if `SELECT` is blocked, `SeLeCt` might not be or if `alert('xss')` is blocked maybe `prompt('xsss')` isn't. In addition, some tokensing parsers which detect these blacklisted words may stop searching when the detect a NULL Byte. `%00<script>alert(1)</script>` may get through.
 
 ### "Accept Known Good"
 
-This method is very effective against stopping code injection as it is based off only allowing accepted elements to be input. The flaw in this is where accepting a known good can conflict with the requirements of the application itself. For instance, a name field in a form will likely necessitate the use of `-`, as some people legitimately have hyphenated names. But, `-` are commonly used to attack databases on the backend, so it may not be used in all cases where it could detract from the user experience. 
+This method is very effective against stopping code injection as it is based off only allowing accepted elements to be input. The flaw in this is where accepting a known good can conflict with the requirements of the application itself. For instance, a name field in a form will likely necessitate the use of `-`, as some people legitimately have hyphenated names. But, `-` are commonly used to attack databases on the backend, so it may not be used in all cases where it could detract from the user experience.
 
 ### Sanitisation
 
-A common defence mechanism that relies on the fact that users will try malicious code, so before processing data, the application will sanitise the input in various ways. Methods such as removing dangerous characters or escaping them before processing. 
+A common defence mechanism that relies on the fact that users will try malicious code, so before processing data, the application will sanitise the input in various ways. Methods such as removing dangerous characters or escaping them before processing.
 
 ## Boundary Validation
 
-Simplistically, this is the process of validating, or checking user input on the peripheries first prior to the input reaching the backend. Think taking dirty input on the web side and cleaning it before sending to the server side, and therefore trusting all server side code to be "clean". 
+Simplistically, this is the process of validating, or checking user input on the peripheries first prior to the input reaching the backend. Think taking dirty input on the web side and cleaning it before sending to the server side, and therefore trusting all server side code to be "clean".
 
-This has some serious faults. Often attackers can sidestep or exploit such a scheme by chaining exploits in a way that no validation method could feasibly defend against without serious detriment to the overall functionality of the application itself. 
+This has some serious faults. Often attackers can sidestep or exploit such a scheme by chaining exploits in a way that no validation method could feasibly defend against without serious detriment to the overall functionality of the application itself.
 
 The best solution to defending against this, is boundary validation where for each layer of processing, a validation check is conducted appropriate to that layer; **defence in depth**.
 
@@ -94,7 +93,7 @@ All applications should be of the mindset that they will be targeted and attacke
 
 ### Handling Errors
 
-Robust testing of the application prior to launch should be conducted, and if done properly identify many bugs and errors in the design and codebase. But, not all issues can be counted for in testing and as such there must be a way to capture and respond to errors in the application. 
+Robust testing of the application prior to launch should be conducted, and if done properly identify many bugs and errors in the design and codebase. But, not all issues can be counted for in testing and as such there must be a way to capture and respond to errors in the application.
 
 Debug and system messages should never be presented to the outer layers - they greatly assist the attackers in identifying weaknesses in the application. All errors should be gracefully raised, and catered for so as to not give away too much information to the attacker.
 
@@ -107,7 +106,7 @@ All activities taken on the system should be logged for analysis later. Items th
 - Activities blocked by access control mechanisms,
 - Any attack strings such as malicious input.
 
-It is important that these logs are protected against unauthorised read and writes. This can sometimes be achieved by the use of autonomous systems that only accept input data from the servers. 
+It is important that these logs are protected against unauthorised read and writes. This can sometimes be achieved by the use of autonomous systems that only accept input data from the servers.
 
 ### Alerting Administrators
 

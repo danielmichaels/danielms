@@ -49,9 +49,9 @@ Python 3
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.509719465%20%2b1100%20AEDT%20m%3d%2b0.296037535">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.812528767%20%2b1100%20AEDT%20m%3d%2b0.107187732">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.812528767%20%2b1100%20AEDT%20m%3d%2b0.107187732">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.812528767%20%2b1100%20AEDT%20m%3d%2b0.107187732">
     
 
 
@@ -213,15 +213,15 @@ we will receive <code>utf-8</code> but on some machines this is not guaranteed.<
 versions, you should set the <code>encoding=&lt;your-encoding type&gt;</code> keyword argument
 manually to prevent hidden bugs in the future.</p>
 <p>Subtle differences exist between python 2 and 3.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">w</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;encoding.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div><p>In python 2 this will work as by default <code>open</code> use binary encoding. However, python 3
 uses <code>utf-8</code> instead. If we tried to run this it will raise a <code>TypeError: must be str not bytes</code>.</p>
 <p>To make this work in both 2 and 3, we need to specify that it is binary.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">wb</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;encoding.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div><p>Writing binary to a file must also be specified with <code>rb</code> instead of <code>r</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">encoding.txt</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">rb</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;encoding.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
       <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </code></pre></div><h3 id="notable-mentions">Notable mentions</h3>
@@ -230,12 +230,12 @@ uses <code>utf-8</code> instead. If we tried to run this it will raise a <code>T
 <code>str</code> is ASCII (7-bits) it will pass an equality check with <code>unicode</code> characters.
 They can also be combined using the <code>+</code> operator, and can be formatted using
 <code>%s</code> string formatting.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;a&#39;</span>
 
 <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="c1"># true</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># u&#39;aa&#39;</span>
-<span class="k">print</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">as str a,b =</span><span class="si">%s</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="c1"># as str a,b=aa</span>
+<span class="k">print</span> <span class="s1">&#39;as str a,b =</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="c1"># as str a,b=aa</span>
 </code></pre></div><p>This means that in python 2 we could pass <code>unicode</code> or a <code>str</code> instance and expect
 the same result - if 7-bit ASCII. In python 3 <code>str</code> and <code>bytes</code> never cannot
 pass equality checks, not even empty strings.</p>

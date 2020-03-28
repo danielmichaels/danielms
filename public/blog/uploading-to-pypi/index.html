@@ -45,9 +45,9 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.618025301%20%2b1100%20AEDT%20m%3d%2b0.404343277">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.783900871%20%2b1100%20AEDT%20m%3d%2b0.078559850">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.783900871%20%2b1100%20AEDT%20m%3d%2b0.078559850">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.783900871%20%2b1100%20AEDT%20m%3d%2b0.078559850">
     
 
 
@@ -223,36 +223,36 @@ ready for release into the wild.</p>
 <span class="c1"># always prefer over distutils</span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
 
-<span class="n">VERSION</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">0.1.0</span><span class="s1">&#39;</span>
-<span class="n">URL</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">https://github.com/username/package</span><span class="s1">&#39;</span>
-<span class="n">DOWNLOAD_URL</span> <span class="o">=</span> <span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">/tarball/</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span>
+<span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.1.0&#39;</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/username/package&#39;</span>
+<span class="n">DOWNLOAD_URL</span> <span class="o">=</span> <span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s1">&#39;/tarball/&#39;</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span>
 
-<span class="n">here</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="p">)</span>
+<span class="n">here</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">README.md</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">utf-8</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">long_description</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="s1">&#39;README.md&#39;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">long_description</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">yourpackage</span><span class="s1">&#39;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">yourpackage</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;yourpackage&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;yourpackage&#39;</span><span class="p">],</span>
     <span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">blurb that users first see to decide if interesting</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;blurb that users first see to decide if interesting&#39;</span><span class="p">,</span>
     <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
-    <span class="n">long_description_content_type</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">text/markdown</span><span class="s1">&#39;</span><span class="p">,</span>
-    <span class="n">author</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Optional</span><span class="s1">&#39;</span><span class="p">,</span>
-    <span class="n">author_email</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Optional</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s1">&#39;text/markdown&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Optional&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;Optional&#39;</span><span class="p">,</span>
     <span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span>
     <span class="n">download_url</span><span class="o">=</span><span class="n">DOWNLOAD_URL</span><span class="p">,</span>
     <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
         <span class="c1">#   3 - Alpha</span>
         <span class="c1">#   4 - Beta</span>
         <span class="c1">#   5 - Production/Stable</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Development Status :: 3 - Alpha</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Intended Audience :: Developers</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">License :: OSI Approved :: MIT License</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3.5</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Programming Language :: Python :: 3.6</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">]</span>
+        <span class="s1">&#39;Development Status :: 3 - Alpha&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Intended Audience :: Developers&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;License :: OSI Approved :: MIT License&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Programming Language :: Python :: 3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Programming Language :: Python :: 3.5&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Programming Language :: Python :: 3.6&#39;</span><span class="p">,</span> <span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div><p>The information contained within <code>setup.py</code> and in
 particular its <code>setup()</code> function is what creates the

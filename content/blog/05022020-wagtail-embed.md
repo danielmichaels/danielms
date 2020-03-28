@@ -1,4 +1,3 @@
-
 +++
 title = "Wagtail embeded YouTube videos"
 categories = ["python", "Django"]

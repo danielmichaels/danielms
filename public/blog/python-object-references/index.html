@@ -43,9 +43,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.574651666%20%2b1100%20AEDT%20m%3d%2b0.360969672">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.574651666%20%2b1100%20AEDT%20m%3d%2b0.360969672">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.574651666%20%2b1100%20AEDT%20m%3d%2b0.360969672">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.809230323%20%2b1100%20AEDT%20m%3d%2b0.103889301">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.809230323%20%2b1100%20AEDT%20m%3d%2b0.103889301">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.809230323%20%2b1100%20AEDT%20m%3d%2b0.103889301">
     
 
 
@@ -204,9 +204,9 @@ left is what we bind to it (the label.. Enough you get it already!)</p>
 <em>aliasing</em>. Aliasing is an important concept to grasp, and to illustrate
 why we will examine the identity of <code>a</code>, <code>b</code>,
 and <code>c</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">a id: {id(a)}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># original object&#39;)  # a id: 139886603774600</span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">b id: {id(b)}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># alias of a&#39;)       # b id: 139886603774600</span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">c id: {id(c)}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># copy of a&#39;)        # c id: 139886603774600</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;a id: {id(a)}&#39;</span><span class="p">)</span> <span class="c1"># original object&#39;)  # a id: 139886603774600</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;b id: {id(b)}&#39;</span><span class="p">)</span> <span class="c1"># alias of a&#39;)       # b id: 139886603774600</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;c id: {id(c)}&#39;</span><span class="p">)</span> <span class="c1"># copy of a&#39;)        # c id: 139886603774600</span>
 </code></pre></div><p>All aliases of <code>a</code> have the same identity which in python
 is unique integer representing its C memory address. If any change were
 to be made the identity integer would also change to reflect that.</p>
@@ -218,7 +218,7 @@ gives us the option to check either like so:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="c1"># compares the values</span>
 <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="c1"># compares the identities</span>
 </code></pre></div><p>Lets extend this using a more complex example using some dictionaries.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">batman</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">name</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Bruce Wayne</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">job</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">crime fighter</span><span class="s1">&#39;</span><span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">batman</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bruce Wayne&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">:</span> <span class="s1">&#39;crime fighter&#39;</span><span class="p">}</span>
 <span class="n">bruce</span> <span class="o">=</span> <span class="n">batman</span>
 <span class="k">print</span><span class="p">(</span><span class="n">batman</span> <span class="o">==</span> <span class="n">bruce</span><span class="p">)</span>  <span class="c1"># True</span>
 <span class="k">print</span><span class="p">(</span><span class="n">batman</span> <span class="ow">is</span> <span class="n">bruce</span><span class="p">)</span>  <span class="c1"># True</span>
@@ -226,7 +226,7 @@ gives us the option to check either like so:</p>
 identity, and their values. Suppose we have a vigilante crime fighter
 out there pretending to be <code>batman</code>, named
 <code>manbat</code>, does he have the same equality?</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">manbat</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">name</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Bruce Wayne</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">job</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">crime fighter</span><span class="s1">&#39;</span><span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">manbat</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bruce Wayne&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">:</span> <span class="s1">&#39;crime fighter&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">batman</span> <span class="o">==</span> <span class="n">manbat</span><span class="p">)</span> <span class="c1"># True</span>
 <span class="k">print</span><span class="p">(</span><span class="n">batman</span> <span class="ow">is</span> <span class="n">manbat</span><span class="p">)</span> <span class="c1"># False</span>
 </code></pre></div><p>In this case, both <code>manbat</code> and <code>batman</code> share
@@ -247,10 +247,10 @@ that aliases can have unintended side effects with mutable types. Let&rsquo;s
 say we have two lists, the original and its alias. The alias will have
 items added to it but we want the original untouched for whatever
 reason.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span><span class="p">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]]</span>
 <span class="n">new</span> <span class="o">=</span> <span class="n">orig</span>
 </code></pre></div><p>Looks good, we can now make changes to <code>new</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">FizzBuzz</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span> <span class="c1"># [10, 20, 30, [100, 200], &#39;FizzBuzz&#39;]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>  <span class="c1"># [10, 20, 30, [100, 200], &#39;FizzBuzz&#39;]</span>
 </code></pre></div><p>After appending to <code>new</code> it becomes apparent that this
@@ -259,11 +259,11 @@ way with mutable types. I think this is really important to know -
 aliases are not copies!</p>
 <h3 id="copies">Copies</h3>
 <p>If aliases aren&rsquo;t copies then how do we copy?</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span><span class="p">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]]</span>
 <span class="n">new</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span>
 <span class="c1"># dict(x) also works this way</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">orig id:</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span><span class="p">)</span> <span class="c1"># orig id: 140443406513496</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">new id:</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">)</span><span class="p">)</span>   <span class="c1"># new id:  140443402343535</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;orig id:&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">))</span> <span class="c1"># orig id: 140443406513496</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;new id:&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">))</span>   <span class="c1"># new id:  140443402343535</span>
 </code></pre></div><p>By using the <code>list()</code> class we successfully create two new
 objects. Now if we append or remove items from either list it does not
 propagate through. Except, it does sometimes.</p>
@@ -272,13 +272,13 @@ any <strong>mutable</strong> nested types within the copy. So while any changes 
 within the first layer of the object are contained within the copy, any
 mutable objects nested more deeply will be aliases.</p>
 <p>Confused, an example.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span><span class="p">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">orig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]]</span>
 <span class="n">new</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span>
-<span class="n">new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">not nested</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;not nested&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span> <span class="c1"># [10, 20, 30, [100, 200]]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>  <span class="c1"># [10, 20, 30, [100, 200], &#39;not nested&#39;]</span>
 <span class="c1"># first layer is not affected as it is a copy, not an alias</span>
-<span class="n">orig</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">i am aliased to orig</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">orig</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;i am aliased to orig&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span> <span class="c1"># [10, 20, 30, [100, 200, &#39;i am aliased to a&#39;]]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>  <span class="c1"># [10, 20, 30, [100, 200, &#39;i am aliased to a&#39;], &#39;not nested&#39;]</span>
 </code></pre></div><p>While the <code>orig</code> and <code>new</code> are independent of
@@ -286,10 +286,10 @@ each other when making changes to the first layer of abstraction, any
 mutable types within that are simply aliases of the copies source.</p>
 <p>Another example to check this out.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># before we started making alterations to the lists</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span><span class="p">)</span>     <span class="c1"># 140443390926984</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">)</span><span class="p">)</span>      <span class="c1"># 140443392352593</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">)</span> <span class="c1"># 140443395483400</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>  <span class="c1"># 140443395483400</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">))</span>     <span class="c1"># 140443390926984</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">))</span>      <span class="c1"># 140443392352593</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">orig</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="c1"># 140443395483400</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># 140443395483400</span>
 </code></pre></div><p>Inspecting the identities reveals that only the overall object's were
 initialised as new objects but the nested types within were bound to the
 original nested type - an alias!</p>

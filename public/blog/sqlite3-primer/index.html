@@ -47,9 +47,9 @@ Consistent - A transaction must ensure to change the database from one valid sta
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.556356868%20%2b1100%20AEDT%20m%3d%2b0.342674868">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.556356868%20%2b1100%20AEDT%20m%3d%2b0.342674868">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.556356868%20%2b1100%20AEDT%20m%3d%2b0.342674868">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.817152734%20%2b1100%20AEDT%20m%3d%2b0.111811722">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.817152734%20%2b1100%20AEDT%20m%3d%2b0.111811722">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.817152734%20%2b1100%20AEDT%20m%3d%2b0.111811722">
     
 
 
@@ -225,24 +225,24 @@ Consistent - A transaction must ensure to change the database from one valid sta
 <p>Used to insert new data be it single row, multiple rows, and default data into tables.</p>
 <div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span>
  <span class="n">column1</span><span class="p">,</span>
- <span class="n">column2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">)</span>
+ <span class="n">column2</span> <span class="p">,..)</span>
 <span class="k">VALUES</span>
  <span class="p">(</span>
  <span class="n">value1</span><span class="p">,</span>
- <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">,</span>
+ <span class="n">value2</span> <span class="p">,...),</span>
  <span class="p">(</span>
  <span class="n">value1</span><span class="p">,</span>
- <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">,</span>
-        <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+ <span class="n">value2</span> <span class="p">,...),</span>
+        <span class="p">...</span>
  <span class="p">(</span>
  <span class="n">value1</span><span class="p">,</span>
- <span class="n">value2</span> <span class="p">,</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span>
+ <span class="n">value2</span> <span class="p">,...);</span>
 </code></pre></div><p>The above example shows how to insert multiple rows into a table.</p>
 <div class="highlight"><pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">artists</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="k">VALUES</span>
- <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Buddy Rich</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Candido</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="s2">&#34;</span><span class="s2">Charlie Byrd</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">;</span>
+ <span class="p">(</span><span class="s2">&#34;Buddy Rich&#34;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s2">&#34;Candido&#34;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s2">&#34;Charlie Byrd&#34;</span><span class="p">);</span>
 </code></pre></div><p>An example of how to insert into column <code>name</code> within table <code>artists</code>.</p>
 <p>Data can also be inserted via a SELECT statement.</p>
 <h3 id="update">Update</h3>

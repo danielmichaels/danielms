@@ -45,9 +45,9 @@ The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue start
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-02-05%2020%3a59%3a54.562822016%20%2b1100%20AEDT%20m%3d%2b0.349140006">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-03-28%2016%3a13%3a54.80094505%20%2b1100%20AEDT%20m%3d%2b0.095604034">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-03-28%2016%3a13%3a54.80094505%20%2b1100%20AEDT%20m%3d%2b0.095604034">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-03-28%2016%3a13%3a54.80094505%20%2b1100%20AEDT%20m%3d%2b0.095604034">
     
 
 
@@ -261,16 +261,16 @@ following should be used:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># displaying both POST and GET for clarity</span>
 
 <span class="c1"># POST request // Use &#39;form&#39;</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">/test</span><span class="s2">&#34;</span> <span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">GET</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">POST</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">select</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">attribute to be parsed</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/test&#34;</span> <span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;attribute to be parsed&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">select</span> <span class="c1"># or render_template with select=select etc</span>
 
 <span class="c1"># GET request // Use &#39;args&#39;</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">/data</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">():</span>
     <span class="c1"># here we want to get the value of user (i.e. ?user=some-value)</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">user</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="c1"># or how ever you want to use that data</span>
 </code></pre></div><p>Given these snippets you can see how mixing <code>GET</code> with
 <code>POST</code> will lead to calling the wrong request method.</p>
@@ -279,8 +279,8 @@ following should be used:</p>
 is foolish. To be fair, this is the first app I have created that has
 not required the use of <code>flask-wtf</code>, which kindly generates
 forms and their tags for you.</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> standard form tags </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;app.function&#39;)}}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- standard form tags --&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;app.function&#39;)}}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
 </code></pre></div><p>Simple, right? Not if you:</p>
 <ul>
 <li>Mix up the HTTP request</li>
@@ -295,20 +295,20 @@ attribute that the request object could get. In this example a
 <code>&lt;select&gt;</code> tag was used and simply appending
 <code>name=attribute_to_be_parsed</code> worked.</p>
 <p>For clarity, first the html.</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> html </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;item1&#39;</span><span class="p"></span><span class="p">&gt;</span>                   <span class="p">&lt;</span><span class="nt">--</span> <span class="na">attribute</span> <span class="na">flask</span> <span class="na">looks</span> <span class="na">for</span>
-    <span class="err">{</span><span class="err">%</span> <span class="na">for</span> <span class="na">item</span> <span class="na">in</span> <span class="na">items</span> <span class="err">%</span><span class="err">}</span>
-        <span class="err">&lt;</span><span class="na">option</span><span class="p"></span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;item1&#39;</span><span class="p">&gt;</span>                   <span class="p">&lt;</span><span class="nt">--</span> <span class="na">attribute</span> <span class="na">flask</span> <span class="na">looks</span> <span class="na">for</span>
+    <span class="err">{%</span> <span class="na">for</span> <span class="na">item</span> <span class="na">in</span> <span class="na">items</span> <span class="err">%}</span>
+        <span class="err">&lt;</span><span class="na">option</span><span class="p">&gt;</span>
             {{ item }}                  <span class="p">&lt;</span><span class="nt">--</span> <span class="na">what</span> <span class="na">we</span> <span class="na">get</span> <span class="na">in</span> <span class="na">the</span> <span class="na">response</span>
-        <span class="err">&lt;</span><span class="err">/</span><span class="na">option</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="err">&lt;/</span><span class="na">option</span><span class="p">&gt;</span>
     {% endfor}
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">select</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
 </code></pre></div><p>And the flask part.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># python: flask</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">/test</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">item_to_get</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">item1</span><span class="s1">&#39;</span><span class="p">)</span>     <span class="o">&lt;</span><span class="o">-</span><span class="o">-</span> <span class="n">flask</span> <span class="n">request</span> <span class="n">parsing</span> <span class="n">the</span> <span class="n">response</span> <span class="n">body</span>
-    <span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="n">snip</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="n">item_to_get</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item1&#39;</span><span class="p">)</span>     <span class="o">&lt;--</span> <span class="n">flask</span> <span class="n">request</span> <span class="n">parsing</span> <span class="n">the</span> <span class="n">response</span> <span class="n">body</span>
+    <span class="o">...</span> <span class="n">snip</span> <span class="o">...</span>
 </code></pre></div><p>&hellip; My face when it worked.</p>
 <p><img src="https://danielms.site/img/its_alive.jpg" alt="Face of surprise!"></p>
 <h3 id="learn-from-your-mistakes">Learn from your mistakes</h3>
