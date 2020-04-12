@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Starting Your Side Hustle</title>
+      <link>https://danielms.site/blog/side-hustle-notes-getting-started/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/side-hustle-notes-getting-started/</guid>
+      <description>Starting Your Side Hustle This is a collection of notes from one of the world&amp;rsquo;s expert Side Hustlers, Chris Guillebeau. If you have not read his book The $100 Startup, you really should. It also includes important takeaways from other bloggers and authors. Wherever applicable references have been added.
+Its also pretty important to define a side hustle. We are talking about small enterprises which take little to no time for setup, maintenance and daily running.</description>
+    </item>
     
     <item>
       <title>Web Scraping Javascript with Python</title>
