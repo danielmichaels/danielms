@@ -47,9 +47,9 @@ Basic Syntax -r: The &lsquo;r&rsquo; flag denotes that the operation is recursiv
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-04-12%2021%3a41%3a30.182747601%20%2b1000%20AEST%20m%3d%2b0.345126299">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-04-12%2021%3a41%3a30.182747601%20%2b1000%20AEST%20m%3d%2b0.345126299">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-04-12%2021%3a41%3a30.182747601%20%2b1000%20AEST%20m%3d%2b0.345126299">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-05-07%2021%3a27%3a52.714764162%20%2b1000%20AEST%20m%3d%2b0.063438983">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-05-07%2021%3a27%3a52.714764162%20%2b1000%20AEST%20m%3d%2b0.063438983">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-05-07%2021%3a27%3a52.714764162%20%2b1000%20AEST%20m%3d%2b0.063438983">
     
 
 
@@ -240,10 +240,10 @@ patterns that fall inside the broader exclude.</p>
 </code></pre>
 <p>Here we are retrieving data from a remote server and pulling it down to our local system. Again, we are taking the <em>entire</em> directory so there&rsquo;s no trailing slash.</p>
 <p>The &ldquo;pull&rdquo;:</p>
-<pre><code>rsync -a username@remote_host:/home/username/destination_dir local_source_dir
+<pre><code>rsync -a username@remote_host:/home/username/directory_we_want where_we_want_it_locally
 </code></pre>
 <h3 id="ssh">SSH</h3>
-<p>Syncing between systems if made much easier if key based authentication
+<p>Syncing between systems is made much easier if key based authentication
 is enabled. If not, the user will be prompted with a password.</p>
 <p>To use <code>rsync</code> over a <code>ssh</code> connection we need to specify the protocol <code>rsync</code> needs to use.</p>
 <p><code>rsync -aznvPH -e &quot;ssh -i ~/ec2_keyfile.pem&quot; user@remote:/home/folder /tmp/local_system/</code></p>

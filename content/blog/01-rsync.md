@@ -98,11 +98,11 @@ Here we are retrieving data from a remote server and pulling it down to our loca
 
 The "pull":
 
-    rsync -a username@remote_host:/home/username/destination_dir local_source_dir
+    rsync -a username@remote_host:/home/username/directory_we_want where_we_want_it_locally
 
 ### SSH
 
-Syncing between systems if made much easier if key based authentication
+Syncing between systems is made much easier if key based authentication
 is enabled. If not, the user will be prompted with a password.
 
 To use `rsync` over a `ssh` connection we need to specify the protocol `rsync` needs to use.
