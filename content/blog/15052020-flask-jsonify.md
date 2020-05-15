@@ -1,6 +1,6 @@
 
 +++
-title = "Flask Jsonify, do I need it anymore?"
+title = "Flask Series: Jsonify"
 categories = ["python", "flask"]
 tags = ["flask", "python"]
 slug = "flask-jsonify-you-dont-need-it"
@@ -8,7 +8,7 @@ date = "2020-05-14"
 draft = "false"
 +++
 
-# Just use a plain dict
+# Flask jsonify, do I still need it?
 
 For a long time, returning JSON in flask required using the `flask.jsonify` API.
 However, since this [PR][0] Flask will by default call `jsonify` [under the hood][1] on any
