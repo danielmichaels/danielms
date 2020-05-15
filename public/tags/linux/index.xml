@@ -38,7 +38,8 @@ If two parties wish to exchange information to one another but the medium which 
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/linux-file-permissions/</guid>
-      <description>Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.</description>
+      <description>Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.</description>
     </item>
     
   </channel>

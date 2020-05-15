@@ -9,10 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.">
+<meta name="description" content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.">
 
 <meta property="og:title" content="Linux file permissions" />
-<meta property="og:description" content="Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file." />
+<meta property="og:description" content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/linux-file-permissions/" />
 <meta property="article:published_time" content="2018-02-04T00:00:00+00:00" />
@@ -43,9 +45,9 @@
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-05-07%2021%3a27%3a52.708226618%20%2b1000%20AEST%20m%3d%2b0.056901411">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-05-07%2021%3a27%3a52.708226618%20%2b1000%20AEST%20m%3d%2b0.056901411">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-05-07%2021%3a27%3a52.708226618%20%2b1000%20AEST%20m%3d%2b0.056901411">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-05-15%2016%3a16%3a25.806891583%20%2b1000%20AEST%20m%3d%2b0.071197791">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-05-15%2016%3a16%3a25.806891583%20%2b1000%20AEST%20m%3d%2b0.071197791">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-05-15%2016%3a16%3a25.806891583%20%2b1000%20AEST%20m%3d%2b0.071197791">
     
 
 
@@ -171,6 +173,8 @@
             </div>
             <div class="markdown">
                 <h2 id="linux-chmod-and-chown">Linux: Chmod and Chown</h2>
+<p>This is a short introduction to basic Linux file permissions and how to set them correctly.
+As a beginner, junior or experienced developer and/or administrator, you are going to need this!</p>
 <h3 id="chmod-change-file-mode-bits"><strong>Chmod: Change File Mode Bits</strong></h3>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">15:45:18 user@example temporary 
 total 12K

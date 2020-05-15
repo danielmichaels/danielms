@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Flask Jsonify, do I need it anymore?</title>
+      <link>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</link>
+      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</guid>
+      <description>Just use a plain dict For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
+How does it work When you need to return json in a response, you can simply use a plain python dictionary instead of the jsonify API.
+# plain dictionary @app.route(&amp;#39;/plaindict&amp;#39;) def testplain(): test = &amp;#39;testing&amp;#39; name = &amp;#39;roger&amp;#39; age = 30 _list = [1,2,3] return { &amp;#34;development&amp;#34;: test, &amp;#34;name&amp;#34;: name, &amp;#34;age&amp;#34;: age, &amp;#34;list&amp;#34;: _list } The above code will return the following:</description>
+    </item>
+    
+    <item>
       <title>Starting Your Side Hustle</title>
       <link>https://danielms.site/blog/side-hustle-notes-getting-started/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
@@ -285,7 +296,8 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/linux-file-permissions/</guid>
-      <description>Linux: Chmod and Chown Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.</description>
+      <description>Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.</description>
     </item>
     
     <item>

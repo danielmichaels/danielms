@@ -6,10 +6,21 @@
     <description>Recent content in python on Daniel Michaels | Developer | Technical Lead</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flask Jsonify, do I need it anymore?</title>
+      <link>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</link>
+      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</guid>
+      <description>Just use a plain dict For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
+How does it work When you need to return json in a response, you can simply use a plain python dictionary instead of the jsonify API.
+# plain dictionary @app.route(&amp;#39;/plaindict&amp;#39;) def testplain(): test = &amp;#39;testing&amp;#39; name = &amp;#39;roger&amp;#39; age = 30 _list = [1,2,3] return { &amp;#34;development&amp;#34;: test, &amp;#34;name&amp;#34;: name, &amp;#34;age&amp;#34;: age, &amp;#34;list&amp;#34;: _list } The above code will return the following:</description>
+    </item>
     
     <item>
       <title>Web Scraping Javascript with Python</title>

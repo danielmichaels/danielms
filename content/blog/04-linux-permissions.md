@@ -9,6 +9,9 @@ tags = ["linux"]
 Linux: Chmod and Chown
 ----------------------
 
+This is a short introduction to basic Linux file permissions and how to set them correctly.
+As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+
 ### **Chmod: Change File Mode Bits**
 
 ```shell
