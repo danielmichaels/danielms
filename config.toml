@@ -7,7 +7,7 @@ layoutdir           = "layouts"
 publishdir          = "public"
 theme               = "cocoa"
 author              = "Daniel Michaels"
-title               = "Daniel Michaels | Developer | Technical Lead"
+title               = "Daniel Michaels | Software Developer"
 pygmentsuseclasses  = true
 #disqusshortname     = "cocoaexamplesite" # Comment out to disable Disqus.
 pluralizelisttitles = false
@@ -36,13 +36,13 @@ url                    = "https://github.com/danielmichaels"
 
 [params]
 include_rss            = true                          # include RSS <link> tag in <head> and show RSS icon
-latestpostscount       = 20                             # how many posts to display on the home page
+latestpostscount       = 20                            # how many posts to display on the home page
 i18n_flags             = false                         # whether to display small country flags for available translations
 author                 = "Daniel Michaels"
 cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
 dateform               = "Jan 2, 2006"
 dateformfull           = "Mon Jan 2 2006 15:04:05 MST"
-description            = "Another tech blog. I create content for myself on topics such as programming, security, networking and other fun subjects."
+description            = "Another tech blog. I create content for myself on topics such as programming, security, networking and any other interesting subjects."
 email                  = "danielms@danielms.site"
 #extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
 faviconfile            = "extra/favicon.ico"
