@@ -9,14 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Daniel Michaels">
-<meta name="description" content="Just use a plain dict For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
+<meta name="description" content="Flask jsonify, do I still need it? For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
 How does it work When you need to return json in a response, you can simply use a plain python dictionary instead of the jsonify API.
-# plain dictionary @app.route(&#39;/plaindict&#39;) def testplain(): test = &#39;testing&#39; name = &#39;roger&#39; age = 30 _list = [1,2,3] return { &#34;development&#34;: test, &#34;name&#34;: name, &#34;age&#34;: age, &#34;list&#34;: _list } The above code will return the following:">
+# plain dictionary @app.">
 
-<meta property="og:title" content="Flask Jsonify, do I need it anymore?" />
-<meta property="og:description" content="Just use a plain dict For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
+<meta property="og:title" content="Flask Series: Jsonify" />
+<meta property="og:description" content="Flask jsonify, do I still need it? For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
 How does it work When you need to return json in a response, you can simply use a plain python dictionary instead of the jsonify API.
-# plain dictionary @app.route(&#39;/plaindict&#39;) def testplain(): test = &#39;testing&#39; name = &#39;roger&#39; age = 30 _list = [1,2,3] return { &#34;development&#34;: test, &#34;name&#34;: name, &#34;age&#34;: age, &#34;list&#34;: _list } The above code will return the following:" />
+# plain dictionary @app." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danielms.site/blog/flask-jsonify-you-dont-need-it/" />
 <meta property="article:published_time" content="2020-05-14T00:00:00+00:00" />
@@ -26,7 +26,7 @@ How does it work When you need to return json in a response, you can simply use 
 <title>
 
 
-     Flask Jsonify, do I need it anymore? 
+     Flask Series: Jsonify 
 
 </title>
 <link rel="canonical" href="https://danielms.site/blog/flask-jsonify-you-dont-need-it/">
@@ -47,9 +47,9 @@ How does it work When you need to return json in a response, you can simply use 
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-05-15%2016%3a16%3a25.830048866%20%2b1000%20AEST%20m%3d%2b0.094355075">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-05-15%2016%3a16%3a25.830048866%20%2b1000%20AEST%20m%3d%2b0.094355075">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-05-15%2016%3a16%3a25.830048866%20%2b1000%20AEST%20m%3d%2b0.094355075">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-07-13%2021%3a56%3a46.598909538%20%2b1000%20AEST%20m%3d%2b0.096620058">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-07-13%2021%3a56%3a46.598909538%20%2b1000%20AEST%20m%3d%2b0.096620058">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-07-13%2021%3a56%3a46.598909538%20%2b1000%20AEST%20m%3d%2b0.096620058">
     
 
 
@@ -158,7 +158,7 @@ How does it work When you need to return json in a response, you can simply use 
                 <div class="title-container">
                     <div class="page-heading">
 
-    Flask Jsonify, do I need it anymore?
+    Flask Series: Jsonify
 
 </div>
 
@@ -174,7 +174,7 @@ How does it work When you need to return json in a response, you can simply use 
                 </div>
             </div>
             <div class="markdown">
-                <h1 id="just-use-a-plain-dict">Just use a plain dict</h1>
+                <h1 id="flask-jsonify-do-i-still-need-it">Flask jsonify, do I still need it?</h1>
 <p>For a long time, returning JSON in flask required using the <code>flask.jsonify</code> API.
 However, since this <a href="https://github.com/pallets/flask/pull/3111">PR</a> Flask will by default call <code>jsonify</code> <a href="https://github.com/pallets/flask/blob/master/src/flask/app.py#L2017">under the hood</a> on any
 dictionary it receives on a <code>make_response</code> call.</p>

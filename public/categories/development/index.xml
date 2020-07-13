@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>development on Daniel Michaels | Developer | Technical Lead</title>
+    <title>development on Daniel Michaels | Software Developer</title>
     <link>https://danielms.site/categories/development/</link>
-    <description>Recent content in development on Daniel Michaels | Developer | Technical Lead</description>
+    <description>Recent content in development on Daniel Michaels | Software Developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://danielms.site/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2020 So Far; Brad Doc Edition</title>
+      <link>https://danielms.site/blog/2020-brag-doc/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/2020-brag-doc/</guid>
+      <description>Brag Documents A reminder to yourself to review what you&amp;rsquo;ve done this year. Catalogue your wins and reinforce good behaviour.
+2020 In Review Here is what I have to brag about in 2020 so far:
+Technologies:
+I have developed, integrated or otherwise taken the following technologies beyond &amp;ldquo;beginner&amp;rdquo;, or enhanced these skills with the following examples.
+  Angular
+ Gone from knowing zero Angular to being the lead (sole) developer UI developer in a complex microservices application.</description>
+    </item>
     
     <item>
       <title>learn docker in one month</title>
