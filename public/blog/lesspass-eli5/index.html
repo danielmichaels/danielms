@@ -47,9 +47,9 @@ Why use it over other choices Straight from the creator himself:
 
 
     
-    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-07-13%2021%3a56%3a46.60112815%20%2b1000%20AEST%20m%3d%2b0.098838643">
-    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-07-13%2021%3a56%3a46.60112815%20%2b1000%20AEST%20m%3d%2b0.098838643">
-    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-07-13%2021%3a56%3a46.60112815%20%2b1000%20AEST%20m%3d%2b0.098838643">
+    <link rel="stylesheet" href="https://danielms.site/css/reset.css?t=2020-07-26%2014%3a42%3a48.482918667%20%2b1000%20AEST%20m%3d%2b0.085880815">
+    <link rel="stylesheet" href="https://danielms.site/css/pygments.css?t=2020-07-26%2014%3a42%3a48.482918667%20%2b1000%20AEST%20m%3d%2b0.085880815">
+    <link rel="stylesheet" href="https://danielms.site/css/main.css?t=2020-07-26%2014%3a42%3a48.482918667%20%2b1000%20AEST%20m%3d%2b0.085880815">
     
 
 
@@ -234,7 +234,26 @@ If they are same it will always return the same output, a great example of idemp
             </div>
             <br>
             <div class="disqus">
-                
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "danielms-site" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
             </div>
             
         </div>

@@ -9,7 +9,7 @@ theme               = "cocoa"
 author              = "Daniel Michaels"
 title               = "Daniel Michaels | Software Developer"
 pygmentsuseclasses  = true
-#disqusshortname     = "cocoaexamplesite" # Comment out to disable Disqus.
+disqusshortname     = "danielms-site" # Comment out to disable Disqus.
 pluralizelisttitles = false
 googleAnalytics     = "UA-149607103-1"
 
