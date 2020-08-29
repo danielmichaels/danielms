@@ -13,7 +13,7 @@ draft = \"true\"
 +++
 "
 
-DATE=$(date +"%d%m%Y")
+DATE=$(date +"%Y%m%d")
 FILENAME=$DATE'-'$1.md
 FILE=$FILENAME
 
