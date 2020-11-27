@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Daniel Michaels | Software Developer</title>
+    <title>linux on Daniel Michaels</title>
     <link>https://danielms.site/categories/linux/</link>
-    <description>Recent content in linux on Daniel Michaels | Software Developer</description>
+    <description>Recent content in linux on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Tue, 22 May 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://danielms.site/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Fedora 32 and Docker to Play Nice</title>
+      <link>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</guid>
+      <description>Fedora 32 and Docker Are Incompatible Fedora is a great distribution for development, its very customizable, and supports a great number of packages and applications out of the box. If you&amp;rsquo;re going to use a linux environment thats not Debian based, it ought to be fedora.
+Sadly nothing is ever perfect, meaning Fedora too, has its downsides. Currently, at least to me, is its inability to run Docker out of the box.</description>
+    </item>
     
     <item>
       <title>Base64 ELI5</title>

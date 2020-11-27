@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Daniel Michaels | Software Developer</title>
+    <title>Tags on Daniel Michaels</title>
     <link>https://danielms.site/tags/</link>
-    <description>Recent content in Tags on Daniel Michaels | Software Developer</description>
+    <description>Recent content in Tags on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>poetry</title>
+      <link>https://danielms.site/tags/poetry/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/poetry/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://danielms.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://danielms.site/tags/python/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/python/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>life</title>
+      <link>https://danielms.site/tags/life/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://danielms.site/tags/docker/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fedora</title>
+      <link>https://danielms.site/tags/fedora/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/tags/fedora/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>development</title>
@@ -30,15 +70,6 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://danielms.site/tags/python/</link>
-      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>flask</title>
       <link>https://danielms.site/tags/flask/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
@@ -48,29 +79,11 @@
     </item>
     
     <item>
-      <title>life</title>
-      <link>https://danielms.site/tags/life/</link>
-      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>web</title>
       <link>https://danielms.site/tags/web/</link>
       <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/tags/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://danielms.site/tags/docker/</link>
-      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/tags/docker/</guid>
       <description></description>
     </item>
     

@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ELI5 on Daniel Michaels | Software Developer</title>
+    <title>ELI5 on Daniel Michaels</title>
     <link>https://danielms.site/tags/eli5/</link>
-    <description>Recent content in ELI5 on Daniel Michaels | Software Developer</description>
+    <description>Recent content in ELI5 on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://danielms.site/tags/eli5/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/tags/eli5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>User Agents 101</title>
       <link>https://danielms.site/blog/user-agents-101/</link>

@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Daniel Michaels | Software Developer</title>
+    <title>Daniel Michaels</title>
     <link>https://danielms.site/</link>
-    <description>Recent content on Daniel Michaels | Software Developer</description>
+    <description>Recent content on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DNS the easy parts</title>
+      <link>https://danielms.site/blog/dns-the-easy-parts/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
+      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
+When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
+    </item>
     
     <item>
-      <title>2020 So Far; Brad Doc Edition</title>
+      <title>Easy creation of poetry from requirements.txt</title>
+      <link>https://danielms.site/blog/requirements-txt-to-poetry-pyproject-toml/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/requirements-txt-to-poetry-pyproject-toml/</guid>
+      <description>Poetry and Requirements.txt I am now a poetry convert, opting for it in any reasonably large projects. Personally, I have found the ability to pin pacakges and produce a lock file invaluable for getting a complete picture of an applications dependencies. It also prevets needless docker build time spikes if a package is updated.
+Unfortunately, converting requirements.txt to pyproject.toml is not yet integrated natively by poetry.
+The problem I needed to change a requirements.</description>
+    </item>
+    
+    <item>
+      <title>The Slight Edge, A Summary</title>
+      <link>https://danielms.site/blog/the-slight-edge-a-summary/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/the-slight-edge-a-summary/</guid>
+      <description>The Slight Edge in my Words  Do the thing, and you shall have the power.
+ The Slight Edge is a fantastic book that explains the power of continual small improvements that compound overtime. These 1% gains each day go on to make you appear to be an overnight success. I have experienced this as a self taught software developer.
+To bystanders and friends my journey appears as though I learned everything I know about software development during my university degree (which was in arts, not science).</description>
+    </item>
+    
+    <item>
+      <title>Getting Fedora 32 and Docker to Play Nice</title>
+      <link>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</guid>
+      <description>Fedora 32 and Docker Are Incompatible Fedora is a great distribution for development, its very customizable, and supports a great number of packages and applications out of the box. If you&amp;rsquo;re going to use a linux environment thats not Debian based, it ought to be fedora.
+Sadly nothing is ever perfect, meaning Fedora too, has its downsides. Currently, at least to me, is its inability to run Docker out of the box.</description>
+    </item>
+    
+    <item>
+      <title>2020 So Far, A Brag Doc</title>
       <link>https://danielms.site/blog/2020-brag-doc/</link>
       <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
       
@@ -153,16 +190,6 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
     </item>
     
     <item>
-      <title>DNS the easy parts</title>
-      <link>https://danielms.site/blog/dns-the-easy-parts/</link>
-      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
-      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
-When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
-    </item>
-    
-    <item>
       <title>User Agents 101</title>
       <link>https://danielms.site/blog/user-agents-101/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
@@ -246,10 +273,10 @@ The environment variables are available to all applications, and allow these pro
     
     <item>
       <title>Public Key Crypto: The Basics</title>
-      <link>https://danielms.site/blog/public-key-crypto-the-basics/</link>
+      <link>https://danielms.site/blog/10-pub-key-crypto/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://danielms.site/blog/public-key-crypto-the-basics/</guid>
+      <guid>https://danielms.site/blog/10-pub-key-crypto/</guid>
       <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.
 Public Key Cryptography What problem does it solve?
 If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages? Symmetric key cryptography would make this untenable for the most part.</description>

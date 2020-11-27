@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Daniel Michaels | Software Developer</title>
+    <title>Categories on Daniel Michaels</title>
     <link>https://danielms.site/categories/</link>
-    <description>Recent content in Categories on Daniel Michaels | Software Developer</description>
+    <description>Recent content in Categories on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://danielms.site/categories/python/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/python/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://danielms.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>life</title>
+      <link>https://danielms.site/categories/life/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/life/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>docker</title>
+      <link>https://danielms.site/categories/docker/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://danielms.site/categories/linux/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/categories/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>development</title>
@@ -30,29 +61,11 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://danielms.site/categories/python/</link>
-      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>flask</title>
       <link>https://danielms.site/categories/flask/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>life</title>
-      <link>https://danielms.site/categories/life/</link>
-      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/life/</guid>
       <description></description>
     </item>
     
@@ -71,15 +84,6 @@
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/django/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://danielms.site/categories/docker/</link>
-      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/docker/</guid>
       <description></description>
     </item>
     
@@ -152,15 +156,6 @@
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/categories/sql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://danielms.site/categories/linux/</link>
-      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/categories/linux/</guid>
       <description></description>
     </item>
     
