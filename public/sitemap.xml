@@ -3,22 +3,92 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://danielms.site/blog/2020-brag-doc/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <loc>https://danielms.site/blog/dns-the-easy-parts/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/blog/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/categories/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/requirements-txt-to-poetry-pyproject-toml/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/poetry/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/python/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/python/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/</loc>
+    <lastmod>2020-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/life/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/life/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/the-slight-edge-a-summary/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/docker/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/docker/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/tags/fedora/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/categories/linux/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://danielms.site/blog/2020-brag-doc/</loc>
     <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -29,11 +99,6 @@
   
   <url>
     <loc>https://danielms.site/categories/development/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/</loc>
     <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,16 +118,6 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/tags/python/</loc>
-    <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/python/</loc>
-    <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://danielms.site/tags/flask/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
   </url>
@@ -75,16 +130,6 @@
   <url>
     <loc>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/life/</loc>
-    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/life/</loc>
-    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -120,16 +165,6 @@
   <url>
     <loc>https://danielms.site/blog/ecosia-tree-saving-browser/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/tags/docker/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/docker/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -204,11 +239,6 @@
   
   <url>
     <loc>https://danielms.site/categories/dns/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/blog/dns-the-easy-parts/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -293,17 +323,12 @@
   </url>
   
   <url>
-    <loc>https://danielms.site/blog/public-key-crypto-the-basics/</loc>
+    <loc>https://danielms.site/blog/10-pub-key-crypto/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://danielms.site/blog/base64-eli5/</loc>
-    <lastmod>2018-05-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://danielms.site/categories/linux/</loc>
     <lastmod>2018-05-22T00:00:00+00:00</lastmod>
   </url>
   

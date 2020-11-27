@@ -10,10 +10,11 @@ tags = [\"\"]
 slug = \"\"
 date = \"$(date +'%Y-%m-%d')\"
 draft = \"true\"
+ShowToc = \"true\"
 +++
 "
 
-DATE=$(date +"%d%m%Y")
+DATE=$(date +"%Y%m%d")
 FILENAME=$DATE'-'$1.md
 FILE=$FILENAME
 
