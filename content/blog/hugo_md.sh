@@ -10,6 +10,7 @@ tags = [\"\"]
 slug = \"\"
 date = \"$(date +'%Y-%m-%d')\"
 draft = \"true\"
+ShowToc = \"true\"
 +++
 "
 
