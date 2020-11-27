@@ -1,65 +1,433 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>learn docker in one month | Daniel Michaels</title><meta name=keywords content="docker"><meta name=description content="Learning Docker in one month Yep, one month.
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=" robots" content="noindex, nofollow">
+<title>learn docker in one month | Daniel Michaels | Software Developer</title>
+
+<meta name="keywords" content="docker" />
+<meta name="description" content="Learning Docker in one month Yep, one month.
 Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.
-Why Some of the core reasons to use docker."><meta name=author content="Daniel Michaels"><link rel=canonical href=https://danielms.site/blog/learn-docker-in-one-month/><meta name=google-site-verification content="XYZabc"><link href=https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet" as=style><link rel=icon href=https://danielms.site/extra/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.78.1"><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-149607103-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="learn docker in one month"><meta property="og:description" content="Learning Docker in one month Yep, one month.
-Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.
-Why Some of the core reasons to use docker."><meta property="og:type" content="article"><meta property="og:url" content="https://danielms.site/blog/learn-docker-in-one-month/"><meta property="og:image" content="https://danielms.site/105"><meta property="article:published_time" content="2019-11-24T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-24T00:00:00+00:00"><meta property="og:site_name" content="Daniel Michaels"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://danielms.site/105"><meta name=twitter:title content="learn docker in one month"><meta name=twitter:description content="Learning Docker in one month Yep, one month.
-Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.
-Why Some of the core reasons to use docker."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"learn docker in one month","name":"learn docker in one month","description":"Learning Docker in one month Yep, one month.\nDocker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within …","keywords":["docker"],"articleBody":"Learning Docker in one month Yep, one month.\nDocker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a “container”. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a “written once and run anywhere” methodology.\nWhy Some of the core reasons to use docker.\n The ability to have standalone applications and packages with dependencies that are isolated for the base operating system and other applications is a boon for developers and users, Linux hosts can have several docker containers running without fear of contaminated package versions or dependancies causing errors, Sharing consistent environments between developers is possible as each docker container image is idempotent, meaning the result of building a docker image will be the same whether built once, or one thousand times, Version pinning is possible making compatibility issues on new release cycles less problematic, and testing of packages easier to implement, Continious Integration is a perfectly paired with docker allowing each new release, or push to the repository to be built automatically with a new docker image, and tested to ensure against regression.  Virtual Machines aren’t docker Docker and virtual machines differ in their implementation and uses cases. They are complimentary rather than competitors and service different needs through each use-case.\nContainers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host’s operating system, its application are seperated from the kernel ensuring isolation via the docker engine.\nRegardless, each technology should be utilised as a method to achieve an outcome rather than be a dogmatic position for any one developer to live and die by. In fact, both methods can be used in conjunction, it is possible to run docker contianers within virtual machines - this being something I do often in Vagrant.\nDocker processes An important distinction with docker is its process orientation. Containers are designed to execute one process and then quit - the length of the running process arbitary but once its is complete the container will effectively exit.\nthis is an important point for new docker users. It contrasts heavily from a virtual machine which will live forever, sitting idly doing nothing until instructed.\nFor example, a contianer may run a command line application that fetches the weather from your local area. Once the container has finished this process it will stop and cease to draw any resources until manually called again by the user or application.\nHow does docker work  docker container run -d -p 8080:80 --name myapache httpd\n There is two main concepts to grasp with docker; images and containers.\nimages Images can be thought of as virtual machine snapshots - a point in time that contains an application, its dependancies and files. Unlike a virtual machine this “snapshot”, or image is immutable and static. It serves as a blueprint, rather than a dormant virtual appliance waiting to be brought back to life.\nTo sum, images are what we then create containers from and ensure that each launched container will be identical to the base image.\ncontainers Containers are the running applications brought to life from a docker image. This is the process which does some work, be it short or long lived. At their essence, containers are meant to be disposable, existing only to complete their task and then exiting.\nPrinciples of containers:\n Immutable Disposable One process per container  Demo #1 Let’s start a docker application.\ndocker run --rm danielmichaels/http-tracer http://nyti.ms/1QETHgV\nYou should see something similar to the following:\nUnable to find image 'danielmichaels/http-tracer:latest' locally latest: Pulling from danielmichaels/http-tracer c87736221ed0: Already exists 9dc197b2c846: Already exists 02f2755d81e6: Already exists 012e932ae3a4: Pull complete Digest: sha256:b463068aec6a475854277d8e0a485281166d1fa18eb7c9c8e09cb858e3031684 Status: Downloaded newer image for danielmichaels/http-tracer:latest Docker always checks the local machine for any images matching the request. If it does not find any it will check its upstream repository for any matches, in this case, Docker Hub.\nIf found, docker will then start to pull down the container’s image. Once its finished downloading, docker executes the docker run command. Try it out.\nIn this example, we’ve downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.\nLet’s look at a long lived process, such as a webserver.\nDemo #2 docker run --rm -it -p 8081:80 nginx\nAgain, an image will be downloaded (don’t worry we’ll go over deleting images) before it finally runs the container.\nThis time, nothing should happen and it may appear to have hung. In a browser, navigate to localhost:8081 and observe the terminal where the container is running. Requests will be printed to the screen.\nIf you are wondering about the -p flag, it is shorthand for --publish and is the mechanism for mapping the host and container port. The host port is first, container second or -p :. For nginx, it expects port 80 so we set the container to that however the host port could be set to any realistic port.\nSo we should have the nginx default page in the browser, and the request for that page in our terminal. This is a good example of how docker processes can be long running - the webserver is a process and it’s still running.\nWe can also make this process run without printing anything to the screen by omitting the -it and replacing it with -d or --detach. The terminal should output a long alphanumeric string indicating its container id. Confirm this with docker ps.\nTo stop detached containers use docker stop . Again, the id or name used to kill the process should be echoed to the terminal. A docker ps will confirm this.\nLastly, the --rm flag simply removes the non-dead container from the host filesystem. For our purposes, we do not need or want to keep copies of our containers on the system. Generally, its a good idea to keep them for debugging but can really start to absorb a lot of disk space on the host during testing. To check for this run docker ps -a which will print out any old containers that can be cleaned up. To clean away these container use the prune command: docker container prune.\nBind Mounts So far the utility has lacked any real substance. I’ve got a web app, how does my code get on here?\nThere are two methods to mount data to contianers; using --volume/-v or --mount. Docker recommends using the --mount method for a few reasons, namely the ability to share mounts between contianers.\nUsing -v Short running container docker run \\  # run docker --rm \\  # remove container once done -it \\  # interactive mode -v $(pwd):/src python:3 \\ # volume to mount with container python hello.py # process to run; python and script located in the volume - /src Long running container\ndocker run \\  # run docker --rm \\  # remove container once done -it \\  # interactive mode # replace -it with -d to detach and run in background -v $(pwd):/usr/share/nginx/html \\ # volume to mount with container -p 8080:80 \\  # port host:container nginx:latest \\ # image to run with tag (latest version) bind routes -v put area on local to area on container. docker run -d -p 8080:80 --name nginx-bind -v $(pwd):/var/share/html nginx\nand --mount This method is more verbose than -v but much more powerful. Because we are using key:value pairs the order is not important.\nFrom the documentation:\n  The type of the mount, which can be bind, volume, or tmpfs. This topic discusses bind mounts, so the type is always bind. The source of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as source or src. The destination takes as its value the path where the file or directory is mounted in the container. May be specified as destination, dst, or target. The readonly option, if present, causes the bind mount to be mounted into the container as read-only. The bind-propagation option, if present, changes the bind propagation. May be one of rprivate, private, rshared, shared, rslave, slave. The consistency option, if present, may be one of consistent, delegated, or cached. This setting only applies to Docker Desktop for Mac, and is ignored on all other platforms.   To illustrate we are creating our volume (a bind mount) in our current working directory. Inside the directory we have a python script which runs print('--mount!') and nothing more. The file is called mount.py. The structure should look like this:\n# tree . . └── mount.py 0 directories, 1 file To mount this file and make it executable via docker we use the --mount option.\ndocker run --rm --mount source=\"$(pwd)\"/,destination=/apps,type=bind python python /apps/mount.py\nBreaking down the --mount starting with source. This is the location of the data to be “loaded” into the container, most often from a local machine. The unix command $(pwd) returns an absolute path, which mount requires—it cannot accept relative paths. This effectively tells docker to put anything within that directory into a volume and attach itot the container.\nNext is destination which can also be called as target. This tells docker to place the source data inside this location within the container. So if I was to set destination=/shazwazza, then the data would be located in the / as /shazawazza.\nLastly, in this example we are setting type=bind. This is the most simple method, though less extensible than volume mounting. For small independant applications it is often best to at least start with a bind type and then when ready move onto volume. See here for detailed information regarding the volume mounting, and when you should use it.\nUseful docker commands docker info  Displays system-wide information  docker inspect   Return low-level information about a container or image  docker container ls  Returns currently running containers  docker ps  Shorthand for docker container ls. Appending -a will show containers that have exited.  docker image ls  Prints all images on the local machine that have been pulled down from docker hub.  docker pull  Will download a docker image onto the local machine  docker run  Runs a docker container, and if not found on the local machine will attempt to download it.  docker flags  --rm: remove container from list once process exits prune: remove any old or “dangling” images, containers or networks. Good for deleting old cached builds no longer in use. E.g. docker container prune exec: docker exec -it myapache bash executes the bash shell for an interactive session.  Dockerfile So far, we have only pulled and ran docker images, or added a mount to a local container. That is useful but dockers biggest selling point is being able to create and bundle our own applications into a container and allowing others to use them on other systems. To do this, we use a Dockerfile.\nFrom Docker:\n Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.\n When creating a docker image, we most often want to pull from an existing image within a registry such as Docker hub and extend it.\nExample # simple example FROM jfloff/alpine-python:3.6-slim ENV LC_ALL=C.UTF-8 ENV LANG=C.UTF-8 RUN pip install http-tracer ENTRYPOINT [\"http-tracer\"] CMD [\"pfsense.org\"] The above Dockerfile, has some keyword’s denoted by capitals, followed by an argument. This is the general structure of a Dockerfile and the layout is very important as we will see below. There are many more keywords but that’s reserved for your own experimentation.\nAll dockerfile’s start with FROM - which basically means “pull this image and extend it with the following..”\nIn this particular application, we need to ensure the languages are set correctly. Dockerfile’s allow users to set Environment Variables with the ENV keyword.\nPerhaps the most important and well known command is RUN which tells docker to call the following commands within the container. In this case, as we are building atop of an alpine-linux minimal python version, pip comes bundled with it. If the image was ubuntu based we could call apt-get and so on.\nThe next two lines (layers) are special to this commandline application. ENTRYPOINT defines the command we want to execute within the container and because our app, http-tracer is installed in the PATH as apart of its pip installation, it is executable. Typically, ENTRYPOINT is used in contianers that are designed to be run as an executable, which this application is.\nCMD is similar to ENTRYPOINT except we can only use it once and it is used to set default commands or parameters. the argument that follows a CMD keyword will run anytime the container is executed without specifying any arguments with it. So in this case, out http-tracer container will be executed with \"pfense.org\" as its default argument. If the container runs with a command, this default will be overwritten.\nMore simply, to allow user input;\n The ENTRYPOINT specifies a command that will always be executed when the container starts. The CMD specifies arguments that will be fed to the ENTRYPOINT\n confused?\nCalling our docker image without any arguments will result in the following:\nWhereas if we set a argument of “cisco.com” it will overwrite the default and return data relating to that parameter.\nAnother example worth looking at is the ping command. You can execute that with a dockerfile containing the following:\nFROM debian:wheezy ENTRYPOINT [\"/bin/ping\"] # executes when container is run CMD [\"localhost\"] # executes unless user input supplied layers In a Dockerfile, each line is a layer.\n  layers cannot shrink the size of the image\n  layers are cached (checks the Dockerfile lines for differences)\n  caching means it does not need to be rebuilt, only new layers\n  container is a layer, one that exists only while the container lives:\n the build layers are read only - cannot edit them and are shared across many containers if the image needs updating, all layers must be rebuilt    container layer:\n read write modifications of source, or volumes within the container exist only within that container unless rebuilt into a new image    image layer:\n read only    docker networks Docker also provides a networking layer, allowing many contianers to be on a local area network. If this is not setup, each container is essentially within its own virtual LAN and cannot communicate with other containers. This is a big topic so read up on the docs [here].\nThe basics are as follows:\n to create a network for a mysql database and node application to communitcate run: docker network create  see that your network has been created with docker network ls inspect your network with docker network inspect   To add containers to a network, and test they have connectivity with ping is just a matter of adding them to the network with --net.\n# create mysql on docker network named 'test' docker run --rm -d --net test --name test_mysql -e MYSQL_ROOT_PASSWORD='root' mysql:5.6 # create node linking to the 'test' network and spawn a shell docker run --rm -it --net test --name test_node node:8 /bin/bash # once they've been built it will drop into a shell # test the network connection by trying to ping test_mysql ping test_mysql # from node /bin/bash shell # unless explicitly denied, this gives access to internet ping 1.1.1.1 Docker enough to get by That is really enough docker to start playing around and learning to be comfortable in it. This hasn’t covered docker-compose which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It’s okay to be slow - its all time under tension and repeated small exposures that eventualy lead to true understanding.\n","wordCount":"2717","inLanguage":"en","datePublished":"2019-11-24T00:00:00Z","dateModified":"2019-11-24T00:00:00Z","author":{"@type":"Person","name":"Daniel Michaels"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://danielms.site/blog/learn-docker-in-one-month/"},"publisher":{"@type":"Organization","name":"Daniel Michaels","logo":{"@type":"ImageObject","url":"https://danielms.site/extra/favicon.ico"}}}</script></head><body class=single id=top><script>if(localStorage.getItem("pref-theme")==="dark"){document.body.classList.add('dark');}else if(localStorage.getItem("pref-theme")==="light"){document.body.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.body.classList.add('dark');}</script><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://danielms.site/ accesskey=h>Home</a>
-<span class=logo-switches><span class=theme-toggle><a id=theme-toggle accesskey=t><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></a></span></span></div><ul class=menu id=menu onscroll=menu_on_scroll()></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>learn docker in one month</h1><div class=post-meta>November 24, 2019&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Daniel Michaels</div></header><div class=post-content><h1 id=learning-docker-in-one-month>Learning Docker in one month<a hidden class=anchor aria-hidden=true href=#learning-docker-in-one-month>#</a></h1><p><img src=/images/docker.png alt title="docker image"></p><p>Yep, <a href=https://www.norvig.com/21-days.html>one month</a>.</p><h2 id=docker-basics>Docker basics<a hidden class=anchor aria-hidden=true href=#docker-basics>#</a></h2><h3 id=what>What<a hidden class=anchor aria-hidden=true href=#what>#</a></h3><p>docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;.
-These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.</p><h3 id=why>Why<a hidden class=anchor aria-hidden=true href=#why>#</a></h3><p>Some of the core reasons to use docker.</p><ul><li>The ability to have standalone applications and packages with dependencies that are isolated for the base operating system and other applications is a boon for developers and users,</li><li>Linux hosts can have several docker containers running without fear of contaminated package versions or dependancies causing errors,</li><li>Sharing consistent environments between developers is possible as each docker container image is idempotent, meaning the result of building a docker image will be the same whether built once, or one thousand times,</li><li>Version pinning is possible making compatibility issues on new release cycles less problematic, and testing of packages easier to implement,</li><li>Continious Integration is a perfectly paired with docker allowing each new release, or push to the repository to be built automatically with a new docker image, and tested to ensure against regression.</li></ul><h3 id=virtual-machines-arent-docker>Virtual Machines aren&rsquo;t docker<a hidden class=anchor aria-hidden=true href=#virtual-machines-arent-docker>#</a></h3><p>Docker and virtual machines differ in their implementation and uses cases. They are complimentary rather than competitors and service different needs through each use-case.</p><p><img src=/images/dockervm.png alt title="docker versus virtual machines"></p><p>Containers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host&rsquo;s operating system, its application are seperated from the kernel ensuring isolation via the docker engine.</p><p>Regardless, each technology should be utilised as a method to achieve an outcome rather than be a dogmatic position for any one developer to live and die by. In fact, both methods can be used in conjunction, it is possible to run docker contianers within virtual machines - this being something I do often in Vagrant.</p><h2 id=docker-processes>Docker processes<a hidden class=anchor aria-hidden=true href=#docker-processes>#</a></h2><p>An important distinction with docker is its process orientation. Containers are designed to execute one process and then quit - the length of the running process arbitary but once its is complete the container will effectively exit.</p><p>this is an important point for new docker users. It contrasts heavily from a virtual machine which will live forever, sitting idly doing nothing until instructed.</p><p>For example, a contianer may run a command line application that fetches the weather from your local area. Once the container has finished this process it will stop and cease to draw any resources until manually called again by the user or application.</p><h2 id=how-does-docker-work>How does docker work<a hidden class=anchor aria-hidden=true href=#how-does-docker-work>#</a></h2><blockquote><p><code>docker container run -d -p 8080:80 --name myapache httpd</code></p></blockquote><p>There is two main concepts to grasp with docker; images and containers.</p><h3 id=images>images<a hidden class=anchor aria-hidden=true href=#images>#</a></h3><p>Images can be thought of as virtual machine snapshots - a point in time that contains an application, its dependancies and files. Unlike a virtual machine this &ldquo;snapshot&rdquo;, or image is immutable and static. It serves as a blueprint, rather than a dormant virtual appliance waiting to be brought back to life.</p><p>To sum, images are what we then create containers from and ensure that each launched container will be identical to the base image.</p><h3 id=containers>containers<a hidden class=anchor aria-hidden=true href=#containers>#</a></h3><p>Containers are the running applications brought to life from a docker image. This is the process which does some work, be it short or long lived. At their essence, containers are meant to be disposable, existing only to complete their task and then exiting.</p><p>Principles of containers:</p><ul><li>Immutable</li><li>Disposable</li><li>One process per container</li></ul><h2 id=demo-1>Demo #1<a hidden class=anchor aria-hidden=true href=#demo-1>#</a></h2><p>Let&rsquo;s start a docker application.</p><p><code>docker run --rm danielmichaels/http-tracer http://nyti.ms/1QETHgV</code></p><p>You should see something similar to the following:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Unable to find image <span style=color:#e6db74>&#39;danielmichaels/http-tracer:latest&#39;</span> locally
+Why Some of the core reasons to use docker.">
+<meta name="author" content="Daniel Michaels">
+<link rel="canonical" href="https://danielms.site/blog/learn-docker-in-one-month/" />
+<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://danielms.site/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
+<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.78.1" />
+
+
+
+
+</head>
+
+<body class="single" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
+            <span class="logo-switches">
+                <span class="theme-toggle">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://danielms.site/blog/">
+                    <span>
+                        Blog
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://danielms.site/about/">
+                    <span>
+                        About
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/danielmichaels">
+                    <span>
+                        Code
+                    </span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      learn docker in one month
+    </h1>
+    <div class="post-meta">
+
+November 24, 2019&nbsp;·&nbsp;Daniel Michaels
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<h1 id="learning-docker-in-one-month">Learning Docker in one month<a hidden class="anchor" aria-hidden="true" href="#learning-docker-in-one-month">#</a></h1>
+<p><img src="https://danielms.site/images/docker.png" alt="" title="docker image"></p>
+<p>Yep, <a href="https://www.norvig.com/21-days.html">one month</a>.</p>
+<h2 id="docker-basics">Docker basics<a hidden class="anchor" aria-hidden="true" href="#docker-basics">#</a></h2>
+<h3 id="what">What<a hidden class="anchor" aria-hidden="true" href="#what">#</a></h3>
+<p>docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;.
+These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.</p>
+<h3 id="why">Why<a hidden class="anchor" aria-hidden="true" href="#why">#</a></h3>
+<p>Some of the core reasons to use docker.</p>
+<ul>
+<li>The ability to have standalone applications and packages with dependencies that are isolated for the base operating system and other applications is a boon for developers and users,</li>
+<li>Linux hosts can have several docker containers running without fear of contaminated package versions or dependancies causing errors,</li>
+<li>Sharing consistent environments between developers is possible as each docker container image is idempotent, meaning the result of building a docker image will be the same whether built once, or one thousand times,</li>
+<li>Version pinning is possible making compatibility issues on new release cycles less problematic, and testing of packages easier to implement,</li>
+<li>Continious Integration is a perfectly paired with docker allowing each new release, or push to the repository to be built automatically with a new docker image, and tested to ensure against regression.</li>
+</ul>
+<h3 id="virtual-machines-arent-docker">Virtual Machines aren&rsquo;t docker<a hidden class="anchor" aria-hidden="true" href="#virtual-machines-arent-docker">#</a></h3>
+<p>Docker and virtual machines differ in their implementation and uses cases. They are complimentary rather than competitors and service different needs through each use-case.</p>
+<p><img src="https://danielms.site/images/dockervm.png" alt="" title="docker versus virtual machines"></p>
+<p>Containers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host&rsquo;s operating system, its application are seperated from the kernel ensuring isolation via the docker engine.</p>
+<p>Regardless, each technology should be utilised as a method to achieve an outcome rather than be a dogmatic position for any one developer to live and die by. In fact, both methods can be used in conjunction, it is possible to run docker contianers within virtual machines - this being something I do often in Vagrant.</p>
+<h2 id="docker-processes">Docker processes<a hidden class="anchor" aria-hidden="true" href="#docker-processes">#</a></h2>
+<p>An important distinction with docker is its process orientation. Containers are designed to execute one process and then quit - the length of the running process arbitary but once its is complete the container will effectively exit.</p>
+<p>this is an important point for new docker users. It contrasts heavily from a virtual machine which will live forever, sitting idly doing nothing until instructed.</p>
+<p>For example, a contianer may run a command line application that fetches the weather from your local area. Once the container has finished this process it will stop and cease to draw any resources until manually called again by the user or application.</p>
+<h2 id="how-does-docker-work">How does docker work<a hidden class="anchor" aria-hidden="true" href="#how-does-docker-work">#</a></h2>
+<blockquote>
+<p><code>docker container run -d -p 8080:80 --name myapache httpd</code></p>
+</blockquote>
+<p>There is two main concepts to grasp with docker; images and containers.</p>
+<h3 id="images">images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h3>
+<p>Images can be thought of as virtual machine snapshots - a point in time that contains an application, its dependancies and files. Unlike a virtual machine this &ldquo;snapshot&rdquo;, or image is immutable and static. It serves as a blueprint, rather than a dormant virtual appliance waiting to be brought back to life.</p>
+<p>To sum, images are what we then create containers from and ensure that each launched container will be identical to the base image.</p>
+<h3 id="containers">containers<a hidden class="anchor" aria-hidden="true" href="#containers">#</a></h3>
+<p>Containers are the running applications brought to life from a docker image. This is the process which does some work, be it short or long lived. At their essence, containers are meant to be disposable, existing only to complete their task and then exiting.</p>
+<p>Principles of containers:</p>
+<ul>
+<li>Immutable</li>
+<li>Disposable</li>
+<li>One process per container</li>
+</ul>
+<h2 id="demo-1">Demo #1<a hidden class="anchor" aria-hidden="true" href="#demo-1">#</a></h2>
+<p>Let&rsquo;s start a docker application.</p>
+<p><code>docker run --rm danielmichaels/http-tracer http://nyti.ms/1QETHgV</code></p>
+<p>You should see something similar to the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">Unable to find image <span class="s1">&#39;danielmichaels/http-tracer:latest&#39;</span> locally
 latest: Pulling from danielmichaels/http-tracer
 c87736221ed0: Already exists
 9dc197b2c846: Already exists
 02f2755d81e6: Already exists
-012e932ae3a4: Pull complete
+012e932ae3a4: Pull <span class="nb">complete</span>
 Digest: sha256:b463068aec6a475854277d8e0a485281166d1fa18eb7c9c8e09cb858e3031684
-Status: Downloaded newer image <span style=color:#66d9ef>for</span> danielmichaels/http-tracer:latest
-</code></pre></div><p>Docker always checks the local machine for any images matching the request. If it does not find any it will check its upstream repository for any matches, in this case, <a href=https://hub.docker.com>Docker Hub</a>.</p><p>If found, docker will then start to pull down the container&rsquo;s image. Once its finished downloading, docker executes the <code>docker run</code> command. Try it out.</p><p>In this example, we&rsquo;ve downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.</p><p>Let&rsquo;s look at a long lived process, such as a webserver.</p><h2 id=demo-2>Demo #2<a hidden class=anchor aria-hidden=true href=#demo-2>#</a></h2><p><code>docker run --rm -it -p 8081:80 nginx</code></p><p>Again, an image will be downloaded (don&rsquo;t worry we&rsquo;ll go over deleting images) before it finally runs the container.</p><p>This time, nothing should happen and it may appear to have hung. In a browser, navigate to <a href=http://127.0.0.1:8081>localhost:8081</a> and observe the terminal where the container is running. Requests will be printed to the screen.</p><p>If you are wondering about the <code>-p</code> flag, it is shorthand for <code>--publish</code> and is the mechanism for mapping the <em>host</em> and <em>container</em> port. The host port is first, container second or <code>-p &lt;host>:&lt;container></code>. For nginx, it expects port 80 so we set the container to that however the host port could be set to any realistic port.</p><p>So we should have the <em>nginx</em> default page in the browser, and the request for that page in our terminal. This is a good example of how docker processes can be long running - the webserver is a process and it&rsquo;s still running.</p><p>We can also make this process run without printing anything to the screen by omitting the <code>-it</code> and replacing it with <code>-d</code> or <code>--detach</code>. The terminal should output a long alphanumeric string indicating its <em>container id</em>. Confirm this with <code>docker ps</code>.</p><p>To stop detached containers use <code>docker stop &lt;container id|container name></code>. Again, the id or name used to kill the process should be echoed to the terminal. A <code>docker ps</code> will confirm this.</p><p>Lastly, the <code>--rm</code> flag simply removes the non-dead container from the host filesystem. For our purposes, we do not need or want to keep copies of our containers on the system. Generally, its a good idea to keep them for debugging but can really start to absorb a lot of disk space on the host during testing.
-To check for this run <code>docker ps -a</code> which will print out any old containers that can be cleaned up. To clean away these container use the <code>prune</code> command: <code>docker container prune</code>.</p><h2 id=bind-mounts>Bind Mounts<a hidden class=anchor aria-hidden=true href=#bind-mounts>#</a></h2><p>So far the utility has lacked any real substance. I&rsquo;ve got a web app, how does my code get on here?</p><p>There are two methods to mount data to contianers; using <code>--volume/-v</code> or <code>--mount</code>. Docker <a href=https://docs.docker.com/storage/bind-mounts/>recommends</a> using the <code>--mount</code> method for a few reasons, namely the ability to share mounts between contianers.</p><h3 id=using--v>Using <code>-v</code><a hidden class=anchor aria-hidden=true href=#using--v>#</a></h3><h2 id=short-running-container>Short running container<a hidden class=anchor aria-hidden=true href=#short-running-container>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker run <span style=color:#ae81ff>\ </span>   <span style=color:#75715e># run docker</span>
---rm <span style=color:#ae81ff>\ </span>         <span style=color:#75715e># remove container once done</span>
--it <span style=color:#ae81ff>\ </span>          <span style=color:#75715e># interactive mode</span>
--v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:/src python:3 <span style=color:#ae81ff>\ </span><span style=color:#75715e># volume to mount with container</span>
-python hello.py <span style=color:#75715e># process to run; python and script located in the volume - /src</span>
-</code></pre></div><p>Long running container</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker run <span style=color:#ae81ff>\ </span>   <span style=color:#75715e># run docker</span>
---rm <span style=color:#ae81ff>\ </span>         <span style=color:#75715e># remove container once done</span>
--it <span style=color:#ae81ff>\ </span>          <span style=color:#75715e># interactive mode</span>
-<span style=color:#75715e># replace -it with -d to detach and run in background</span>
--v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:/usr/share/nginx/html <span style=color:#ae81ff>\ </span><span style=color:#75715e># volume to mount with container</span>
--p 8080:80  <span style=color:#ae81ff>\ </span> <span style=color:#75715e># port host:container</span>
-nginx:latest <span style=color:#ae81ff>\ </span><span style=color:#75715e># image to run with tag (latest version)</span>
-</code></pre></div><p>bind routes <code>-v</code> put area on local to area on container. <code>docker run -d -p 8080:80 --name nginx-bind -v $(pwd):/var/share/html nginx</code></p><h3 id=and---mount>and <code>--mount</code><a hidden class=anchor aria-hidden=true href=#and---mount>#</a></h3><p>This method is more verbose than <code>-v</code> but much more powerful. Because we are using key:value pairs the order is not important.</p><p>From the documentation:</p><blockquote><ul><li>The <code>type</code> of the mount, which can be <code>bind</code>, <code>volume</code>, or <code>tmpfs</code>. This topic discusses bind mounts, so the type is always <code>bind</code>.</li><li>The <code>source</code> of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as <code>source</code> or <code>src</code>.</li><li>The <code>destination</code> takes as its value the path where the file or directory is mounted in the container. May be specified as <code>destination</code>, <code>dst</code>, or <code>target</code>.</li><li>The <code>readonly</code> option, if present, causes the bind mount to be mounted into the container as read-only.</li><li>The <code>bind-propagation</code> option, if present, changes the bind propagation. May be one of <code>rprivate</code>, <code>private</code>, <code>rshared</code>, <code>shared</code>, <code>rslave</code>, <code>slave</code>.</li><li>The <code>consistency</code> option, if present, may be one of <code>consistent</code>, <code>delegated</code>, or <code>cached</code>. This setting only applies to Docker Desktop for Mac, and is ignored on all other platforms.</li></ul></blockquote><p>To illustrate we are creating our volume (a bind mount) in our current working directory. Inside the directory we have a python script which runs <code>print('--mount!')</code> and nothing more. The file is called <code>mount.py</code>. The structure should look like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># tree .</span>
+Status: Downloaded newer image <span class="k">for</span> danielmichaels/http-tracer:latest
+</code></pre></div><p>Docker always checks the local machine for any images matching the request. If it does not find any it will check its upstream repository for any matches, in this case, <a href="https://hub.docker.com">Docker Hub</a>.</p>
+<p>If found, docker will then start to pull down the container&rsquo;s image. Once its finished downloading, docker executes the <code>docker run</code> command. Try it out.</p>
+<p>In this example, we&rsquo;ve downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.</p>
+<p>Let&rsquo;s look at a long lived process, such as a webserver.</p>
+<h2 id="demo-2">Demo #2<a hidden class="anchor" aria-hidden="true" href="#demo-2">#</a></h2>
+<p><code>docker run --rm -it -p 8081:80 nginx</code></p>
+<p>Again, an image will be downloaded (don&rsquo;t worry we&rsquo;ll go over deleting images) before it finally runs the container.</p>
+<p>This time, nothing should happen and it may appear to have hung. In a browser, navigate to <a href="http://127.0.0.1:8081">localhost:8081</a> and observe the terminal where the container is running. Requests will be printed to the screen.</p>
+<p>If you are wondering about the <code>-p</code> flag, it is shorthand for <code>--publish</code> and is the mechanism for mapping the <em>host</em> and <em>container</em> port. The host port is first, container second or <code>-p &lt;host&gt;:&lt;container&gt;</code>. For nginx, it expects port 80 so we set the container to that however the host port could be set to any realistic port.</p>
+<p>So we should have the <em>nginx</em> default page in the browser, and the request for that page in our terminal. This is a good example of how docker processes can be long running - the webserver is a process and it&rsquo;s still running.</p>
+<p>We can also make this process run without printing anything to the screen by omitting the <code>-it</code> and replacing it with <code>-d</code> or <code>--detach</code>. The terminal should output a long alphanumeric string indicating its <em>container id</em>. Confirm this with <code>docker ps</code>.</p>
+<p>To stop detached containers use <code>docker stop &lt;container id|container name&gt;</code>. Again, the id or name used to kill the process should be echoed to the terminal. A <code>docker ps</code> will confirm this.</p>
+<p>Lastly, the <code>--rm</code> flag simply removes the non-dead container from the host filesystem. For our purposes, we do not need or want to keep copies of our containers on the system. Generally, its a good idea to keep them for debugging but can really start to absorb a lot of disk space on the host during testing.
+To check for this run <code>docker ps -a</code> which will print out any old containers that can be cleaned up. To clean away these container use the <code>prune</code> command: <code>docker container prune</code>.</p>
+<h2 id="bind-mounts">Bind Mounts<a hidden class="anchor" aria-hidden="true" href="#bind-mounts">#</a></h2>
+<p>So far the utility has lacked any real substance. I&rsquo;ve got a web app, how does my code get on here?</p>
+<p>There are two methods to mount data to contianers; using <code>--volume/-v</code> or <code>--mount</code>. Docker <a href="https://docs.docker.com/storage/bind-mounts/">recommends</a> using the <code>--mount</code> method for a few reasons, namely the ability to share mounts between contianers.</p>
+<h3 id="using--v">Using <code>-v</code><a hidden class="anchor" aria-hidden="true" href="#using--v">#</a></h3>
+<h2 id="short-running-container">Short running container<a hidden class="anchor" aria-hidden="true" href="#short-running-container">#</a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker run <span class="se">\ </span>   <span class="c1"># run docker</span>
+--rm <span class="se">\ </span>         <span class="c1"># remove container once done</span>
+-it <span class="se">\ </span>          <span class="c1"># interactive mode</span>
+-v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src python:3 <span class="se">\ </span><span class="c1"># volume to mount with container</span>
+python hello.py <span class="c1"># process to run; python and script located in the volume - /src</span>
+</code></pre></div><p>Long running container</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker run <span class="se">\ </span>   <span class="c1"># run docker</span>
+--rm <span class="se">\ </span>         <span class="c1"># remove container once done</span>
+-it <span class="se">\ </span>          <span class="c1"># interactive mode</span>
+<span class="c1"># replace -it with -d to detach and run in background</span>
+-v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/usr/share/nginx/html <span class="se">\ </span><span class="c1"># volume to mount with container</span>
+-p 8080:80  <span class="se">\ </span> <span class="c1"># port host:container</span>
+nginx:latest <span class="se">\ </span><span class="c1"># image to run with tag (latest version)</span>
+</code></pre></div><p>bind routes <code>-v</code> put area on local to area on container. <code>docker run -d -p 8080:80 --name nginx-bind -v $(pwd):/var/share/html nginx</code></p>
+<h3 id="and---mount">and <code>--mount</code><a hidden class="anchor" aria-hidden="true" href="#and---mount">#</a></h3>
+<p>This method is more verbose than <code>-v</code> but much more powerful. Because we are using key:value pairs the order is not important.</p>
+<p>From the documentation:</p>
+<blockquote>
+<ul>
+<li>The <code>type</code> of the mount, which can be <code>bind</code>,  <code>volume</code>, or <code>tmpfs</code>. This topic discusses bind mounts, so the type is always <code>bind</code>.</li>
+<li>The <code>source</code> of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as <code>source</code> or <code>src</code>.</li>
+<li>The <code>destination</code> takes as its value the path where the file or directory is mounted in the container. May be specified as <code>destination</code>, <code>dst</code>, or <code>target</code>.</li>
+<li>The <code>readonly</code> option, if present, causes the bind mount to be mounted into the container as read-only.</li>
+<li>The <code>bind-propagation</code> option, if present, changes the bind propagation. May be one of <code>rprivate</code>, <code>private</code>, <code>rshared</code>, <code>shared</code>, <code>rslave</code>, <code>slave</code>.</li>
+<li>The <code>consistency</code> option, if present, may be one of <code>consistent</code>, <code>delegated</code>, or <code>cached</code>. This setting only applies to Docker Desktop for Mac, and is ignored on all other platforms.</li>
+</ul>
+</blockquote>
+<p>To illustrate we are creating our volume (a bind mount) in our current working directory. Inside the directory we have a python script which runs <code>print('--mount!')</code> and nothing more. The file is called <code>mount.py</code>. The structure should look like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># tree .</span>
 .
 └── mount.py
 
-<span style=color:#ae81ff>0</span> directories, <span style=color:#ae81ff>1</span> file
-</code></pre></div><p>To mount this file and make it executable via docker we use the <code>--mount</code> option.</p><p><code>docker run --rm --mount source="$(pwd)"/,destination=/apps,type=bind python python /apps/mount.py</code></p><p>Breaking down the <code>--mount</code> starting with <code>source</code>. This is the location of the data to be &ldquo;loaded&rdquo; into the container, most often from a local machine. The unix command <code>$(pwd)</code> returns an absolute path, which <code>mount</code> requires—it cannot accept relative paths.
-This effectively tells docker to put anything within that directory into a volume and attach itot the container.</p><p>Next is <code>destination</code> which can also be called as <code>target</code>. This tells docker to place the <code>source</code> data inside <em>this</em> location within the container. So if I was to set <code>destination=/shazwazza</code>, then the data would be located in the <code>/</code> as <code>/shazawazza</code>.</p><p>Lastly, in this example we are setting <code>type=bind</code>. This is the most simple method, though less extensible than <code>volume</code> mounting. For small independant applications it is often best to at least start with a <code>bind</code> type and then when ready move onto <code>volume</code>. See <a href=https://docs.docker.com/storage/volumes/>here</a> for detailed information regarding the <code>volume</code> mounting, and when you should use it.</p><h2 id=useful-docker-commands>Useful docker commands<a hidden class=anchor aria-hidden=true href=#useful-docker-commands>#</a></h2><h3 id=docker-info>docker info<a hidden class=anchor aria-hidden=true href=#docker-info>#</a></h3><ul><li>Displays system-wide information</li></ul><h3 id=docker-inspect-imagecontianer>docker inspect &lt;image/contianer><a hidden class=anchor aria-hidden=true href=#docker-inspect-imagecontianer>#</a></h3><ul><li>Return low-level information about a container or image</li></ul><h3 id=docker-container-ls>docker container ls<a hidden class=anchor aria-hidden=true href=#docker-container-ls>#</a></h3><ul><li>Returns currently running containers</li></ul><h3 id=docker-ps>docker ps<a hidden class=anchor aria-hidden=true href=#docker-ps>#</a></h3><ul><li>Shorthand for <code>docker container ls</code>. Appending <code>-a</code> will show containers that have exited.</li></ul><h3 id=docker-image-ls>docker image ls<a hidden class=anchor aria-hidden=true href=#docker-image-ls>#</a></h3><ul><li>Prints all images on the local machine that have been pulled down from docker hub.</li></ul><h3 id=docker-pull>docker pull<a hidden class=anchor aria-hidden=true href=#docker-pull>#</a></h3><ul><li>Will download a docker image onto the local machine</li></ul><h3 id=docker-run>docker run<a hidden class=anchor aria-hidden=true href=#docker-run>#</a></h3><ul><li>Runs a docker container, and if not found on the local machine will attempt to download it.</li></ul><h3 id=docker-flags>docker flags<a hidden class=anchor aria-hidden=true href=#docker-flags>#</a></h3><ul><li><code>--rm</code>: remove container from list once process exits</li><li><code>prune</code>: remove any old or &ldquo;dangling&rdquo; images, containers or networks. Good for deleting old cached builds no longer in use. E.g. <code>docker container prune</code></li><li>exec: <code>docker exec -it myapache bash</code> executes the bash shell for an interactive session.</li></ul><h2 id=dockerfile>Dockerfile<a hidden class=anchor aria-hidden=true href=#dockerfile>#</a></h2><p>So far, we have only pulled and ran docker images, or added a mount to a local container. That is useful but dockers biggest selling point is being able to create and bundle our own applications into a container and allowing others to use them on other systems. To do this, we use a Dockerfile.</p><p>From <a href=https://docs.docker.com/engine/reference/builder/>Docker</a>:</p><blockquote><p>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.</p></blockquote><p>When creating a docker image, we most often want to pull from an existing image within a registry such as <a href=https://www.docker.com/products/docker-hub>Docker hub</a> and extend it.</p><h2 id=example>Example<a hidden class=anchor aria-hidden=true href=#example>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># simple example</span>
+<span class="m">0</span> directories, <span class="m">1</span> file
+</code></pre></div><p>To mount this file and make it executable via docker we use the <code>--mount</code> option.</p>
+<p><code>docker run --rm --mount source=&quot;$(pwd)&quot;/,destination=/apps,type=bind python python /apps/mount.py</code></p>
+<p>Breaking down the <code>--mount</code> starting with <code>source</code>. This is the location of the data to be &ldquo;loaded&rdquo; into the container, most often from a local machine. The unix command <code>$(pwd)</code> returns an absolute path, which <code>mount</code> requires—it cannot accept relative paths.
+This effectively tells docker to put anything within that directory into a volume and attach itot the container.</p>
+<p>Next is <code>destination</code> which can also be called as <code>target</code>. This tells docker to place the <code>source</code> data inside <em>this</em> location within the container. So if I was to set <code>destination=/shazwazza</code>, then the data would be located in the <code>/</code> as <code>/shazawazza</code>.</p>
+<p>Lastly, in this example we are setting <code>type=bind</code>. This is the most simple method, though less extensible than <code>volume</code> mounting. For small independant applications it is often best to at least start with a <code>bind</code> type and then when ready move onto <code>volume</code>. See <a href="https://docs.docker.com/storage/volumes/">here</a> for detailed information regarding the <code>volume</code> mounting, and when you should use it.</p>
+<h2 id="useful-docker-commands">Useful docker commands<a hidden class="anchor" aria-hidden="true" href="#useful-docker-commands">#</a></h2>
+<h3 id="docker-info">docker info<a hidden class="anchor" aria-hidden="true" href="#docker-info">#</a></h3>
+<ul>
+<li>Displays system-wide information</li>
+</ul>
+<h3 id="docker-inspect-imagecontianer">docker inspect &lt;image/contianer&gt;<a hidden class="anchor" aria-hidden="true" href="#docker-inspect-imagecontianer">#</a></h3>
+<ul>
+<li>Return low-level information about a container or image</li>
+</ul>
+<h3 id="docker-container-ls">docker container ls<a hidden class="anchor" aria-hidden="true" href="#docker-container-ls">#</a></h3>
+<ul>
+<li>Returns currently running containers</li>
+</ul>
+<h3 id="docker-ps">docker ps<a hidden class="anchor" aria-hidden="true" href="#docker-ps">#</a></h3>
+<ul>
+<li>Shorthand for <code>docker container ls</code>. Appending <code>-a</code> will show containers that have exited.</li>
+</ul>
+<h3 id="docker-image-ls">docker image ls<a hidden class="anchor" aria-hidden="true" href="#docker-image-ls">#</a></h3>
+<ul>
+<li>Prints all images on the local machine that have been pulled down from docker hub.</li>
+</ul>
+<h3 id="docker-pull">docker pull<a hidden class="anchor" aria-hidden="true" href="#docker-pull">#</a></h3>
+<ul>
+<li>Will download a docker image onto the local machine</li>
+</ul>
+<h3 id="docker-run">docker run<a hidden class="anchor" aria-hidden="true" href="#docker-run">#</a></h3>
+<ul>
+<li>Runs a docker container, and if not found on the local machine will attempt to download it.</li>
+</ul>
+<h3 id="docker-flags">docker flags<a hidden class="anchor" aria-hidden="true" href="#docker-flags">#</a></h3>
+<ul>
+<li><code>--rm</code>: remove container from list once process exits</li>
+<li><code>prune</code>: remove any old or &ldquo;dangling&rdquo; images, containers or networks. Good for deleting old cached builds no longer in use. E.g. <code>docker container prune</code></li>
+<li>exec: <code>docker exec -it myapache bash</code> executes the bash shell for an interactive session.</li>
+</ul>
+<h2 id="dockerfile">Dockerfile<a hidden class="anchor" aria-hidden="true" href="#dockerfile">#</a></h2>
+<p>So far, we have only pulled and ran docker images, or added a mount to a local container. That is useful but dockers biggest selling point is being able to create and bundle our own applications into a container and allowing others to use them on other systems. To do this, we use a Dockerfile.</p>
+<p>From <a href="https://docs.docker.com/engine/reference/builder/">Docker</a>:</p>
+<blockquote>
+<p>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.</p>
+</blockquote>
+<p>When creating a docker image, we most often want to pull from an existing image within a registry such as <a href="https://www.docker.com/products/docker-hub">Docker hub</a> and extend it.</p>
+<h2 id="example">Example<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># simple example</span>
 FROM jfloff/alpine-python:3.6-slim
 
-ENV LC_ALL<span style=color:#f92672>=</span>C.UTF-8
-ENV LANG<span style=color:#f92672>=</span>C.UTF-8
+ENV <span class="nv">LC_ALL</span><span class="o">=</span>C.UTF-8
+ENV <span class="nv">LANG</span><span class="o">=</span>C.UTF-8
 
 RUN pip install http-tracer
 
-ENTRYPOINT <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;http-tracer&#34;</span><span style=color:#f92672>]</span>
+ENTRYPOINT <span class="o">[</span><span class="s2">&#34;http-tracer&#34;</span><span class="o">]</span>
 
-CMD <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;pfsense.org&#34;</span><span style=color:#f92672>]</span>
-</code></pre></div><p>The above Dockerfile, has some keyword&rsquo;s denoted by capitals, followed by an argument. This is the general structure of a Dockerfile and the layout is very important as we will see below. There are many more keywords but that&rsquo;s reserved for your own experimentation.</p><p>All dockerfile&rsquo;s start with <code>FROM</code> - which basically means &ldquo;pull this image and extend it with the following..&rdquo;</p><p>In this particular application, we need to ensure the languages are set correctly. Dockerfile&rsquo;s allow users to set Environment Variables with the <code>ENV</code> keyword.</p><p>Perhaps the most important and well known command is <code>RUN</code> which tells docker to call the following commands within the container. In this case, as we are building atop of an alpine-linux minimal python version, <code>pip</code> comes bundled with it. If the image was <code>ubuntu</code> based we could call <code>apt-get</code> and so on.</p><p>The next two lines (layers) are special to this commandline application. <code>ENTRYPOINT</code> defines the command we want to execute within the container and because our app, <code>http-tracer</code> is installed in the <code>PATH</code> as apart of its <code>pip</code> installation, it is executable. Typically, <code>ENTRYPOINT</code> is used in contianers that are designed to be run as an executable, which this application is.</p><p><code>CMD</code> is similar to <code>ENTRYPOINT</code> except we can only use it once and it is used to set default commands or parameters. the argument that follows a <code>CMD</code> keyword will run anytime the container is executed without specifying any arguments with it. So in this case, out <code>http-tracer</code> container will be executed with <code>"pfense.org"</code> as its default argument. If the container runs with a command, this default will be overwritten.</p><p>More simply, to allow user input;</p><blockquote><p>The ENTRYPOINT specifies a command that will always be executed when the container starts. The CMD specifies arguments that will be fed to the ENTRYPOINT</p></blockquote><p><strong>confused?</strong></p><p>Calling our docker image without any arguments will result in the following:</p><p><img src=/images/docker.svg alt title="example of http-tracer executing without user applied parameter and defaulting to pfsense.org"></p><p>Whereas if we set a argument of &ldquo;cisco.com&rdquo; it will overwrite the default and return data relating to that parameter.</p><p><img src=/images/docker2.svg alt title="example of http-tracer with parameter of cisco.com applied as user input"></p><p>Another example worth looking at is the <code>ping</code> command. You can execute that with a dockerfile containing the following:</p><pre><code>FROM debian:wheezy
+CMD <span class="o">[</span><span class="s2">&#34;pfsense.org&#34;</span><span class="o">]</span>
+</code></pre></div><p>The above Dockerfile, has some keyword&rsquo;s denoted by capitals, followed by an argument. This is the general structure of a Dockerfile and the layout is very important as we will see below. There are many more keywords but that&rsquo;s reserved for your own experimentation.</p>
+<p>All dockerfile&rsquo;s start with <code>FROM</code> - which basically means &ldquo;pull this image and extend it with the following..&rdquo;</p>
+<p>In this particular application, we need to ensure the languages are set correctly. Dockerfile&rsquo;s allow users to set Environment Variables with the <code>ENV</code> keyword.</p>
+<p>Perhaps the most important and well known command is <code>RUN</code> which tells docker to call the following commands within the container. In this case, as we are building atop of an alpine-linux minimal python version, <code>pip</code> comes bundled with it. If the image was <code>ubuntu</code> based we could call <code>apt-get</code> and so on.</p>
+<p>The next two lines (layers) are special to this commandline application. <code>ENTRYPOINT</code> defines the command we want to execute within the container and because our app, <code>http-tracer</code> is installed in the <code>PATH</code> as apart of its <code>pip</code> installation, it is executable. Typically, <code>ENTRYPOINT</code> is used in contianers that are designed to be run as an executable, which this application is.</p>
+<p><code>CMD</code> is similar to <code>ENTRYPOINT</code> except we can only use it once and it is used to set default commands or parameters. the argument that follows a <code>CMD</code> keyword will run anytime the container is executed without specifying any arguments with it. So in this case, out <code>http-tracer</code> container will be executed with <code>&quot;pfense.org&quot;</code> as its default argument. If the container runs with a command, this default will be overwritten.</p>
+<p>More simply, to allow user input;</p>
+<blockquote>
+<p>The ENTRYPOINT specifies a command that will always be executed when the container starts. The CMD specifies arguments that will be fed to the ENTRYPOINT</p>
+</blockquote>
+<p><strong>confused?</strong></p>
+<p>Calling our docker image without any arguments will result in the following:</p>
+<p><img src="https://danielms.site/images/docker.svg" alt="" title="example of http-tracer executing without user applied parameter and defaulting to pfsense.org"></p>
+<p>Whereas if we set a argument of &ldquo;cisco.com&rdquo; it will overwrite the default and return data relating to that parameter.</p>
+<p><img src="https://danielms.site/images/docker2.svg" alt="" title="example of http-tracer with parameter of cisco.com applied as user input"></p>
+<p>Another example worth looking at is the <code>ping</code> command. You can execute that with a dockerfile containing the following:</p>
+<pre><code>FROM debian:wheezy
 ENTRYPOINT [&quot;/bin/ping&quot;] # executes when container is run
 CMD [&quot;localhost&quot;]        # executes unless user input supplied
-</code></pre><h2 id=layers>layers<a hidden class=anchor aria-hidden=true href=#layers>#</a></h2><p>In a Dockerfile, each line is a layer.</p><ul><li><p>layers cannot shrink the size of the image</p></li><li><p>layers are cached (checks the Dockerfile lines for differences)</p></li><li><p>caching means it does not need to be rebuilt, only new layers</p></li><li><p>container is a layer, one that exists only while the container lives:</p><ul><li>the build layers are read only - cannot edit them and are shared across many containers</li><li>if the image needs updating, all layers must be rebuilt</li></ul></li><li><p>container layer:</p><ul><li>read write</li><li>modifications of source, or volumes within the container exist only within <strong>that</strong> container unless rebuilt into a new image</li></ul></li><li><p>image layer:</p><ul><li>read only</li></ul></li></ul><h2 id=docker-networks>docker networks<a hidden class=anchor aria-hidden=true href=#docker-networks>#</a></h2><p>Docker also provides a networking layer, allowing many contianers to be on a local area network. If this is not setup, each container is essentially within its own virtual LAN and cannot communicate with other containers. This is a big topic so read up on the docs [here].</p><p>The basics are as follows:</p><ul><li>to create a network for a <code>mysql</code> database and <code>node</code> application to communitcate run: <code>docker network create &lt;name></code></li><li>see that your network has been created with <code>docker network ls</code></li><li>inspect your network with <code>docker network inspect &lt;name></code></li></ul><p><img src=/images/docker3.svg alt title="example of docker network ls and inspect output"></p><p>To add containers to a network, and test they have connectivity with <code>ping</code> is just a matter of adding them to the network with <code>--net</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># create mysql on docker network named &#39;test&#39;</span>
-docker run --rm -d --net test --name test_mysql -e MYSQL_ROOT_PASSWORD<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;root&#39;</span> mysql:5.6
-<span style=color:#75715e># create node linking to the &#39;test&#39; network and spawn a shell</span>
-docker run --rm -it --net test --name test_node node:8 /bin/bash
-<span style=color:#75715e># once they&#39;ve been built it will drop into a shell</span>
-<span style=color:#75715e># test the network connection by trying to ping test_mysql</span>
-ping test_mysql <span style=color:#75715e># from node /bin/bash shell</span>
-<span style=color:#75715e># unless explicitly denied, this gives access to internet</span>
+</code></pre><h2 id="layers">layers<a hidden class="anchor" aria-hidden="true" href="#layers">#</a></h2>
+<p>In a Dockerfile, each line is a layer.</p>
+<ul>
+<li>
+<p>layers cannot shrink the size of the image</p>
+</li>
+<li>
+<p>layers are cached (checks the Dockerfile lines for differences)</p>
+</li>
+<li>
+<p>caching means it does not need to be rebuilt, only new layers</p>
+</li>
+<li>
+<p>container is a layer, one that exists only while the container lives:</p>
+<ul>
+<li>the build layers are read only - cannot edit them and are shared across many containers</li>
+<li>if the image needs updating, all layers must be rebuilt</li>
+</ul>
+</li>
+<li>
+<p>container layer:</p>
+<ul>
+<li>read write</li>
+<li>modifications of source, or volumes within the container exist only within <strong>that</strong> container unless rebuilt into a new image</li>
+</ul>
+</li>
+<li>
+<p>image layer:</p>
+<ul>
+<li>read only</li>
+</ul>
+</li>
+</ul>
+<h2 id="docker-networks">docker networks<a hidden class="anchor" aria-hidden="true" href="#docker-networks">#</a></h2>
+<p>Docker also provides a networking layer, allowing many contianers to be on a local area network. If this is not setup, each container is essentially within its own virtual LAN and cannot communicate with other containers. This is a big topic so read up on the docs [here].</p>
+<p>The basics are as follows:</p>
+<ul>
+<li>to create a network for a <code>mysql</code> database and <code>node</code> application to communitcate run: <code>docker network create &lt;name&gt;</code></li>
+<li>see that your network has been created with <code>docker network ls</code></li>
+<li>inspect your network with <code>docker network inspect &lt;name&gt;</code></li>
+</ul>
+<p><img src="https://danielms.site/images/docker3.svg" alt="" title="example of docker network ls and inspect output"></p>
+<p>To add containers to a network, and test they have connectivity with <code>ping</code> is just a matter of adding them to the network with <code>--net</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># create mysql on docker network named &#39;test&#39;</span>
+docker run --rm -d --net <span class="nb">test</span> --name test_mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="s1">&#39;root&#39;</span> mysql:5.6
+<span class="c1"># create node linking to the &#39;test&#39; network and spawn a shell</span>
+docker run --rm -it --net <span class="nb">test</span> --name test_node node:8 /bin/bash
+<span class="c1"># once they&#39;ve been built it will drop into a shell</span>
+<span class="c1"># test the network connection by trying to ping test_mysql</span>
+ping test_mysql <span class="c1"># from node /bin/bash shell</span>
+<span class="c1"># unless explicitly denied, this gives access to internet</span>
 ping 1.1.1.1
-</code></pre></div><h2 id=docker-enough-to-get-by>Docker enough to get by<a hidden class=anchor aria-hidden=true href=#docker-enough-to-get-by>#</a></h2><p>That is really enough docker to start playing around and learning to be comfortable in it. This hasn&rsquo;t covered <code>docker-compose</code> which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It&rsquo;s okay to be slow - its all <em>time under tension</em> and repeated small exposures that eventualy lead to true understanding.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://danielms.site/tags/docker>docker</a></li></ul><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on twitter" href="https://twitter.com/intent/tweet/?text=learn%20docker%20in%20one%20month&url=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f&hashtags=docker"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-253.927 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f&title=learn%20docker%20in%20one%20month&summary=learn%20docker%20in%20one%20month&source=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0v-129.439c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02v-126.056c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768h75.024zm-307.552-334.556c-25.674.0-42.448 16.879-42.448 39.002.0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f&title=learn%20docker%20in%20one%20month"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zm-119.474 108.193c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zm-160.386-29.702c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978v-192.915h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on whatsapp" href="https://api.whatsapp.com/send?text=learn%20docker%20in%20one%20month%20-%20https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23-13.314-11.876-22.304-26.542-24.916-31.026s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share learn docker in one month on telegram" href="https://telegram.me/share/url?text=learn%20docker%20in%20one%20month&url=https%3a%2f%2fdanielms.site%2fblog%2flearn-docker-in-one-month%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47A3.38 3.38.0 0126.49 29.86zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>&copy; 2020 <a href=https://danielms.site/>Daniel Michaels</a></span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top" accesskey=g><button class=top-link id=top-link type=button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w=" onload=hljs.initHighlightingOnLoad();></script><script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});});});var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{if(document.body.className.includes("dark")){document.body.classList.remove('dark');localStorage.setItem("pref-theme",'light');}else{document.body.classList.add('dark');localStorage.setItem("pref-theme",'dark');}})</script></body></html>
+</code></pre></div><h2 id="docker-enough-to-get-by">Docker enough to get by<a hidden class="anchor" aria-hidden="true" href="#docker-enough-to-get-by">#</a></h2>
+<p>That is really enough docker to start playing around and learning to be comfortable in it. This hasn&rsquo;t covered <code>docker-compose</code> which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It&rsquo;s okay to be slow - its all <em>time under tension</em> and repeated small exposures that eventualy lead to true understanding.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://danielms.site/tags/docker">docker</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
+    <button class="top-link" id="top-link" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Daniel Michaels</title>
+    <title>Blog on Daniel Michaels | Software Developer</title>
     <link>https://danielms.site/blog/</link>
-    <description>Recent content in Blogs on Daniel Michaels</description>
+    <description>Recent content in Blog on Daniel Michaels | Software Developer</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
     <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DNS the easy parts</title>
@@ -264,10 +265,10 @@ The environment variables are available to all applications, and allow these pro
     
     <item>
       <title>Public Key Crypto: The Basics</title>
-      <link>https://danielms.site/blog/10-pub-key-crypto/</link>
+      <link>https://danielms.site/blog/public-key-crypto-the-basics/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://danielms.site/blog/10-pub-key-crypto/</guid>
+      <guid>https://danielms.site/blog/public-key-crypto-the-basics/</guid>
       <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.
 Public Key Cryptography What problem does it solve?
 If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages? Symmetric key cryptography would make this untenable for the most part.</description>

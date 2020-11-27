@@ -1,211 +1,473 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>HTTPX is the new Requests with Async | Daniel Michaels</title><meta name=keywords content="python,programming"><meta name=description content="Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=" robots" content="noindex, nofollow">
+<title>HTTPX is the new Requests with Async | Daniel Michaels | Software Developer</title>
+
+<meta name="keywords" content="python, programming" />
+<meta name="description" content="Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
  Far and away, requests stands as the most notable third party package. It&rsquo;s almost considered part of what makes up python these days. Unfortunately, little forward progress has been made in recent times to incorporate python&rsquo;s async capabilities.
-This is where HTTPX is stepping up to the plate."><meta name=author content="Daniel Michaels"><link rel=canonical href=https://danielms.site/blog/httpx-is-the-new-requests-with-async/><meta name=google-site-verification content="XYZabc"><link href=https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet" as=style><link rel=icon href=https://danielms.site/extra/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.78.1"><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-149607103-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="HTTPX is the new Requests with Async"><meta property="og:description" content="Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
- Far and away, requests stands as the most notable third party package. It&rsquo;s almost considered part of what makes up python these days. Unfortunately, little forward progress has been made in recent times to incorporate python&rsquo;s async capabilities.
-This is where HTTPX is stepping up to the plate."><meta property="og:type" content="article"><meta property="og:url" content="https://danielms.site/blog/httpx-is-the-new-requests-with-async/"><meta property="og:image" content="https://danielms.site/105"><meta property="article:published_time" content="2020-06-25T00:00:00+00:00"><meta property="article:modified_time" content="2020-06-25T00:00:00+00:00"><meta property="og:site_name" content="Daniel Michaels"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://danielms.site/105"><meta name=twitter:title content="HTTPX is the new Requests with Async"><meta name=twitter:description content="Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
- Far and away, requests stands as the most notable third party package. It&rsquo;s almost considered part of what makes up python these days. Unfortunately, little forward progress has been made in recent times to incorporate python&rsquo;s async capabilities.
-This is where HTTPX is stepping up to the plate."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"HTTPX is the new Requests with Async","name":"HTTPX is the new Requests with Async","description":"Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.\n Far and away, …","keywords":["python","programming"],"articleBody":"Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.\n Far and away, requests stands as the most notable third party package. It’s almost considered part of what makes up python these days. Unfortunately, little forward progress has been made in recent times to incorporate python’s async capabilities.\nThis is where HTTPX is stepping up to the plate. And it aims to be compatible with most of requests API.\nWhy use HTTPX over Requests? In addtion to async, HTTPX also supports:\n HTTP/2 Timeouts by default Full type annotation (yay, code editors) Direct requests to WSGI and ASGI applications Plus, all the standard features of requests - list here  Simple example - sync As HTTPX supports the core requests API, to do a simple get of a webpage we can use httpx.get()\n import httpx  url = 'http://httpbin.org/get'  resp = httpx.get(url)  resp.json() # json output cleaned up for ease of reading. {'args': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-httpx/0.13.3', 'X-Amzn-Trace-Id': 'Root=1-5f014d41-5cef343010793f4686d7c258'}, 'origin': '19.13.3.36', 'url': 'http://httpbin.org/get'} } Client is the new Session When using requests, if you needed to do anything more than receieve simple data then the Session instance was necessary.\nHTTPX does not have a Session API instead it has Client and AsyncClient for obvious use cases.\nFrom the HTTPX docs:\n If you do anything more than experimentation, one-off scripts, or prototypes, then you should use a Client instance.\n For more reasons why you should use Client read the docs. But the core reasons are:\n Reduced latency across requests (no handshaking). Reduced CPU usage and round-trips. Reduced network congestion. Without Client you don’t get HTTP/2 support  To use a the Client interface, its recommended to use a context manager.\n with httpx.Client() as client: ... To make a request with the Client its as simple as:\n with httpx.Client() as client: resp = httpx.get('https://httpbin.org/get')  resp Response [200 OK] One of the really cool features is base_url which allows for URL prepending.\n# base_url example  with httpx.Client(base_url='http://httpbin.org') as client: resp = client.get('/headers')  resp.request.headers Headers({'host': 'httpbin.org', 'user-agent': 'python-httpx/0.13.3', 'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'keep-alive'}) AsyncClient simple To make an async call using the Client interface is as simple as adding the async keyword to the context manager and swapping Client with AsyncClient.\n# AsyncClient example  async with httpx.AsyncClient() as client: resp = await client.get('http://httpbin.org/get')  resp Response [200 OK] There is some API differences when using the AsyncClient that are worth being aware of.\nAsyncClient real example I am not a python async expert so I did have some issues getting it to function as expected. When I needed to concurrently get several json endpoints worth of data a lot of experiementation was needed on my part.\nFlorimond Mancas post set out the ground work for solving my problem; I needed a way to call a list of url’s looping over the endpoint from a list id’s.\n# Florimond's example  import httpx  import asyncio  # We're going to fetch tag pages concurrently...  async def fetch(tag, client): return await client.get(f'https://dev.to/t/{tag}')  async with httpx.AsyncClient() as client: responses = await asyncio.gather( fetch('hacktoberfest', client), fetch('python', client), fetch('opensource' client), )  responses [Response [200 OK], Response [200 OK], Response [200 OK]]  urls = [r.url for r in responses]  urls [URL('https://dev.to/t/hacktoberfest'), URL('https://dev.to/t/python'), URL('https://dev.to/t/opensource')] This worked perfectly in an Ipython terminal but I needed to integrate into a sync class (swapping out the slow synchronous api call’s for a faster async version).\nMy version I needed three things:\n A method to call each endpoint, AsyncClient for executing the requests, and Something to kick off these actions.  The following is a snippet which meets all three critieria. It takes Florimond’s demonstration example and shows how it could be implemented into a real piece of callable code.\n# 1 async def fetch(item_id, client): \"\"\" Return async response object for HackerNews item. :param item_id: json id for HackerNews item :param client: httpx.AsyncClient method :return: httpx.AsyncClient response object \"\"\" return await client.get( f\"https://hacker-news.firebaseio.com/v0/item/{item_id}.json\" ) # 2 async def story_metadata(): \"\"\" Return a list of responses from the given list of HackerNews item id's. :return: list of HackerNews response objects \"\"\" _list = [23709004, 23717964, 23723433, 23725506, 23713605] async with httpx.AsyncClient() as client: responses = await asyncio.gather(*[fetch(item_id, client) for item_id in _list]) return responses # 3 def run_async_task(coro): \"\"\" A helper method to create async coroutines. :return: result set from the async function \"\"\" results = asyncio.run(coro) return results Adding async here led to a speed increase of 50% over a relatively small selection of items - it only grabs the top ten articles. The return time went from 3+ seconds to ~1.1-1.5, which is consistent with network latency rather than python synchronicity.\nWrap up Over the last month or so, whenever I have needed a requests like interface I have elected to use HTTPX instead. In this time there has been only one thing missing; a caching adapter. Previously, I would lean heavily upon requests-cache.\nApart from this, the experience has been seemless in fact I find HTTPX easier to use. It has a very active community, great leadership and highly active development. Being a relatively new package it is very possible to get involved and contribute as well.\nGist A full copy of the working code is below as well as here\n\"\"\" HackerNews module. \"\"\" import logging import asyncio from operator import itemgetter import httpx logging.basicConfig(level=logging.INFO) logger = logging.getLogger(__name__) class HackerNews: \"\"\" Get the top posts trending on HackerNews. \"\"\" def __init__(self): self.url = 'https://hacker-news.firebaseio.com/v0/topstories.json' self.container = {} self.stories = [] self.responses = [] self.run() def _resp(self): \"\"\" Return topstories.json which is just an array of post id's. \"\"\" try: resp = httpx.get(self.url) return resp.json() except TimeoutError as err: logger.error(err) except asyncio.TimeoutError as err: logger.error(err) except httpx.ConnectTimeout as err: logger.error(err) def top_ten(self): \"\"\" Return a list of the top ten HackerNews stories. :return: HackerNews list of story id's \"\"\" top_ten = [] for story_id in self._resp()[:10]: top_ten.append(story_id) return top_ten @staticmethod async def fetch(item_id, client): \"\"\" Return async response object for HackerNews item. :param item_id: json id for HackerNews item :param client: httpx.AsyncClient method :return: httpx.AsyncClient response object \"\"\" return await client.get( f\"https://hacker-news.firebaseio.com/v0/item/{item_id}.json\") async def story_metadata(self): \"\"\" Return a list of responses from the given list of HackerNews item id's. \"\"\" _list = self.top_ten() logger.debug(_list) async with httpx.AsyncClient() as client: logger.debug(client) self.responses = await asyncio.gather( *[self.fetch(id, client) for id in _list]) def run_async_task(self, coro=None): \"\"\" A helper class to create async coroutines. :param coro: a valid coroutine :return: result set from the async function \"\"\" if coro is None: coro = self.story_metadata() logger.debug(coro) results = asyncio.run(coro) return results def extract_json(self): \"\"\" Extract the response JSON and append to a list \"\"\" for data in self.responses: results = self.container = data.json() self.stories.append(results) def sort_by_score(self): \"\"\" Sort the list of HackerNews stories by score. \"\"\" self.stories = sorted(self.stories, key=itemgetter('score'), reverse=True) def run(self): \"\"\" Entry point for the class, kicking off all the methods. \"\"\" self.run_async_task(self.story_metadata()) self.extract_json() self.sort_by_score() hn = HackerNews() hn.run() from pprint import pprint pprint(hn.stories) ","wordCount":"1189","inLanguage":"en","datePublished":"2020-06-25T00:00:00Z","dateModified":"2020-06-25T00:00:00Z","author":{"@type":"Person","name":"Daniel Michaels"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://danielms.site/blog/httpx-is-the-new-requests-with-async/"},"publisher":{"@type":"Organization","name":"Daniel Michaels","logo":{"@type":"ImageObject","url":"https://danielms.site/extra/favicon.ico"}}}</script></head><body class=single id=top><script>if(localStorage.getItem("pref-theme")==="dark"){document.body.classList.add('dark');}else if(localStorage.getItem("pref-theme")==="light"){document.body.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.body.classList.add('dark');}</script><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://danielms.site/ accesskey=h>Home</a>
-<span class=logo-switches><span class=theme-toggle><a id=theme-toggle accesskey=t><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></a></span></span></div><ul class=menu id=menu onscroll=menu_on_scroll()></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>HTTPX is the new Requests with Async</h1><div class=post-meta>June 25, 2020&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Daniel Michaels</div></header><div class=toc><details><summary><div class=details accesskey=c>Table of Contents</div></summary><blockquote><ul><li><a href=#long-live-requests-welcome-httpx aria-label="Long live requests welcome HTTPX">Long live requests welcome HTTPX</a><ul><li><a href=#why-use-httpx-over-requests aria-label="Why use HTTPX over Requests?">Why use HTTPX over Requests?</a></li><li><a href=#simple-example---sync aria-label="Simple example - sync">Simple example - sync</a></li><li><a href=#client-is-the-new-session aria-label="Client is the new Session">Client is the new Session</a></li><li><a href=#asyncclient-simple aria-label="AsyncClient simple">AsyncClient simple</a></li><li><a href=#asyncclient-real-example aria-label="AsyncClient real example">AsyncClient real example</a><ul><li><a href=#my-version aria-label="My version">My version</a></li></ul></li><li><a href=#wrap-up aria-label="Wrap up">Wrap up</a><ul><li><a href=#gist aria-label=Gist>Gist</a></li></ul></li></ul></li></ul></blockquote></details></div><div class=post-content><h1 id=long-live-requests-welcome-httpx>Long live requests welcome HTTPX<a hidden class=anchor aria-hidden=true href=#long-live-requests-welcome-httpx>#</a></h1><blockquote><p>HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.</p></blockquote><p>Far and away, requests stands as <em>the</em> most notable third party package. It&rsquo;s almost considered part of what makes up python these days.
-Unfortunately, little forward progress has been made in recent times to incorporate python&rsquo;s async capabilities.</p><p>This is where HTTPX is stepping up to the plate. And it aims to be compatible with <em>most</em> of <a href=https://www.python-httpx.org/compatibility/>requests API</a>.</p><h2 id=why-use-httpx-over-requests>Why use HTTPX over Requests?<a hidden class=anchor aria-hidden=true href=#why-use-httpx-over-requests>#</a></h2><p>In addtion to async, HTTPX also supports:</p><ul><li>HTTP/2</li><li>Timeouts by default</li><li>Full type annotation (yay, code editors)</li><li>Direct requests to <a href=https://www.python-httpx.org/advanced/#calling-into-python-web-apps>WSGI</a> and <a href=https://www.python-httpx.org/async/#calling-into-python-web-apps>ASGI</a> applications</li><li>Plus, all the standard features of requests - list <a href=https://www.python-httpx.org/#features>here</a></li></ul><h2 id=simple-example---sync>Simple example - sync<a hidden class=anchor aria-hidden=true href=#simple-example---sync>#</a></h2><p>As HTTPX supports the core requests API, to do a simple get of a webpage we can use <code>httpx.get()</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> httpx
+This is where HTTPX is stepping up to the plate.">
+<meta name="author" content="Daniel Michaels">
+<link rel="canonical" href="https://danielms.site/blog/httpx-is-the-new-requests-with-async/" />
+<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
+    as="style">
 
-<span style=color:#f92672>&gt;&gt;&gt;</span> url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://httpbin.org/get&#39;</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> resp <span style=color:#f92672>=</span> httpx<span style=color:#f92672>.</span>get(url)
-<span style=color:#f92672>&gt;&gt;&gt;</span> resp<span style=color:#f92672>.</span>json()
-<span style=color:#75715e># json output cleaned up for ease of reading.</span>
-{<span style=color:#e6db74>&#39;args&#39;</span>: {},
- <span style=color:#e6db74>&#39;headers&#39;</span>: {<span style=color:#e6db74>&#39;Accept&#39;</span>: <span style=color:#e6db74>&#39;*/*&#39;</span>,
-             <span style=color:#e6db74>&#39;Accept-Encoding&#39;</span>: <span style=color:#e6db74>&#39;gzip, deflate&#39;</span>,
-             <span style=color:#e6db74>&#39;Host&#39;</span>: <span style=color:#e6db74>&#39;httpbin.org&#39;</span>,
-             <span style=color:#e6db74>&#39;User-Agent&#39;</span>: <span style=color:#e6db74>&#39;python-httpx/0.13.3&#39;</span>,
-             <span style=color:#e6db74>&#39;X-Amzn-Trace-Id&#39;</span>: <span style=color:#e6db74>&#39;Root=1-5f014d41-5cef343010793f4686d7c258&#39;</span>},
- <span style=color:#e6db74>&#39;origin&#39;</span>: <span style=color:#e6db74>&#39;19.13.3.36&#39;</span>,
- <span style=color:#e6db74>&#39;url&#39;</span>: <span style=color:#e6db74>&#39;http://httpbin.org/get&#39;</span>}
-}
-</code></pre></div><h2 id=client-is-the-new-session>Client is the new Session<a hidden class=anchor aria-hidden=true href=#client-is-the-new-session>#</a></h2><p>When using requests, if you needed to do anything more than receieve simple data then the Session instance was necessary.</p><p>HTTPX does not have a Session API instead it has <code>Client</code> and <code>AsyncClient</code> for obvious use cases.</p><p>From the HTTPX docs:</p><blockquote><p>If you do anything more than experimentation, one-off scripts, or prototypes, then you should use a Client instance.</p></blockquote><p>For more reasons why you should use <code>Client</code> read the <a href=https://www.python-httpx.org/advanced/#why-use-a-client>docs</a>. But the core reasons are:</p><ul><li>Reduced latency across requests (no handshaking).</li><li>Reduced CPU usage and round-trips.</li><li>Reduced network congestion.</li><li>Without <code>Client</code> you don&rsquo;t get HTTP/2 support</li></ul><p>To use a the <code>Client</code> interface, its recommended to use a context manager.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>Client() <span style=color:#66d9ef>as</span> client:
-    <span style=color:#f92672>...</span>
-</code></pre></div><p>To make a request with the <code>Client</code> its as simple as:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>Client() <span style=color:#66d9ef>as</span> client:
-    resp <span style=color:#f92672>=</span> httpx<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;https://httpbin.org/get&#39;</span>)
-
-<span style=color:#f92672>&gt;&gt;&gt;</span> resp
-<span style=color:#f92672>&lt;</span>Response [<span style=color:#ae81ff>200</span> OK]<span style=color:#f92672>&gt;</span>
-</code></pre></div><p>One of the really cool features is <code>base_url</code> which allows for URL prepending.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># base_url example</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>Client(base_url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://httpbin.org&#39;</span>) <span style=color:#66d9ef>as</span> client:
-    resp <span style=color:#f92672>=</span> client<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;/headers&#39;</span>)
-
-<span style=color:#f92672>&gt;&gt;&gt;</span> resp<span style=color:#f92672>.</span>request<span style=color:#f92672>.</span>headers
-Headers({<span style=color:#e6db74>&#39;host&#39;</span>: <span style=color:#e6db74>&#39;httpbin.org&#39;</span>, <span style=color:#e6db74>&#39;user-agent&#39;</span>: <span style=color:#e6db74>&#39;python-httpx/0.13.3&#39;</span>, <span style=color:#e6db74>&#39;accept&#39;</span>: <span style=color:#e6db74>&#39;*/*&#39;</span>, <span style=color:#e6db74>&#39;accept-encoding&#39;</span>: <span style=color:#e6db74>&#39;gzip, deflate&#39;</span>, <span style=color:#e6db74>&#39;connection&#39;</span>: <span style=color:#e6db74>&#39;keep-alive&#39;</span>})
-</code></pre></div><h2 id=asyncclient-simple>AsyncClient simple<a hidden class=anchor aria-hidden=true href=#asyncclient-simple>#</a></h2><p>To make an async call using the <code>Client</code> interface is as simple as adding the <code>async</code> keyword to the context manager and swapping <code>Client</code> with <code>AsyncClient</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># AsyncClient example</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> async <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>AsyncClient() <span style=color:#66d9ef>as</span> client:
-     resp <span style=color:#f92672>=</span> await client<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;http://httpbin.org/get&#39;</span>)
-<span style=color:#f92672>&gt;&gt;&gt;</span> resp
-<span style=color:#f92672>&lt;</span>Response [<span style=color:#ae81ff>200</span> OK]<span style=color:#f92672>&gt;</span>
-</code></pre></div><p>There is some API differences when using the <code>AsyncClient</code> that are worth being <a href=https://www.python-httpx.org/async/#api-differences>aware</a> of.</p><h2 id=asyncclient-real-example>AsyncClient real example<a hidden class=anchor aria-hidden=true href=#asyncclient-real-example>#</a></h2><p>I am not a python async expert so I did have some issues getting it to function as expected.
-When I needed to concurrently get several json endpoints worth of data a lot of experiementation was needed on my part.</p><p><a href=https://github.com/florimondmanca>Florimond Manca</a>s <a href=https://dev.to/florimondmanca/httpx-for-hacktoberfest-help-build-the-future-of-python-http-16pj>post</a> set out the ground work for solving my problem; I needed a way to call a list of url&rsquo;s looping over the endpoint from a list id&rsquo;s.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># Florimond&#39;s example</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> httpx
-<span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> asyncio
-<span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#75715e># We&#39;re going to fetch tag pages concurrently...</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> async <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fetch</span>(tag, client):
-        <span style=color:#66d9ef>return</span> await client<span style=color:#f92672>.</span>get(f<span style=color:#e6db74>&#39;https://dev.to/t/{tag}&#39;</span>)
-
-<span style=color:#f92672>&gt;&gt;&gt;</span> async <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>AsyncClient() <span style=color:#66d9ef>as</span> client:
-        responses <span style=color:#f92672>=</span> await asyncio<span style=color:#f92672>.</span>gather(
-            fetch(<span style=color:#e6db74>&#39;hacktoberfest&#39;</span>, client),
-            fetch(<span style=color:#e6db74>&#39;python&#39;</span>, client),
-            fetch(<span style=color:#e6db74>&#39;opensource&#39;</span> client),
-        )
-
-<span style=color:#f92672>&gt;&gt;&gt;</span> responses
-[<span style=color:#f92672>&lt;</span>Response [<span style=color:#ae81ff>200</span> OK]<span style=color:#f92672>&gt;</span>, <span style=color:#f92672>&lt;</span>Response [<span style=color:#ae81ff>200</span> OK]<span style=color:#f92672>&gt;</span>, <span style=color:#f92672>&lt;</span>Response [<span style=color:#ae81ff>200</span> OK]<span style=color:#f92672>&gt;</span>]
-<span style=color:#f92672>&gt;&gt;&gt;</span> urls <span style=color:#f92672>=</span> [r<span style=color:#f92672>.</span>url <span style=color:#66d9ef>for</span> r <span style=color:#f92672>in</span> responses]
-<span style=color:#f92672>&gt;&gt;&gt;</span> urls
-[URL(<span style=color:#e6db74>&#39;https://dev.to/t/hacktoberfest&#39;</span>),
- URL(<span style=color:#e6db74>&#39;https://dev.to/t/python&#39;</span>),
- URL(<span style=color:#e6db74>&#39;https://dev.to/t/opensource&#39;</span>)]
-</code></pre></div><p>This worked perfectly in an Ipython terminal but I needed to integrate into a sync class (swapping out the slow synchronous api call&rsquo;s for a faster async version).</p><h3 id=my-version>My version<a hidden class=anchor aria-hidden=true href=#my-version>#</a></h3><p>I needed three things:</p><ol><li>A method to call each endpoint,</li><li>AsyncClient for executing the requests, and</li><li>Something to kick off these actions.</li></ol><p>The following is a snippet which meets all three critieria. It takes Florimond&rsquo;s demonstration example and shows how it could be implemented into a real piece of callable code.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># 1</span>
-async <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fetch</span>(item_id, client):
-    <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>    Return async response object for HackerNews item.
-</span><span style=color:#e6db74>    :param item_id: json id for HackerNews item
-</span><span style=color:#e6db74>    :param client: httpx.AsyncClient method
-</span><span style=color:#e6db74>    :return: httpx.AsyncClient response object
-</span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
-    <span style=color:#66d9ef>return</span> await client<span style=color:#f92672>.</span>get(
-        f<span style=color:#e6db74>&#34;https://hacker-news.firebaseio.com/v0/item/{item_id}.json&#34;</span>
-    )
-<span style=color:#75715e># 2</span>
-async <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>story_metadata</span>():
-    <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>    Return a list of responses from the given list of HackerNews item id&#39;s.
-</span><span style=color:#e6db74>    :return: list of HackerNews response objects
-</span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
-    _list <span style=color:#f92672>=</span> [<span style=color:#ae81ff>23709004</span>, <span style=color:#ae81ff>23717964</span>, <span style=color:#ae81ff>23723433</span>, <span style=color:#ae81ff>23725506</span>, <span style=color:#ae81ff>23713605</span>]
-    async <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>AsyncClient() <span style=color:#66d9ef>as</span> client:
-        responses <span style=color:#f92672>=</span> await asyncio<span style=color:#f92672>.</span>gather(<span style=color:#f92672>*</span>[fetch(item_id, client) <span style=color:#66d9ef>for</span> item_id <span style=color:#f92672>in</span> _list])
-        <span style=color:#66d9ef>return</span> responses
-<span style=color:#75715e># 3</span>
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>run_async_task</span>(coro):
-    <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>    A helper method to create async coroutines.
-</span><span style=color:#e6db74>    :return: result set from the async function
-</span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
-    results <span style=color:#f92672>=</span> asyncio<span style=color:#f92672>.</span>run(coro)
-    <span style=color:#66d9ef>return</span> results
-</code></pre></div><p>Adding async here led to a speed increase of 50% over a relatively small selection of items - it only grabs the top ten articles. The return time went from 3+ seconds to ~1.1-1.5, which is consistent with network latency rather than python synchronicity.</p><h2 id=wrap-up>Wrap up<a hidden class=anchor aria-hidden=true href=#wrap-up>#</a></h2><p>Over the last month or so, whenever I have needed a requests like interface I have elected to use <a href=https://www.python-httpx.org/>HTTPX</a> instead.
-In this time there has been only one thing missing; a caching adapter. Previously, I would lean heavily upon <a href=https://github.com/reclosedev/requests-cache>requests-cache</a>.</p><p>Apart from this, the experience has been seemless in fact I find HTTPX easier to use.
-It has a very active <a href=https://gitter.im/encode/community>community</a>, great <a href=https://github.com/encode>leadership</a> and highly active development.
-Being a relatively new package it is very possible to get involved and contribute as well.</p><h3 id=gist>Gist<a hidden class=anchor aria-hidden=true href=#gist>#</a></h3><p>A full copy of the working code is below as well as <a href=https://gist.github.com/danielmichaels/b2ffb53736a6a9157b12ea4a1388673b>here</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>HackerNews module.
-</span><span style=color:#e6db74>&#34;&#34;&#34;</span>
-<span style=color:#f92672>import</span> logging
-
-<span style=color:#f92672>import</span> asyncio
-<span style=color:#f92672>from</span> operator <span style=color:#f92672>import</span> itemgetter
-
-<span style=color:#f92672>import</span> httpx
-
-logging<span style=color:#f92672>.</span>basicConfig(level<span style=color:#f92672>=</span>logging<span style=color:#f92672>.</span>INFO)
-logger <span style=color:#f92672>=</span> logging<span style=color:#f92672>.</span>getLogger(__name__)
+<link rel="icon" href="https://danielms.site/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
+<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.78.1" />
 
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HackerNews</span>:
-    <span style=color:#e6db74>&#34;&#34;&#34; Get the top posts trending on HackerNews. &#34;&#34;&#34;</span>
 
-    <span style=color:#66d9ef>def</span> __init__(self):
-        self<span style=color:#f92672>.</span>url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;https://hacker-news.firebaseio.com/v0/topstories.json&#39;</span>
-        self<span style=color:#f92672>.</span>container <span style=color:#f92672>=</span> {}
-        self<span style=color:#f92672>.</span>stories <span style=color:#f92672>=</span> []
-        self<span style=color:#f92672>.</span>responses <span style=color:#f92672>=</span> []
-        self<span style=color:#f92672>.</span>run()
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_resp</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34; Return topstories.json which is just an array of post id&#39;s. &#34;&#34;&#34;</span>
-        <span style=color:#66d9ef>try</span>:
-            resp <span style=color:#f92672>=</span> httpx<span style=color:#f92672>.</span>get(self<span style=color:#f92672>.</span>url)
-            <span style=color:#66d9ef>return</span> resp<span style=color:#f92672>.</span>json()
-        <span style=color:#66d9ef>except</span> TimeoutError <span style=color:#66d9ef>as</span> err:
-            logger<span style=color:#f92672>.</span>error(err)
-        <span style=color:#66d9ef>except</span> asyncio<span style=color:#f92672>.</span>TimeoutError <span style=color:#66d9ef>as</span> err:
-            logger<span style=color:#f92672>.</span>error(err)
-        <span style=color:#66d9ef>except</span> httpx<span style=color:#f92672>.</span>ConnectTimeout <span style=color:#66d9ef>as</span> err:
-            logger<span style=color:#f92672>.</span>error(err)
+</head>
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>top_ten</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Return a list of the top ten HackerNews stories.
-</span><span style=color:#e6db74>        :return: HackerNews list of story id&#39;s
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        top_ten <span style=color:#f92672>=</span> []
-        <span style=color:#66d9ef>for</span> story_id <span style=color:#f92672>in</span> self<span style=color:#f92672>.</span>_resp()[:<span style=color:#ae81ff>10</span>]:
-            top_ten<span style=color:#f92672>.</span>append(story_id)
-        <span style=color:#66d9ef>return</span> top_ten
+<body class="single" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-    <span style=color:#a6e22e>@staticmethod</span>
-    async <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fetch</span>(item_id, client):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Return async response object for HackerNews item.
-</span><span style=color:#e6db74>        :param item_id: json id for HackerNews item
-</span><span style=color:#e6db74>        :param client: httpx.AsyncClient method
-</span><span style=color:#e6db74>        :return: httpx.AsyncClient response object
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        <span style=color:#66d9ef>return</span> await client<span style=color:#f92672>.</span>get(
-            f<span style=color:#e6db74>&#34;https://hacker-news.firebaseio.com/v0/item/{item_id}.json&#34;</span>)
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    async <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>story_metadata</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Return a list of responses from the given list of HackerNews item id&#39;s.
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        _list <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>top_ten()
-        logger<span style=color:#f92672>.</span>debug(_list)
-        async <span style=color:#66d9ef>with</span> httpx<span style=color:#f92672>.</span>AsyncClient() <span style=color:#66d9ef>as</span> client:
-            logger<span style=color:#f92672>.</span>debug(client)
-            self<span style=color:#f92672>.</span>responses <span style=color:#f92672>=</span> await asyncio<span style=color:#f92672>.</span>gather(
-                <span style=color:#f92672>*</span>[self<span style=color:#f92672>.</span>fetch(id, client) <span style=color:#66d9ef>for</span> id <span style=color:#f92672>in</span> _list])
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
+            <span class="logo-switches">
+                <span class="theme-toggle">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://danielms.site/blog/">
+                    <span>
+                        Blog
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://danielms.site/about/">
+                    <span>
+                        About
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/danielmichaels">
+                    <span>
+                        Code
+                    </span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>run_async_task</span>(self, coro<span style=color:#f92672>=</span>None):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        A helper class to create async coroutines.
-</span><span style=color:#e6db74>        :param coro: a valid coroutine
-</span><span style=color:#e6db74>        :return: result set from the async function
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        <span style=color:#66d9ef>if</span> coro <span style=color:#f92672>is</span> None:
-            coro <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>story_metadata()
+    <main class="main">
 
-        logger<span style=color:#f92672>.</span>debug(coro)
-        results <span style=color:#f92672>=</span> asyncio<span style=color:#f92672>.</span>run(coro)
-        <span style=color:#66d9ef>return</span> results
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      HTTPX is the new Requests with Async
+    </h1>
+    <div class="post-meta">
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>extract_json</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Extract the response JSON and append to a list
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        <span style=color:#66d9ef>for</span> data <span style=color:#f92672>in</span> self<span style=color:#f92672>.</span>responses:
-            results <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>container <span style=color:#f92672>=</span> data<span style=color:#f92672>.</span>json()
-            self<span style=color:#f92672>.</span>stories<span style=color:#f92672>.</span>append(results)
+June 25, 2020&nbsp;·&nbsp;Daniel Michaels
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sort_by_score</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Sort the list of HackerNews stories by score.
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        self<span style=color:#f92672>.</span>stories <span style=color:#f92672>=</span> sorted(self<span style=color:#f92672>.</span>stories, key<span style=color:#f92672>=</span>itemgetter(<span style=color:#e6db74>&#39;score&#39;</span>),
-                              reverse<span style=color:#f92672>=</span>True)
+    </div>
+  </header> 
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>run</span>(self):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        Entry point for the class, kicking off all the methods.
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        self<span style=color:#f92672>.</span>run_async_task(self<span style=color:#f92672>.</span>story_metadata())
-        self<span style=color:#f92672>.</span>extract_json()
-        self<span style=color:#f92672>.</span>sort_by_score()
+  <div class="toc">
+    <details >
+      <summary>
+        <div class="details" accesskey="c">Table of Contents</div>
+      </summary>
+      <blockquote><ul><li>
+        <a href="#long-live-requests-welcome-httpx" aria-label="Long live requests welcome HTTPX">Long live requests welcome HTTPX</a><ul>
+            <li>
+        <a href="#why-use-httpx-over-requests" aria-label="Why use HTTPX over Requests?">Why use HTTPX over Requests?</a></li><li>
+        <a href="#simple-example---sync" aria-label="Simple example - sync">Simple example - sync</a></li><li>
+        <a href="#client-is-the-new-session" aria-label="Client is the new Session">Client is the new Session</a></li><li>
+        <a href="#asyncclient-simple" aria-label="AsyncClient simple">AsyncClient simple</a></li><li>
+        <a href="#asyncclient-real-example" aria-label="AsyncClient real example">AsyncClient real example</a><ul>
+            <li>
+        <a href="#my-version" aria-label="My version">My version</a></li></ul>
+    </li><li>
+        <a href="#wrap-up" aria-label="Wrap up">Wrap up</a><ul>
+            <li>
+        <a href="#gist" aria-label="Gist">Gist</a></li></ul>
+</li></ul>
+</li></ul>
+      </blockquote>
+    </details>
+  </div>
+  <div class="post-content">
+<h1 id="long-live-requests-welcome-httpx">Long live requests welcome HTTPX<a hidden class="anchor" aria-hidden="true" href="#long-live-requests-welcome-httpx">#</a></h1>
+<blockquote>
+<p>HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.</p>
+</blockquote>
+<p>Far and away, requests stands as <em>the</em> most notable third party package. It&rsquo;s almost considered part of what makes up python these days.
+Unfortunately, little forward progress has been made in recent times to incorporate python&rsquo;s async capabilities.</p>
+<p>This is where HTTPX is stepping up to the plate. And it aims to be compatible with <em>most</em> of <a href="https://www.python-httpx.org/compatibility/">requests API</a>.</p>
+<h2 id="why-use-httpx-over-requests">Why use HTTPX over Requests?<a hidden class="anchor" aria-hidden="true" href="#why-use-httpx-over-requests">#</a></h2>
+<p>In addtion to async, HTTPX also supports:</p>
+<ul>
+<li>HTTP/2</li>
+<li>Timeouts by default</li>
+<li>Full type annotation (yay, code editors)</li>
+<li>Direct requests to <a href="https://www.python-httpx.org/advanced/#calling-into-python-web-apps">WSGI</a> and <a href="https://www.python-httpx.org/async/#calling-into-python-web-apps">ASGI</a> applications</li>
+<li>Plus, all the standard features of requests - list <a href="https://www.python-httpx.org/#features">here</a></li>
+</ul>
+<h2 id="simple-example---sync">Simple example - sync<a hidden class="anchor" aria-hidden="true" href="#simple-example---sync">#</a></h2>
+<p>As HTTPX supports the core requests API, to do a simple get of a webpage we can use <code>httpx.get()</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">httpx</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/get&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="c1"># json output cleaned up for ease of reading.</span>
+<span class="p">{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;httpbin.org&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;python-httpx/0.13.3&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;X-Amzn-Trace-Id&#39;</span><span class="p">:</span> <span class="s1">&#39;Root=1-5f014d41-5cef343010793f4686d7c258&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;19.13.3.36&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://httpbin.org/get&#39;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="client-is-the-new-session">Client is the new Session<a hidden class="anchor" aria-hidden="true" href="#client-is-the-new-session">#</a></h2>
+<p>When using requests, if you needed to do anything more than receieve simple data then the Session instance was necessary.</p>
+<p>HTTPX does not have a Session API instead it has <code>Client</code> and <code>AsyncClient</code> for obvious use cases.</p>
+<p>From the HTTPX docs:</p>
+<blockquote>
+<p>If you do anything more than experimentation, one-off scripts, or prototypes, then you should use a Client instance.</p>
+</blockquote>
+<p>For more reasons why you should use <code>Client</code> read the <a href="https://www.python-httpx.org/advanced/#why-use-a-client">docs</a>. But the core reasons are:</p>
+<ul>
+<li>Reduced latency across requests (no handshaking).</li>
+<li>Reduced CPU usage and round-trips.</li>
+<li>Reduced network congestion.</li>
+<li>Without <code>Client</code> you don&rsquo;t get HTTP/2 support</li>
+</ul>
+<p>To use a the <code>Client</code> interface, its recommended to use a context manager.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div><p>To make a request with the <code>Client</code> its as simple as:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span>
+<span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span> <span class="n">OK</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div><p>One of the really cool features is <code>base_url</code> which allows for URL prepending.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># base_url example</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;http://httpbin.org&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/headers&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
+<span class="n">Headers</span><span class="p">({</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;httpbin.org&#39;</span><span class="p">,</span> <span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;python-httpx/0.13.3&#39;</span><span class="p">,</span> <span class="s1">&#39;accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span><span class="p">,</span> <span class="s1">&#39;accept-encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span> <span class="s1">&#39;connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">})</span>
+</code></pre></div><h2 id="asyncclient-simple">AsyncClient simple<a hidden class="anchor" aria-hidden="true" href="#asyncclient-simple">#</a></h2>
+<p>To make an async call using the <code>Client</code> interface is as simple as adding the <code>async</code> keyword to the context manager and swapping <code>Client</code> with <code>AsyncClient</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># AsyncClient example</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+     <span class="n">resp</span> <span class="o">=</span> <span class="n">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/get&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span>
+<span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span> <span class="n">OK</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div><p>There is some API differences when using the <code>AsyncClient</code> that are worth being <a href="https://www.python-httpx.org/async/#api-differences">aware</a> of.</p>
+<h2 id="asyncclient-real-example">AsyncClient real example<a hidden class="anchor" aria-hidden="true" href="#asyncclient-real-example">#</a></h2>
+<p>I am not a python async expert so I did have some issues getting it to function as expected.
+When I needed to concurrently get several json endpoints worth of data a lot of experiementation was needed on my part.</p>
+<p><a href="https://github.com/florimondmanca">Florimond Manca</a>s <a href="https://dev.to/florimondmanca/httpx-for-hacktoberfest-help-build-the-future-of-python-http-16pj">post</a> set out the ground work for solving my problem; I needed a way to call a list of url&rsquo;s looping over the endpoint from a list id&rsquo;s.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Florimond&#39;s example</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">httpx</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># We&#39;re going to fetch tag pages concurrently...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">async</span> <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;https://dev.to/t/{tag}&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">responses</span> <span class="o">=</span> <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+            <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;hacktoberfest&#39;</span><span class="p">,</span> <span class="n">client</span><span class="p">),</span>
+            <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">client</span><span class="p">),</span>
+            <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;opensource&#39;</span> <span class="n">client</span><span class="p">),</span>
+        <span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">responses</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span> <span class="n">OK</span><span class="p">]</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span> <span class="n">OK</span><span class="p">]</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span> <span class="n">OK</span><span class="p">]</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">url</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">urls</span>
+<span class="p">[</span><span class="n">URL</span><span class="p">(</span><span class="s1">&#39;https://dev.to/t/hacktoberfest&#39;</span><span class="p">),</span>
+ <span class="n">URL</span><span class="p">(</span><span class="s1">&#39;https://dev.to/t/python&#39;</span><span class="p">),</span>
+ <span class="n">URL</span><span class="p">(</span><span class="s1">&#39;https://dev.to/t/opensource&#39;</span><span class="p">)]</span>
+</code></pre></div><p>This worked perfectly in an Ipython terminal but I needed to integrate into a sync class (swapping out the slow synchronous api call&rsquo;s for a faster async version).</p>
+<h3 id="my-version">My version<a hidden class="anchor" aria-hidden="true" href="#my-version">#</a></h3>
+<p>I needed three things:</p>
+<ol>
+<li>A method to call each endpoint,</li>
+<li>AsyncClient for executing the requests, and</li>
+<li>Something to kick off these actions.</li>
+</ol>
+<p>The following is a snippet which meets all three critieria. It takes Florimond&rsquo;s demonstration example and shows how it could be implemented into a real piece of callable code.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 1</span>
+<span class="n">async</span> <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Return async response object for HackerNews item.
+</span><span class="s2">    :param item_id: json id for HackerNews item
+</span><span class="s2">    :param client: httpx.AsyncClient method
+</span><span class="s2">    :return: httpx.AsyncClient response object
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">f</span><span class="s2">&#34;https://hacker-news.firebaseio.com/v0/item/{item_id}.json&#34;</span>
+    <span class="p">)</span>
+<span class="c1"># 2</span>
+<span class="n">async</span> <span class="k">def</span> <span class="nf">story_metadata</span><span class="p">():</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Return a list of responses from the given list of HackerNews item id&#39;s.
+</span><span class="s2">    :return: list of HackerNews response objects
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23709004</span><span class="p">,</span> <span class="mi">23717964</span><span class="p">,</span> <span class="mi">23723433</span><span class="p">,</span> <span class="mi">23725506</span><span class="p">,</span> <span class="mi">23713605</span><span class="p">]</span>
+    <span class="n">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">responses</span> <span class="o">=</span> <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">fetch</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="k">for</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">_list</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">responses</span>
+<span class="c1"># 3</span>
+<span class="k">def</span> <span class="nf">run_async_task</span><span class="p">(</span><span class="n">coro</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    A helper method to create async coroutines.
+</span><span class="s2">    :return: result set from the async function
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">coro</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div><p>Adding async here led to a speed increase of 50% over a relatively small selection of items - it only grabs the top ten articles. The return time went from 3+ seconds to ~1.1-1.5, which is consistent with network latency rather than python synchronicity.</p>
+<h2 id="wrap-up">Wrap up<a hidden class="anchor" aria-hidden="true" href="#wrap-up">#</a></h2>
+<p>Over the last month or so, whenever I have needed a requests like interface I have elected to use <a href="https://www.python-httpx.org/">HTTPX</a> instead.
+In this time there has been only one thing missing; a caching adapter. Previously, I would lean heavily upon <a href="https://github.com/reclosedev/requests-cache">requests-cache</a>.</p>
+<p>Apart from this, the experience has been seemless in fact I find HTTPX easier to use.
+It has a very active <a href="https://gitter.im/encode/community">community</a>, great <a href="https://github.com/encode">leadership</a> and highly active development.
+Being a relatively new package it is very possible to get involved and contribute as well.</p>
+<h3 id="gist">Gist<a hidden class="anchor" aria-hidden="true" href="#gist">#</a></h3>
+<p>A full copy of the working code is below as well as <a href="https://gist.github.com/danielmichaels/b2ffb53736a6a9157b12ea4a1388673b">here</a></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="s2">&#34;&#34;&#34;
+</span><span class="s2">HackerNews module.
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="kn">import</span> <span class="nn">httpx</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">HackerNews</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34; Get the top posts trending on HackerNews. &#34;&#34;&#34;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://hacker-news.firebaseio.com/v0/topstories.json&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stories</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_resp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34; Return topstories.json which is just an array of post id&#39;s. &#34;&#34;&#34;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">TimeoutError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">httpx</span><span class="o">.</span><span class="n">ConnectTimeout</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">top_ten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Return a list of the top ten HackerNews stories.
+</span><span class="s2">        :return: HackerNews list of story id&#39;s
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">top_ten</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">story_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resp</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]:</span>
+            <span class="n">top_ten</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">story_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">top_ten</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="n">async</span> <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Return async response object for HackerNews item.
+</span><span class="s2">        :param item_id: json id for HackerNews item
+</span><span class="s2">        :param client: httpx.AsyncClient method
+</span><span class="s2">        :return: httpx.AsyncClient response object
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="k">return</span> <span class="n">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">f</span><span class="s2">&#34;https://hacker-news.firebaseio.com/v0/item/{item_id}.json&#34;</span><span class="p">)</span>
+
+    <span class="n">async</span> <span class="k">def</span> <span class="nf">story_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Return a list of responses from the given list of HackerNews item id&#39;s.
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_ten</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_list</span><span class="p">)</span>
+        <span class="n">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">_list</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">run_async_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coro</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        A helper class to create async coroutines.
+</span><span class="s2">        :param coro: a valid coroutine
+</span><span class="s2">        :return: result set from the async function
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="k">if</span> <span class="n">coro</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">coro</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">story_metadata</span><span class="p">()</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">coro</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">coro</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span>
+
+    <span class="k">def</span> <span class="nf">extract_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Extract the response JSON and append to a list
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">responses</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">sort_by_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Sort the list of HackerNews stories by score.
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stories</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">),</span>
+                              <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Entry point for the class, kicking off all the methods.
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_async_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">story_metadata</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_json</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort_by_score</span><span class="p">()</span>
         
         
-hn <span style=color:#f92672>=</span> HackerNews()
-hn<span style=color:#f92672>.</span>run()
-<span style=color:#f92672>from</span> pprint <span style=color:#f92672>import</span> pprint
-pprint(hn<span style=color:#f92672>.</span>stories)
-</code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://danielms.site/tags/python>python</a></li><li><a href=https://danielms.site/tags/programming>programming</a></li></ul><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on twitter" href="https://twitter.com/intent/tweet/?text=HTTPX%20is%20the%20new%20Requests%20with%20Async&url=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f&hashtags=python%2cprogramming"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-253.927 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f&title=HTTPX%20is%20the%20new%20Requests%20with%20Async&summary=HTTPX%20is%20the%20new%20Requests%20with%20Async&source=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0v-129.439c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02v-126.056c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768h75.024zm-307.552-334.556c-25.674.0-42.448 16.879-42.448 39.002.0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f&title=HTTPX%20is%20the%20new%20Requests%20with%20Async"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zm-119.474 108.193c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zm-160.386-29.702c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978v-192.915h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on whatsapp" href="https://api.whatsapp.com/send?text=HTTPX%20is%20the%20new%20Requests%20with%20Async%20-%20https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23-13.314-11.876-22.304-26.542-24.916-31.026s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share HTTPX is the new Requests with Async on telegram" href="https://telegram.me/share/url?text=HTTPX%20is%20the%20new%20Requests%20with%20Async&url=https%3a%2f%2fdanielms.site%2fblog%2fhttpx-is-the-new-requests-with-async%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47A3.38 3.38.0 0126.49 29.86zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>&copy; 2020 <a href=https://danielms.site/>Daniel Michaels</a></span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top" accesskey=g><button class=top-link id=top-link type=button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w=" onload=hljs.initHighlightingOnLoad();></script><script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});});});var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{if(document.body.className.includes("dark")){document.body.classList.remove('dark');localStorage.setItem("pref-theme",'light');}else{document.body.classList.add('dark');localStorage.setItem("pref-theme",'dark');}})</script></body></html>
+<span class="n">hn</span> <span class="o">=</span> <span class="n">HackerNews</span><span class="p">()</span>
+<span class="n">hn</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">hn</span><span class="o">.</span><span class="n">stories</span><span class="p">)</span>
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://danielms.site/tags/python">python</a></li>
+      <li><a href="https://danielms.site/tags/programming">programming</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
+    <button class="top-link" id="top-link" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

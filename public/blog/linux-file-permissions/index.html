@@ -1,72 +1,292 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Linux file permissions | Daniel Michaels</title><meta name=keywords content="linux"><meta name=description content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
-Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file."><meta name=author content="Daniel Michaels"><link rel=canonical href=https://danielms.site/blog/linux-file-permissions/><meta name=google-site-verification content="XYZabc"><link href=https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet" as=style><link rel=icon href=https://danielms.site/extra/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://danielms.site/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.78.1"><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-149607103-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="Linux file permissions"><meta property="og:description" content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
-Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file."><meta property="og:type" content="article"><meta property="og:url" content="https://danielms.site/blog/linux-file-permissions/"><meta property="og:image" content="https://danielms.site/105"><meta property="article:published_time" content="2018-02-04T00:00:00+00:00"><meta property="article:modified_time" content="2018-02-04T00:00:00+00:00"><meta property="og:site_name" content="Daniel Michaels"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://danielms.site/105"><meta name=twitter:title content="Linux file permissions"><meta name=twitter:description content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
-Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Linux file permissions","name":"Linux file permissions","description":"Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or …","keywords":["linux"],"articleBody":"Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!\nChmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.txt In the above example output from left to right we have: filemode, number of links, user, group, size, date last modified, name of file.\nWe will focus on the filemode for now.\ndrwxr-xr-x 0123456789  0: is either - meaning a file, or d signifying that it is a directory.\n1-3: represents the user or owner of the file.\n4-6: is reference to the group that owns the file.\n7-9: everybody else, or other.\nChange the filemodes:\nThe command chmod is used to change the mode files of files. Its basic syntax is as follows:\nIn chmod u+x file.txt the u signifies user and the + means add and the x refers to execute. This can be stacked, and used to takeaway permissions.\nchmod -R g+rwx directory would recursively (-R) change all group files within directory to read, write and execute.\nImportantly, if the user or group does not own the file or directory then the command sudo must be used. Otherwise it is not needed.\nOctal:\nIn the above examples we used rwx to note what permissions we wanted to add or remove from a file. Another method is to use the octal notation; numeral.\nchmod 777 file.txt would mean that we are giving rwx to user, group and other. How does 7 equal rwx?\nThis is because 4 gives read access, 2 is write and 1, execute. When using octal we add the numbers together, so if we wanted read, write and execute we simply add 4,2,1 which equals 7.\nchmod 765 xxx.txt would mean: - user: read, write and execute -group: read and write - other: read and execute\nUsing this is very simple, but how do I remove permissions? Previously, we would chmod u-x i.e. we used the - to signify removal of privilege. Using octal we just set new filemode to what we want and it will add or subtract the mode accordingly. An example below:\nchmod a+rwx == give read, write and execute to all (user,group a)nd other) or 777.\nBut if we only wanted the user to have rwx and everyone else read and write we could call: chmod 755. To use non-octal here would be chmod go-x.\nImportant note: As with all things linux there are many more advanced features. We are just touching the surface here.\nChown: Change File Owner and Group The chown command deals with changing the ownership of files and directories.\ndrwxrwxr-x 1 test users 14.0K Jan 21 12:14 dir_1 -rw-r--r-- 1 admin root 16 Feb 1 14:29 file.txt [filemode] [owner] [grp]  Above we have a break down of the important parts of our ls -la output.\nIn the faked output we have admin in the first position which is representing the owner/ creator of file.txt. In postilion two we have the group that file.txt belongs to, in this case its root.\nThe owner of a file can make changes to the filemode and ownership of a file without super user privileges. However, if another user wanted to change the ownership they would require this access.\nTo make a change is as simple as chown [user]:[group] [file/s].\n$ sudo chown root file.txt # 1. $ ls -l -rw-r--r-- 1 root root 16 Feb 1 14:29 file.txt  The simplest usage of chown is the command plus the new owner and file or directory to be affected.\n$ sudo chown -R admin dir_1 # 2. $ ls -l drwxrwxr-x 1 admin users 14.0K Jan 21 12:14 dir_1  If we wanted to make the changes to all files and directories inside a directory we can add -R. This is a recursive function with the same syntax as chmod.\n$ sudo chown admin:admin file.txt $ ls -l -rw-r--r-- 1 admin admin 16 Feb 1 14:29 file.txt  To specify a new owner and group the use of : between the owner and group can be used. admin:users, root:root and so on.\n","wordCount":"743","inLanguage":"en","datePublished":"2018-02-04T00:00:00Z","dateModified":"2018-02-04T00:00:00Z","author":{"@type":"Person","name":"Daniel Michaels"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://danielms.site/blog/linux-file-permissions/"},"publisher":{"@type":"Organization","name":"Daniel Michaels","logo":{"@type":"ImageObject","url":"https://danielms.site/extra/favicon.ico"}}}</script></head><body class=single id=top><script>if(localStorage.getItem("pref-theme")==="dark"){document.body.classList.add('dark');}else if(localStorage.getItem("pref-theme")==="light"){document.body.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.body.classList.add('dark');}</script><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://danielms.site/ accesskey=h>Home</a>
-<span class=logo-switches><span class=theme-toggle><a id=theme-toggle accesskey=t><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></a></span></span></div><ul class=menu id=menu onscroll=menu_on_scroll()></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>Linux file permissions</h1><div class=post-meta>February 4, 2018&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Daniel Michaels</div></header><div class=post-content><h2 id=linux-chmod-and-chown>Linux: Chmod and Chown<a hidden class=anchor aria-hidden=true href=#linux-chmod-and-chown>#</a></h2><p>This is a short introduction to basic Linux file permissions and how to set them correctly.
-As a beginner, junior or experienced developer and/or administrator, you are going to need this!</p><h3 id=chmod-change-file-mode-bits><strong>Chmod: Change File Mode Bits</strong><a hidden class=anchor aria-hidden=true href=#chmod-change-file-mode-bits>#</a></h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>15:45:18 user@example temporary 
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=" robots" content="noindex, nofollow">
+<title>Linux file permissions | Daniel Michaels | Software Developer</title>
+
+<meta name="keywords" content="linux" />
+<meta name="description" content="Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.">
+<meta name="author" content="Daniel Michaels">
+<link rel="canonical" href="https://danielms.site/blog/linux-file-permissions/" />
+<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://danielms.site/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
+<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.78.1" />
+
+
+
+
+</head>
+
+<body class="single" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
+            <span class="logo-switches">
+                <span class="theme-toggle">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://danielms.site/blog/">
+                    <span>
+                        Blog
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://danielms.site/about/">
+                    <span>
+                        About
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/danielmichaels">
+                    <span>
+                        Code
+                    </span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      Linux file permissions
+    </h1>
+    <div class="post-meta">
+
+February 4, 2018&nbsp;·&nbsp;Daniel Michaels
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<h2 id="linux-chmod-and-chown">Linux: Chmod and Chown<a hidden class="anchor" aria-hidden="true" href="#linux-chmod-and-chown">#</a></h2>
+<p>This is a short introduction to basic Linux file permissions and how to set them correctly.
+As a beginner, junior or experienced developer and/or administrator, you are going to need this!</p>
+<h3 id="chmod-change-file-mode-bits"><strong>Chmod: Change File Mode Bits</strong><a hidden class="anchor" aria-hidden="true" href="#chmod-change-file-mode-bits">#</a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">15:45:18 user@example temporary 
 total 12K
-drwxr-xr-x  <span style=color:#ae81ff>2</span> test users 4.0K Feb  <span style=color:#ae81ff>1</span> 14:29 .
-drwx------ <span style=color:#ae81ff>33</span> test users 4.0K Feb  <span style=color:#ae81ff>3</span> 15:45 ..
--rw-r--r--  <span style=color:#ae81ff>1</span> test users    <span style=color:#ae81ff>0</span> Jan <span style=color:#ae81ff>21</span> 12:14 <span style=color:#ae81ff>1</span>
--rw-r--r--  <span style=color:#ae81ff>1</span> test users    <span style=color:#ae81ff>0</span> Jan <span style=color:#ae81ff>21</span> 12:14 <span style=color:#ae81ff>3</span>
--rw-r--r--  <span style=color:#ae81ff>1</span> test users   <span style=color:#ae81ff>16</span> Feb  <span style=color:#ae81ff>1</span> 14:29 file.txt
+drwxr-xr-x  <span class="m">2</span> <span class="nb">test</span> users 4.0K Feb  <span class="m">1</span> 14:29 .
+drwx------ <span class="m">33</span> <span class="nb">test</span> users 4.0K Feb  <span class="m">3</span> 15:45 ..
+-rw-r--r--  <span class="m">1</span> <span class="nb">test</span> users    <span class="m">0</span> Jan <span class="m">21</span> 12:14 <span class="m">1</span>
+-rw-r--r--  <span class="m">1</span> <span class="nb">test</span> users    <span class="m">0</span> Jan <span class="m">21</span> 12:14 <span class="m">3</span>
+-rw-r--r--  <span class="m">1</span> <span class="nb">test</span> users   <span class="m">16</span> Feb  <span class="m">1</span> 14:29 file.txt
 </code></pre></div><p>In the above example output from left to right we have: filemode, number
-of links, user, group, size, date last modified, name of file.</p><p>We will focus on the filemode for now.</p><pre><code>drwxr-xr-x
+of links, user, group, size, date last modified, name of file.</p>
+<p>We will focus on the filemode for now.</p>
+<pre><code>drwxr-xr-x
 0123456789 &lt;-- this is our reference marker.
-</code></pre><p>0: is either <code>-</code> meaning a file, or <code>d</code>
-signifying that it is a directory.</p><p>1-3: represents the user or owner of the file.</p><p>4-6: is reference to the group that owns the file.</p><p>7-9: everybody else, or other.</p><p><strong>Change the filemodes:</strong></p><p>The command <code>chmod</code> is used to change the mode files of
-files. Its basic syntax is as follows:</p><p>In <code>chmod u+x file.txt</code> the <code>u</code> signifies <code>user</code> and the <code>+</code>
+</code></pre>
+<p>0: is either <code>-</code> meaning a file, or <code>d</code>
+signifying that it is a directory.</p>
+<p>1-3: represents the user or owner of the file.</p>
+<p>4-6: is reference to the group that owns the file.</p>
+<p>7-9: everybody else, or other.</p>
+<p><strong>Change the filemodes:</strong></p>
+<p>The command <code>chmod</code> is used to change the mode files of
+files. Its basic syntax is as follows:</p>
+<p>In <code>chmod u+x file.txt</code> the <code>u</code> signifies <code>user</code> and the <code>+</code>
 means add and the <code>x</code> refers to execute. This can be
-stacked, and used to takeaway permissions.</p><p><code>chmod -R g+rwx directory</code> would recursively
+stacked, and used to takeaway permissions.</p>
+<p><code>chmod -R g+rwx directory</code> would recursively
 (<code>-R</code>) change all <code>group</code> files within
-<code>directory</code> to read, write and execute.</p><p>Importantly, if the user or group <strong>does not</strong> own the file or directory
+<code>directory</code> to read, write and execute.</p>
+<p>Importantly, if the user or group <strong>does not</strong> own the file or directory
 then the command <code>sudo</code> must be used. Otherwise it is not
-needed.</p><p><strong>Octal:</strong></p><p>In the above examples we used <code>rwx</code> to note what
+needed.</p>
+<p><strong>Octal:</strong></p>
+<p>In the above examples we used <code>rwx</code> to note what
 permissions we wanted to add or remove from a file. Another method is to
-use the <em>octal</em> notation; numeral.</p><p><code>chmod 777 file.txt</code> would mean that we are giving
+use the <em>octal</em> notation; numeral.</p>
+<p><code>chmod 777 file.txt</code> would mean that we are giving
 <code>rwx</code> to user, group and other. How does 7 equal
-<code>rwx</code>?</p><p>This is because <code>4</code> gives read access, <code>2</code> is
+<code>rwx</code>?</p>
+<p>This is because <code>4</code> gives read access, <code>2</code> is
 write and <code>1</code>, execute. When using octal we add the numbers
 together, so if we wanted read, write and execute we simply add 4,2,1
-which equals 7.</p><p><code>chmod 765 xxx.txt</code> would mean: - user: read, write and
-execute -group: read and write - other: read and execute</p><p>Using this is very simple, but how do I remove permissions? Previously,
+which equals 7.</p>
+<p><code>chmod 765 xxx.txt</code> would mean: - user: read, write and
+execute -group: read and write - other: read and execute</p>
+<p>Using this is very simple, but how do I remove permissions? Previously,
 we would <code>chmod u-x</code> i.e. we used the <code>-</code> to
 signify removal of privilege. Using octal we just set new filemode to
 what we want and it will add or subtract the mode accordingly. An
-example below:</p><p><code>chmod a+rwx</code> == give read, write and execute to all
-(user,group a)nd other) <em>or</em> <code>777</code>.</p><p>But if we only wanted the user to have <code>rwx</code> and everyone
+example below:</p>
+<p><code>chmod a+rwx</code> == give read, write and execute to all
+(user,group a)nd other) <em>or</em> <code>777</code>.</p>
+<p>But if we only wanted the user to have <code>rwx</code> and everyone
 else read and write we could call: <code>chmod 755</code>. To use
-non-octal here would be <code>chmod go-x</code>.</p><p>Important note: As with all things linux there are many more advanced
-features. We are just touching the surface here.</p><h3 id=chown-change-file-owner-and-group>Chown: Change File Owner and Group<a hidden class=anchor aria-hidden=true href=#chown-change-file-owner-and-group>#</a></h3><p>The <code>chown</code> command deals with changing the ownership of
-files and directories.</p><pre><code>drwxrwxr-x  1 test users 14.0K Jan 21 12:14 dir_1
+non-octal here would be <code>chmod go-x</code>.</p>
+<p>Important note: As with all things linux there are many more advanced
+features. We are just touching the surface here.</p>
+<h3 id="chown-change-file-owner-and-group">Chown: Change File Owner and Group<a hidden class="anchor" aria-hidden="true" href="#chown-change-file-owner-and-group">#</a></h3>
+<p>The <code>chown</code> command deals with changing the ownership of
+files and directories.</p>
+<pre><code>drwxrwxr-x  1 test users 14.0K Jan 21 12:14 dir_1
 
 -rw-r--r--  1   admin   root   16 Feb  1 14:29 file.txt
 [filemode]     [owner] [grp]  
-</code></pre><p>Above we have a break down of the important parts of our
-<code>ls -la</code> output.</p><p>In the faked output we have <code>admin</code> in the first position
+</code></pre>
+<p>Above we have a break down of the important parts of our
+<code>ls -la</code> output.</p>
+<p>In the faked output we have <code>admin</code> in the first position
 which is representing the owner/ creator of <code>file.txt</code>. In
 postilion two we have the group that <code>file.txt</code> belongs to,
-in this case its <code>root</code>.</p><p>The owner of a file can make changes to the filemode and ownership of a
+in this case its <code>root</code>.</p>
+<p>The owner of a file can make changes to the filemode and ownership of a
 file without super user privileges. However, if another user wanted to
-change the ownership they would require this access.</p><p>To make a change is as simple as
-<code>chown [user]:[group] [file/s]</code>.</p><pre><code>$ sudo chown root file.txt # 1.
+change the ownership they would require this access.</p>
+<p>To make a change is as simple as
+<code>chown [user]:[group] [file/s]</code>.</p>
+<pre><code>$ sudo chown root file.txt # 1.
 $ ls -l 
 -rw-r--r--  1 root root   16 Feb  1 14:29 file.txt
-</code></pre><p>The simplest usage of <code>chown</code> is the command plus the new
-owner and file or directory to be affected.</p><pre><code>$ sudo chown -R admin dir_1 # 2.
+</code></pre>
+<p>The simplest usage of <code>chown</code> is the command plus the new
+owner and file or directory to be affected.</p>
+<pre><code>$ sudo chown -R admin dir_1 # 2.
 $ ls -l
 drwxrwxr-x  1 admin users 14.0K Jan 21 12:14 dir_1
-</code></pre><p>If we wanted to make the changes to all files and directories inside a
+</code></pre>
+<p>If we wanted to make the changes to all files and directories inside a
 directory we can add <code>-R</code>. This is a recursive function
-with the same syntax as <code>chmod</code>.</p><pre><code>$ sudo chown admin:admin file.txt 
+with the same syntax as <code>chmod</code>.</p>
+<pre><code>$ sudo chown admin:admin file.txt 
 $ ls -l
 -rw-r--r--  1 admin admin   16 Feb  1 14:29 file.txt
-</code></pre><p>To specify a new owner and group the use of <code>:</code> between the
+</code></pre>
+<p>To specify a new owner and group the use of <code>:</code> between the
 owner and group can be used. <code>admin:users</code>, <code>root:root</code>
-and so on.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://danielms.site/tags/linux>linux</a></li></ul><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on twitter" href="https://twitter.com/intent/tweet/?text=Linux%20file%20permissions&url=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f&hashtags=linux"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-253.927 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f&title=Linux%20file%20permissions&summary=Linux%20file%20permissions&source=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0v-129.439c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02v-126.056c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768h75.024zm-307.552-334.556c-25.674.0-42.448 16.879-42.448 39.002.0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f&title=Linux%20file%20permissions"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zm-119.474 108.193c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zm-160.386-29.702c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978v-192.915h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on whatsapp" href="https://api.whatsapp.com/send?text=Linux%20file%20permissions%20-%20https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512h-386.892c-34.524.0-62.554-28.03-62.554-62.554v-386.892c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23-13.314-11.876-22.304-26.542-24.916-31.026s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Linux file permissions on telegram" href="https://telegram.me/share/url?text=Linux%20file%20permissions&url=https%3a%2f%2fdanielms.site%2fblog%2flinux-file-permissions%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47A3.38 3.38.0 0126.49 29.86zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>&copy; 2020 <a href=https://danielms.site/>Daniel Michaels</a></span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top" accesskey=g><button class=top-link id=top-link type=button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w=" onload=hljs.initHighlightingOnLoad();></script><script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});});});var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{if(document.body.className.includes("dark")){document.body.classList.remove('dark');localStorage.setItem("pref-theme",'light');}else{document.body.classList.add('dark');localStorage.setItem("pref-theme",'dark');}})</script></body></html>
+and so on.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://danielms.site/tags/linux">linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
+    <button class="top-link" id="top-link" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

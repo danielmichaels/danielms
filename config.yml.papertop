@@ -5,6 +5,7 @@ theme: hugo-PaperMod
 contentdir: "content"
 layoutdir: "layouts"
 publishdir: "public"
+canonifyurls: true
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -14,7 +15,7 @@ buildExpired: false
 googleAnalytics: UA-149607103-1
 
 minify:
-    disableXML: true
+    # disableXML: true
     minifyOutput: true
 
 params:

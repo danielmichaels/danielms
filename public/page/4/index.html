@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=" robots" content="noindex, nofollow">
+<title>Daniel Michaels | Software Developer</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="Another tech blog. I create content for myself on topics such as programming, security, networking and any other interesting subjects.">
+<meta name="author" content="Daniel Michaels">
+<link rel="canonical" href="https://danielms.site/" />
+<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://danielms.site/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
+<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.78.1" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://danielms.site/index.xml">
+
+
+
+
+</head>
+
+<body class="list home" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
+            <span class="logo-switches">
+                <span class="theme-toggle">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://danielms.site/blog/">
+                    <span>
+                        Blog
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://danielms.site/about/">
+                    <span>
+                        About
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/danielmichaels">
+                    <span>
+                        Code
+                    </span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main"> 
+
+
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Scapy Snippets
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal caveat: currently only tested on Ralink: RT5370 chipset...</p>
+  </section>
+  <footer class="entry-footer">
+
+February 28, 2018&nbsp;·&nbsp;Daniel Michaels
+</footer>
+  <a class="entry-link" aria-label="post link to Scapy Snippets" href="https://danielms.site/blog/scapy-snippets/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Linux file permissions
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
+Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 4, 2018&nbsp;·&nbsp;Daniel Michaels
+</footer>
+  <a class="entry-link" aria-label="post link to Linux file permissions" href="https://danielms.site/blog/linux-file-permissions/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      SSH in a nutshell
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>SSH Definition Straight from the man pages:
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
+Setup (Old School Method) On a new machine we need to setup up ssh....</p>
+  </section>
+  <footer class="entry-footer">
+
+January 28, 2018&nbsp;·&nbsp;Daniel Michaels
+</footer>
+  <a class="entry-link" aria-label="post link to SSH in a nutshell" href="https://danielms.site/blog/ssh-in-a-nutshell/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Rsync cheatsheet
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>This is a short primer on the most simple of rsync’s capabilities.
+Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
+Basic Syntax -r: The ‘r’ flag denotes that the operation is recursive....</p>
+  </section>
+  <footer class="entry-footer">
+
+January 24, 2018&nbsp;·&nbsp;Daniel Michaels
+</footer>
+  <a class="entry-link" aria-label="post link to Rsync cheatsheet" href="https://danielms.site/blog/rsync-cheatsheet/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://danielms.site/page/3/">« Prev Page</a>
+  </nav>
+</footer>
+
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
+    <button class="top-link" id="top-link" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+    </button>
+</a>
+
+
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
