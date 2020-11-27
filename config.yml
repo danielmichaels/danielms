@@ -1,7 +1,10 @@
-baseURL: "https://danielms.site"
+baseURL: "https://danielms.site/"
 title: Daniel Michaels
 paginate: 10
 theme: hugo-PaperMod
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -19,6 +22,7 @@ params:
     title: Daniel Michaels
     description: "Another tech blog. I create content for myself on topics such as programming, security, networking and any other interesting subjects."
     author: Daniel Michaels
+    cachebuster: true
     # author: ["Me", "You"] # multiple authors
 
     images: "images"
@@ -30,8 +34,6 @@ params:
     defaultTheme: auto
     disableThemeToggle: false
     disableSpecial1stPost: false
-    ShowToc: true
-    OpenToc: true
 
     assets:
         favicon: "extra/favicon.ico"
