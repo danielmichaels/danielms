@@ -1,6 +1,6 @@
 
 +++
-title = "Easy creation of poetry from requirements.txt"
+title = "From requirements.txt to poetry's pyproject.toml"
 categories = ["python"]
 tags = ["python", "poetry"]
 slug = "requirements-txt-to-poetry-pyproject-toml"

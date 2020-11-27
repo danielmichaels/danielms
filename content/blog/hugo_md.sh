@@ -14,7 +14,7 @@ ShowToc = \"true\"
 +++
 "
 
-DATE=$(date +"%Y%m%d")
+DATE=$(date +"%y%m%d")
 FILENAME=$DATE'-'$1.md
 FILE=$FILENAME
 
