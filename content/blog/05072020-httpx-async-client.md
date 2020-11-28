@@ -6,7 +6,7 @@ tags = ["python","programming"]
 slug = "httpx-is-the-new-requests-with-async"
 date = "2020-06-25"
 draft = "false"
-ShowToc = true
+weight = 1
 +++
 
 # Long live requests welcome HTTPX
@@ -203,8 +203,8 @@ Being a relatively new package it is very possible to get involved and contribut
 
 A full copy of the working code is below as well as [here][12]
 
-<!-- {{< gist danielmichaels b2ffb53736a6a9157b12ea4a1388673b >}} -->
-```python
+{{< gist danielmichaels b2ffb53736a6a9157b12ea4a1388673b >}}
+<!-- ```python
 """
 HackerNews module.
 """
@@ -314,7 +314,7 @@ hn = HackerNews()
 hn.run()
 from pprint import pprint
 pprint(hn.stories)
-```
+``` -->
 
 [0]: https://www.python-httpx.org/compatibility/
 [1]: https://www.python-httpx.org/advanced/#calling-into-python-web-apps
