@@ -1,7 +1,7 @@
 baseURL = "https://danielms.site/"
 languageCode = "en"
 DefaultContentLanguage = "en"
-title = "Daniel Michaels"
+title = "Daniel Michaels | Developer | Entrepreneur | Veteran"
 theme = "anatole"
 summarylength = 10
 enableEmoji = true
@@ -24,8 +24,8 @@ author = "Daniel Michaels"
 copyright = "2018-2021"
 description = "I build things and drink coffee."
 profilePicture = "extra/cover.jpeg"
-keywords = "Software, python"
-favicon = "extra/favicon.ico"
+keywords = "software, python, javascript, entrepreneur, retrospectives, indie hacker"
+favicon = "favicons/"
 # example ["css/custom.css"]
 customCss = []
 # example ["js/custom.js"]
@@ -108,7 +108,9 @@ url = "/about/"
 
 ## Taxonomies for Opengraph
 [taxonomies]
-series = "series"
+series = "series" # lets you link multiple posts such as a 'series'!
+category = "categories"
+tag = "tags"
 
 # Syntax highlighting
 pygmentsUseClasses = true
