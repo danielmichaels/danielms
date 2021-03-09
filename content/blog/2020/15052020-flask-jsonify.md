@@ -1,6 +1,6 @@
 
 +++
-title = "Flask Series: Jsonify"
+title = "Flask's jsonify in 2020"
 categories = ["python", "flask"]
 tags = ["flask", "python"]
 slug = "flask-jsonify-you-dont-need-it"
