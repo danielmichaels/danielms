@@ -1,131 +1,176 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" data-theme=""><head>
+    <title> Daniel Michaels | Defending your apps </title>
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name=" robots" content="noindex, nofollow">
-<title>Defending your apps | Daniel Michaels | Software Developer</title>
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="I build things and drink coffee.">
+    
+    <link rel="stylesheet"
+          href="https://danielms.site/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
+          integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://danielms.site/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
 
-<meta name="keywords" content="web, security" />
-<meta name="description" content="Web Application Defence Mechanisms  one rule; do not trust user input.
- Core defences The methods by which we can defend against attackers.
- Handling user access Handling user input Handling attacks or ensuring that the application works as intended when being directly targeted, and Handling the application itself so everything can be monitored, and configured correctly  User Access In most applications that have users, there will be several privileges or roles within the user space.">
-<meta name="author" content="Daniel Michaels">
-<link rel="canonical" href="https://danielms.site/blog/defence-mechanisms-for-web-apps/" />
-<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
-    as="style">
+    
+    <link rel="shortcut icon" href="https://danielms.site/extra/favicon.icofavicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://danielms.site/extra/favicon.icoapple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/extra/favicon.icofavicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/extra/favicon.icofavicon-16x16.png">
 
-<link rel="icon" href="https://danielms.site/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
-<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.78.1" />
+    <link rel="canonical" href="https://danielms.site/blog/defence-mechanisms-for-web-apps/">
 
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://danielms.site/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
 
 
+    
+        
+        
+        <script type="text/javascript"
+                src="https://danielms.site/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Defending your apps"/>
+<meta name="twitter:description" content="Web Application Defence Mechanisms  one rule; do not trust user input."/>
+
+
+    
+    <meta property="og:title" content="Defending your apps" />
+<meta property="og:description" content="Web Application Defence Mechanisms  one rule; do not trust user input." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/defence-mechanisms-for-web-apps/" />
+<meta property="article:published_time" content="2019-10-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-19T00:00:00+00:00" /><meta property="og:site_name" content="Daniel Michaels 🇦🇺" />
 
 </head>
-
-<body class="single" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
-            <span class="logo-switches">
-                <span class="theme-toggle">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://danielms.site/extra/cover.jpeg" alt="profile picture">
+            <h3 title=""><a href="/">Daniel Michaels 🇦🇺</a></h3>
+            <div class="description">
+                <p>I build things and drink coffee.</p>
+            </div>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://danielms.site/blog/">
-                    <span>
-                        Blog
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://danielms.site/about/">
-                    <span>
-                        About
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/danielmichaels">
-                    <span>
-                        Code
-                    </span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
-    <main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      Defending your apps
-    </h1>
-    <div class="post-meta">
-
-October 19, 2019&nbsp;·&nbsp;Daniel Michaels
-
     </div>
-  </header> 
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://linkedin.com/in/daniel-michaels" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/danielmichaels/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.twitter.com/dansult/" rel="me" aria-label="twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:dan@mudmap.io" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Daniel Michaels  2018-2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/blog/"
+                        
+                   title="">Blog</a></li>
+        
+            
+            <li><a 
+                   href="/retrospectives/"
+                        
+                   title="">Retrospectives</a></li>
+        
+            
+            <li><a 
+                   href="/projects/"
+                        
+                   title="">Projects</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
 
-  <div class="post-content">
-<h1 id="web-application-defence-mechanisms">Web Application Defence Mechanisms<a hidden class="anchor" aria-hidden="true" href="#web-application-defence-mechanisms">#</a></h1>
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>Defending your apps</h3>
+                
+            </div>
+
+            <h1 id="web-application-defence-mechanisms">Web Application Defence Mechanisms</h1>
 <blockquote>
 <p>one rule; do not trust user input.</p>
 </blockquote>
-<p><img src="https://danielms.site/images/defence-mechanisms-post.jpg" alt="" title="binary globe"></p>
-<h2 id="core-defences">Core defences<a hidden class="anchor" aria-hidden="true" href="#core-defences">#</a></h2>
+<p><img src="/images/defence-mechanisms-post.jpg" alt="" title="binary globe"></p>
+<h2 id="core-defences">Core defences</h2>
 <p>The methods by which we can defend against attackers.</p>
 <ul>
 <li>Handling user access</li>
@@ -133,38 +178,38 @@ October 19, 2019&nbsp;·&nbsp;Daniel Michaels
 <li>Handling attacks or ensuring that the application works as intended when being directly targeted, and</li>
 <li>Handling the application itself so everything can be monitored, and configured correctly</li>
 </ul>
-<h3 id="user-access">User Access<a hidden class="anchor" aria-hidden="true" href="#user-access">#</a></h3>
+<h3 id="user-access">User Access</h3>
 <p>In most applications that have users, there will be several privileges or roles within the user space. For instance, a social-networking site might have the base user, a group administrator and overall application administrator accounts. Likewise, the owner of an account should be able to view their own data but not that of others. Mitigation&rsquo;s, or security mechanisms in place within this spectrum are:</p>
 <ul>
 <li>Authentication,</li>
 <li>Session Management,</li>
 <li>Access Control.</li>
 </ul>
-<h3 id="authentication">Authentication<a hidden class="anchor" aria-hidden="true" href="#authentication">#</a></h3>
+<h3 id="authentication">Authentication</h3>
 <p>The simplest to understand; a method to check the validity of a user - username and password. Authentication can scale appropriately with the applications need, such as MFA. Many authentication mechanisms also have password resets, account recovery, and self-registrations. All of which add to the attack surface.</p>
-<h3 id="session-management">Session Management<a hidden class="anchor" aria-hidden="true" href="#session-management">#</a></h3>
+<h3 id="session-management">Session Management</h3>
 <p>On busy web applications there can be several other users sending requests simultaneously to the server requesting identical things. For instance, hundreds of people may be viewing the same page on amazon and adding an item to their basket whilst browsing without being logged in. The application must keep track of theses requests and be able to distinguish each unique visitor.</p>
 <p>This is done via tokens, or sessions that track each user and are stored on the web server. The server then forwards the unique token to the client, which then returns that token in each subsequent HTTP request. This allows both sides to session track. Cookies are one such method for session management.</p>
 <p>Common attacks against session management is stealing tokens, guessing tokens or exploiting defects in how the token is used to authenticate the owner. Stealing a session token could allow an attacker to use an authenticated users token effectively allowing them to masquerade as that user.</p>
-<h3 id="access-control">Access Control<a hidden class="anchor" aria-hidden="true" href="#access-control">#</a></h3>
+<h3 id="access-control">Access Control</h3>
 <p>Simply put, the applications ability to assess whether a user has the required Bona-Fides to gain access to the system resources they are requesting. This often requires some fine-grained logic and thus can be exploited if developers make too many assumptions about how a &ldquo;user&rdquo; will access the resources.</p>
-<h2 id="user-input">User Input<a hidden class="anchor" aria-hidden="true" href="#user-input">#</a></h2>
+<h2 id="user-input">User Input</h2>
 <p>All user input is untrustworthy. Therefore, applications must handle all input with strict enforcement of this rule. Sanitation and restriction of inputs and reducing assumptions about what a &ldquo;user&rdquo; would submit are necessary precautions. But, protecting against all forms of malicious input is a difficult task and many applications are vulnerable to this.</p>
-<h3 id="varieties-of-input">Varieties of Input<a hidden class="anchor" aria-hidden="true" href="#varieties-of-input">#</a></h3>
+<h3 id="varieties-of-input">Varieties of Input</h3>
 <p>Limiting what a user can input is common practice. For example, a user sign up page may use an email account that requires the use of an @ symbol and must only contain alphanumeric letters with a minimum length of four characters. Other examples may be the requirement to submit a textual paragraph that allows all alphabetical characters plus special characters but will not allow HTML tags. Many other possibilities exist such as markup languages and how they are delimited so as not to allow arbitrary code to be run.</p>
-<h2 id="approaches-to-input-handling">Approaches to Input Handling<a hidden class="anchor" aria-hidden="true" href="#approaches-to-input-handling">#</a></h2>
-<h3 id="reject-known-bad">Reject Known Bad<a hidden class="anchor" aria-hidden="true" href="#reject-known-bad">#</a></h3>
+<h2 id="approaches-to-input-handling">Approaches to Input Handling</h2>
+<h3 id="reject-known-bad">Reject Known Bad</h3>
 <p>Blacklisting known bad things. The weakest form of defence, as spoofing or encoding arbitrary code blocks could slip past this measure.</p>
 <p>For example, if <code>SELECT</code> is blocked, <code>SeLeCt</code> might not be! or if <code>alert('xss')</code> is blocked maybe <code>prompt('xsss')</code> isn&rsquo;t. In addition, some tokensing parsers which detect these blacklisted words may stop searching when the detect a NULL Byte. <code>%00&lt;script&gt;alert(1)&lt;/script&gt;</code> may get through.</p>
-<h3 id="accept-known-good">Accept Known Good<a hidden class="anchor" aria-hidden="true" href="#accept-known-good">#</a></h3>
+<h3 id="accept-known-good">Accept Known Good</h3>
 <p>This method is very effective against stopping code injection as it is based off only allowing accepted elements to be input. The flaw in this is where accepting a known good can conflict with the requirements of the application itself. For instance, a name field in a form will likely necessitate the use of <code>-</code>, as some people legitimately have hyphenated names. But, <code>-</code> are commonly used to attack databases on the backend, so it may not be used in all cases where it could detract from the user experience.</p>
-<h3 id="sanitisation">Sanitisation<a hidden class="anchor" aria-hidden="true" href="#sanitisation">#</a></h3>
+<h3 id="sanitisation">Sanitisation</h3>
 <p>A common defence mechanism that relies on the fact that users will try malicious code, so before processing the application will sanitise the input in various ways. Methods such as removing dangerous characters or escaping them before processing. This is something all applications should do, and their are many libraries in every language to support this.</p>
-<h2 id="boundary-validation">Boundary Validation<a hidden class="anchor" aria-hidden="true" href="#boundary-validation">#</a></h2>
+<h2 id="boundary-validation">Boundary Validation</h2>
 <p>Simplistically, this is the process of validating, or checking user input on the periphrases first prior to the input reaching the backend. Think taking dirty input on the web side and cleaning it before sending to the server side, and therefore trusting all server side code to be &ldquo;clean&rdquo;.</p>
 <p>This has some serious faults. Often attackers can exploit such a scheme by chaining exploits in a way that no validation method could feasibly defend against without serious detriment to the overall functionality of the application itself.</p>
 <p>The best solution to defending against this, is boundary validation where for each layer of processing, a validation check is conducted appropriate to that layer; defence in depth.</p>
-<h2 id="handling-attackers">Handling Attackers<a hidden class="anchor" aria-hidden="true" href="#handling-attackers">#</a></h2>
+<h2 id="handling-attackers">Handling Attackers</h2>
 <p>All applications should be of the mindset that they will be targeted and attacked by dedicated and skilled attackers. With this mindset, the developers must have a methodology for handling and monitoring such incidents. These measures should include:</p>
 <ul>
 <li>Error Handling,</li>
@@ -172,10 +217,10 @@ October 19, 2019&nbsp;·&nbsp;Daniel Michaels
 <li>Alerts,</li>
 <li>Reacting to attackers.</li>
 </ul>
-<h3 id="handling-errors">Handling Errors<a hidden class="anchor" aria-hidden="true" href="#handling-errors">#</a></h3>
+<h3 id="handling-errors">Handling Errors</h3>
 <p>Robust testing of the application prior to launch should be conducted, and if done properly identify many bugs and errors in the design and code base. But, not all issues can be counted for in testing and as such there must be a way to capture and respond to errors in the application.</p>
 <p>Debug and system messages should never be presented to the outer layers - they greatly assist the attackers in identifying weaknesses in the application. All errors should be gracefully raised, and catered for so as to not give away too much information to the attacker.</p>
-<h3 id="audit-logs">Audit Logs<a hidden class="anchor" aria-hidden="true" href="#audit-logs">#</a></h3>
+<h3 id="audit-logs">Audit Logs</h3>
 <p>All activities taken on the system should be logged for analysis later. Items that definitely require logging are:</p>
 <ul>
 <li>All authentication actions; failed, successful, and forgotten or changed passwords,</li>
@@ -184,7 +229,7 @@ October 19, 2019&nbsp;·&nbsp;Daniel Michaels
 <li>Any attack strings such as malicious input.</li>
 </ul>
 <p>It is important that these logs are protected against unauthorised read and writes. This can sometimes be achieved by the use of autonomous systems that only accept input data from the servers.</p>
-<h3 id="alerting-administrators">Alerting Administrators<a hidden class="anchor" aria-hidden="true" href="#alerting-administrators">#</a></h3>
+<h3 id="alerting-administrators">Alerting Administrators</h3>
 <p>Audit logs are retroactive; they allow a detailed look into the past for forensic analysis but provide little real time information. Alert mechanisms that should be brought up to the administrators attention are things like:</p>
 <ul>
 <li>Anomalies, such as a large number of requests originating from a single IP,</li>
@@ -192,82 +237,57 @@ October 19, 2019&nbsp;·&nbsp;Daniel Michaels
 <li>requests containing attack strings,</li>
 <li>requests which data is hidden with the intent to obfuscate the true intent of the data, or request.</li>
 </ul>
-<h3 id="reacting-to-attacks">Reacting to Attacks<a hidden class="anchor" aria-hidden="true" href="#reacting-to-attacks">#</a></h3>
+<h3 id="reacting-to-attacks">Reacting to Attacks</h3>
 <p>Alerts signifying an attack is nothing without a response. Reactive approaches will should be unique to the application in question but many are generic. Things such as slowing or putting up things to block simple attacks will not defeat a prudent and patient attacker, but should stop a lot of automated broad brush attacks.</p>
-<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
+<h2 id="summary">Summary</h2>
 <p>The above methods for protecting web applications are nothing new, in fact, much of this content is taken from old resources such as the <a href="https://portswigger.net/web-security/web-application-hackers-handbook">web application hackers handbook</a>. That is because the advice still holds true even in today&rsquo;s &ldquo;modern&rdquo; web app&rsquo;s. Attacks and methods may change slightly, or evolve to overcome new frameworks securities mechanisms but the vast majority of attacks simply exploit what could be defended against by implementing whats contained in this post.</p>
 <p>Things don&rsquo;t change that much.</p>
-
 </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://danielms.site/tags/web">web</a></li>
-      <li><a href="https://danielms.site/tags/security">security</a></li>
-    </ul>
-  </footer>
-</article>
-    </main><footer class="footer">
-    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
-    <button class="top-link" id="top-link" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
-            <path d="M12 6H0l6-6z" /></svg>
-    </button>
-</a>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/categories/web/">web</a></span>
+
+                <span class="separator"><a class="tag" href="/tags/web/">web</a><a class="tag" href="/tags/security/">security</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://danielms.site/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
 
 
 
-<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
+<script type="text/javascript"
+        src="https://danielms.site/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
 
+<script type="text/javascript"
+        src="https://danielms.site/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149607103-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 </body>
 
 </html>

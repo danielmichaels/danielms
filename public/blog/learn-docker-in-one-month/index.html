@@ -1,133 +1,180 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" data-theme=""><head>
+    <title> Daniel Michaels | learn docker in one month </title>
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name=" robots" content="noindex, nofollow">
-<title>learn docker in one month | Daniel Michaels | Software Developer</title>
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="I build things and drink coffee.">
+    
+    <link rel="stylesheet"
+          href="https://danielms.site/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
+          integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://danielms.site/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
 
-<meta name="keywords" content="docker" />
-<meta name="description" content="Learning Docker in one month Yep, one month.
-Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.
-Why Some of the core reasons to use docker.">
-<meta name="author" content="Daniel Michaels">
-<link rel="canonical" href="https://danielms.site/blog/learn-docker-in-one-month/" />
-<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
-    as="style">
+    
+    <link rel="shortcut icon" href="https://danielms.site/extra/favicon.icofavicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://danielms.site/extra/favicon.icoapple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/extra/favicon.icofavicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/extra/favicon.icofavicon-16x16.png">
 
-<link rel="icon" href="https://danielms.site/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
-<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.78.1" />
+    <link rel="canonical" href="https://danielms.site/blog/learn-docker-in-one-month/">
 
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://danielms.site/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
 
 
+    
+        
+        
+        <script type="text/javascript"
+                src="https://danielms.site/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="learn docker in one month"/>
+<meta name="twitter:description" content="Learning Docker in one month Yep, one month.
+Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;."/>
+
+
+    
+    <meta property="og:title" content="learn docker in one month" />
+<meta property="og:description" content="Learning Docker in one month Yep, one month.
+Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/learn-docker-in-one-month/" />
+<meta property="article:published_time" content="2019-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-24T00:00:00+00:00" /><meta property="og:site_name" content="Daniel Michaels 🇦🇺" />
 
 </head>
-
-<body class="single" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
-            <span class="logo-switches">
-                <span class="theme-toggle">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://danielms.site/extra/cover.jpeg" alt="profile picture">
+            <h3 title=""><a href="/">Daniel Michaels 🇦🇺</a></h3>
+            <div class="description">
+                <p>I build things and drink coffee.</p>
+            </div>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://danielms.site/blog/">
-                    <span>
-                        Blog
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://danielms.site/about/">
-                    <span>
-                        About
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/danielmichaels">
-                    <span>
-                        Code
-                    </span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
-    <main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      learn docker in one month
-    </h1>
-    <div class="post-meta">
-
-November 24, 2019&nbsp;·&nbsp;Daniel Michaels
-
     </div>
-  </header> 
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://linkedin.com/in/daniel-michaels" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/danielmichaels/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.twitter.com/dansult/" rel="me" aria-label="twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:dan@mudmap.io" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Daniel Michaels  2018-2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/blog/"
+                        
+                   title="">Blog</a></li>
+        
+            
+            <li><a 
+                   href="/retrospectives/"
+                        
+                   title="">Retrospectives</a></li>
+        
+            
+            <li><a 
+                   href="/projects/"
+                        
+                   title="">Projects</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
 
-  <div class="post-content">
-<h1 id="learning-docker-in-one-month">Learning Docker in one month<a hidden class="anchor" aria-hidden="true" href="#learning-docker-in-one-month">#</a></h1>
-<p><img src="https://danielms.site/images/docker.png" alt="" title="docker image"></p>
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>learn docker in one month</h3>
+                
+            </div>
+
+            <h1 id="learning-docker-in-one-month">Learning Docker in one month</h1>
+<p><img src="/images/docker.png" alt="" title="docker image"></p>
 <p>Yep, <a href="https://www.norvig.com/21-days.html">one month</a>.</p>
-<h2 id="docker-basics">Docker basics<a hidden class="anchor" aria-hidden="true" href="#docker-basics">#</a></h2>
-<h3 id="what">What<a hidden class="anchor" aria-hidden="true" href="#what">#</a></h3>
+<h2 id="docker-basics">Docker basics</h2>
+<h3 id="what">What</h3>
 <p>docker is a product that uses operating system virtualisation to created packages and applications which live within a &ldquo;container&rdquo;.
 These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &ldquo;written once and run anywhere&rdquo; methodology.</p>
-<h3 id="why">Why<a hidden class="anchor" aria-hidden="true" href="#why">#</a></h3>
+<h3 id="why">Why</h3>
 <p>Some of the core reasons to use docker.</p>
 <ul>
 <li>The ability to have standalone applications and packages with dependencies that are isolated for the base operating system and other applications is a boon for developers and users,</li>
@@ -136,24 +183,24 @@ These containers bundle together applications and dependancies without the need 
 <li>Version pinning is possible making compatibility issues on new release cycles less problematic, and testing of packages easier to implement,</li>
 <li>Continious Integration is a perfectly paired with docker allowing each new release, or push to the repository to be built automatically with a new docker image, and tested to ensure against regression.</li>
 </ul>
-<h3 id="virtual-machines-arent-docker">Virtual Machines aren&rsquo;t docker<a hidden class="anchor" aria-hidden="true" href="#virtual-machines-arent-docker">#</a></h3>
+<h3 id="virtual-machines-arent-docker">Virtual Machines aren&rsquo;t docker</h3>
 <p>Docker and virtual machines differ in their implementation and uses cases. They are complimentary rather than competitors and service different needs through each use-case.</p>
-<p><img src="https://danielms.site/images/dockervm.png" alt="" title="docker versus virtual machines"></p>
+<p><img src="/images/dockervm.png" alt="" title="docker versus virtual machines"></p>
 <p>Containers leverage the base operating systems kernel whereas virtual machines initialise each machine with its own hardware virtualised operating system. Although docker utilises the host&rsquo;s operating system, its application are seperated from the kernel ensuring isolation via the docker engine.</p>
 <p>Regardless, each technology should be utilised as a method to achieve an outcome rather than be a dogmatic position for any one developer to live and die by. In fact, both methods can be used in conjunction, it is possible to run docker contianers within virtual machines - this being something I do often in Vagrant.</p>
-<h2 id="docker-processes">Docker processes<a hidden class="anchor" aria-hidden="true" href="#docker-processes">#</a></h2>
+<h2 id="docker-processes">Docker processes</h2>
 <p>An important distinction with docker is its process orientation. Containers are designed to execute one process and then quit - the length of the running process arbitary but once its is complete the container will effectively exit.</p>
 <p>this is an important point for new docker users. It contrasts heavily from a virtual machine which will live forever, sitting idly doing nothing until instructed.</p>
 <p>For example, a contianer may run a command line application that fetches the weather from your local area. Once the container has finished this process it will stop and cease to draw any resources until manually called again by the user or application.</p>
-<h2 id="how-does-docker-work">How does docker work<a hidden class="anchor" aria-hidden="true" href="#how-does-docker-work">#</a></h2>
+<h2 id="how-does-docker-work">How does docker work</h2>
 <blockquote>
 <p><code>docker container run -d -p 8080:80 --name myapache httpd</code></p>
 </blockquote>
 <p>There is two main concepts to grasp with docker; images and containers.</p>
-<h3 id="images">images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h3>
+<h3 id="images">images</h3>
 <p>Images can be thought of as virtual machine snapshots - a point in time that contains an application, its dependancies and files. Unlike a virtual machine this &ldquo;snapshot&rdquo;, or image is immutable and static. It serves as a blueprint, rather than a dormant virtual appliance waiting to be brought back to life.</p>
 <p>To sum, images are what we then create containers from and ensure that each launched container will be identical to the base image.</p>
-<h3 id="containers">containers<a hidden class="anchor" aria-hidden="true" href="#containers">#</a></h3>
+<h3 id="containers">containers</h3>
 <p>Containers are the running applications brought to life from a docker image. This is the process which does some work, be it short or long lived. At their essence, containers are meant to be disposable, existing only to complete their task and then exiting.</p>
 <p>Principles of containers:</p>
 <ul>
@@ -161,7 +208,7 @@ These containers bundle together applications and dependancies without the need 
 <li>Disposable</li>
 <li>One process per container</li>
 </ul>
-<h2 id="demo-1">Demo #1<a hidden class="anchor" aria-hidden="true" href="#demo-1">#</a></h2>
+<h2 id="demo-1">Demo #1</h2>
 <p>Let&rsquo;s start a docker application.</p>
 <p><code>docker run --rm danielmichaels/http-tracer http://nyti.ms/1QETHgV</code></p>
 <p>You should see something similar to the following:</p>
@@ -177,7 +224,7 @@ Status: Downloaded newer image <span class="k">for</span> danielmichaels/http-tr
 <p>If found, docker will then start to pull down the container&rsquo;s image. Once its finished downloading, docker executes the <code>docker run</code> command. Try it out.</p>
 <p>In this example, we&rsquo;ve downloaded a script that executes once - printing information to the terminal and then exits. The next time the container is called, it finds the cached image and spins up the container much faster. The only slow down being the scripts IO bound process.</p>
 <p>Let&rsquo;s look at a long lived process, such as a webserver.</p>
-<h2 id="demo-2">Demo #2<a hidden class="anchor" aria-hidden="true" href="#demo-2">#</a></h2>
+<h2 id="demo-2">Demo #2</h2>
 <p><code>docker run --rm -it -p 8081:80 nginx</code></p>
 <p>Again, an image will be downloaded (don&rsquo;t worry we&rsquo;ll go over deleting images) before it finally runs the container.</p>
 <p>This time, nothing should happen and it may appear to have hung. In a browser, navigate to <a href="http://127.0.0.1:8081">localhost:8081</a> and observe the terminal where the container is running. Requests will be printed to the screen.</p>
@@ -187,11 +234,11 @@ Status: Downloaded newer image <span class="k">for</span> danielmichaels/http-tr
 <p>To stop detached containers use <code>docker stop &lt;container id|container name&gt;</code>. Again, the id or name used to kill the process should be echoed to the terminal. A <code>docker ps</code> will confirm this.</p>
 <p>Lastly, the <code>--rm</code> flag simply removes the non-dead container from the host filesystem. For our purposes, we do not need or want to keep copies of our containers on the system. Generally, its a good idea to keep them for debugging but can really start to absorb a lot of disk space on the host during testing.
 To check for this run <code>docker ps -a</code> which will print out any old containers that can be cleaned up. To clean away these container use the <code>prune</code> command: <code>docker container prune</code>.</p>
-<h2 id="bind-mounts">Bind Mounts<a hidden class="anchor" aria-hidden="true" href="#bind-mounts">#</a></h2>
+<h2 id="bind-mounts">Bind Mounts</h2>
 <p>So far the utility has lacked any real substance. I&rsquo;ve got a web app, how does my code get on here?</p>
 <p>There are two methods to mount data to contianers; using <code>--volume/-v</code> or <code>--mount</code>. Docker <a href="https://docs.docker.com/storage/bind-mounts/">recommends</a> using the <code>--mount</code> method for a few reasons, namely the ability to share mounts between contianers.</p>
-<h3 id="using--v">Using <code>-v</code><a hidden class="anchor" aria-hidden="true" href="#using--v">#</a></h3>
-<h2 id="short-running-container">Short running container<a hidden class="anchor" aria-hidden="true" href="#short-running-container">#</a></h2>
+<h3 id="using--v">Using <code>-v</code></h3>
+<h2 id="short-running-container">Short running container</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker run <span class="se">\ </span>   <span class="c1"># run docker</span>
 --rm <span class="se">\ </span>         <span class="c1"># remove container once done</span>
 -it <span class="se">\ </span>          <span class="c1"># interactive mode</span>
@@ -206,7 +253,7 @@ python hello.py <span class="c1"># process to run; python and script located in 
 -p 8080:80  <span class="se">\ </span> <span class="c1"># port host:container</span>
 nginx:latest <span class="se">\ </span><span class="c1"># image to run with tag (latest version)</span>
 </code></pre></div><p>bind routes <code>-v</code> put area on local to area on container. <code>docker run -d -p 8080:80 --name nginx-bind -v $(pwd):/var/share/html nginx</code></p>
-<h3 id="and---mount">and <code>--mount</code><a hidden class="anchor" aria-hidden="true" href="#and---mount">#</a></h3>
+<h3 id="and---mount">and <code>--mount</code></h3>
 <p>This method is more verbose than <code>-v</code> but much more powerful. Because we are using key:value pairs the order is not important.</p>
 <p>From the documentation:</p>
 <blockquote>
@@ -231,49 +278,49 @@ nginx:latest <span class="se">\ </span><span class="c1"># image to run with tag 
 This effectively tells docker to put anything within that directory into a volume and attach itot the container.</p>
 <p>Next is <code>destination</code> which can also be called as <code>target</code>. This tells docker to place the <code>source</code> data inside <em>this</em> location within the container. So if I was to set <code>destination=/shazwazza</code>, then the data would be located in the <code>/</code> as <code>/shazawazza</code>.</p>
 <p>Lastly, in this example we are setting <code>type=bind</code>. This is the most simple method, though less extensible than <code>volume</code> mounting. For small independant applications it is often best to at least start with a <code>bind</code> type and then when ready move onto <code>volume</code>. See <a href="https://docs.docker.com/storage/volumes/">here</a> for detailed information regarding the <code>volume</code> mounting, and when you should use it.</p>
-<h2 id="useful-docker-commands">Useful docker commands<a hidden class="anchor" aria-hidden="true" href="#useful-docker-commands">#</a></h2>
-<h3 id="docker-info">docker info<a hidden class="anchor" aria-hidden="true" href="#docker-info">#</a></h3>
+<h2 id="useful-docker-commands">Useful docker commands</h2>
+<h3 id="docker-info">docker info</h3>
 <ul>
 <li>Displays system-wide information</li>
 </ul>
-<h3 id="docker-inspect-imagecontianer">docker inspect &lt;image/contianer&gt;<a hidden class="anchor" aria-hidden="true" href="#docker-inspect-imagecontianer">#</a></h3>
+<h3 id="docker-inspect-imagecontianer">docker inspect &lt;image/contianer&gt;</h3>
 <ul>
 <li>Return low-level information about a container or image</li>
 </ul>
-<h3 id="docker-container-ls">docker container ls<a hidden class="anchor" aria-hidden="true" href="#docker-container-ls">#</a></h3>
+<h3 id="docker-container-ls">docker container ls</h3>
 <ul>
 <li>Returns currently running containers</li>
 </ul>
-<h3 id="docker-ps">docker ps<a hidden class="anchor" aria-hidden="true" href="#docker-ps">#</a></h3>
+<h3 id="docker-ps">docker ps</h3>
 <ul>
 <li>Shorthand for <code>docker container ls</code>. Appending <code>-a</code> will show containers that have exited.</li>
 </ul>
-<h3 id="docker-image-ls">docker image ls<a hidden class="anchor" aria-hidden="true" href="#docker-image-ls">#</a></h3>
+<h3 id="docker-image-ls">docker image ls</h3>
 <ul>
 <li>Prints all images on the local machine that have been pulled down from docker hub.</li>
 </ul>
-<h3 id="docker-pull">docker pull<a hidden class="anchor" aria-hidden="true" href="#docker-pull">#</a></h3>
+<h3 id="docker-pull">docker pull</h3>
 <ul>
 <li>Will download a docker image onto the local machine</li>
 </ul>
-<h3 id="docker-run">docker run<a hidden class="anchor" aria-hidden="true" href="#docker-run">#</a></h3>
+<h3 id="docker-run">docker run</h3>
 <ul>
 <li>Runs a docker container, and if not found on the local machine will attempt to download it.</li>
 </ul>
-<h3 id="docker-flags">docker flags<a hidden class="anchor" aria-hidden="true" href="#docker-flags">#</a></h3>
+<h3 id="docker-flags">docker flags</h3>
 <ul>
 <li><code>--rm</code>: remove container from list once process exits</li>
 <li><code>prune</code>: remove any old or &ldquo;dangling&rdquo; images, containers or networks. Good for deleting old cached builds no longer in use. E.g. <code>docker container prune</code></li>
 <li>exec: <code>docker exec -it myapache bash</code> executes the bash shell for an interactive session.</li>
 </ul>
-<h2 id="dockerfile">Dockerfile<a hidden class="anchor" aria-hidden="true" href="#dockerfile">#</a></h2>
+<h2 id="dockerfile">Dockerfile</h2>
 <p>So far, we have only pulled and ran docker images, or added a mount to a local container. That is useful but dockers biggest selling point is being able to create and bundle our own applications into a container and allowing others to use them on other systems. To do this, we use a Dockerfile.</p>
 <p>From <a href="https://docs.docker.com/engine/reference/builder/">Docker</a>:</p>
 <blockquote>
 <p>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.</p>
 </blockquote>
 <p>When creating a docker image, we most often want to pull from an existing image within a registry such as <a href="https://www.docker.com/products/docker-hub">Docker hub</a> and extend it.</p>
-<h2 id="example">Example<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h2>
+<h2 id="example">Example</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># simple example</span>
 FROM jfloff/alpine-python:3.6-slim
 
@@ -297,14 +344,14 @@ CMD <span class="o">[</span><span class="s2">&#34;pfsense.org&#34;</span><span c
 </blockquote>
 <p><strong>confused?</strong></p>
 <p>Calling our docker image without any arguments will result in the following:</p>
-<p><img src="https://danielms.site/images/docker.svg" alt="" title="example of http-tracer executing without user applied parameter and defaulting to pfsense.org"></p>
+<p><img src="/images/docker.svg" alt="" title="example of http-tracer executing without user applied parameter and defaulting to pfsense.org"></p>
 <p>Whereas if we set a argument of &ldquo;cisco.com&rdquo; it will overwrite the default and return data relating to that parameter.</p>
-<p><img src="https://danielms.site/images/docker2.svg" alt="" title="example of http-tracer with parameter of cisco.com applied as user input"></p>
+<p><img src="/images/docker2.svg" alt="" title="example of http-tracer with parameter of cisco.com applied as user input"></p>
 <p>Another example worth looking at is the <code>ping</code> command. You can execute that with a dockerfile containing the following:</p>
-<pre><code>FROM debian:wheezy
-ENTRYPOINT [&quot;/bin/ping&quot;] # executes when container is run
-CMD [&quot;localhost&quot;]        # executes unless user input supplied
-</code></pre><h2 id="layers">layers<a hidden class="anchor" aria-hidden="true" href="#layers">#</a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM debian:wheezy
+ENTRYPOINT [&#34;/bin/ping&#34;] # executes when container is run
+CMD [&#34;localhost&#34;]        # executes unless user input supplied
+</code></pre></div><h2 id="layers">layers</h2>
 <p>In a Dockerfile, each line is a layer.</p>
 <ul>
 <li>
@@ -337,7 +384,7 @@ CMD [&quot;localhost&quot;]        # executes unless user input supplied
 </ul>
 </li>
 </ul>
-<h2 id="docker-networks">docker networks<a hidden class="anchor" aria-hidden="true" href="#docker-networks">#</a></h2>
+<h2 id="docker-networks">docker networks</h2>
 <p>Docker also provides a networking layer, allowing many contianers to be on a local area network. If this is not setup, each container is essentially within its own virtual LAN and cannot communicate with other containers. This is a big topic so read up on the docs [here].</p>
 <p>The basics are as follows:</p>
 <ul>
@@ -345,7 +392,7 @@ CMD [&quot;localhost&quot;]        # executes unless user input supplied
 <li>see that your network has been created with <code>docker network ls</code></li>
 <li>inspect your network with <code>docker network inspect &lt;name&gt;</code></li>
 </ul>
-<p><img src="https://danielms.site/images/docker3.svg" alt="" title="example of docker network ls and inspect output"></p>
+<p><img src="/images/docker3.svg" alt="" title="example of docker network ls and inspect output"></p>
 <p>To add containers to a network, and test they have connectivity with <code>ping</code> is just a matter of adding them to the network with <code>--net</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># create mysql on docker network named &#39;test&#39;</span>
 docker run --rm -d --net <span class="nb">test</span> --name test_mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="s1">&#39;root&#39;</span> mysql:5.6
@@ -356,78 +403,54 @@ docker run --rm -it --net <span class="nb">test</span> --name test_node node:8 /
 ping test_mysql <span class="c1"># from node /bin/bash shell</span>
 <span class="c1"># unless explicitly denied, this gives access to internet</span>
 ping 1.1.1.1
-</code></pre></div><h2 id="docker-enough-to-get-by">Docker enough to get by<a hidden class="anchor" aria-hidden="true" href="#docker-enough-to-get-by">#</a></h2>
+</code></pre></div><h2 id="docker-enough-to-get-by">Docker enough to get by</h2>
 <p>That is really enough docker to start playing around and learning to be comfortable in it. This hasn&rsquo;t covered <code>docker-compose</code> which is another powerful tool, but having a baseline understanding of docker is paramount. The whole point is to learn slower than you think, and be exposed to new technologies over a longer period of time - rather than glossing of all the new shinies and not really learning anything. It&rsquo;s okay to be slow - its all <em>time under tension</em> and repeated small exposures that eventualy lead to true understanding.</p>
-
 </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://danielms.site/tags/docker">docker</a></li>
-    </ul>
-  </footer>
-</article>
-    </main><footer class="footer">
-    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
-    <button class="top-link" id="top-link" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
-            <path d="M12 6H0l6-6z" /></svg>
-    </button>
-</a>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/categories/docker/">docker</a><a class="category" href="/categories/development/">development</a></span>
+
+                <span class="separator"><a class="tag" href="/tags/docker/">docker</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://danielms.site/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
 
 
 
-<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
+<script type="text/javascript"
+        src="https://danielms.site/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
 
+<script type="text/javascript"
+        src="https://danielms.site/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149607103-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 </body>
 
 </html>
