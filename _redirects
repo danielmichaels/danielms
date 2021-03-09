@@ -5,4 +5,4 @@ https://www.danielmichaels.site/* https://www.danielms.site/:splat 301!
 https://danielmichaels.site/* https://www.danielms.site/:splat 301!
 
 # Optional: Redirect default Netlify subdomain to primary domain
-https://confident-visvesvaraya-88fdc6.netlify.com/* https://www.danielms.site/:splat 301!
+https://confident-visvesvaraya-88fdc6.netlify.com/* https://danielms.site/:splat 301!
