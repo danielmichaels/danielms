@@ -1,174 +1,182 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" data-theme=""><head>
+    <title> Daniel Michaels | DNS the easy parts </title>
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name=" robots" content="noindex, nofollow">
-<title>DNS the easy parts | Daniel Michaels | Software Developer</title>
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="I build things and drink coffee.">
+    
+    <link rel="stylesheet"
+          href="https://danielms.site/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
+          integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://danielms.site/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
 
-<meta name="keywords" content="Networking, DNS" />
-<meta name="description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
-When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.">
-<meta name="author" content="Daniel Michaels">
-<link rel="canonical" href="https://danielms.site/blog/dns-the-easy-parts/" />
-<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
-    as="style">
+    
+    <link rel="shortcut icon" href="https://danielms.site/extra/favicon.icofavicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://danielms.site/extra/favicon.icoapple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/extra/favicon.icofavicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/extra/favicon.icofavicon-16x16.png">
 
-<link rel="icon" href="https://danielms.site/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
-<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.78.1" />
+    <link rel="canonical" href="https://danielms.site/blog/dns-the-easy-parts/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://danielms.site/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
 
 
+    
+        
+        
+        <script type="text/javascript"
+                src="https://danielms.site/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DNS the easy parts"/>
+<meta name="twitter:description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS."/>
 
+
+    
+    <meta property="og:title" content="DNS the easy parts" />
+<meta property="og:description" content="DNS The Internet&rsquo;s success is predicated on the Domain Name System or DNS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/dns-the-easy-parts/" />
+<meta property="article:published_time" content="2019-06-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-16T00:00:00+00:00" /><meta property="og:site_name" content="Daniel Michaels 🇦🇺" />
 
 </head>
-
-<body class="single" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
-            <span class="logo-switches">
-                <span class="theme-toggle">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://danielms.site/extra/cover.jpeg" alt="profile picture">
+            <h3 title=""><a href="/">Daniel Michaels 🇦🇺</a></h3>
+            <div class="description">
+                <p>I build things and drink coffee.</p>
+            </div>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://danielms.site/blog/">
-                    <span>
-                        Blog
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://danielms.site/about/">
-                    <span>
-                        About
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/danielmichaels">
-                    <span>
-                        Code
-                    </span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
-    <main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      DNS the easy parts
-    </h1>
-    <div class="post-meta">
-
-June 16, 2019&nbsp;·&nbsp;Daniel Michaels
-
     </div>
-  </header> 
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://linkedin.com/in/daniel-michaels" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/danielmichaels/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.twitter.com/dansult/" rel="me" aria-label="twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:dan@mudmap.io" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Daniel Michaels  2018-2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/blog/"
+                        
+                   title="">Blog</a></li>
+        
+            
+            <li><a 
+                   href="/retrospectives/"
+                        
+                   title="">Retrospectives</a></li>
+        
+            
+            <li><a 
+                   href="/projects/"
+                        
+                   title="">Projects</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
 
-  <div class="toc">
-    <details >
-      <summary>
-        <div class="details" accesskey="c">Table of Contents</div>
-      </summary>
-      <blockquote><ul><li>
-        <a href="#dns" aria-label="DNS">DNS</a></li><li>
-        <a href="#overview" aria-label="Overview">Overview</a><ul>
-            <li>
-        <a href="#dns-resolution" aria-label="DNS Resolution">DNS Resolution</a></li><li>
-        <a href="#why-root" aria-label="Why Root?">Why Root?</a></li><li>
-        <a href="#top-level-domains" aria-label="Top-Level Domains">Top-Level Domains</a></li><li>
-        <a href="#subdomains" aria-label="Subdomains">Subdomains</a></li><li>
-        <a href="#terms" aria-label="Terms">Terms</a><ul>
-            <li>
-        <a href="#dns-resolver" aria-label="DNS resolver">DNS resolver</a></li><li>
-        <a href="#authoritative-server" aria-label="Authoritative Server">Authoritative Server</a></li><li>
-        <a href="#top-level-domain-tld" aria-label="Top-level Domain (TLD)">Top-level Domain (TLD)</a></li><li>
-        <a href="#recursive-request" aria-label="Recursive request">Recursive request</a></li><li>
-        <a href="#iterative-request" aria-label="Iterative request">Iterative request</a></li><li>
-        <a href="#non-iterative-request" aria-label="Non-Iterative request">Non-Iterative request</a></li></ul>
-    </li><li>
-        <a href="#record-types" aria-label="Record Types">Record Types</a><ul>
-            <li>
-        <a href="#a" aria-label="A:">A:</a></li><li>
-        <a href="#aaaa" aria-label="AAAA:">AAAA:</a></li><li>
-        <a href="#mail-exchanger-mx" aria-label="Mail Exchanger (MX):">Mail Exchanger (MX):</a></li><li>
-        <a href="#name-server-ns" aria-label="Name Server (NS):">Name Server (NS):</a></li><li>
-        <a href="#pointer-ptr" aria-label="Pointer (PTR):">Pointer (PTR):</a></li><li>
-        <a href="#canonical-name-cname" aria-label="Canonical Name (CNAME):">Canonical Name (CNAME):</a></li><li>
-        <a href="#text-record-txt" aria-label="Text record (TXT):">Text record (TXT):</a></li><li>
-        <a href="#start-of-authority-soa" aria-label="Start of Authority (SOA):">Start of Authority (SOA):</a></li></ul>
-    </li><li>
-        <a href="#wrapping-up" aria-label="Wrapping Up">Wrapping Up</a></li></ul>
-</li></ul>
-      </blockquote>
-    </details>
-  </div>
-  <div class="post-content">
-<h1 id="dns">DNS<a hidden class="anchor" aria-hidden="true" href="#dns">#</a></h1>
-<p><img src="https://danielms.site/images/dns.png" alt="DNS" title="dns logo"></p>
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>DNS the easy parts</h3>
+                
+            </div>
+
+            <h1 id="dns">DNS</h1>
+<p><img src="/images/dns.png" alt="DNS" title="dns logo"></p>
 <p>The Internet&rsquo;s success is predicated on the Domain Name System or DNS. We&rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.</p>
 <p>When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down. Sadly, during my CCNA studies, it did not get much more than the cursory explanation.</p>
-<h1 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h1>
+<h1 id="overview">Overview</h1>
 <p>DNS is a protocol that can map IP addresses to human readable names. When a user types <code>example.com</code> into their browser bar and hits enter, the machine does not know how to reach <code>example.com</code> without first translating it into an IP routable address.</p>
 <p>Before any network activity takes place between the client and the destination, a DNS lookup must first be conducted. Luckily, DNS is fast but it does add latency to the request. If this transaction fails the client will be unable to make a connection to the server. A user could, alternatively manually enter the servers IP address and this would work - as long as the server is up. But if we could remember IP addresses as readily as we do names, DNS would be redundant.</p>
 <p>It is worth noting that DNS also allows us to clump many IP addresses under one namespace. For instance, we can reach hosts on our local network using domain names instead of IP addresses. We use DNS for more than just browsing the web; emails, IoT devices and many other services that make networks invisible to the majority of users are powered by this system.</p>
 <p>From ten thousand feet, lets examine how a simple name to IP address translation takes place.</p>
-<h2 id="dns-resolution">DNS Resolution<a hidden class="anchor" aria-hidden="true" href="#dns-resolution">#</a></h2>
+<h2 id="dns-resolution">DNS Resolution</h2>
 <p>In the below diagram we have a series queries starting with the browser asking for the address to <code>example.com</code> and ending with the server delivering content back to the browser.</p>
-<p><img src="https://danielms.site/images/dns-lookup-diagram.png" alt="dns-lookup" title="dns ten step lookup - simple">
+<p><img src="/images/dns-lookup-diagram.png" alt="dns-lookup" title="dns ten step lookup - simple">
 Figure 1. Simple DNS Lookup - <a href="https://www.cloudflare.com/learning/dns/what-is-dns/">attrib</a></p>
 <p>When our above client types <code>example.com</code> into the browser and hits enter, a series of steps are taken by the client and external servers to translate the human readable name into a machine readable IP address.</p>
 <p><strong>Each step broken down:</strong></p>
@@ -185,15 +193,15 @@ Figure 1. Simple DNS Lookup - <a href="https://www.cloudflare.com/learning/dns/w
 <li><code>example.com</code> having received the connection request, begins transferring data to the clients browser.</li>
 </ol>
 <p>This is a very simplistic resolution. It works well in common household networks where your wireless router is not a DNS server. If you are instituting a firewall or managing your own name server, the below diagram is a more likely reflection of what is happening.</p>
-<p><img src="https://danielms.site/images/dns-resolver-forwarding.JPG" alt="DNS resolver in LAN">
+<p><img src="/images/dns-resolver-forwarding.JPG" alt="DNS resolver in LAN">
 Figure 2. Forwarding Queries</p>
 <p>In the above example, the local DNS server sends a query to a recursive resolver from a large DNS provider. As stated in Figure 2, this can also be called a Forward DNS Server. The forward resolver will conduct all the iterative requests on our behalf before returning the answer back to our local DNS server, who forwards it to the client.</p>
-<h2 id="why-root">Why Root?<a hidden class="anchor" aria-hidden="true" href="#why-root">#</a></h2>
+<h2 id="why-root">Why Root?</h2>
 <p>DNS works in a hierarchical structure with the root or <code>.</code> being at the top of the tree - very similar to the Linux file structure.</p>
 <p>So why does the recursive resolver go straight to the root name server, and not say the <code>com</code> domain?</p>
-<p><img src="https://danielms.site/images/dns-root.png" alt="DNS hierarchy" title="DNS heirarchy"></p>
+<p><img src="/images/dns-root.png" alt="DNS hierarchy" title="DNS heirarchy"></p>
 <p>Looking at the above example we can see that everything is connected to root. So, the resolver must start with the only known address it has; root. Logically, it is the only server that can reach <em>all</em> possible domains.</p>
-<h2 id="top-level-domains">Top-Level Domains<a hidden class="anchor" aria-hidden="true" href="#top-level-domains">#</a></h2>
+<h2 id="top-level-domains">Top-Level Domains</h2>
 <p>After querying the root server, it will return the TLD name server for the domain being queried. The TLD server contains all the information for domains that share a common extension, such as <code>edu</code>, <code>com</code>, or whatever comes directly after the last dot in the url. More simply, the name server for <code>net</code> will have the address for every website that ends with <code>net</code>.</p>
 <p>So, when the user requests <code>example.com</code>, the TLD name server of the <code>com</code> domain will reply with the address of the authoritative server for the <code>example</code> domain. Simply put, the name server who looks after the <code>com</code> domain knows where to find every single domain that uses a <code>.com</code> and will return the websites address back to the resolver, completing the lookup.</p>
 <p>Top-level domains can be broken into two groups:</p>
@@ -211,7 +219,7 @@ Figure 2. Forwarding Queries</p>
 </ul>
 <p>With an address such as <code>example.com.au</code> the resolver will still query the root name servers but it will send the resolver to the country specific top level domain of <code>au</code>. The domain to the <strong>right</strong> of the last <code>.</code> will always be queried first.</p>
 <p>We can demonstrate this by running <code>drill bbc.co.uk -T</code> or <code>dig bbc.co.uk +trace</code>.</p>
-<h2 id="subdomains">Subdomains<a hidden class="anchor" aria-hidden="true" href="#subdomains">#</a></h2>
+<h2 id="subdomains">Subdomains</h2>
 <p>Technically, after the TLD, each domain down the tree can be referenced as a subdomain; <code>example</code> in <code>example.com</code> being a subdomain of the <code>com</code> TLD.</p>
 <p>Typically, subdomains more often refer to addresses such as <code>api.github.com</code> with <code>api</code> being a subdomain of <code>github</code>.</p>
 <p>You can see the resolution by running <code>drill m.facebook.com -T</code> or <code>dig m.facebook.com +trace</code>.</p>
@@ -230,7 +238,7 @@ m.facebook.com.	3600	IN	CNAME	star-mini.c10r.facebook.com.
 c10r.facebook.com.	3600	IN	NS	a.ns.c10r.facebook.com.
 c10r.facebook.com.	3600	IN	NS	b.ns.c10r.facebook.com.
 star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
-</code></pre></div><h2 id="terms">Terms<a hidden class="anchor" aria-hidden="true" href="#terms">#</a></h2>
+</code></pre></div><h2 id="terms">Terms</h2>
 <blockquote>
 <p>Essentially all technical efforts wallow in acronyms and special &ldquo;terms of art&rdquo; [&hellip;] with several non-obvious terms to confuse those who have not been involved for a while.</p>
 <ul>
@@ -238,12 +246,12 @@ star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
 </ul>
 </blockquote>
 <p>Sums up many of the terms used to express components of the domain name system. A brief description of the main offenders follows and how to examine them using <code>drill</code>. If <code>drill</code> is unfamiliar to you, <code>dig</code> will work just the same. <code>nslookup</code> is not covered in this post, but will essentially do the same thing.</p>
-<h3 id="dns-resolver">DNS resolver<a hidden class="anchor" aria-hidden="true" href="#dns-resolver">#</a></h3>
+<h3 id="dns-resolver">DNS resolver</h3>
 <p>The &lsquo;resolver&rsquo; is the agent between the client and the name servers. A resolver will start the queries that eventually return a valid address translation for the client.</p>
 <p>A recursive resolver knows how to traverse the tree to deliver a response to a query.</p>
-<h3 id="authoritative-server">Authoritative Server<a hidden class="anchor" aria-hidden="true" href="#authoritative-server">#</a></h3>
+<h3 id="authoritative-server">Authoritative Server</h3>
 <p>Owns the domain, or has all the records for that domain. E.g. the <code>com</code> name server, knows the whereabouts of every single domain that uses it. Popular sites such as <code>google.com</code>, <code>yahoo.com</code> and <code>github.com</code> are all domains under the <code>com</code> authoritative server, it knows the address to each of those sites DNS server within their network.</p>
-<h3 id="top-level-domain-tld">Top-level Domain (TLD)<a hidden class="anchor" aria-hidden="true" href="#top-level-domain-tld">#</a></h3>
+<h3 id="top-level-domain-tld">Top-level Domain (TLD)</h3>
 <p>Domains that are one level below the root are known as top level domains.</p>
 <ul>
 <li>Examples:
@@ -257,7 +265,7 @@ star-mini.c10r.facebook.com.	60	IN	A	157.240.8.35
 <li>-&gt; <code>taste.com.au</code></li>
 </ol>
 <p>This can be seen via <code>drill -T taste.com.au</code> which will trace (what <code>-T</code> does) through each root name server all the way to the A record of <code>taste.com.au</code>.</p>
-<h3 id="recursive-request">Recursive request<a hidden class="anchor" aria-hidden="true" href="#recursive-request">#</a></h3>
+<h3 id="recursive-request">Recursive request</h3>
 <p>When the client needs to get the address of a URL, it first checks its cache and if not found will send a request to its recursive resolver asking for the address. Often, the resolver being queried will be your ISP&rsquo;s default name server (please don&rsquo;t do this; they monetize it), or something like Google&rsquo;s public DNS server; <code>8.8.8.8</code>. <strong>My opinion</strong>: use <code>1.1.1.1</code> or some other provider - Google are using you, too.
 The recursive resolver will then begin a series of iterative requests on your behalf.</p>
 <p>For the most part recursive queries begin with the client and end at the recursive resolver in a kind of A-&gt;B, B-&gt;A relationship. This is because the resolver is doing iterative queries on your behalf and here lies the big difference between recursive and iterative requests.</p>
@@ -267,43 +275,43 @@ The recursive resolver will then begin a series of iterative requests on your be
 <p>recursive query indicates that the client wants a definitive answer to its query. The response to the recursive query must be a valid address or a message indicating that the address cannot be found.</p>
 </blockquote>
 <p>Meaning a recursive can only reply with either the address, or an error (NXDOMAIN) but not a referral to another name server.</p>
-<h3 id="iterative-request">Iterative request<a hidden class="anchor" aria-hidden="true" href="#iterative-request">#</a></h3>
+<h3 id="iterative-request">Iterative request</h3>
 <p>Generally, the queries <em>from</em> a recursive resolver to other name servers are iterative. They leave the resolver and start at the top of the DNS tree via the root name servers. The root replies with the appropriate domains name server. The resolver then makes another query to that server. The iterations continue down the hierarchy until an address is resolved.</p>
 <p>Unlike recursive queries, iterative requests will accept any answer; address, error or a referral to someone who knows more.</p>
 <p><a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-root-hints">Microsoft</a> again:</p>
 <blockquote>
 <p>An iterative query indicates that the server will accept a referral to another server in place of a definitive answer to the query.</p>
 </blockquote>
-<h3 id="non-iterative-request">Non-Iterative request<a hidden class="anchor" aria-hidden="true" href="#non-iterative-request">#</a></h3>
+<h3 id="non-iterative-request">Non-Iterative request</h3>
 <p>When a query is made and the resolver has the address mapping in its cache, it will refer the client immediately to it. No further queries are made and this is known as a non-iterative request.</p>
-<h2 id="record-types">Record Types<a hidden class="anchor" aria-hidden="true" href="#record-types">#</a></h2>
-<h3 id="a">A:<a hidden class="anchor" aria-hidden="true" href="#a">#</a></h3>
+<h2 id="record-types">Record Types</h2>
+<h3 id="a">A:</h3>
 <ul>
 <li>IPv4 address associated to domain name.</li>
 <li>Running <code>drill example.com</code> defaults to returning an A record.</li>
 </ul>
-<h3 id="aaaa">AAAA:<a hidden class="anchor" aria-hidden="true" href="#aaaa">#</a></h3>
+<h3 id="aaaa">AAAA:</h3>
 <ul>
 <li>IPv6 address association.</li>
 <li><code>drill aaaa example.com</code> will explicitly return the IPv6 address, if it has one.</li>
 </ul>
-<h3 id="mail-exchanger-mx">Mail Exchanger (MX):<a hidden class="anchor" aria-hidden="true" href="#mail-exchanger-mx">#</a></h3>
+<h3 id="mail-exchanger-mx">Mail Exchanger (MX):</h3>
 <ul>
 <li>Mail exchanger records containing the emails associated to the domain.</li>
 <li><code>drill mx google.com</code> will return all the mail exchangers, and each ones priority.</li>
 </ul>
-<h3 id="name-server-ns">Name Server (NS):<a hidden class="anchor" aria-hidden="true" href="#name-server-ns">#</a></h3>
+<h3 id="name-server-ns">Name Server (NS):</h3>
 <ul>
 <li>A list of name servers connected to the domain.</li>
 <li><code>drill ns cloudflare.com</code> outputs their name server domains.</li>
 </ul>
-<h3 id="pointer-ptr">Pointer (PTR):<a hidden class="anchor" aria-hidden="true" href="#pointer-ptr">#</a></h3>
+<h3 id="pointer-ptr">Pointer (PTR):</h3>
 <ul>
 <li>Pointer file for reverse DNS lookups</li>
 <li>For example, do the following: <code>drill defence.gov.au</code>. Take the IP address - <code>203.6.74.5</code> and do a reverse lookup using only the IP address. <code>drill -x 203.6.74.5</code>. It should return <code>www.defence.gov.au.</code></li>
 <li>When both the forward (name-to-address) and reverse (address-to-name) entries match, this is known as a <em>forward-confirmed reverse DNS</em>. Its a weak form of authentication - it proves the IP and domain are owned by the same entity. Sender Policy Framework and MX records are often better indicators of authenticity. Nonetheless, it can be a method used to whitelist a domain, or a reason for other mail exchangers to blacklist, or drop mail to that domain, if the lookup fails.</li>
 </ul>
-<h3 id="canonical-name-cname">Canonical Name (CNAME):<a hidden class="anchor" aria-hidden="true" href="#canonical-name-cname">#</a></h3>
+<h3 id="canonical-name-cname">Canonical Name (CNAME):</h3>
 <ul>
 <li>Can be used to alias one name to another, most often to an A record. It operates a bit like a treasure map with clues pointing to the treasure - the A record.</li>
 <li><code>drill blog.cloudflare.com</code> returns <code>CNAME cloudflare.ghost.io</code> which directs to the <code>A</code> record.</li>
@@ -320,7 +328,7 @@ foo.example.com.        A      192.0.2.23
 </blockquote>
 <p>The next query to the <code>example</code> domain will be asking for the <code>foo</code> subdomain. Which will be returned an <code>A</code> record with address <code>192.0.2.23</code>.
 This adds latency as another round trip must be conducted and generally chaining CNAME&rsquo;s is considered bad form.</p>
-<h3 id="text-record-txt">Text record (TXT):<a hidden class="anchor" aria-hidden="true" href="#text-record-txt">#</a></h3>
+<h3 id="text-record-txt">Text record (TXT):</h3>
 <ul>
 <li>Contains extra data such a sender policy framework and encryption information.</li>
 <li>Often contain valuable information about the domain, for instance:</li>
@@ -347,7 +355,7 @@ vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms13634633&#34;</span>
 <p><code>drill</code> lets you know:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="p">;;</span> WARNING: The answer packet was truncated<span class="p">;</span> you might want to
 <span class="p">;;</span> query again with TCP <span class="o">(</span>-t argument<span class="o">)</span>, or EDNS0 <span class="o">(</span>-b <span class="k">for</span> buffer size<span class="o">)</span>
-</code></pre></div><h3 id="start-of-authority-soa">Start of Authority (SOA):<a hidden class="anchor" aria-hidden="true" href="#start-of-authority-soa">#</a></h3>
+</code></pre></div><h3 id="start-of-authority-soa">Start of Authority (SOA):</h3>
 <ul>
 <li>Contains administrative info about a zone such as domain owner, contact details and serial number.</li>
 <li>Serial number is used to determine the currency of the zone&rsquo;s data.</li>
@@ -372,79 +380,57 @@ vodafone.com.au.	506	IN	TXT	<span class="s2">&#34;MS=ms13634633&#34;</span>
 <li><code>300</code> is the <code>minimum</code> time-to-live in seconds before the records in the zone are considered invalid.</li>
 </ul>
 <p>Today, the <code>refresh</code>, <code>retry</code>, <code>expire</code> and <code>minimum</code> are still important but used much less frequently. RFC&rsquo;s <a href="https://www.ietf.org/rfc/rfc1996.txt">1996</a> and <a href="https://www.ietf.org/rfc/rfc2136.txt">2136</a> have included the NOTIFY and UPDATE <a href="http://networksorcery.com/enp/protocol/dns.htm#Rcode,%20Return%20code">opcodes</a> to allow the master DNS server to send updates to its slaves, rather than waiting for them to poll the master for changes.</p>
-<h2 id="wrapping-up">Wrapping Up<a hidden class="anchor" aria-hidden="true" href="#wrapping-up">#</a></h2>
+<h2 id="wrapping-up">Wrapping Up</h2>
 <p>The domain name system is far too technically rich to even scratch the surface in one short post, but hopefully it helps to cover off a few confusing points. If nothing else, it may serve as a launch pad for some to go out and read more on this incredible and interesting protocol. One which we use hundreds of times a day.</p>
-
+<blockquote>
+<p>If you want to use a state of the art DNS service that respects privacy, is customisable, easy to use and secure then check out <a href="https://nextdns.io/?from=3bnvwes5">NextDNS</a>. It&rsquo;s free to sign up, can be configured on routers, browsers and devices. My android devices all override their system DNS and block ads so effectively it feels like internet is free of them! If you&rsquo;re interested, try it <a href="https://nextdns.io/?from=3bnvwes5">here</a> at my affliate link.</p>
+</blockquote>
 </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://danielms.site/tags/networking">Networking</a></li>
-      <li><a href="https://danielms.site/tags/dns">DNS</a></li>
-    </ul>
-  </footer>
-</article>
-    </main><footer class="footer">
-    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
-    <button class="top-link" id="top-link" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
-            <path d="M12 6H0l6-6z" /></svg>
-    </button>
-</a>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/categories/networking/">Networking</a><a class="category" href="/categories/dns/">DNS</a></span>
+
+                <span class="separator"><a class="tag" href="/tags/networking/">Networking</a><a class="tag" href="/tags/dns/">DNS</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://danielms.site/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
 
 
 
-<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
+<script type="text/javascript"
+        src="https://danielms.site/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
 
+<script type="text/javascript"
+        src="https://danielms.site/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149607103-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 </body>
 
 </html>

@@ -1,129 +1,174 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" data-theme=""><head>
+    <title> Daniel Michaels | HTTP Security Basics </title>
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name=" robots" content="noindex, nofollow">
-<title>HTTP Security Basics | Daniel Michaels | Software Developer</title>
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="I build things and drink coffee.">
+    
+    <link rel="stylesheet"
+          href="https://danielms.site/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
+          integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://danielms.site/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
 
-<meta name="keywords" content="HTTP, security, web" />
-<meta name="description" content="HTTP Basics HTTP is an application level message based model where the client sends a request and the server returns a response. HTTP uses a stateful protocol - TCP - but is stateless, where each request is connectionless avoiding the need for servers to hold an open connection.
-HTTP Requests The first line of every HTTP request has three (3) items, separated by spaces:
- The verb - GET,PUT,DELETE,POST,TRACE,CONNECT,OPTIONS, or HEAD The requested URL, typically the name of the resource plus an optional query string.">
-<meta name="author" content="Daniel Michaels">
-<link rel="canonical" href="https://danielms.site/blog/http-security-basics/" />
-<link href="https://danielms.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
-    as="style">
+    
+    <link rel="shortcut icon" href="https://danielms.site/extra/favicon.icofavicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://danielms.site/extra/favicon.icoapple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/extra/favicon.icofavicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/extra/favicon.icofavicon-16x16.png">
 
-<link rel="icon" href="https://danielms.site/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://danielms.site/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://danielms.site/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://danielms.site/apple-touch-icon.png">
-<link rel="mask-icon" href="https://danielms.site/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.78.1" />
+    <link rel="canonical" href="https://danielms.site/blog/http-security-basics/">
 
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://danielms.site/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
 
 
+    
+        
+        
+        <script type="text/javascript"
+                src="https://danielms.site/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP Security Basics"/>
+<meta name="twitter:description" content="HTTP Basics HTTP is an application level message based model where the client sends a request and the server returns a response."/>
+
+
+    
+    <meta property="og:title" content="HTTP Security Basics" />
+<meta property="og:description" content="HTTP Basics HTTP is an application level message based model where the client sends a request and the server returns a response." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://danielms.site/blog/http-security-basics/" />
+<meta property="article:published_time" content="2019-07-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-06T00:00:00+00:00" /><meta property="og:site_name" content="Daniel Michaels 🇦🇺" />
 
 </head>
-
-<body class="single" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://danielms.site/" accesskey="h">Daniel Michaels | Software Developer</a>
-            <span class="logo-switches">
-                <span class="theme-toggle">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://danielms.site/extra/cover.jpeg" alt="profile picture">
+            <h3 title=""><a href="/">Daniel Michaels 🇦🇺</a></h3>
+            <div class="description">
+                <p>I build things and drink coffee.</p>
+            </div>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://danielms.site/blog/">
-                    <span>
-                        Blog
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://danielms.site/about/">
-                    <span>
-                        About
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/danielmichaels">
-                    <span>
-                        Code
-                    </span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
-    <main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      HTTP Security Basics
-    </h1>
-    <div class="post-meta">
-
-July 6, 2019&nbsp;·&nbsp;Daniel Michaels
-
     </div>
-  </header> 
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://linkedin.com/in/daniel-michaels" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/danielmichaels/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.twitter.com/dansult/" rel="me" aria-label="twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:dan@mudmap.io" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Daniel Michaels  2018-2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/blog/"
+                        
+                   title="">Blog</a></li>
+        
+            
+            <li><a 
+                   href="/retrospectives/"
+                        
+                   title="">Retrospectives</a></li>
+        
+            
+            <li><a 
+                   href="/projects/"
+                        
+                   title="">Projects</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
 
-  <div class="post-content">
-<h1 id="http-basics">HTTP Basics<a hidden class="anchor" aria-hidden="true" href="#http-basics">#</a></h1>
-<p><img src="https://danielms.site/images/httpie.png" alt="" title="http put image output"></p>
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>HTTP Security Basics</h3>
+                
+            </div>
+
+            <h1 id="http-basics">HTTP Basics</h1>
+<p><img src="/images/httpie.png" alt="" title="http put image output"></p>
 <p>HTTP is an application level message based model where the client sends a request and the server returns a response. HTTP uses a stateful protocol - TCP - but is <em>stateless</em>, where each request is connectionless avoiding the need for servers to hold an open connection.</p>
-<h2 id="http-requests">HTTP Requests<a hidden class="anchor" aria-hidden="true" href="#http-requests">#</a></h2>
+<h2 id="http-requests">HTTP Requests</h2>
 <p>The first line of every HTTP request has three (3) items, separated by spaces:</p>
 <ul>
 <li>The verb - <code>GET</code>,<code>PUT</code>,<code>DELETE</code>,<code>POST</code>,<code>TRACE</code>,<code>CONNECT</code>,<code>OPTIONS</code>, or <code>HEAD</code></li>
@@ -142,7 +187,7 @@ Referer: https://duckduckgo.com/
 DNT: <span class="m">1</span>
 Connection: keep-alive
 Upgrade-Insecure-Requests: <span class="m">1</span>
-</code></pre></div><h2 id="http-responses">HTTP Responses<a hidden class="anchor" aria-hidden="true" href="#http-responses">#</a></h2>
+</code></pre></div><h2 id="http-responses">HTTP Responses</h2>
 <p>Like the request, each responses first line will return three items:</p>
 <ul>
 <li>The HTTP version in use,</li>
@@ -180,22 +225,22 @@ Keep-Alive: <span class="nv">timeout</span><span class="o">=</span>5, <span clas
 Connection: Keep-Alive
 Transfer-Encoding: chunked
 Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
-</code></pre></div><h3 id="http-methods">HTTP Methods<a hidden class="anchor" aria-hidden="true" href="#http-methods">#</a></h3>
-<h4 id="get">GET<a hidden class="anchor" aria-hidden="true" href="#get">#</a></h4>
+</code></pre></div><h3 id="http-methods">HTTP Methods</h3>
+<h4 id="get">GET</h4>
 <p>The most common method. When clicking on a hyperlink, you are likely sending a <code>GET</code> request. <code>GET</code> requests can also be used to send information via a URL query string such as <code>?</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">http://example.com/over/there?name<span class="o">=</span>ferret
 </code></pre></div><p>URL&rsquo;s are displayed on screen and also logged in places such as browser history and web access logs. They are also transmitted via the <code>Referrer</code> header when clicking on an link that takes you an external resource. In such an example sensitive information in a query string would be logged in an external servers logs. Further, these strings (if unencrypted, or SSLstripped) could be sniffed by a malicious actor. Never use <code>GET</code> requests for transmission of sensitive data.</p>
-<h4 id="post">POST<a hidden class="anchor" aria-hidden="true" href="#post">#</a></h4>
+<h4 id="post">POST</h4>
 <p><code>POST</code> is used to submit data to a resource. A <code>POST</code> can submit this information via the URL query string, or via the message body (preferred method, imo). If the <code>POST</code> is coupled with URL query strings, any bookmarking would remove the query from the URL, in an attempt to provide security. Using this method also ensures that only one request is sent with that information at a time. That is, if a user submits a <code>POST</code> request and then hits the &lsquo;back&rsquo; button, they will likely see a prompt stating something along the lines of &lsquo;having to resubmit&rsquo;. This ensures that the user can only submit the <code>POST</code> once per action, as the browser will not automatically reissue the request - unlike a <code>GET</code>.</p>
-<h4 id="head">HEAD<a hidden class="anchor" aria-hidden="true" href="#head">#</a></h4>
+<h4 id="head">HEAD</h4>
 <p>This functions in the same manner as a <code>GET</code> except it only returns the header information.</p>
-<h4 id="trace">TRACE<a hidden class="anchor" aria-hidden="true" href="#trace">#</a></h4>
+<h4 id="trace">TRACE</h4>
 <p>Used for diagnostic purposes only. The server should return in the response body the exact contents that it received. Often used to diagnose issues and check if proxies are working correctly/ intercepting data unexpectedly. Commonly disallowed option returning <code>405 Method Not Allowed</code></p>
-<h4 id="options">OPTIONS<a hidden class="anchor" aria-hidden="true" href="#options">#</a></h4>
+<h4 id="options">OPTIONS</h4>
 <p>Returns what HTTP methods are available for a particular resource.</p>
-<h4 id="put">PUT<a hidden class="anchor" aria-hidden="true" href="#put">#</a></h4>
+<h4 id="put">PUT</h4>
 <p>Allows uploading of resources to the server. Used by API&rsquo;s to update existing records or data.  Can provide the attacker with an avenue to upload malicious scripts to the server for execution.</p>
-<h2 id="uniform-resource-locator-url">Uniform Resource Locator (URL)<a hidden class="anchor" aria-hidden="true" href="#uniform-resource-locator-url">#</a></h2>
+<h2 id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h2>
 <p>URL&rsquo;s are unique identifiers for web resources.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example URI specification from RFC 3986</span>
 
@@ -207,7 +252,7 @@ Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><
          / <span class="se">\ </span>/                        <span class="se">\
 </span><span class="se"></span>         urn:example:animal:ferret:nose
 </code></pre></div><p>Within the <code>authority</code> a port number is delimited by <code>:</code>, this is optional and generally only included if not default for the protocol in use.</p>
-<h3 id="rest">REST<a hidden class="anchor" aria-hidden="true" href="#rest">#</a></h3>
+<h3 id="rest">REST</h3>
 <p>Representational State Transfer (ReST) is a style of architecture for distributed systems in which requests and responses contain representations of the current state of the systems resources.
 What is means is that RESTful applications will have their parameters within the path, rather than in the query string.</p>
 <p><strong>Non-RESTful</strong></p>
@@ -215,7 +260,7 @@ What is means is that RESTful applications will have their parameters within the
 <p><strong>RESTful</strong></p>
 <p><code>https://example.com/search/samsung/galaxy</code></p>
 <p>See <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">here</a> for more information.</p>
-<h3 id="http-headers">HTTP Headers<a hidden class="anchor" aria-hidden="true" href="#http-headers">#</a></h3>
+<h3 id="http-headers">HTTP Headers</h3>
 <p>Some interesting and important headers:</p>
 <p><strong>General Headers</strong></p>
 <ul>
@@ -250,8 +295,8 @@ What is means is that RESTful applications will have their parameters within the
 <li><code>WWW-Authenticate</code>: Provides details on types of authentication that server supports after 401 status code.</li>
 <li><code>X-Frame-Options</code>: Whether responses can be loaded within browsers frame and how to do it.</li>
 </ul>
-<h3 id="cookies">Cookies<a hidden class="anchor" aria-hidden="true" href="#cookies">#</a></h3>
-<p><img src="https://danielms.site/images/cookies.png" alt="" title="cookie output request headers"></p>
+<h3 id="cookies">Cookies</h3>
+<p><img src="/images/cookies.png" alt="" title="cookie output request headers"></p>
 <p>Many web applications rely on cookies as allow servers to send data to the client, and then have the client return that data in its transmissions within the server. Since HTTP is stateless, cookies allow functionality to persist over time. Login data, shopping carts and site settings all rely on cookies for a better user experience.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Example of setting a cookie</span>
 
@@ -264,7 +309,7 @@ Cookie: <span class="nv">tracking</span><span class="o">=</span>dw34tad23590ddfs
 <li><code>secure</code>: Whether that cookie must be sent via HTTPS or not.</li>
 <li><code>HttpOnly</code>: if this is it set, it prevents javascript from accessing it.</li>
 </ul>
-<h3 id="status-codes">Status Codes<a hidden class="anchor" aria-hidden="true" href="#status-codes">#</a></h3>
+<h3 id="status-codes">Status Codes</h3>
 <p>Five (5) groupings:</p>
 <ul>
 <li><code>1xx</code> - Informational.</li>
@@ -291,13 +336,13 @@ Cookie: <span class="nv">tracking</span><span class="o">=</span>dw34tad23590ddfs
 <li><code>500 Internal Server Error</code>: The server hit some error processing your request. A good hint that you are trying to exploit something it is not configured to handle properly. Always try and identify the nature of this error.</li>
 <li><code>503 Service Unavailable</code>: An indication that the server is responding but the application is not.</li>
 </ul>
-<h3 id="state-and-sessions">State and Sessions<a hidden class="anchor" aria-hidden="true" href="#state-and-sessions">#</a></h3>
+<h3 id="state-and-sessions">State and Sessions</h3>
 <p>Although HTTP is stateless there is a requirement for the client and server to process long running requests. An example of this is a sites Shopping Cart. A user can browse and add items to their cart whilst making several requests over a period of time. To make this possible the server maintains a User Session, which allows it to track the users actions across the site.</p>
 <p>In some cases, state information is stored on the client side. Instead of the server storing the session, now the data is sent to the client in each server response and the client will send it back in each request. It is important that the server does not trust the client, as it may alter the session information for nefarious reasons. One mitigation is using a hash of the state, which the server validates before accepting the clients session data.</p>
 <p>Given the stateless nature of HTTP, applications need a method in which to re-identify clients. Typically, this is achieved through the use of tokens - a unique identifier for each user such as cookie.</p>
-<h3 id="encoding-schemes">Encoding Schemes<a hidden class="anchor" aria-hidden="true" href="#encoding-schemes">#</a></h3>
+<h3 id="encoding-schemes">Encoding Schemes</h3>
 <p>HTTP has several encoding schemes to ensure the safe delivery of data. The following is some of the most common.</p>
-<h4 id="url-encoding">URL Encoding<a hidden class="anchor" aria-hidden="true" href="#url-encoding">#</a></h4>
+<h4 id="url-encoding">URL Encoding</h4>
 <p>URL&rsquo;s can only contain characters from the US-ASCII set; 0x20 through to 0x7e. Several characters within this set are restricted as they have special meaning in the scheme or HTTP.
 All URL encoded characters are prefixed by <code>%</code> followed by their hexadecimal representation of the ASCII character.</p>
 <p>Examples:</p>
@@ -308,7 +353,7 @@ All URL encoded characters are prefixed by <code>%</code> followed by their hexa
 <li><code>%00</code> — Null Byte</li>
 </ul>
 <p><strong>note</strong>: <code>+</code> represents the &lsquo;space&rsquo; in a URL.</p>
-<h4 id="unicode-encoding">Unicode Encoding<a hidden class="anchor" aria-hidden="true" href="#unicode-encoding">#</a></h4>
+<h4 id="unicode-encoding">Unicode Encoding</h4>
 <p>Unicode is the system that allows us to use many different character sets. For English speakers, <code>utf-8</code> will be the most common, but many more exists.
 Encoding 16-bit unicode in a URL requires the prefix <code>%u</code> followed by the hexadecimal.</p>
 <p>Example unicode</p>
@@ -323,89 +368,63 @@ Encoding 16-bit unicode in a URL requires the prefix <code>%u</code> followed by
 <li><code>%e2%89%a0</code> — ≠</li>
 </ul>
 <p>Unicode is an important part of attacking web applications as it can defeat input validation schemes.</p>
-<h4 id="html-encoding">HTML Encoding<a hidden class="anchor" aria-hidden="true" href="#html-encoding">#</a></h4>
+<h4 id="html-encoding">HTML Encoding</h4>
 <p>Safe incorporation of HTML within web applications is important. Several HTML characters have special meaning and must be encoded correctly.
 When attacking an application, HTML encoding will be most evident when probing for XSS vulnerabilities. If an application returns user input unmodified, it is likely vulnerable.</p>
-<h4 id="base64">Base64<a hidden class="anchor" aria-hidden="true" href="#base64">#</a></h4>
+<h4 id="base64">Base64</h4>
 <p>Base64 allows any binary data to be represented as using only ASCII characters. It permits the sending of ASCII strings over the wire for safe reassembly on the other side in the original format. It is also used heavily in basic HTTP user authentication.</p>
 <p>Base64 splits the bytes into 6bit streams, allowing for 64 possible permutations - each chunk of 6 bits allows for 64 possible characters. It allows only the following characters:</p>
 <p><code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+</code></p>
 <p>If the final block results in fewer than three chunks (16 bits or 2 bytes) then it will be marked by <code>=</code> or <code>==</code> which says that their may be one or two trailing blocks of zero&rsquo;s.</p>
 <p>Base64 is prevalent across the web and is often used to transmit binary data within cookies and other parameters. It is often used to obfuscate data in transit through security by obscurity. Always decode any intercepted Base64 data, it could be a goldmine. Base64 can often be identified quickly by the <code>=</code> trail, or if it is JSON it will start with <code>ey</code> which represents <code>{</code>.</p>
-<h2 id="fin">Fin<a hidden class="anchor" aria-hidden="true" href="#fin">#</a></h2>
+<h2 id="fin">Fin</h2>
 <p>HTTP is an important protocol not just for security and network engineers but for developers too. Having a cursory understanding aides every one who uses the web. Next time you look at the network tab in your browsers developer tools be sure to look at the headers, you might notice something worth exploring.</p>
-
 </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://danielms.site/tags/http">HTTP</a></li>
-      <li><a href="https://danielms.site/tags/security">security</a></li>
-      <li><a href="https://danielms.site/tags/web">web</a></li>
-    </ul>
-  </footer>
-</article>
-    </main><footer class="footer">
-    <span>&copy; 2020 <a href="https://danielms.site/">Daniel Michaels | Software Developer</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
-    <button class="top-link" id="top-link" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
-            <path d="M12 6H0l6-6z" /></svg>
-    </button>
-</a>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/categories/http/">HTTP</a><a class="category" href="/categories/eli5/">eli5</a></span>
+
+                <span class="separator"><a class="tag" href="/tags/http/">HTTP</a><a class="tag" href="/tags/security/">security</a><a class="tag" href="/tags/web/">web</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://danielms.site/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
 
 
 
-<script defer src="https://danielms.site/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
+<script type="text/javascript"
+        src="https://danielms.site/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
 
+<script type="text/javascript"
+        src="https://danielms.site/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149607103-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 </body>
 
 </html>

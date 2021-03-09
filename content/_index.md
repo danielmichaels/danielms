@@ -6,14 +6,13 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 ## Most Popular Blog Posts
 
-- [Web Scraping Javascript with Python](https://www.danielms.site/blog/web-scraping-javascript-with-python-xhr/)
-- [Wagtail Embed Youtube Videos](https://www.danielms.site/blog/wagtail-embedurl-youtube-tags/)
-- [HTTPX is The New Requests with Async](https://www.danielms.site/blog/httpx-is-the-new-requests-with-async/)
-- [Rsync Cheatsheet](https://www.danielms.site/blog/rsync-cheatsheet/)
+- [Web Scraping Javascript with Python]({{< ref "blog/2020/16032020-python-xhr-scraping.md" >}})
+- [Wagtail Embed Youtube Videos]({{< ref "blog/2020/05022020-wagtail-embed.md" >}})
+- [HTTPX is The New Requests with Async]({{< ref "blog/2020/05072020-httpx-async-client.md" >}})
+- [Rsync Cheatsheet]({{< ref "blog/2018/01-rsync.md" >}})
 
-[comment]: <> (## Monthly Retrospectives)
+## Recent Monthly Retrospectives
 
-[comment]: <> (- [January 2021]&#40;{{< ref "retrospectives/01-2021.md" >}}&#41;)
-
-[comment]: <> (- [February 2021]&#40;{{< ref "retrospectives/02-2021.md" >}}&#41;)
+- [February 2021]({{< ref "retrospectives/2021/02/index.md" >}})
+- [January 2021]({{< ref "retrospectives/2021/01/index.md" >}})
 

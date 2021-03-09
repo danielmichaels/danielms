@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Daniel Michaels | Software Developer</title>
+    <title>Daniel Michaels</title>
     <link>https://danielms.site/</link>
-    <description>Recent content on Daniel Michaels | Software Developer</description>
+    <description>Recent content on Daniel Michaels</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTPX is the new Requests with Async</title>
+      <link>https://danielms.site/blog/httpx-is-the-new-requests-with-async/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/httpx-is-the-new-requests-with-async/</guid>
+      <description>Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.</description>
+    </item>
+    
     <item>
       <title>DNS the easy parts</title>
       <link>https://danielms.site/blog/dns-the-easy-parts/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dns-the-easy-parts/</guid>
-      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS. We&amp;rsquo;ve all heard of it, many of us loosely understand it but, like all things, when you need to fix it knowledge gaps become painfully obvious.
-When it comes to diagnosing network issues, understanding adblocking, speeding up queries or protecting privacy, you can bet DNS will be mentioned. Unlike other protocols such as Network Address Translation , or Open Shortest Path First, DNS is a network fundamental that every engineer should have down.</description>
+      <description>DNS The Internet&amp;rsquo;s success is predicated on the Domain Name System or DNS.</description>
     </item>
     
     <item>
-      <title>Easy creation of poetry from requirements.txt</title>
+      <title>Feb 2021 Retrospective</title>
+      <link>https://danielms.site/retrospectives/2021/retrospective-feb-2021/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/retrospectives/2021/retrospective-feb-2021/</guid>
+      <description>Summary Added a blog to mudmap but am still not ready to launch.</description>
+    </item>
+    
+    <item>
+      <title>Jan 2021 Retrospective</title>
+      <link>https://danielms.site/retrospectives/2021/retrospective-jan-2021/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/retrospectives/2021/retrospective-jan-2021/</guid>
+      <description>Summary Thought of a potential business create and its target market.</description>
+    </item>
+    
+    <item>
+      <title>2020 In Review ✨</title>
+      <link>https://danielms.site/blog/2020-year-in-review/</link>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/blog/2020-year-in-review/</guid>
+      <description>What a time to be alive. This year has been as weird as it has been amazing.</description>
+    </item>
+    
+    <item>
+      <title>From requirements.txt to poetry&#39;s pyproject.toml</title>
       <link>https://danielms.site/blog/requirements-txt-to-poetry-pyproject-toml/</link>
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/requirements-txt-to-poetry-pyproject-toml/</guid>
-      <description>Poetry and Requirements.txt I am now a poetry convert, opting for it in any reasonably large projects. Personally, I have found the ability to pin pacakges and produce a lock file invaluable for getting a complete picture of an applications dependencies. It also prevets needless docker build time spikes if a package is updated.
-Unfortunately, converting requirements.txt to pyproject.toml is not yet integrated natively by poetry.
-The problem I needed to change a requirements.</description>
+      <description>Poetry and Requirements.txt I am now a poetry convert, opting for it in any reasonably large projects.</description>
     </item>
     
     <item>
@@ -34,9 +67,7 @@ The problem I needed to change a requirements.</description>
       <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/the-slight-edge-a-summary/</guid>
-      <description>The Slight Edge in my Words  Do the thing, and you shall have the power.
- The Slight Edge is a fantastic book that explains the power of continual small improvements that compound overtime. These 1% gains each day go on to make you appear to be an overnight success. I have experienced this as a self taught software developer.
-To bystanders and friends my journey appears as though I learned everything I know about software development during my university degree (which was in arts, not science).</description>
+      <description>The Slight Edge in my Words  Do the thing, and you shall have the power.</description>
     </item>
     
     <item>
@@ -45,8 +76,7 @@ To bystanders and friends my journey appears as though I learned everything I kn
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/getting-fedora-32-docker-play-nice-a-how-to/</guid>
-      <description>Fedora 32 and Docker Are Incompatible Fedora is a great distribution for development, its very customizable, and supports a great number of packages and applications out of the box. If you&amp;rsquo;re going to use a linux environment thats not Debian based, it ought to be fedora.
-Sadly nothing is ever perfect, meaning Fedora too, has its downsides. Currently, at least to me, is its inability to run Docker out of the box.</description>
+      <description>Fedora 32 and Docker Are Incompatible Fedora is a great distribution for development, its very customizable, and supports a great number of packages and applications out of the box.</description>
     </item>
     
     <item>
@@ -55,23 +85,7 @@ Sadly nothing is ever perfect, meaning Fedora too, has its downsides. Currently,
       <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/2020-brag-doc/</guid>
-      <description>Brag Documents A reminder to yourself to review what you&amp;rsquo;ve done this year. Catalogue your wins and reinforce good behaviour.
-2020 In Review Here is what I have to brag about in 2020 so far:
-Technologies:
-I have developed, integrated or otherwise taken the following technologies beyond &amp;ldquo;beginner&amp;rdquo;, or enhanced these skills with the following examples.
-  Angular
- Gone from knowing zero Angular to being the lead (sole) developer UI developer in a complex microservices application.</description>
-    </item>
-    
-    <item>
-      <title>HTTPX is the new Requests with Async</title>
-      <link>https://danielms.site/blog/httpx-is-the-new-requests-with-async/</link>
-      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://danielms.site/blog/httpx-is-the-new-requests-with-async/</guid>
-      <description>Long live requests welcome HTTPX  HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
- Far and away, requests stands as the most notable third party package. It&amp;rsquo;s almost considered part of what makes up python these days. Unfortunately, little forward progress has been made in recent times to incorporate python&amp;rsquo;s async capabilities.
-This is where HTTPX is stepping up to the plate.</description>
+      <description>Brag Documents A reminder to yourself to review what you&amp;rsquo;ve done this year.</description>
     </item>
     
     <item>
@@ -80,9 +94,7 @@ This is where HTTPX is stepping up to the plate.</description>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/flask-jsonify-you-dont-need-it/</guid>
-      <description>Flask jsonify, do I still need it? For a long time, returning JSON in flask required using the flask.jsonify API. However, since this PR Flask will by default call jsonify under the hood on any dictionary it receives on a make_response call.
-How does it work When you need to return json in a response, you can simply use a plain python dictionary instead of the jsonify API.
-# plain dictionary @app.</description>
+      <description>Flask jsonify, do I still need it? For a long time, returning JSON in flask required using the flask.</description>
     </item>
     
     <item>
@@ -91,8 +103,7 @@ How does it work When you need to return json in a response, you can simply use 
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/side-hustle-notes-getting-started/</guid>
-      <description>Starting Your Side Hustle This is a collection of notes from one of the world&amp;rsquo;s expert Side Hustlers, Chris Guillebeau. If you have not read his book The $100 Startup, you really should. It also includes important takeaways from other bloggers and authors. Wherever applicable references have been added.
-Its also pretty important to define a side hustle. We are talking about small enterprises which take little to no time for setup, maintenance and daily running.</description>
+      <description>Starting Your Side Hustle This is a collection of notes from one of the world&amp;rsquo;s expert Side Hustlers, Chris Guillebeau.</description>
     </item>
     
     <item>
@@ -101,7 +112,7 @@ Its also pretty important to define a side hustle. We are talking about small en
       <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/web-scraping-javascript-with-python-xhr/</guid>
-      <description>Scraping Dynamic Pages with Python Web scraping Python is a great tool for web scraping tasks, it is efficient, easy to read and fast. Whenever looking to grab data from a site, the canonical packages are BeautifulSoup and Requests. Unfortunately, when our target site is dynamically rendered, BeautifulSoup can&amp;rsquo;t &amp;ldquo;see&amp;rdquo; those parts leading to a lot of head scratching. The often touted answer to this is Selenium which spins up a browser thereby rendering the JavaScript making it possible to scrape data from it.</description>
+      <description>Scraping Dynamic Pages with Python Web scraping Python is a great tool for web scraping tasks, it is efficient, easy to read and fast.</description>
     </item>
     
     <item>
@@ -110,9 +121,7 @@ Its also pretty important to define a side hustle. We are talking about small en
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/wagtail-embedurl-youtube-tags/</guid>
-      <description>Wagtail Embed Video Wagtail is a brilliant content management service built atop of Django. It comes with all of Django&amp;rsquo;s functionality and Django Rest Framework built in for headless work making life a lot easier.
-In all, I really love it, especially its StreamFields. But I did stumble on one component, getting embedded videos to work correctly.
-Embedding videos This is harder than I feel it should be and poorly explained by the Wagtail documentation.</description>
+      <description>Wagtail Embed Video Wagtail is a brilliant content management service built atop of Django.</description>
     </item>
     
     <item>
@@ -122,9 +131,7 @@ Embedding videos This is harder than I feel it should be and poorly explained by
       
       <guid>https://danielms.site/blog/ecosia-tree-saving-browser/</guid>
       <description>Ecosia Building awareness The search engine that plants trees.
-As we welcome 2020, lets acknowledge that doing something to help make our planet more sustainable is worth our time and effort.
-Not everyone need agree on this topic, but those that do and have yet to hear about Ecosia let me give you some background.
-The tree planting search engine  79 million trees have been planted to date and every 0.</description>
+As we welcome 2020, lets acknowledge that doing something to help make our planet more sustainable is worth our time and effort.</description>
     </item>
     
     <item>
@@ -134,8 +141,7 @@ The tree planting search engine  79 million trees have been planted to date and 
       
       <guid>https://danielms.site/blog/learn-docker-in-one-month/</guid>
       <description>Learning Docker in one month Yep, one month.
-Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &amp;ldquo;container&amp;rdquo;. These containers bundle together applications and dependancies without the need for installation on the host operating system. Containerisation is meant to empower developers by providing a &amp;ldquo;written once and run anywhere&amp;rdquo; methodology.
-Why Some of the core reasons to use docker.</description>
+Docker basics What docker is a product that uses operating system virtualisation to created packages and applications which live within a &amp;ldquo;container&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -144,9 +150,7 @@ Why Some of the core reasons to use docker.</description>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/defence-mechanisms-for-web-apps/</guid>
-      <description>Web Application Defence Mechanisms  one rule; do not trust user input.
- Core defences The methods by which we can defend against attackers.
- Handling user access Handling user input Handling attacks or ensuring that the application works as intended when being directly targeted, and Handling the application itself so everything can be monitored, and configured correctly  User Access In most applications that have users, there will be several privileges or roles within the user space.</description>
+      <description>Web Application Defence Mechanisms  one rule; do not trust user input.</description>
     </item>
     
     <item>
@@ -155,8 +159,7 @@ Why Some of the core reasons to use docker.</description>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/dropbear-aws-pem-keys/</guid>
-      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&amp;rsquo;s Dropbear SSH client isn&amp;rsquo;t easy. Firstly, .pem files are not compatible with dropbear, nor can you convert them to dropbear&amp;rsquo;s key format with the built-in dropbearconvert. Secondly, depending on your version of openssh it may not be immediately apparent that your private keys are incompatible with the conversion application either. Thankfully, workarounds are possible.
-Dropbear SSH Dropbear is a lightweight client and server application mostly seen on embedded devices.</description>
+      <description>BusyBox, SSH and EC2 Accessing an EC2 instance from BusyBox&amp;rsquo;s Dropbear SSH client isn&amp;rsquo;t easy.</description>
     </item>
     
     <item>
@@ -165,8 +168,7 @@ Dropbear SSH Dropbear is a lightweight client and server application mostly seen
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/curl-emails-for-great-good/</guid>
-      <description>Curl Today I learnt that Curl can also be used to send emails. One of my projects is to manage a fleet of embedded devices that communicate information back to our servers. Email is one part of this process. And, curl is installed on these devices, greatly simplifying things.
-Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; --ssl-reqd \ --mail-from &amp;#39;username@gmail.com&amp;#39; --mail-rcpt &amp;#39;rcpt@email.com&amp;#39; \ --user &amp;#39;username@gmail.com:password&amp;#39; --insecure \ --upload-file fileToBeUploaded.txt Let&amp;rsquo;s break down each component:</description>
+      <description>Curl Today I learnt that Curl can also be used to send emails.</description>
     </item>
     
     <item>
@@ -175,8 +177,7 @@ Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; 
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/http-basic-methods-and-verbs/</guid>
-      <description>HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:
- The browser extracts the domain name from the search bar. The users Domain Name System (DNS) cache is queried. If no previous entries are found a DNS request is sent via your configured DNS server. After getting the IP address via DNS, the host will initiate a TCP connection with that address. If the connection is successful, a response will be sent from the server and its data will be rendered using HTTP.</description>
+      <description>HTTP 101 Prefetch What happens when you type an address into the search bar and hit enter:</description>
     </item>
     
     <item>
@@ -185,9 +186,7 @@ Syntax # gmail specific curl --url &amp;#39;smtps://smtp.gmail.com:587&amp;#39; 
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/http-security-basics/</guid>
-      <description>HTTP Basics HTTP is an application level message based model where the client sends a request and the server returns a response. HTTP uses a stateful protocol - TCP - but is stateless, where each request is connectionless avoiding the need for servers to hold an open connection.
-HTTP Requests The first line of every HTTP request has three (3) items, separated by spaces:
- The verb - GET,PUT,DELETE,POST,TRACE,CONNECT,OPTIONS, or HEAD The requested URL, typically the name of the resource plus an optional query string.</description>
+      <description>HTTP Basics HTTP is an application level message based model where the client sends a request and the server returns a response.</description>
     </item>
     
     <item>
@@ -196,9 +195,7 @@ HTTP Requests The first line of every HTTP request has three (3) items, separate
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/user-agents-101/</guid>
-      <description>User agents What Every browser sends with its request, a string that says who it is. That string will contain information on its application type, operating system, and software version currently in use.
-Heres mine: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 but it could just as easily be Mozilla/5.0 (PlayStation 4 4.71) AppleWebKit/601.2 (KHTML, like Gecko).
-If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;ldquo;Request Desktop Site&amp;rdquo; then you have changed your phone browsers user agent.</description>
+      <description>User agents What Every browser sends with its request, a string that says who it is.</description>
     </item>
     
     <item>
@@ -207,9 +204,7 @@ If you&amp;rsquo;ve ever been surfing the net on your mobile and selected &amp;l
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/lesspass-eli5/</guid>
-      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache. It simply takes in three pieces of information and then hashes that to return a password. If all three pieces of information haven&amp;rsquo;t changed LessPass will always return the same password.
-Why use it over other choices Straight from the creator himself:
- How do I synchronize this file on all my devices?</description>
+      <description>LessPass The manager-less password manager LessPass, unlike other password managers does not store any information in a database or local cache.</description>
     </item>
     
     <item>
@@ -218,7 +213,7 @@ Why use it over other choices Straight from the creator himself:
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/on-teaching/</guid>
-      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals. It struck me that I don&amp;rsquo;t know how to properly impart my knowledge. Where do I start, with strings, or variables. When do I talk about types and equality. Is it better to teach while or for loops first? Classes, OOP, recursion, comprehensions, async! What is important now versus what is the minimum necessary to give them the basics required to go away and learn on their own.</description>
+      <description>on teaching Recently it has befallen upon me to tutor my peers in programming concepts and fundamentals.</description>
     </item>
     
     <item>
@@ -227,10 +222,7 @@ Why use it over other choices Straight from the creator himself:
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/python-bytes-and-strings/</guid>
-      <description>Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy. But, it is still being used heavily and will likely live beyond its end of life. Recently, a project forced me to use python 2.7 within a Centos environment and I hit some small encoding issues.
-Character Sequences In python there are two types that represent sequences of characters:
-Python 3
- Bytes: raw 8 bit values Strings: unicode characters  Python 2</description>
+      <description>Python: strings and bytes Python 3 is the new python, and python 2 should be regarded as legacy.</description>
     </item>
     
     <item>
@@ -239,9 +231,7 @@ Python 3
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/sqlite3-primer/</guid>
-      <description>SQL Reference SQLite3 Specific Transactions SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable). This means that data is not lost in the event of crashes, power failures or operating system dumps.
-Atomic - Meaning changes cannot be broken down into smaller parts; either the entire transaction is commit or nothing at all.
-Consistent - A transaction must ensure to change the database from one valid state to another. If a transaction results in invalid data, the database will revert its previous state.</description>
+      <description>SQL Reference SQLite3 Specific Transactions SQLite transactions are ACID (Atomic, Consistent, Isolated and Durable).</description>
     </item>
     
     <item>
@@ -259,8 +249,7 @@ Consistent - A transaction must ensure to change the database from one valid sta
       <pubDate>Sat, 11 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/linux-environment-variables/</guid>
-      <description>Environment Variables Simply put, environment variables are a collection of key value strings held by the current shell or process. Each process has access to an array of environment variables held in its user-space memory.
-The environment variables are available to all applications, and allow these programs or scripts use them within the shell environment. They can allow custom modification to defaults that permeate throughout the user-space rather than be homed within each applications configuration.</description>
+      <description>Environment Variables Simply put, environment variables are a collection of key value strings held by the current shell or process.</description>
     </item>
     
     <item>
@@ -269,7 +258,7 @@ The environment variables are available to all applications, and allow these pro
       <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/python-object-references/</guid>
-      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming. This post is about how python treats object assignment and some of the hidden gotcha&amp;rsquo;s that can cause unintended errors along the way. Instead of &amp;ldquo;boxes&amp;rdquo; it is better to think of variables as &amp;ldquo;labels&amp;rdquo; that we attach to objects.</description>
+      <description>Python Object Reference ELI5  I first learnt about variables through the analogy of &amp;ldquo;variables are boxes&amp;rdquo; and that we assign things to those boxes Turns out, this isn&amp;rsquo;t particularly helpful in objected orientated programming.</description>
     </item>
     
     <item>
@@ -278,9 +267,7 @@ The environment variables are available to all applications, and allow these pro
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/public-key-crypto-the-basics/</guid>
-      <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.
-Public Key Cryptography What problem does it solve?
-If two parties wish to exchange information to one another but the medium which they use to communicate is compromised, how do they share a secret key to unlock their encrypted messages? Symmetric key cryptography would make this untenable for the most part.</description>
+      <description>Public Key Cryptography My simplest explanation TL;DR: Public key cryptography is a method of using a different key for the encryption and decryption of a file, message or other medium.</description>
     </item>
     
     <item>
@@ -289,9 +276,7 @@ If two parties wish to exchange information to one another but the medium which 
       <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/base64-eli5/</guid>
-      <description>Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?
-TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunks its down into segments of 6 bits - six ones in binary equates to 64 which is where it derives its name.
- first, a demo Let&amp;rsquo;s look at an example using the three letter word &amp;ldquo;The&amp;rdquo;.</description>
+      <description>Base64 Base64 is a common encoding scheme. But what is it, why 64 bits and how does it work?</description>
     </item>
     
     <item>
@@ -300,8 +285,7 @@ TL;DR  Base64 is a binary to ASCII encoding that takes a byte (8 bits) and chunk
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/flask-forms-and-http-requests/</guid>
-      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages. And it pains me to say that I spent a silly length of time debugging what was a rather easy problem.
-The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue started when trying to institute a search bar that allows the user to select a series of parameters.</description>
+      <description>Flask, Forms and HTTP Requests Preface This week I have been building a small webapp that leverage&amp;rsquo;s an external API to populate values in the user pages.</description>
     </item>
     
     <item>
@@ -310,8 +294,7 @@ The webapp uses Flask, jinja2 templates and the fuelwatcher API. The issue start
       <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/uploading-to-pypi/</guid>
-      <description>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid development and as such the following may have parts which are no longer in date. In time I will update this post to reflect these changes.
-Python Package Index Python has a wonderful community and package ecosystem. It currently has over 130,000 packages for download and a large variety to choose from. To download a python package via the pip command, the package must be uploaded to the Python Package Index, or PyPI.</description>
+      <description>UPDATE 27/01/2019: This area of python and the PyPI is under going rapid development and as such the following may have parts which are no longer in date.</description>
     </item>
     
     <item>
@@ -320,8 +303,7 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/mentoring-at-coderdojo/</guid>
-      <description>CoderDojo Today I volunteered my time at a local CoderDojo as a Mentor. The basic premise of a CoderDojo is it&amp;rsquo;s a place where children between 7 and 17 can learn programming, robotics or basically any technology that might inspire them. The kids are called &amp;lsquo;ninjas&amp;rsquo; whilst the program co-ordinators are known as champions, and people who help out in their area of expertise are the mentors.
- What did we do?</description>
+      <description>CoderDojo Today I volunteered my time at a local CoderDojo as a Mentor.</description>
     </item>
     
     <item>
@@ -330,8 +312,7 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/til-how-network-time-protocol-works/</guid>
-      <description>Network Time Protocol So today I watched a talk on NTP and it was amazing. I will do my best to summarise the core parts in this post.
- What is it? Network Time Protocol allows clocks between computers to be synchronised over the internet or local area network. It was developed by [David L. Mills] (https://en.wikipedia.org/wiki/David_L._Mills) in 1985 and is currently in its fourth version. Accurate to a few milliseconds of Coordinated Universal Time, NTP is a fundamental instrument in modern networking.</description>
+      <description>Network Time Protocol So today I watched a talk on NTP and it was amazing.</description>
     </item>
     
     <item>
@@ -340,7 +321,7 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/scapy-snippets/</guid>
-      <description>How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.haslayer(RadioTap): return packet.dbm_antsignal caveat: currently only tested on Ralink: RT5370 chipset</description>
+      <description>How to get RSSI from WLAN packet from scapy.layers.dot11 import RadioTap, Dot11 def get_rssi(packet): if packet.</description>
     </item>
     
     <item>
@@ -349,8 +330,7 @@ Python Package Index Python has a wonderful community and package ecosystem. It 
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/linux-file-permissions/</guid>
-      <description>Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly. As a beginner, junior or experienced developer and/or administrator, you are going to need this!
-Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-x 2 test users 4.0K Feb 1 14:29 . drwx------ 33 test users 4.0K Feb 3 15:45 .. -rw-r--r-- 1 test users 0 Jan 21 12:14 1 -rw-r--r-- 1 test users 0 Jan 21 12:14 3 -rw-r--r-- 1 test users 16 Feb 1 14:29 file.</description>
+      <description>Linux: Chmod and Chown This is a short introduction to basic Linux file permissions and how to set them correctly.</description>
     </item>
     
     <item>
@@ -360,8 +340,7 @@ Chmod: Change File Mode Bits 15:45:18 user@example temporary total 12K drwxr-xr-
       
       <guid>https://danielms.site/blog/ssh-in-a-nutshell/</guid>
       <description>SSH Definition Straight from the man pages:
-SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine. It is intended to provide secure encrypted communications between two untrusted hosts over an insecure network. X11 connections, arbitrary TCP ports and UNIX-domain sockets can also be forwarded over the secure channel.
-Setup (Old School Method) On a new machine we need to setup up ssh.</description>
+SSH (SSH client) is a program for logging into a remote machine and for executing commands on a remote machine.</description>
     </item>
     
     <item>
@@ -370,9 +349,16 @@ Setup (Old School Method) On a new machine we need to setup up ssh.</description
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://danielms.site/blog/rsync-cheatsheet/</guid>
-      <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.
-Rsync is a fast and extraordinarily versatile file copying tool. It uses a delta transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source and destination files. It can contact remote systems via SSH or through a rsync daemon over TCP.
-Basic Syntax -r: The &amp;lsquo;r&amp;rsquo; flag denotes that the operation is recursive.</description>
+      <description>This is a short primer on the most simple of rsync&amp;rsquo;s capabilities.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://danielms.site/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/projects/</guid>
+      <description>Projects RFC.py A simple python client that offers users the ability to search for, read and bookmark RFC&amp;rsquo;s from the Internet Engineering Task Force whilst offline.</description>
     </item>
     
   </channel>

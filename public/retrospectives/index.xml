@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retrospectives on Daniel Michaels</title>
+    <link>https://danielms.site/retrospectives/</link>
+    <description>Recent content in Retrospectives on Daniel Michaels</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://danielms.site/retrospectives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feb 2021 Retrospective</title>
+      <link>https://danielms.site/retrospectives/2021/retrospective-feb-2021/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/retrospectives/2021/retrospective-feb-2021/</guid>
+      <description>Summary Added a blog to mudmap but am still not ready to launch.</description>
+    </item>
+    
+    <item>
+      <title>Jan 2021 Retrospective</title>
+      <link>https://danielms.site/retrospectives/2021/retrospective-jan-2021/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://danielms.site/retrospectives/2021/retrospective-jan-2021/</guid>
+      <description>Summary Thought of a potential business create and its target market.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -87,12 +87,12 @@ name = "Blog"
 weight = 200
 identifier = "blog"
 url = "/blog/"
-#
-#[[menu.main]]
-#name = "Retrospectives"
-#weight = 300
-#identifier = "retrospectives"
-#url = "/retrospectives/"
+
+[[menu.main]]
+name = "Retrospectives"
+weight = 300
+identifier = "retrospectives"
+url = "/retrospectives/"
 
 [[menu.main]]
 name = "Projects"
