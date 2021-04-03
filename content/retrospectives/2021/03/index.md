@@ -46,7 +46,7 @@ deployed it to Netlify. It is now being indexed by google and something I can
 work with to produce content that might attract more users in the future.
 
 I listened to a podcast that featured Pierre De Wulf
-of [ScarpingBee.com][scrapingbee] and was inspired by his experience running a
+of [ScrapingBee.com][scrapingbee] and was inspired by his experience running a
 SaaS business that failed. He was able to sell it because it was generating a
 lot of traffic. Pierre, said that their content marketing was what made it
 sellable.
