@@ -6,7 +6,7 @@ slug = "retrospective-march-2021"
 title = "March 2021 Retrospective"
 draft = "false"
 # images = ["twitter-card-image"]
-images = ["content/retrospectives/2021/03/march.jpg"]
+images = ["march.jpg"]
 +++
 
 # Summary
