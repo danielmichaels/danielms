@@ -31,6 +31,7 @@ description = "I build things and drink coffee."
 profilePicture = "extra/cover.jpeg"
 keywords = "software, python, javascript, entrepreneur, retrospectives, indie hacker"
 favicon = "favicons/"
+images = ["extra/danielmichaels.png"]
 # example ["css/custom.css"]
 customCss = []
 # example ["js/custom.js"]
