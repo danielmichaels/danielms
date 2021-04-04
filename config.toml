@@ -8,10 +8,10 @@ enableEmoji = true
 enableRobotsTXT = true
 
 # Enable Disqus
-disqusShortname = "danielms-site"
+#disqusShortname = "danielms-site"
 
 # Google Analytics
-googleAnalytics = "UA-149607103-1"
+#googleAnalytics = "UA-149607103-1"
 # Plausible
 [params.plausible]
 enable = true
