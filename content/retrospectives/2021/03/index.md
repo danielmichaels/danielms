@@ -9,7 +9,7 @@ draft = "false"
 
 # Summary
 
-Launched [Mudmap]'s landing page and blog! So far its been going very minor
+Launched [Mudmap]'s landing page and blog! So far it's been getting very minor
 traffic but that is okay - it is still in development. I did however get an
 email from a potential client asking to join in a beta in the meantime. That
 sort of feedback really fuels the fire and has me working hard to get the MVP
@@ -182,8 +182,8 @@ and [Mudmap].
 [whatgotdone]: https://whatgotdone.com
 [scrapingbee]: https://scrapingbee.com
 [blog]: https://mudmap.io/blog/introducing-mudmap-a-pfsense-cloud-management-tool/
-[mm_twiiter]: https://twitter.com/mudmapio
-[kotg]: https://instragram.com/kneesovertoesguy/
+[mm_twitter]: https://twitter.com/mudmapio
+[kotg]: https://www.instagram.com/kneesovertoesguy/
 [disagree]: https://www.youtube.com/watch?v=uW8kBBqc5Zk
 [oil]: https://www.forbes.com/sites/blakemorgan/2016/12/05/a-squeaky-wheel-gets-the-grease-and-why-it-pays-to-be-an-angry-customer-2/
 [sherpa]: https://en.wikipedia.org/wiki/Sherpa_(film)
