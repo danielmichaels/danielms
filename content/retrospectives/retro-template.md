@@ -55,4 +55,4 @@ anything interesting that I have found, seen, listened to or created that **prov
 - two
 - three goals
 
-[mudmap]: https://mudmap.io?ref=danielms.site
+[mudmap]: https://mudmap.io/?utm_campaign=retro&utm_source=danielms&utm_medium=blog
