@@ -105,7 +105,7 @@ to write short 280 character messages that convey meaning is a lot harder than
 I originally thought. Having to word things carefully has been great for my 
 communication skills - especially as our society's attention spans continue to
 rapidly decrease. It serves as my primary marketing platform for [Mudmap] at 
-the moment as well - this will need to be constantly adjusted as time goes on.
+the moment as well - something that will need to be adjusted as time goes on.
 This makes it an important skill to refine and work on which is why I am investing
 in it.
 
