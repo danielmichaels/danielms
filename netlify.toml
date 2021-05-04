@@ -29,6 +29,11 @@ HUGO_VERSION = "0.78.0"
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = "interest-cohort=()"
+    
 [[redirects]]
 from = "https://www.danielmichaels.site/*"
 to = "https://www.danielms.site/:splat"
