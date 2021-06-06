@@ -17,6 +17,10 @@ one line comment
 
 ## Goal Performance
 
+A review of last months three goals. See [April's Retrospective][old-retro]
+
+[old-retro]: https://danielms.site/retrospectives/2021/retrospective-april-2021/
+
 ### Goal 1
 
 - **Appraisal**: It works but there's a lot of polish (and bugs) to iron out
