@@ -1,6 +1,6 @@
 # Projects
 
-## [Mudmap.io](https://mudmap.io)
+## [Mudmap.io](https://mudmap.io?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
 Cloud monitoring and configuration for pfSense firewalls. Secure, safe and easy
 to configure and use. Take the hassle out of multisite firewall maintenance.
@@ -8,7 +8,7 @@ to configure and use. Take the hassle out of multisite firewall maintenance.
 Follow the account on [twitter](https://twitter.com/mudmapio?ref=danielms.site) or
 head to [Mudmap's blog](https://mudmap.io/blog/?ref=danielms.site) to stay up to date.
 
-## [check-redirects.com](https://check-redirects.com/?ref=danielms.site)
+## [check-redirects.com](https://check-redirects.com?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
 A web application to help find out where your short links are taking you.
 Entering a URL will return each hop's status code, response headers, and the
