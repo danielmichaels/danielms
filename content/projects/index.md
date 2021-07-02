@@ -14,8 +14,7 @@ A web application to help find out where your short links are taking you.
 Entering a URL will return each hop's status code, response headers, and the
 entire redirect chain.
 
-Built with FastAPI and
-Vuejs. [Open source](https://github.com/danielmichaels/check-redirects.com)
+Re-launched in June 2021. Completely re-written using FastAPI and Next.js 
 
 ## [RFC.py](https://github.com/danielmichaels/rfc.py/)
 
