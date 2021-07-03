@@ -38,11 +38,11 @@ The amount of work needed to make this isn't much and would offer another great 
 - **Appraisal**: Emailed with some minor correspondence but mostly crickets
 - **Rating**: B
 
-Several users have signed up for access to [Mudmap] though none have committed to paying for the service. I emailed every single sign-up with extra details and asking for feedback if they feel so inclined. It is a very small sample size but so far only one reply with a feature request. 
+Several users have signed up for access to [Mudmap] though none have committed to paying for the service. I emailed every single sign-up with extra details and asking for feedback if they feel so inclined. It is a very small sample size but so far only one replied with a feature request. 
 
-The feature is not unwarranted and something I eventually will offer all customers as standard; static IPs for SSH targets. Unfortunately, my hosting platform, [render.com](https://render.com), does not offer this, yet. The workaround is to place a [load balancer](https://www.quotaguard.com/) in front of my server and point users at that. Such a server isn't free, add latency, and I have not tested the effectiveness of SSH communications through it. More customer data is needed to ascertain how high of a priority it is before I drop other things to complete this.
+The feature is not unwarranted and something I will eventually offer all customers as standard; static IPs for SSH targets. Unfortunately, my hosting platform, [render.com](https://render.com), does not offer this, yet. The workaround is to place a [load balancer](https://www.quotaguard.com/) in front of my server and point users at that. This option isn't free, add latency, and I have not tested the effectiveness of SSH communications through it. More customer data is needed to ascertain how high of a priority it is before I drop other things to complete this.
 
-Although I've sent out a few emails those emails were to my warm network - anyone who has signed up has already found [Mudmap]. I need to go after a cold network and start planting Mudmap in people's minds. So far, my lack of conversion from sign up to paid is likely a factor of not reaching out to more people.
+Although I've sent out a few emails those emails were to my warm network - anyone who has signed up has already found [Mudmap]. I need to go after a cold network and start planting Mudmap in people's minds. So far, my lack of conversion from sign up to paid is because I'm not reaching out to more people.
 
 
 ### Reinvigorate an old project that I plan to monetize 
@@ -51,7 +51,7 @@ Although I've sent out a few emails those emails were to my warm network - anyon
 - **Rating**: A
 
 I've come to terms with it. I like building products around network analysis and security. So after chatting with [@Ruurtjan](https://twitter.com/Ruurtjan) and
-[@andreas_zettl](https://twitter.com/andreas_zettl) about our love for these tools, I decided to take a breather from Mudmap and refactor [check-redirects.com][cr.com].
+[@andreas_zettl](https://twitter.com/andreas_zettl) about our love for these tools, I decided to take a breather from Mudmap and refactor [check-redirects.com][cr.com]. We have a discord for network tool builders - [DM](https://twitter.com/dansult) or [email](mailto:dan@danielms.site) me for the link.
 
 ![check-redirects.com](cr.com-screen.png "Check Redirects new landing page")
 
@@ -87,6 +87,7 @@ This months book:
 
 - [Company of One][coo]
 
+Worth a listen if you're aren't looking to scale into a massive business. I couldn't do it justice in a short paragraph but so far its an enjoyable listen.
 
 *Sidenote*: I want to listen to Phil Jacksons' book, [Eleven Rings][11rings] on Audible. Unfortunately, it seems to be unavailable to Australian's which kind of pisses me off. 
 
@@ -96,7 +97,7 @@ Podcast of the month:
 
 10 minutes or so by [@theSamParr](https://twitter.com/theSamParr) on how he became so confident. Spoiler, it was a *choice* - a learned behavior. I loved how he explained it and have been telling a lot of friends to give it a listen.
 
-Also, my mate just dropped a couple of clips on youtube from his holiday to New Zealand before our recent (silly) lockdowns here in Australia. He's got a quirky style but makes me laugh and sometimes cringe! [PeskyPas] if you want to watch.
+Also, my mate just dropped a couple of clips on youtube from his holiday to New Zealand before our recent (silly) lockdowns here in Australia. He's got a quirky style but makes me laugh and sometimes cringe. [PeskyPas] if you want to watch.
 
 ## Wrap up
 
