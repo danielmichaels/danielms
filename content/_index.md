@@ -13,6 +13,7 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 ## Recent Monthly Retrospectives
 
+- [July 2021]({{< ref "retrospectives/2021/07/index.md" >}})
 - [June 2021]({{< ref "retrospectives/2021/06/index.md" >}})
 - [May 2021]({{< ref "retrospectives/2021/05/index.md" >}})
 - [April 2021]({{< ref "retrospectives/2021/04/index.md" >}})
