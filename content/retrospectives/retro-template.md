@@ -19,7 +19,7 @@ one line comment
 
 A review of last months three goals. See [April's Retrospective][old-retro]
 
-[old-retro]: https://danielms.site/retrospectives/2021/retrospective-april-2021/
+[old-retro]: /retrospectives/2021/retrospective-april-2021/
 
 ### Goal 1
 
