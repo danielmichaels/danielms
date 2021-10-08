@@ -9,7 +9,7 @@ draft = false
 
 # Summary
 
-Finally, released my firewall feature to Mudmap. It's a small step towards having a more fully 
+Finally, I've released my firewall feature to Mudmap. It's a small step towards having a more fully 
 featured application for pfSense users.
 
 ## Highlights
@@ -28,7 +28,7 @@ A review of last months three goals. See [August's Retrospective][old-retro]
 - **Appraisal**: I've done it, finally!
 - **Rating**: A
 
-After what feels like a lifetime I've pushed big feature to [Mudmap]. Even saying that makes me 
+After what feels like a lifetime I've pushed a big feature to [Mudmap]. Even saying that makes me 
 shudder, it's a bad thing - features shouldn't take so long to deploy. Regardless, I am happy 
 its out and glad to move on to the next thing. I keep asking myself why it took so long. I think 
 it comes down to two main things; time and complexity.
@@ -40,16 +40,16 @@ what you can accomplish over time as your small increments compound. On the othe
 full-time job those increments would compound much faster. Acknowledging this fact is important 
 but it's only half the battle. I also spend more time than I should on things which *do not* add 
 value to the project. Battling with tooling issues or lack of foresight for issues that would 
-cost me precious time later, are especially damaging. As I won't be quiting full-time employment 
+cost me precious time later, are especially damaging. As I won't be quitting full-time employment 
 any time soon, time or the lack thereof will be a continued factor in the velocity of release.
 
 **complexity**
 
 I have definitely made things more complex than they need be in certain aspects. In hindsight, 
-it is obvious but only now do I possess such clarity. Further, pfSense is a complex beast in of 
+it is obvious but only now do I possess such clarity. Further, pfSense is a complex beast in 
 itself and building an API plus management dashboard for it isn't trivial. I cannot decrease the 
 system complexity of pfSense but I can reduce *my* own systems. It starts with more time allotted 
-to design and proof of concept work instead of ploughing head first into things I *think* can work. 
+to design and proof of concept work instead of ploughing headfirst into things I *think* can work. 
 
 ![](name-of-image.png)
 
