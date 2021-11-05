@@ -16,6 +16,11 @@ entire redirect chain.
 
 Re-launched in June 2021. Completely re-written using FastAPI and Next.js 
 
+## [tars.run](https://tars.run?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
+
+A dead simple, hobbyist, no guarantees URL shortener. Written in Go, rendered with Next.js and 
+persisted with SQLite through the magic of [Litestream](https://litestream.io).
+
 ## [RFC.py](https://github.com/danielmichaels/rfc.py/)
 
 A simple python client that offers users the ability to search for, read and
