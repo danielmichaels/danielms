@@ -35,7 +35,7 @@ Instead of reviewing and assessing my goals, I'll cover off on what I have done.
 
 After several on and off attempts at learning Go over the years, I've actually committed to it 
 over the last month or so. When it comes to learning new things - regardless of topic - I like 
-to use the [four stages of competence model][comp].
+to use the [four stages of competence model][comp] as my frame of reference.
 
 [comp]: https://en.wikipedia.org/wiki/Four_stages_of_competence
 
@@ -66,7 +66,7 @@ fundamental Go building blocks. Instead of searching around, I just pulled the t
 by [Alex Edwards] called [Let's Go Further][lgf]. It has been a wonderful resource which really 
 helped to teach me how to set out my projects and make them extensible.
 
-I think I am halfway between consciously incompetent and competent now. So at I know when I'm 
+I think I am halfway between consciously incompetent and competent now. So I know when I'm 
 making the right decision about 50 percent of the time now.
 
 [alex edwards]: https://twitter.com/ajmedwards?lang=en
@@ -90,7 +90,7 @@ sort out GH actions.
 
 The process of building and deploying my first Go app was a breeze compared to *any* python 
 project. I'm still coming to terms with Go having a webserver that's production ready after 
-having spend a lot of time setting up `uvicorn` and `gunicorn` to serve python apps.
+having spent a lot of time setting up `uvicorn` and `gunicorn` to serve python apps.
 
 Check it out at [https://tars.run](https://tars.run).
 
@@ -98,10 +98,10 @@ Check it out at [https://tars.run](https://tars.run).
 
 ### Interviewed with Microsoft 
 
-During the month I was approached by an MSFT recruiter about a couple of potential jobs they 
+During the month I was approached by a Microsoft recruiter about a couple of potential jobs they 
 *think* I might be suitable for. Flattered, I took the call and ended up having a couple of 
-first round interviews. Quickly I discovered that my technical interview skills and knowledge is 
-not up to scratch. Despite being recommended to continue along the pipeline, I elected to 
+first round interviews. Quickly I discovered that my technical interview skills and knowledge 
+are not up to scratch. Despite being recommended to continue along the pipeline, I elected to 
 postpone any further interviews. In the meantime, I've decided to slowly brush up and in some 
 spots actually learn new skills.
 
