@@ -44,10 +44,10 @@ thoughts about undertaking this task. But, ultimately they all boiled down to me
 others think* which is an indicator that you're doing, or not doing, something for the *wrong* 
 reasons.
 
-After a month of work Mudmap V2 is about 80% feature parity with my in production V1 code base. 
+After a month of work, Mudmap V2 is about 80% feature parity with my in production V1 codebase. 
 It also has more tests and better coverage than the current application and some components 
 even have additional features. Something I'm really pleased with is how easy it is to add new 
-features using Go - it's type system and interfaces are great for this. 
+features using Go - its type system and interfaces are great for this. 
 
 This is a personal thing and not slight on Django, but I've found that Go has forced me to think 
 more critically about how the application should be built. Django's beauty can also be its curse 
@@ -67,16 +67,16 @@ past I may have just `pip install`'d something, and it has an added benefit of m
 lot more source code, a powerful educator. I also love seeing how changing a functions' signature 
 can ripple across the entire app, which has also made me plan further ahead. Lastly, Go is a 
 concurrent language. Mudmap sends emails and executes things in background workers without Redis 
-or Celery, and it can handle a boat load of requests. I'm still coming to grip with the fact 
+or Celery, and it can handle a boatload of requests. I'm still coming to grip with the fact 
 that I don't need Gunicorn, its dev server is its prod server, and it's fast.
 
 In all, I think this has been a good move and feel more confident about feature development and 
-maintaining this code base than I do with the current app. 
+maintaining this codebase than I do with the current app. 
 
 [0]: https://whatgotdone.com/dansult/2021-11-12
 [2]: https://docs.djangoproject.com/en/3.2/topics/class-based-views/intro/
 
-### Study at least 2 pomo’s each day
+### Study at least 2 pomodoro’s each day
 
 - **Appraisal**: This or rewrite Mudmap. This lost.
 - **Rating**: C
@@ -84,19 +84,27 @@ maintaining this code base than I do with the current app.
 This spawned from interviewing with Microsoft for a position within Azure. I put in a number of 
 hours at the start of the month, working through the typical developer interview type questions. 
 After about 10 days, I gave it away to spend more time on Mudmap but in the process did brush up 
-on some the basics.
+on some of the basics.
 
-I guess, this is a two part reason as to why I stopped studying; I don't really want that job,
-mostly because they want me to stay local and work in office. That's not something my family, or 
-I want anymore. We're keen to head back to the coast where we lived for ten years before coming 
+I guess, this is a two-part reason as to why I stopped studying; I don't really want that job,
+mostly because they want me to stay local and work in the office. That's not something my family,
+or I want anymore. We're keen to head back to the coast where we lived for ten years before coming 
 here. Also, that crap is utterly boring and saps my energy - if it means I never work for a Big 
 Corp, so be it. 
 
 ## Recommendations
 
 We started watching [The Expanse][3] on Prime and after three seasons am totally hooked. If you 
-like space, its actually really good.
+like space, it's actually really good.
 
+I like to listen to music when working but get distracted by certain genre's. It means I have to 
+pick music that is rather mellow. As much as I love 90's/2000's hip hop, it is too stimulating 
+for me and makes it hard to concentrate. This month I found a really [chill playlist][4] which 
+has replaced my [Interstellar][5] and [Tron][6] soundtracks.
+
+[4]: https://open.spotify.com/playlist/35fMnNReBETCnQ0CH5CHug
+[5]: https://open.spotify.com/album/3B61kSKTxlY36cYgzvf3cP
+[6]: https://open.spotify.com/album/3AMXFnwHWXCvNr5NCCpLZI
 [3]: https://en.wikipedia.org/wiki/The_Expanse_(TV_series)
 
 ## Wrap up
