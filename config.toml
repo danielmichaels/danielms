@@ -26,10 +26,10 @@ pygmentsCodefencesGuessSyntax = true
 [params]
 title = "Daniel Michaels 🇦🇺"
 author = "Daniel Michaels"
-copyright = "2018-2021"
+copyright = "2018-2022"
 description = "I build things and drink coffee."
 profilePicture = "extra/dansult-twitter.jpg"
-keywords = "software, python, javascript, entrepreneur, retrospectives, indie hacker"
+keywords = "software, python, go, golang, next.js, react, javascript, entrepreneur, retrospectives, indie hacker"
 favicon = "favicons/"
 images = ["extra/danielmichaels.png"]
 # example ["css/custom.css"]
