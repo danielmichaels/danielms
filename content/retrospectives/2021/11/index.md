@@ -1,5 +1,5 @@
 +++
-date = "2021-11-07"
+date = "2021-12-07"
 categories = ["retrospectives"]
 tags = ["retrospectives"]
 slug = "retrospective-nov-2021"
