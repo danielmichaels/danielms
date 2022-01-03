@@ -6,7 +6,18 @@
         {{ end }}
         <div class="post-title">
             <h3>{{ .Title }}</h3>
-            {{ if eq .Type "post"}}
+            {{ if eq .Type "blog"}}
+            <div class="info">
+                <em class="fas fa-calendar-day"></em>
+                <span class="date">{{ if isset .Site.Params "singledateformat" }}
+                                                {{ .Date.Format .Site.Params.singleDateFormat }}
+                                           {{ else }} {{.Date.Format "Mon, Jan 2, 2006"}}
+                                           {{ end }}</span>
+                <em class="fas fa-stopwatch"></em>
+                <span class="reading-time">{{ i18n "reading_time" .ReadingTime }}</span>
+            </div>
+            {{ end }}
+            {{ if eq .Type "retrospectives"}}
             <div class="info">
                 <em class="fas fa-calendar-day"></em>
                 <span class="date">{{ if isset .Site.Params "singledateformat" }}
@@ -21,11 +32,16 @@
 
         {{ .Content }}
 
+        {{ if eq .Type "blog" }}
         {{ partial "newsletter-signup.html" }}
+        {{ end }}
+
+        {{ if eq .Type "retrospectives" }}
+        {{ partial "newsletter-signup.html" }}
+        {{ end }}
+
         {{- if (eq .Params.contact true) -}}
-
         {{- partial "contact.html" . -}}
-
         {{- end -}}
 
     </div>
