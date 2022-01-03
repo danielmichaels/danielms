@@ -139,7 +139,7 @@ feel much more motivated.
 
 ![](cr-nov-retro.png 'Check-Redirects.com plausible stats for November 2021')
 
-**Check-Redirects**
+**danielms.site**
 
 ![](danielms-nov-retro.png 'danielms.site plausible stats for November 2021')
 
