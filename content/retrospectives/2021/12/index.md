@@ -30,9 +30,10 @@ A review of last months three goals. See [Novembers's Retrospective][old-retro]
 
 Mudmap's current iteration uses third party packages and my own implementation to handle the login, logout, password 
 reset flow for the application. It took me a long time and added complexity, especially to the frontend. This 
-complexity meant that sometimes users could be booted from a session randomly, which isn't great user experience. It 
-also took a lot of my development time to create and maintain, time better served elsewhere. Hindsight is also 
-crystal clear, and I knew that if I had my time again, I would simply use an existing third party service instead. Enter [Auth0](https://auth0.com). 
+complexity meant that sometimes users could be booted from a session randomly, which isn't a great user experience. It 
+also took a lot of my development time to create and maintain which is time better served elsewhere. Hindsight is 
+always crystal clear, and I knew that if I had my time again, I would simply use an existing third party service 
+instead. Enter [Auth0](https://auth0.com). 
 
 Off the bat, it has been a breeze. Setting up the frontend to authenticate a user with Auth0 and then allow them 
 to access the application was very simple. Using a React based frontend (Next.js) has its perks, namely the first 
@@ -53,10 +54,11 @@ pitiful error handling.
 
 At the same time, my backend implementation also hit a problem causing a two pronged debugging session whereby I had 
 two errors but thought there was only one. Go is a typed language and when you say you're only sending a `string` 
-but instead send a `[]string`, you're going to get an error. What tripped my up the most was the documentation of 
-what should be getting send to my server, did not meet reality. After trawling the Auth0 forums and decoding the 
-token I found the solution and implemented it. What I love here is that it was a fix *I* could easily implement into 
-a third party module. In the past, I've found this process much more difficult using python.
+but instead send a `[]string`, you're going to get an error. What tripped me up the most was the documentations'
+description of what should be getting send to the server, did not match what was actually getting sent to it. After 
+trawling the Auth0 forums and decoding the token I found the solution and implemented it. What I love here is that 
+it was a fix *I* could easily implement into a third party module. In the past, I've found this process much more 
+difficult using python.
 
 ### Email customers about upcoming changes to Mudmap
 
