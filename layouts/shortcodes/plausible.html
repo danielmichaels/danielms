@@ -1,0 +1,116 @@
+<div>
+    <h3>{{ .Get "site_id" }}
+    </h3>
+    <div id="plausible-table">
+        <table id='table-{{ .Get "site_id" }}'></table>
+        <div>
+            <canvas id='{{ .Get "site_id"}}-Chart' width="200"
+                    height="200"></canvas>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script type="application/javascript">
+        // Calling the API and rendering the Chart are done inside a single
+        // IIFE so that no function name duplicate declaration errors occur.
+        // This shortcode is designed to be called multiple times within a
+        // single page.
+        (() => {
+            let domain = {{ .Site.Params.openfaas.domain}}
+            let site_id = {{ .Get "site_id" }}
+            let start_date = {{ .Get "start" }}
+            let end_date = {{ .Get "end" }}
+            const payload = {
+                site_id: site_id,
+                start_date: start_date,
+                end_date: end_date
+            }
+            fetch(`${domain}/plausible`, {
+                method: "POST",
+                body: JSON.stringify(payload)
+            }).then(data => {
+                return data.json()
+            }).then(resp => {
+                let table = document.getElementById('table-{{ .Get "site_id" }}')
+                let aggregate = [resp.aggregate.results]
+                let data = Object.keys(aggregate[0])
+                generateTableHead(table, data)
+                generateTable(table, aggregate)
+
+                let result = resp.timeseries.results
+                
+                let dates = []
+                result.forEach(elem => dates.push(elem.date))
+
+                let visitors = []
+                result.forEach(elem => visitors.push(elem.visitors))
+                
+                const ctx = '{{ .Get "site_id" }}-Chart'
+                new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: site_id,
+                            data: visitors,
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            borderWidth: 1,
+                            fill: true,
+                            tension: 0.3,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        let label = "visitors"
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+            }).catch(err => console.log("failed to retrieve plausible stats", err))
+        })()
+
+        function generateTableHead(table, data) {
+            function toTitleCase(str) {
+                return str.replace(
+                  /\w\S*/g,
+                  function(txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                  }
+                );
+            }
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text = document.createTextNode(toTitleCase(key.replace('_', ' ')));
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+
+        function generateTable(table, data) {
+            for (let element of data) {
+                let row = table.insertRow();
+                for (const key in element) {
+                    let cell = row.insertCell();
+                    let text = document.createTextNode(element[key].value);
+                    cell.appendChild(text);
+                }
+            }
+        }
+    </script>
+</div>
