@@ -59,4 +59,14 @@ anything interesting that I have found, seen, listened to or created that **prov
 - two
 - three goals
 
+## Analytics 
+
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=mudmap.io >}}
+
+
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=check-redirects.com >}}
+
+
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=danielms.site >}}
+
 [mudmap]: https://mudmap.io/?utm_campaign=retro&utm_source=danielms&utm_medium=blog

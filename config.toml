@@ -47,6 +47,10 @@ doNotLoadAnimations = false
 # listDateFormat = "Jan 2"
 # singleDateFormat = "Mon, Jan 2, 2006"
 
+# OpenFaaS domain
+[params.openfaas]
+domain = "https://faasd.ptco.rocks/function"
+
 [params.simpleAnalytics]
 # enable = true
 # customurl = "https://analytics.example.com"

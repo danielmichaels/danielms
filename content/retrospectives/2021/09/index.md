@@ -112,13 +112,14 @@ to just experiment.
 
 ## Analytics
 
-**Mudmap**
+{{< plausible start=2021-09-01 end=2021-09-30 site_id=mudmap.io >}}
 
-![](mm-sept-stats.png 'Mudmap plausible stats for September 2021')
 
-**Check-Redirects**
+{{< plausible start=2021-09-01 end=2021-09-30 site_id=check-redirects.com >}}
 
-![](cr-sept-stats.png 'Check-Redirects.com plausible stats for September 2021')
+
+{{< plausible start=2021-09-01 end=2021-09-30 site_id=danielms.site >}}
+
 
 **Twitter**
 

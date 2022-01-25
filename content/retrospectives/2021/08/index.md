@@ -141,13 +141,14 @@ Repeating this month's goals.
 
 ## Analytics
 
-**Mudmap**
+{{< plausible start=2021-08-01 end=2021-08-30 site_id=mudmap.io >}}
 
-![](plausible-aug.png 'Mudmap plausible stats for August 2021')
 
-**Check-Redirects**
+{{< plausible start=2021-08-01 end=2021-08-30 site_id=check-redirects.com >}}
 
-![](cr-plausible-aug.png 'Check-Redirects.com plausible stats for August 2021')
+
+{{< plausible start=2021-08-01 end=2021-08-30 site_id=danielms.site >}}
+
 
 **Twitter**
 

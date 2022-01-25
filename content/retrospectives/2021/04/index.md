@@ -151,6 +151,17 @@ For a great introduction, see this Tweet.
 - Start the documentation pages
 - Replace the pricing page, and if possible, embed it in Hugo as a React component
 
+## Analytics
+
+{{< plausible start=2021-04-01 end=2021-04-30 site_id=mudmap.io >}}
+
+
+{{< plausible start=2021-04-01 end=2021-04-30 site_id=check-redirects.com >}}
+
+
+{{< plausible start=2021-04-01 end=2021-04-30 site_id=danielms.site >}}
+
+
 [mudmap]: https://mudmap.io/?utm_campaign=retro&utm_source=danielms&utm_medium=blog
 [paddle]: https://paddle.com
 [netlify]: https://netlify.com

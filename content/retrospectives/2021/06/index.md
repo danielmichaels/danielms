@@ -128,14 +128,14 @@ I put this here for my future reference.
 
 ![my twitter june](twit-june-2021.png "Daniel Michaels twitter analytics for June 2021")
 
-**Mudmap**
 
-![mudmap analytics](mm-june-pstats.png "Mudmap's plausible stats for June 2021")
+{{< plausible start=2021-06-01 end=2021-06-30 site_id=mudmap.io >}}
 
-**Check Redirects**
 
-![Check Redirects analytics](cr-june-pstats.png "Check Redirects' plausible stats for June 2021")
+{{< plausible start=2021-06-01 end=2021-06-30 site_id=check-redirects.com >}}
 
+
+{{< plausible start=2021-06-01 end=2021-06-30 site_id=danielms.site >}}
 
 ## Next months goals
 
