@@ -187,13 +187,15 @@ I'm looking forward to August and producing more content for users of Mudmap to 
 
 ## Analytics
 
-**Mudmap**
 
-![](mm-july-plausible-stats.png 'Mudmap plausible stats for July 2021')
+{{< plausible start=2021-07-01 end=2021-07-31 site_id=mudmap.io >}}
 
-**Check-Redirects**
 
-![](cr-plausible-stats-jul-2021.png 'Check-Redirects.com plausible stats for July 2021')
+{{< plausible start=2021-07-01 end=2021-07-31 site_id=check-redirects.com >}}
+
+
+{{< plausible start=2021-07-01 end=2021-07-31 site_id=danielms.site >}}
+
 
 **Twitter**
 

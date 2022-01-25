@@ -177,6 +177,13 @@ and [Mudmap].
 - Write a blog post about pfSense
 - Increase Mudmap's marketing
 
+## Analytics
+
+{{< plausible start=2021-03-01 end=2021-03-31 site_id=mudmap.io >}}
+
+{{< plausible start=2021-03-01 end=2021-03-31 site_id=danielms.site >}}
+
+
 [mudmap]: https://mudmap.io?ref=danielms.site
 [danielms]: https://danielms.site?ref=danielms.site
 [whatgotdone]: https://whatgotdone.com

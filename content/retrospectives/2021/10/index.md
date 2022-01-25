@@ -136,13 +136,13 @@ and emotional space to take stock of a few things.
 
 ## Analytics
 
-**Mudmap**
 
-![](mm-oct.png 'Mudmap plausible stats for September 2021')
+{{< plausible start=2021-10-01 end=2021-10-31 site_id=mudmap.io >}}
 
-**Check-Redirects**
 
-![](cr-oct.png 'Check-Redirects.com plausible stats for September 2021')
+{{< plausible start=2021-10-01 end=2021-10-31 site_id=check-redirects.com >}}
+
+{{< plausible start=2021-10-01 end=2021-10-31 site_id=danielms.site >}}
 
 **Twitter**
 

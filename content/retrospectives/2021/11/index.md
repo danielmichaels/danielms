@@ -131,17 +131,13 @@ feel much more motivated.
 
 ## Analytics
 
-**Mudmap**
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=mudmap.io >}}
 
-![](mm-nov-retro.png 'Mudmap plausible stats for November 2021')
 
-**Check-Redirects**
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=check-redirects.com >}}
 
-![](cr-nov-retro.png 'Check-Redirects.com plausible stats for November 2021')
 
-**danielms.site**
-
-![](danielms-nov-retro.png 'danielms.site plausible stats for November 2021')
+{{< plausible start=2021-11-01 end=2021-11-30 site_id=danielms.site >}}
 
 **Twitter**
 

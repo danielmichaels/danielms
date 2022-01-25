@@ -50,7 +50,7 @@
                     data: {
                         labels: dates,
                         datasets: [{
-                            label: site_id,
+                            label: "Visitors",
                             data: visitors,
                             backgroundColor: "rgba(255, 99, 132, 0.2)",
                             borderColor: "rgba(255, 99, 132, 1)",
@@ -82,14 +82,13 @@
                 })
             }).catch(err => console.log("failed to retrieve plausible stats", err))
         })()
-
         function generateTableHead(table, data) {
             function toTitleCase(str) {
                 return str.replace(
-                  /\w\S*/g,
-                  function(txt) {
-                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                  }
+                    /\w\S*/g,
+                    function(txt) {
+                        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                    }
                 );
             }
             let thead = table.createTHead();
@@ -101,14 +100,25 @@
                 row.appendChild(th);
             }
         }
-
         function generateTable(table, data) {
+            function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
             for (let element of data) {
                 let row = table.insertRow();
                 for (const key in element) {
+                    console.log(key)
                     let cell = row.insertCell();
-                    let text = document.createTextNode(element[key].value);
-                    cell.appendChild(text);
+                    if (key === 'bounce_rate') {
+                        let val = element[key].value + " %"
+                        let text = document.createTextNode(val);
+                        cell.appendChild(text);
+                    } else if (key === 'visit_duration') {
+                        let val = fmtMSS(element[key].value)
+                        let text = document.createTextNode(val);
+                        cell.appendChild(text);
+                    } else {
+                        let text = document.createTextNode(element[key].value);
+                        cell.appendChild(text);
+                    }
                 }
             }
         }

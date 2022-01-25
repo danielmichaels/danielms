@@ -167,18 +167,22 @@ Second!
 
 ![mudmap google](google-rank.png "Google ranking for Mudmap")
 
-### Analytics
-
-For a bit of transparency, this month's analytics.
-
-![mudmap plausible metrics](analytics-mm-may.png "Analytics for Mudmap.io")
-
 ## Next month's goals
 
 - Add a Rule set feature to Mudmap
 - Email 5 prospects
 - Reinvigorate an old project that I plan to monetize (long term SEO play now for reward later)
 
+
+## Analytics
+
+{{< plausible start=2021-05-01 end=2021-05-31 site_id=mudmap.io >}}
+
+
+{{< plausible start=2021-05-01 end=2021-05-31 site_id=check-redirects.com >}}
+
+
+{{< plausible start=2021-05-01 end=2021-05-31 site_id=danielms.site >}}
 
 [mudmap]: https://mudmap.io/?utm_campaign=retro-may-21&utm_source=danielms&utm_medium=blog
 [docs]: https://docs.mudmap.io/
