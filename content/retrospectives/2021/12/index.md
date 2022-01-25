@@ -110,17 +110,14 @@ It's been a big year with lots ups and downs, wasted efforts, and successes.
 
 ## Analytics
 
-**Mudmap**
+{{< plausible start=2021-12-01 end=2021-12-31 site_id=mudmap.io >}}
 
-![](mm-dec-21.png 'Mudmap plausible stats for December 2021')
 
-**Check-Redirects**
+{{< plausible start=2021-12-01 end=2021-12-31 site_id=check-redirects.com >}}
 
-![](cr-dec-21.png 'Check-Redirects.com plausible stats for December 2021')
 
-**danielms.site**
+{{< plausible start=2021-12-01 end=2021-12-31 site_id=danielms.site >}}
 
-![](danms-dec-21.png 'danielms.site plausible stats for December 2021')
 
 [comment]: <> (**Twitter**)
 
