@@ -73,7 +73,15 @@ video is now embedded into the page as well.
 
 [My First Million][fc] episode on [Kevin Van Trump] and [FarmCon] - its incredible. This guy 
 runs a **daily** agricultural investing/analysis newsletter which brings in ~30M USD a year. He's 
-been writing it for 17 years and now runs [FarmCon]. 
+been writing it for 17 years and now runs [FarmCon].
+
+[OpenFaaS] for serverless functions. I've never been much interested in serverless, mostly 
+because I don't like using AWS for small workloads/one-off tasks. And, when I've looked at it 
+before it didn't really gel with me - another skill to learn. Then I found [OpenFaaS] - an open 
+source serverless technology. Using OpenFaaS, I can write functions in almost any language with 
+my two options being python (Flask) and Go. It also supports NET, C#, Node, Java and more (I think).
+I am using it to render the [analytics](#analytics) charts below. It supports Kubernetes and a 
+standalone binary called [faasd] for deployment to a small server - I run it on a $5 droplet.
 
 ## Wrap up
 
@@ -85,9 +93,13 @@ these little breaks to ward off burn out.
 
 **What can I do better?**
 
+- Not get as distracted by other things; [OpenFaaS] took some time away from Mumdap this month
+- I need to read more books and not look at my phone before bed
 
 **What have I done well?**
 
+- Integrated Stripe and deployed Mudmap's new version early in the month
+- Wrote several emails to customers, a blog post and newsletter announcing it.
 
 ## Next month's goals
 
@@ -117,3 +129,5 @@ these little breaks to ward off burn out.
 [fc]: https://www.youtube.com/watch?v=ho22vkGFljg&ab_channel=MyFirstMillion
 [Kevin van trump]: https://twitter.com/kevinvantrump
 [farmcon]: https://www.farmcon.com/
+[openfaas]: https://openfaas.com
+[faasd]: https://docs.openfaas.com/deployment/faasd/
