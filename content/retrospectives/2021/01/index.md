@@ -9,7 +9,7 @@ draft = false
 
 # Summary
 
-Thought of a potential business create and its target market.
+Thought of a potential business to create and its target market.
 
 ## Highlights
 
