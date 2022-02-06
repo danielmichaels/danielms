@@ -27,21 +27,27 @@ A review of last months three goals. See [Decembers's Retrospective][old-retro]
 - **Appraisal**: Completed
 - **Rating**: A+
 
-I check my git history and was surprised to see that my first commit for the new version of 
+After checking my git history, I was surprised to see that my first commit for the new version of 
 Mudmap was on the 5th of November. On January 10, I officially pushed v2 to production. 
 Considering I was maintaining an existing product *and* rewriting it in another language - which 
 is still relatively new to me - this feels like quite an achievement. 
 
-#### Did it improve performance, revenue, or was this just a waste of time?
+#### Did it improve performance, and what was your reasoning?
 
 Here is a [twitter thread](#tweets) with visuals. But the tl;dr is **yes**, memory consumption 
 alone is remarkable. With my Django app, even a small load on the server could run the risk of 
 pushing the application above the plan limits. Now, I am nowhere near it.
 
 The difference between container image sizes are ridiculous as well. Somewhere around 15mb for 
-the Go image and 1GB for Django. Build times are days apart in time - from ~10 minutes using 
+the Go image and 1GB for Django. Build times feel days apart - from ~10 minutes using 
 python to under a minute using Go. A pet peeve of mine is how slow python image building is, and 
-I am glad to be rid of it. 
+I am glad to be rid of it. Another thing I'm happy with is the cost reduction in terms of the 
+number of services needed. I save at least $14 per month by not needing redis or celery. I'm 
+even considering removing Postgres for [Litestream] as I now only store basic user and device data.
+
+There is a [notion document][r] with some of my reasons for switching from Django to Go. Of course, 
+in almost any of those statements, a counter-point could be constructed. That is fair, but 
+regardless, they are **my** reasons for such an undertaking.
 
 ### Add at least one more core feature to Mudmap
 
@@ -50,9 +56,9 @@ I am glad to be rid of it.
 
 Mudmap now supports three helpful but not *core* features; shutdown, reboot and shell command 
 execution (see them in [action][vsrs]). Admittedly, these are useful, but I did not deliver the 
-bigger feature I've been working on; interfaces. 
+bigger feature I've been working on; the ability to create, read, update and delete interfaces. 
 
-I did update the documentation pages, landing page and recorded five YouTube [explainer videos]. 
+I did update the documentation, landing page and recorded five YouTube [explainer videos]. 
 It is the first time I have recorded and uploaded anything to YouTube, and it shows in my 
 delivery. I opted to push what I recorded rather than waste time finessing and re-recording it 
 again and again. Reaching for pragmatism not perfection. 
@@ -73,20 +79,22 @@ video is now embedded into the page as well.
 
 [My First Million][fc] episode on [Kevin Van Trump] and [FarmCon] - its incredible. This guy 
 runs a **daily** agricultural investing/analysis newsletter which brings in ~30M USD a year. He's 
-been writing it for 17 years and now runs [FarmCon].
+been writing it for 17 years and now runs [FarmCon]. I've been binge-watching all the videos on 
+YouTube and cannot praise this enough - talk about finger on the pulse.
 
 [OpenFaaS] for serverless functions. I've never been much interested in serverless, mostly 
-because I don't like using AWS for small workloads/one-off tasks. And, when I've looked at it 
-before it didn't really gel with me - another skill to learn. Then I found [OpenFaaS] - an open 
-source serverless technology. Using OpenFaaS, I can write functions in almost any language with 
-my two options being python (Flask) and Go. It also supports NET, C#, Node, Java and more (I think).
-I am using it to render the [analytics](#analytics) charts below. It supports Kubernetes and a 
-standalone binary called [faasd] for deployment to a small server - I run it on a $5 droplet.
+because I don't like using AWS (etc) for small workloads/one-off tasks. And, when I've looked 
+at it before it didn't really gel with me - another skill to learn. Then I found [OpenFaaS] - 
+an open source serverless technology. Using OpenFaaS, I can write functions in almost any language with 
+my two preferred options being python (Flask) and Go. It also supports NET, C#, Node, Java and 
+more (I think). I am using it to render the [analytics](#analytics) charts below. It supports 
+Kubernetes and a standalone binary called [faasd] for deployment to a small server - I run it on 
+a $5 droplet.
 
 ## Wrap up
 
 A good start to the year. I took the Christmas and New Year period off and also took a 
-four-day-long weekend at the end of this month. Only during the four-day break by the sea with 
+four-day long weekend at the end of this month. Only during the four-day break by the sea with 
 just my little family did I *start* to feel rested. If I can, I will try to schedule more of 
 these little breaks to ward off burn out. 
 
@@ -99,7 +107,7 @@ these little breaks to ward off burn out.
 **What have I done well?**
 
 - Integrated Stripe and deployed Mudmap's new version early in the month
-- Wrote several emails to customers, a blog post and newsletter announcing it.
+- Wrote several emails to customers, a blog post and newsletter announcing it
 
 ## Next month's goals
 
@@ -131,3 +139,5 @@ these little breaks to ward off burn out.
 [farmcon]: https://www.farmcon.com/
 [openfaas]: https://openfaas.com
 [faasd]: https://docs.openfaas.com/deployment/faasd/
+[r]: https://mudmapio.notion.site/Version-2-d78ca9bd813541738f7c71cfb9c95c9e
+[litestream]: https://litestream.io
