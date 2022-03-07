@@ -10,7 +10,7 @@ draft = false
 
 # Summary
 
-This month saw a number of external influences impede my ability to do much work this month. As 
+A number of external influences impeded my ability to do get much work done this month. As 
 a result very little was achieved on Mudmap.
 
 ## Highlights
@@ -58,31 +58,36 @@ For the same reasons above I have had no time to do this task either.
 
 I am about two years late to the party but [Ted Lasso] has to be the most wholesome and 
 feel-good show I've watched in a long time. Some of it really hits home for me, in the past I 
-have been in a high performance team with high stakes. We'd deal with the team dynamics of highly 
+have been in a high performance team with high stakes. I'd deal with the team dynamics of highly 
 talented, motivated and sometimes abrasive individuals, and it is tough sometimes. So this 
 series made me happy, sad, reflective and proud all at the same time. The soundbite that I'll 
-take away from it is *be curious not judgemental*. It is something I need to remind myself of a 
-lot.
+take away from it is *be curious, not judgemental*. It is something I need to remind myself daily.
 
 After 6 weeks of training I competed in my first open water swim. It was a tough two kilometers 
-in some decent swell; 3m at 10 seconds. But, it feels like I've accomplished something worth 
-being proud of and most importantly it aligns with my true self. The points in my life that I 
+in some decent swell; 3m at 10 second intervals. But, it feels like I've accomplished something
+worth being proud of and most importantly it aligns with my true self. The points in my life that I 
 look back upon with the most fondness where also the most painful and required a lot of 
 commitment and dedication.
 
 > “In some ways suffering ceases to be suffering at the moment it finds a meaning, such as the 
 > meaning of a sacrifice.” - Viktor Frankl
 
+I recommend doing something hard and painful every now and again. Get out of your chair, don't 
+take the umbrella and feel rain on your skin or challenge yourself by going for a [Park Run]. 
+Just do something where all you can think about for a few minutes is survival - most problems 
+aren't that bad when you have such a contrast.
+
 [ted lasso]: https://en.wikipedia.org/wiki/Ted_Lasso
+[park run]: https://www.parkrun.com
 
 ## Wrap up
 
 A short retro after a month of very little in the way of accomplishments. I did create a small 
-[Go CLI][cli] using Cobra for a popular Australia crypto exchange (still a WIP). This was mostly to 
-enable my friend's analysis of trade conditions but also to get more acquainted with writing Go 
-CLI's. This is an area where I believe Go really shines, especially with its ease of producing 
-cross-platform binaries. Whilst I may have accomplished little on Mudmap I did create something 
-useful for a friend - a silver lining for the month.
+[Go CLI][cli] using Cobra for a popular Australian crypto exchange (still a WIP). This was 
+mostly to enable my friend's analysis of trade conditions but also to get more acquainted with 
+writing Go CLI's. This is an area where I believe Go really shines, especially with its ease of 
+producing cross-platform binaries. Whilst I may have accomplished little on Mudmap I did create 
+something useful for a friend - a silver lining for the month.
 
 In March, I hope to be a bit more productive on Mudmap, or if I am still unable to produce much 
 assess my ability to keep going with the project. This is that is weighing on my 
@@ -93,7 +98,7 @@ potential threat to Mudmap's long term viability.
 
 **What can I do better?**
 
-- Write my weekly [What Got Done][wgd] on Friday as it should be done
+- Write my weekly [What Got Done][wgd] on Friday instead of delaying until the weekend or later
 
 **What have I done well?**
 
