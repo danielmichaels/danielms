@@ -49,15 +49,9 @@ from = "https://danielms.netlify.app/*"
 to = "https://www.danielms.site/:splat"
 status = 301
 force = true
-# redirect
-[[redirects]]
-from = "/links"
-to = "https://faasd.ptco.rocks/function/links"
-status = 301
-force = true
 # rewrite
 [[redirects]]
-from = "/links-rw"
+from = "/links"
 to = "https://faasd.ptco.rocks/function/links"
 status = 200
 force = true
