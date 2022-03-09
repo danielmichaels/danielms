@@ -14,5 +14,5 @@
 public/*
 resources/
 /public/
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/dictionaries/nimitz.xml
+.idea/*
+.hugo_build.lock
