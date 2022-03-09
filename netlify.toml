@@ -45,7 +45,13 @@ to = "https://www.danielms.site/:splat"
 status = 301
 force = true
 [[redirects]]
-from = "https://confident-visvesvaraya-88fdc6.netlify.com/*"
+from = "https://danielms.netlify.app/*"
 to = "https://www.danielms.site/:splat"
 status = 301
+force = true
+# rewrite
+[[redirects]]
+from = "/links"
+to = "https://faasd.ptco.rocks/function/links"
+status = 200
 force = true
