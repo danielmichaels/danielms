@@ -10,8 +10,8 @@ draft = false
 
 # Summary
 
-Got back into some Mudmap development after taking some time to have fun and experiment during 
-the first half of the month.
+After taking some time off to have fun and experiment, I got back into the swing of Mudmap 
+development.
 
 ## Highlights
 
@@ -32,26 +32,26 @@ some pressure off and be more available for her.
 I discovered the project [Alpine.js][alpine] this month and was really intrigued by how 
 user-friendly it is. I am pretty comfortable using React these days but the added complexity of 
 running a separate frontend can get a little annoying, especially for simple app's. Setting up 
-Alpine is a [cinch] and can easily be integrated into any HTML page with a single `<script>` tag 
-like any javascript file. 
+Alpine is a [cinch] and can easily be integrated into any web application by either dropping in 
+a link to the CDN, or by creating a bundle for it and linking it directly.
 
-Where I think [Alpine] shines is when coupled with traditional web applications such as Django, 
+Where [Alpine] shines is when coupled with traditional web applications such as Django, 
 or Go templates. To get more familiar with it, I refactored an existing app of mine - [tars.run].
 It was originally built with a Next.js frontend but was overkill for what it does. Now, instead 
-of needing two applications, the entire thing including database runs inside a single binary. I 
-could do more to make it even more streamlined but its good enough for now. 
+of needing two applications, the entire thing including database runs inside a single binary. It 
+is refreshingly easy building app's this way.
 
 ## Mudmap updates
 
-I have received a number of requests from customers wish Mudmap would support devices which do 
+I have received a number of requests from customers asking Mudmap to support devices which do 
 not have static IP addresses. I finally added this feature and it was so simple that I regret 
 not doing it sooner. 
 
-Mudmap also shows each device's DHCP lease table now too. This feature is not fully finished as 
-you cannot update DHCP only view leases. I chose to release it in stages so that customers can 
-start using it straight away, rather than having to wait for all aspects of that feature to be 
-completed first. This is probably a theme I will continue with, and it allows for the capture of 
-feedback faster too.
+Mudmap now shows each device's DHCP lease table too. This feature is not fully finished as 
+you cannot update any of the leases, only view them. I chose to release it in stages so 
+that customers can start using it straight away, rather than having to wait for all aspects of 
+that feature to be completed first. This is probably a theme I will continue with, and it allows 
+for a faster capture of feedback too.
 
 The application user interface also received a bit of love. Most of the tables now support 
 pagination by default, have smaller margins and where appropriate have tool-tips to reduce 
@@ -65,15 +65,14 @@ play button for example. These small fixes do a lot to make the user interface f
 
 ## Recommendations
 
-Re-watch Seinfeld. It's been such a brilliant way to decompress before bed, and even 30 years 
-later it is still hilarious. I am about half-way through the entire show after nearly a month of 
-watching an episode or four each evening. So good.
+Re-watch Seinfeld. It's been such a brilliant way to decompress before bed and even after 30 years 
+it is still hilariously relevant. I am about half-way through the entire show after nearly a 
+month of watching an episode or four each evening. So good.
 
 I have completely moved from Arch (actually, Manjaro) to Ubuntu and couldn't be happier. 
 Honestly, I'm not sure if I'm missing anything from the move - any package that I had on Arch I 
-probably have on Ubuntu. Any I don't I haven't missed, so they were probably just cruft anyway. 
-And, I actually like [snap] packages - I said it! I've had a couple of little issues, but 
-they've all been super easy fixes. 
+probably have on Ubuntu. And, I actually like [snap] packages - I said it! I've had a couple of 
+little issues, but they've all been super easy fixes. 
 
 **fighting words**: Ubuntu is the closest thing we have to linux desktop, and I'm 
 now a *recommender* of the distro.
@@ -82,13 +81,12 @@ now a *recommender* of the distro.
 
 ## Wrap up
 
-I expected this month to pretty unproductive but even after getting Covid, it ended up being 
+I expected this month to unproductive but even after getting Covid, it still ended up being quite
 good. I was able to use my time to experiment with things and just have some fun which gave me 
 the break I needed to get back into Mudmap development. It was also good just coming home and 
 relaxing some nights, without the guilt I've put on myself to keep working on things like Mudmap.
 This has been especially important as my day job's workload has increased. In all, March was a 
 far better month than February.
-
 
 **What can I do better?**
 
@@ -97,7 +95,7 @@ far better month than February.
 
 **What have I done well?**
 
-- Wrote Two short blog posts this month
+- I Wrote two short blog posts this month
 - Didn't take myself too seriously!
 
 ## Next month's goals
