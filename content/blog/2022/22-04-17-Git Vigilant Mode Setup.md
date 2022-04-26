@@ -8,7 +8,7 @@ draft = "false"
 ShowToc = "true"
 +++
 
-Setting up Github's vigilant mode 
+## Setting up Github's vigilant mode 
 
 1. create GPG key
 
