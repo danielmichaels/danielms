@@ -11,6 +11,7 @@ enableRobotsTXT = true
 enable = true
 domain = "danielms.site"
 debug = true
+gitstar = false
 
 # Syntax highlighting
 pygmentsUseClasses = true
