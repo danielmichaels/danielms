@@ -13,6 +13,7 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 ## Recent Monthly Retrospectives
 
+- [April 2022]({{< ref "retrospectives/2022/04/index.md" >}})
 - [March 2022]({{< ref "retrospectives/2022/03/index.md" >}})
 - [February 2022]({{< ref "retrospectives/2022/02/index.md" >}})
 - [January 2022]({{< ref "retrospectives/2022/01/index.md" >}})

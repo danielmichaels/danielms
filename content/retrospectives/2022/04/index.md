@@ -7,7 +7,6 @@ title = "April 2022 Retrospective"
 draft = false 
 +++
 
-
 # Summary
 
 Recharged after a wonderful holiday spent visiting family and friends who we haven't seen since 
@@ -29,11 +28,11 @@ A review of last months three goals. See [March's Retrospective][old-retro].
 - **Rating**: C+
 
 From the outset, I over committed myself this month. Nearly ten days of this month was spent on 
-holiday where I did very little active development on Mudmap. I did resolve some customer 
+holiday where I did very little active development on Mudmap. Although, I did resolve some customer 
 inquiries, analyse bug reports and speak with customers. 
 
-A substantial update was released for the API that is installed on the firewalls. It officially 
-merged to `main` at the end of the month but has been available in beta for several months. In 
+A substantial update was released for the API that is installed on the firewalls. It was officially 
+released at the end of the month but has been available in beta for several months. In 
 preparation for this, I've been getting some things in order to make the transition easy. 
 Included in the release is support for pfSense+ `v22.01` - something I did not expect to make it 
 out of `beta`. 
@@ -84,18 +83,24 @@ with cloud tools too. After all, basically every cloud project these days is wri
 
 ## Wrap up
 
+A quiet month on the *retrospective* front but a big month for me personally. Looking forward to 
+writing a more lengthy post in June.
+
 **What can I do better?**
 
 - Be more time aware when making plans, i.e. I did not really factor in how little development work would get done one Mudmap during my holiday.
 - Update the roadmap more frequently as this is something users are asking about often.
+- Release the monthly retro in a more timely manner.
 
 **What have I done well?**
 
 - Actually took a proper amount of time off and feel recharged
+- Spent sometime exploring a few other programming projects
 
 ## Next month's goals
 
 - Deploy pfSense+ capable Mudmap 
+- Get started on multi-account support (a big customer request)
 
 ## Analytics
 
