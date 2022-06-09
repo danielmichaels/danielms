@@ -71,7 +71,12 @@ I feel like I accomplished a lot towards achieving this goal.
 
 ## Recommendations
 
-
+If you want an excellent security tool that scans and identifies everything on your network, 
+check out [Rumble](https://rumble.run). It is a company that was started by [H.D Moore](https://en.wikipedia.org/wiki/H._D._Moore)
+who created the [Metasploit](https://en.wikipedia.org/wiki/Metasploit_Project) project. I ran it
+to see what is on my network but also to see how it identifies my many pfSense VM's. It found 
+all of my assets with very detailed info within 3 minutes across two /24 networks. Definitely worth
+a look, and you can run it from a raspberry Pi.
 
 ## Wrap up
 
