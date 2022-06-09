@@ -65,7 +65,7 @@ The other hard part, is managing how users add new members to their Organisation
 To be a member they have to sign up via Auth0 - to get a valid id - and then
 they can be added to the Org. So far, I've settled on admin users being able 
 to invite members by email. Then they sign up and enter a code to be assigned
-to the Org. It feels a little contrived and sub optimal but works for now.
+to the Org. It feels a little contrived and suboptimal but works for now.
 
 I feel like I accomplished a lot towards achieving this goal.
 
@@ -74,6 +74,19 @@ I feel like I accomplished a lot towards achieving this goal.
 
 
 ## Wrap up
+
+A great month from a productivity standpoint. I've managed to work out a decent balance for 
+work and out-of-work work, in addition to my life. Much of last year I was burning the candle 
+from both ends; late night and early hours. Honestly, I got *more* done, but it wasn't as good as 
+the work I'm doing now. I've settled into a sleep in until 6:30-7 schedule, and I feel much more 
+rested with more clarity of thought. In the past, I was up at 5, and it took me 30 minutes just to 
+wake up! 
+
+We also got out for an overnight camping trip before it starts to get cold. Camped right next to 
+a river watching the fire is a luxury I don't take for granted. What I take for granted is how 
+quickly time (i.e. our life) flies by between such adventures. Keeping grounded and getting away 
+from the house has been another good move over the last couple of months - if I'm at home, I 
+can't help but be *plugged* in.
 
 **What can I do better?**
 
