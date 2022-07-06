@@ -28,8 +28,8 @@ the user interface. So far, users can invite members to join their organisation,
 organisations, remove members from their own, update org details, and manage devices within 
 their organisation based on simple permissions. 
 
-At the beginning of the month I spent a lot of time building on top of the [Auth0 Authorization].
-This worked well in theory as it matched much of my vision for what I wanted to achieve. 
+At the beginning of the month I spent a lot of time building on top of the [Auth0 Authorization]
+extension. This worked well in theory as it matched much of my vision for what I wanted to achieve. 
 Unfortunately, it did not fit well into the application of that vision; simple actions require many
 API calls. For instance, I could find no easy method to get the `_id` of a `group` without iterating
 over every `group` and searching for its mutable `name`. To do most operations against the `group`
