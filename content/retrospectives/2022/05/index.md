@@ -9,9 +9,6 @@ draft = false
 
 # Summary
 
-## Highlight
-
-
 ## Goal Performance
 
 A review of last months three goals. See [April's Retrospective][old-retro].
@@ -23,7 +20,7 @@ A review of last months three goals. See [April's Retrospective][old-retro].
 - **Appraisal**: Did not roll this out. 
 - **Rating**: D
 
-All of my this month was dedicated to multi-account feature. This is still
+All of this month was dedicated to multi-account feature. This is still
 a great feature to roll out by I decided early on in the month that it would come after.
 
 There are some compatibility issues remaining with the API's support for
