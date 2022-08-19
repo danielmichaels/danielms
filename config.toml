@@ -44,7 +44,8 @@ doNotLoadAnimations = false
 
 # OpenFaaS domain
 [params.openfaas]
-domain = "https://faasd.ptco.rocks/function"
+#domain = "https://faasd.ptco.rocks/function"
+domain = "https://openfaas.k3s.dansult.space/function"
 
 ## Math settings
 [params.math]
