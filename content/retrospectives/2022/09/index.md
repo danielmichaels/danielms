@@ -113,13 +113,13 @@ reflect that and help guide future me when looking back.
 Does this mean I'll forsake any thought of setting goals for each month?
 No but I'm not going to be dogmatic about how I layout the retrospective
 and instead let it flow. Some months I might only do 10 hours on Mudmap but do 30
-hours on something that teaches me a hell of a lot about *<insert tech>*.
+hours on something that teaches me a hell of a lot about *\<insert tech\>*.
 
 ## Goals
 
 Okay, I'm setting one goal for next month.
 
-1. **Write a Octobers retrospective.** Time to get back on the retro horse.
+1. **Write Octobers retrospective.** Time to get back on the retro horse.
 
 
 ## Analytics 
