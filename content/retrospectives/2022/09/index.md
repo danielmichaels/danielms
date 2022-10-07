@@ -7,9 +7,9 @@ title = "Sept 2022 Retrospective"
 draft = false
 +++
 
-# September Retro
+# Summary 
 
-It's been two months since I last wrote a retrospective. This is why.
+**It's been two months since I last wrote a retrospective. This is why.**
 
 ## Work
 
@@ -124,8 +124,8 @@ Okay, I'm setting one goal for next month.
 
 ## Analytics 
 
-{{< plausible start=2022-10-01 end=2022-10-31 site_id=mudmap.io >}}
+{{< plausible start=2022-09-01 end=2022-09-30 site_id=mudmap.io >}}
 
-{{< plausible start=2022-10-01 end=2022-10-31 site_id=danielms.site >}}
+{{< plausible start=2022-09-01 end=2022-09-30 site_id=danielms.site >}}
 
 [mudmap]: https://mudmap.io/?utm_campaign=retro&utm_source=danielms&utm_medium=blog
