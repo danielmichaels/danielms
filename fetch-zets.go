@@ -168,7 +168,41 @@ func parseDate(r *Readme) time.Time {
 	return r.Date
 }
 
+// noNewZets is a checking function to ensure that the zet.json file is only regenerated
+// if the current file is not equal to the number of zets found in the zet repo on GitHub.
+// This prevents needless commits via GitHub actions.
+func noNewZets(r []*Readme) bool {
+	z, err := os.Stat("zet.json")
+	if err != nil {
+		log.Println("error checking zet.json exists", err)
+		return false
+	}
+
+	zetFile, err := ioutil.ReadFile(z.Name())
+	if err != nil {
+		log.Println("error checking zet.json contents", err)
+		return false
+	}
+
+	var existingZets []*Readme
+	err = json.Unmarshal(zetFile, &existingZets)
+	if err != nil {
+		log.Println("error unmarshalling zet.json", err)
+		return false
+	}
+
+	if len(existingZets) == len(r) {
+		return true
+	}
+
+	return false
+}
+
 func writeJSONToFile(s []*Readme) error {
+	if noNewZets(s) {
+		fmt.Println("No new zet's. Skipping...")
+		return nil
+	}
 	j, err := json.MarshalIndent(s, "", "\t")
 	if err != nil {
 		return err
@@ -177,6 +211,7 @@ func writeJSONToFile(s []*Readme) error {
 	if err != nil {
 		return err
 	}
+	log.Printf("wrote %d entries to zet.json", len(s))
 	return nil
 }
 
