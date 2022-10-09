@@ -26,5 +26,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update zet.json
+          commit_options: '--no-verify --signoff'
           file_patterns: "./zet.json"
 
