@@ -1,0 +1,22 @@
+{{ if os.FileExists "/zet.json" }}
+{{ $items := getJSON "/zet.json" }}
+{{ range $item := sort $items "date" "desc" }}
+<div class="archive animated fadeInDown">
+    <ul class="list-with-title" style="margin: 0px;">
+        <ul class="listing">
+            <div class="listing-item">
+                <div class="listing-post">
+                    <a href="{{ $item.html_url }}" title="{{ $item.content }}"
+                       target="_blank">{{ $item.content }}</a>
+                    <div class="post-time"><span
+                            class="date">{{ time.Format "Jan 2, 2006" $item.date }}</span>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </ul>
+</div>
+{{ end }}
+{{ else }}
+<h2>No Zettelkasten's found</h2>
+{{ end }}
