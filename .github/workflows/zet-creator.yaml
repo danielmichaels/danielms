@@ -26,5 +26,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update zet.json
-          file_pattherns: "./zet.json"
+          file_patterns: "./zet.json"
 
