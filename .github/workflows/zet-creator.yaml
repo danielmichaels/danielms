@@ -22,16 +22,10 @@ jobs:
           GH_ZET_PAT: ${{ secrets.GH_ZET_PAT }}
         run: go run fetch-zets.go
 
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update zet.json
+          commit_options: '--no-verify --signoff'
           file_patterns: "./zet.json"
 
