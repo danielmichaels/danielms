@@ -91,6 +91,12 @@ identifier = "blog"
 url = "/blog/"
 
 [[menu.main]]
+name = "Zet"
+weight = 250
+identifier = "zet"
+url = "/zet/"
+
+[[menu.main]]
 name = "Retrospectives"
 weight = 300
 identifier = "retrospectives"

@@ -1,4 +1,8 @@
-# Projects
+---
+title: "Projects"
+date: "2018-08-12"
+slug: "projects"
+---
 
 ## [Mudmap.io](https://mudmap.io?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
