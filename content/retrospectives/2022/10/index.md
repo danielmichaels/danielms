@@ -66,6 +66,16 @@ I have not done any work on Mudmap this month.
 Honestly, I am still unsure what to do with it. People are still interested, 
 but I am unsure if it's still right for me.
 
+## Recommendations
+
+- [Andor](https://en.wikipedia.org/wiki/Andor_(TV_series))
+
+This is the first Disney spin-off that I have enjoyed. I wrote an entire rant
+about it [here](https://github.com/danielmichaels/zet/blob/main/20221022005935/README.md).
+It feels like the first *real* storyline to emerge from the Star Wars 
+universe that isn't just a rehash of existing lore, or absolute garbage 
+(Mandalorian and Obi-Wan).
+
 ## What's next
 
 I'll keep on making things that are useful to me whilst I figure out the 
