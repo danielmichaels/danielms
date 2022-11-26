@@ -1480,5 +1480,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/9cdab7384ab59c67b2945632e8b802e781fd8e00",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20221125235417/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20221126100655",
+		"sha": "dd6873d5c80cf8133b836d0af19c1f4042f071df",
+		"size": 318,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20221126100655/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20221126100655/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/dd6873d5c80cf8133b836d0af19c1f4042f071df",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221126100655/README.md",
+		"type": "file",
+		"content": "Golang: case statements with an OR clause",
+		"encoding": "base64",
+		"date": "2022-11-26T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20221126100655/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/dd6873d5c80cf8133b836d0af19c1f4042f071df",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20221126100655/README.md"
+		}
 	}
 ]
