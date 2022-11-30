@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -24,6 +23,7 @@ var (
 )
 
 func main() {
+	fmt.Println("retrieving zets from github")
 	start := time.Now()
 	defer func() {
 		finish := time.Since(start)
@@ -47,10 +47,16 @@ func main() {
 		log.Fatalln("parseTitle failed", err)
 	}
 
+	if noNewZets(readme) {
+		fmt.Println("No new zet's. Skipping...")
+		return
+	}
 	err = writeJSONToFile(readme)
 	if err != nil {
 		log.Fatalln("writeJSONToFile failed", err)
 	}
+	// only create new markdown entries if a new zet has been created
+	createZetMarkdownFiles()
 }
 
 // fetchContents retrieves each file or folder from the repository.
@@ -125,6 +131,7 @@ func fetchReadmeData(i []string) ([]*Readme, error) {
 			return nil, err
 		}
 		r = append(r, readme)
+		log.Printf("fetched: %q", readme.Path)
 	}
 
 	return r, nil
@@ -174,11 +181,11 @@ func parseDate(r *Readme) time.Time {
 func noNewZets(r []*Readme) bool {
 	z, err := os.Stat("zet.json")
 	if err != nil {
-		log.Println("error checking zet.json exists", err)
+		log.Println("zet.json does not exist", err)
 		return false
 	}
 
-	zetFile, err := ioutil.ReadFile(z.Name())
+	zetFile, err := os.ReadFile(z.Name())
 	if err != nil {
 		log.Println("error checking zet.json contents", err)
 		return false
@@ -199,15 +206,12 @@ func noNewZets(r []*Readme) bool {
 }
 
 func writeJSONToFile(s []*Readme) error {
-	if noNewZets(s) {
-		fmt.Println("No new zet's. Skipping...")
-		return nil
-	}
+
 	j, err := json.MarshalIndent(s, "", "\t")
 	if err != nil {
 		return err
 	}
-	err = ioutil.WriteFile("zet.json", j, 0644)
+	err = os.WriteFile("zet.json", j, 0644)
 	if err != nil {
 		return err
 	}
