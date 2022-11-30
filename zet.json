@@ -591,38 +591,38 @@
 	{
 		"name": "README.md",
 		"path": "20220614071133",
-		"sha": "cf1038be33f06456480e181ebca5c2ed36674c3b",
-		"size": 1259,
+		"sha": "13f19dc5a422726e82d413e58dfa50531aebbdcb",
+		"size": 1263,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20220614071133/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20220614071133/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/cf1038be33f06456480e181ebca5c2ed36674c3b",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/13f19dc5a422726e82d413e58dfa50531aebbdcb",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220614071133/README.md",
 		"type": "file",
-		"content": "Go database/sql tips",
+		"content": "Go database and sql tips",
 		"encoding": "base64",
 		"date": "2022-06-14T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20220614071133/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/cf1038be33f06456480e181ebca5c2ed36674c3b",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/13f19dc5a422726e82d413e58dfa50531aebbdcb",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20220614071133/README.md"
 		}
 	},
 	{
 		"name": "README.md",
 		"path": "20220616100818",
-		"sha": "fcd2b75da31e35af28644b7779b1c642aaba870e",
-		"size": 1038,
+		"sha": "d7af77140a395d65885a0e6c196f2bd75afbf0c5",
+		"size": 1042,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20220616100818/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20220616100818/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/fcd2b75da31e35af28644b7779b1c642aaba870e",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d7af77140a395d65885a0e6c196f2bd75afbf0c5",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220616100818/README.md",
 		"type": "file",
-		"content": "Mudmap org/new user registration",
+		"content": "Mudmap org and new user registration",
 		"encoding": "base64",
 		"date": "2022-06-16T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20220616100818/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/fcd2b75da31e35af28644b7779b1c642aaba870e",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d7af77140a395d65885a0e6c196f2bd75afbf0c5",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20220616100818/README.md"
 		}
 	},
