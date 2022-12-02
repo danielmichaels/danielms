@@ -9,7 +9,7 @@ draft = false
 
 # Summary 
 
-Two releases for [Mudmap]! :tada:
+Three releases for [Mudmap]! :tada:
 
 ## Mudmap
 
@@ -65,7 +65,7 @@ in **the** database. [go-memdb](https://github.com/hashicorp/go-memdb) was an ea
 The detractor is that in the future I may need to switch to an external key value store such as Redis
 if I spin up multiple services.
 
-By storing a Device root password in memory it can now be retrieved during the installation process 
+By storing a Device's root password in memory it can now be retrieved during the installation process 
 across multiple stages. Without doing this, each stage would require the user to re-enter the 
 password. This is not only inconvenient but also introduces needless complexities like what happens
 if they re-enter it wrong - it is another error handler and conditional branch that needs to be 
@@ -85,8 +85,8 @@ reverting a user's device back to the state it was when they first tried the pla
 I do not expect this will fix failed installations. What I might try next is to let users 
 install it manually. This would require a few steps and may be too much friction, but it gives 
 the user power to do something when an issue is encountered. Another thing I am contemplating is 
-storing some metadata about each device in an attempt to correlations between successful and 
-unsuccessful install attempts. I am unsure about this though.
+storing some metadata about each device in an attempt to draw some correlations between successful and 
+unsuccessful installation attempts. I am unsure about this though.
 
 ### pfSense Logs
 
@@ -128,7 +128,7 @@ So I wrote a Go tool which would embed it into this [site](/zet).
 At first, I wrote it to just link directly to the Zet's markdown file on GitHub.
 I found this wasn't a great experience as it would take a few seconds to transition
 and the layout shift was jarring. I did learn how to render a json file using
-Hugo's custom [shortcodes].
+Hugo's custom [shortcodes] though.
 
 Instead of this I decided host the markdown files directly on this site. I enjoyed
 writing this because it leverages one of Go's truly great strengths; `text/template`.
