@@ -19,20 +19,21 @@ Two releases for [Mudmap]! :tada:
 ### Switching to [sqlc]
 
 This isn't something I needed to do so why do it? Two reasons; type safety for the data model
-and reduce friction when adding or updating the data model.
+and reduce friction when adding or updating models.
 
 I experimented with gRPC for another project a couple of months ago and was awestruck by how much
 the gRPC compiler does for you. It autogenerates thousands of lines of type safe code which you can
-the just call. Human error starts in the yaml file and for the most part doesn't leak anywhere else.
-As an average at best developer I loved this. If the yaml definition was wrong or needed tweaking
-just rebuild the endpoints with a single command and everything is fixed (minus the now broken 
-contract).
+then call without needing to write anything yourself. As an average at best developer I loved 
+this. Updating the yaml definition rebuilds the interface with a single command and all the callers
+get updated. Of course, you might have to change your business logic depending on what you've 
+updated, but you don't need to fiddle with any of the service layer. It's a huge time saver.
 
-`sqlc` gives you this same experience but with sql. If tomorrow my Device model needs to include a
-`Serial` field without `sqlc` I would have to update every sql statement, all the `Scan` method 
-calls and then worry about the implementation within handler and service layers. Instead, I just 
-update my sql queries and model definitions (all in sql) and `sqlc` will auto generate it all for
-me. Now all I need to do is focus on business logic changes (which the go type system will catch).
+`sqlc` gives you this same experience but with sql. If tomorrow my `Device` model needs to include a
+`Serial` field I would have to update every sql statement, all the `sql.Scan` method 
+calls and then worry about the implementation within handler and service layers. Instead, by 
+using `sqlc` I just update my sql queries and model definitions and the entire data model will be 
+auto generated for me with those changes. Now all I need to do is focus on business logic 
+changes (which the go type system will catch).
 
 It was a bit of learning curve at first especially with `uuid` fields and `null`'s but that
 speaks more to my flawed database schema design choices. *Rant alert:* for any product/project 
@@ -47,7 +48,7 @@ still yet to find a good way to fix this issue - its churned one of my biggest c
 This feature does not **fix** the problem, instead it's part of my pathway to making the installation
 process more pleasant. 
 
-How it works: 
+How it works (starts at *Password Confirmation*): 
 
 ![](mm-modal.svg 'A crude picture of how the process works')
 
@@ -57,13 +58,23 @@ This change introduced a multi-stage modal instead of a single step. Using a mul
 better error handling and branching when prompting users for input. 
 
 Additionally, the Device's root password is now being stored in an in-memory database. I've made an
-ideological stand against storing this password in Mudmap's database. Though having access to that
-password is required to call many endpoints during a flow sequence, otherwise the user might have to
-re-enter it (and possibly wrong meaning another error case) several times. I feel that storing the
+ideological stand against storing this password in Mudmap's actual database. I feel that storing the
 password in a memory datastore is a good practice and does not break the promise of not storing it
 in **the** database. [go-memdb](https://github.com/hashicorp/go-memdb) was an easy choice for this.
 The detractor is that in the future I may need to switch to an external key value store such as Redis
 if I spin up multiple services.
+
+By storing a Device root password in memory it can now be retrieved during the installation process 
+across multiple stages. Without doing this, each stage would require the user to re-enter the 
+password. This is not only inconvenient but also introduces needless complexities like what happens
+if they re-enter it wrong - it is another error handler and conditional branch that needs to be 
+dealt with.
+
+Adding this also opens up future enhancements such as a proper Deletion event. When a Device is 
+deleted or the installation fails, Mudmap must be removed from the firewall. This requires the 
+removal of the Mudmap service account before removing the API. Once the Mudmap service account is
+removed every action taken must be done as the root user. This requires root access which with this
+new addition does not require user intervention.
 
 A bad practice which I am trying to fix (and this fixes most of it) is not deleting Mudmap artifacts
 when an installation fails. It is possible that these artifacts on subsequent re-installation 
@@ -72,7 +83,11 @@ reverting a user's device back to the state it was when they first tried the pla
 
 I do not expect this will fix failed installations. What I might try next is to let users 
 install it manually. This would require a few steps and may be too much friction, but it gives 
-the user power to do something when an issue is encountered.
+the user power to do something when an issue is encountered. Another thing I am contemplating is 
+storing some metadata about each device in an attempt to correlations between successful and 
+unsuccessful install attempts. I am unsure about this though.
+
+todo: system logging etc features
 
 ## Zettelkastens
 
