@@ -15,6 +15,7 @@ Two releases for [Mudmap]! :tada:
 
 1. Switched data model to [sqlc](https://sqlc.dev)
 2. Added multi-stage installer
+3. *pfSense* logs
 
 ### Switching to [sqlc]
 
@@ -87,7 +88,33 @@ the user power to do something when an issue is encountered. Another thing I am 
 storing some metadata about each device in an attempt to correlations between successful and 
 unsuccessful install attempts. I am unsure about this though.
 
-todo: system logging etc features
+### pfSense Logs
+
+This month I also added a few more endpoints and user-facing pages for 
+viewing the following logs:
+
+- Firewall
+- System
+- DHCP
+- pfSenseAPI
+
+A small-ish update but added functionality all the same. Users can now view the
+logging of the above from within Mudmap. The pfSenseAPI audit logger is 
+particularly handy. Eventually I will need to augment this with the user 
+controlling the API, not just the API itself. 
+
+Writing this feature required a series of regex parsers to be created. The 
+response from the API returns a single string per event. By creating custom 
+parsers it was possible to create useful struct fields which could then be 
+returned as json objects. A methodology which will likely serve other 
+endpoints as they are integrated. Not captured in this work (scope creep) but 
+planned is reading, updating and deleting system packages. Installing 
+packages will be its own ticket but the methodology to do that is already 
+there.
+
+These *small* features when stacked up actually make Mudmap much more 
+useful. Having to SSH into every device just to do a system and third party 
+package audit is painful, soon Mudmap will remove that burden.
 
 ## Zettelkastens
 
