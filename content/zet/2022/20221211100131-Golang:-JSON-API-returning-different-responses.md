@@ -113,6 +113,9 @@ if err != nil {
 fmt.Println(result)
 ```
 
+refs:
+- https://www.calhoun.io/how-to-parse-json-that-varies-between-an-array-or-a-single-item-with-go/
+
 Tags:
 
     #go #TIL
