@@ -56,20 +56,45 @@ makes life pretty easy. [Codebase](https://github.com/danielmichaels/rmwod)
 
 Check it out, [here][rmwod]
 
+## Cookiecutter's
+
+I also knocked up a couple of [cookiecutter] application templates. This was the fist time I've
+created my own. I took inspiration from [Simon Willison's][sw] [Click-App][ca] cookiecutter 
+approach.
+
+For most of my CLI applications I use [bonzai](https://github.com/rwxrob/bonzai), which supports
+nested composition meaning I can include multiple Bonzai apps in one. The hard part is creating a
+new Bonzai app - it required cloning, or using a template from GitHub. I didn't like this because
+the template has a load of boilerplate *I* don't need.
+
+Instead, I now create new Bonzai apps using 
+[cookiecutter https://github.com/danielmichaels/bonzai-app][bcc]. It's pretty handy for my use case
+and I think most people could knock up a unique cookiecutter for themselves in a couple of hours.
+
+Taking heed to my advice above, and just as I was about to start building out [Random MWOD][rmwod]
+I decided this was a good opportunity to create a Go web app cookiecutter.
+
+I like my Go web apps as a starting point to use [go-chi], [tailwind] and [alpine]. So I 
+created the cookiecutter to build a minimal app with these tools. It also uses [air] for 
+hot-reloading and [goose] for database migrations.
+
+This highly opinionated cookiecutter can be found, [here][gcc].
+
 ## Recommendations
 
 Book: 100 Go Mistakes and How to Avoid Them ([link](https://www.manning.com/books/100-go-mistakes-and-how-to-avoid-them))
 
 I write a decent amount of Go but there are various parts of the language which have tripped my 
-up in the past. This book covers all the issues I've ever footgunned myself with, and explains
-not just why but also how to fix it.
+up in the past. This book covers all the issues I've ever footgunned myself with. Each one explained
+well with not just why it happened but also the methods to fix it.
 
 For any Go developer I think its worthwhile reading. So far I've learned a lot more about slices 
 (under the hood), strings (particularly the importance of Runes) and solidified my knowledge in
 control structures.
 
-There might be a lot of ways of achieving things but something I really like about this book is
-they are opinionated about why *x* thing is the best way to do something for the general.
+There is usually a few ways of achieving things in programming. Something I really like about 
+this book is that the author is opinionated about why *x* thing is the best method. When 
+there are caveats those are well explained, too. 
 
 For instance, when checking if a slice is empty the best way is to check its length. This will 
 trap both `nil` and `empty` slices.
@@ -84,8 +109,7 @@ if len(foo) == 0 {
 
 I'm only about 40% of the way through, and I've referenced it a couple of times already. Another 
 thing which is really neat; succinct little sections for each *Go Mistake*. This means you can easily
-pick it up whenever you've got a spare moment which having to read a wall of text to understand 
-the previous context.
+pick it up whenever you've got a spare moment and it reads well on Kindle.
 
 ## Beach Mode
 
@@ -97,4 +121,12 @@ The rest of this month was me soaking up rays at Perth's beautiful beaches.
 [perth]: https://en.wikipedia.org/wiki/Perth 
 [kstarr]: https://en.wikipedia.org/wiki/Kelly_Starrett
 [rmwod]: https://randommwod.com?utm_source=danielms
-
+[sw]: https://simonwillison.net/
+[ca]: https://github.com/simonw/click-app
+[bcc]: https://github.com/danielmichaels/bonzai-app
+[gcc]: https://github.com/danielmichaels/go-web-app
+[tailwind]: https://tailwindcss.com
+[go-chi]: https://github.com/go-chi/chi
+[alpine]: https://alpinejs.dev
+[goose]: https://github.com/pressly/goose
+[air]: https://github.com/cosmtrek/air
