@@ -40,7 +40,7 @@ Also a pain the arse; poor terraform errors like:
 
 ```terraform
 // this error is actually related to the network block about 30 lines
-// below the resource start at line 1
+// below the resource at line 1
 // this is up there with ansibles useless 'syntax error here or maybe somewhere else'
 // errors
  Error: vm '101' not found
