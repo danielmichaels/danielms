@@ -23,11 +23,11 @@ var (
 )
 
 func main() {
-	fmt.Println("retrieving zets from github")
+	log.Println("retrieving zets from github")
 	start := time.Now()
 	defer func() {
 		finish := time.Since(start)
-		fmt.Println("Execution Time:", finish)
+		log.Println("Execution Time:", finish)
 	}()
 	content, err := fetchContents()
 	if err != nil {
@@ -196,6 +196,13 @@ func noNewZets(r []*Readme) bool {
 	if err != nil {
 		log.Println("error unmarshalling zet.json", err)
 		return false
+	}
+
+	for k, v := range existingZets {
+		if v.Sha != r[k].Sha {
+			log.Printf("updated zet %q (old: %s, new: %s) found\n", v.Content, v.Sha, r[k].Sha)
+			return false
+		}
 	}
 
 	if len(existingZets) == len(r) {

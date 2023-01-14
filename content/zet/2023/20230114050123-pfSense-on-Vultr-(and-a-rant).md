@@ -36,6 +36,22 @@ Now you're ready to actually configure it the firewall itself. Such as SSH rules
 
 A massive pain the arse.
 
+Also a pain the arse; poor terraform errors like:
+
+```terraform
+// this error is actually related to the network block about 30 lines
+// below the resource start at line 1
+// this is up there with ansibles useless 'syntax error here or maybe somewhere else'
+// errors
+ Error: vm '101' not found
+│ 
+│   with proxmox_vm_qemu.pfsense_node[1],
+│   on main.tf line 1, in resource "proxmox_vm_qemu" "pfsense_node":
+│    1: resource "proxmox_vm_qemu" "pfsense_node" {
+│ 
+╵
+```
+
 Here is a really helpful guide: https://jarrodstech.net/project-pfsense-setup-on-vultr-with-private-lan/
 
 All this BS makes me wish their was a great infrastructure as code firewall which is
