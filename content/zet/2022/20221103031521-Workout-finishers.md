@@ -12,6 +12,7 @@ ShowToc = "true"
 
 Some cheeky workout finishers:
 
+
 ## Strength w/ Cardio
 
 ```shell
@@ -66,7 +67,6 @@ Some cheeky workout finishers:
 6e/side matching side plank
 # circuit 3x through
 ```
-
 
 Tags:
 
