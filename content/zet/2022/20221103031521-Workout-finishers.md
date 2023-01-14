@@ -51,6 +51,22 @@ Some cheeky workout finishers:
 # repeat 2-3 times
 ```
 
+## Rehab
+
+**hips**
+
+```shell
+6 single-leg bulgarian split squat (12kg)
+5 arabesques (6kg)
+# 3 rounds 
+6m each way, banded side walk with 10kg plate above head
+# 3 rounds (plate keeps you from leaning)
+20s copenhagen
+6e/side seated straight leg lift over kettlebell (don't lean back)
+6e/side matching side plank
+# circuit 3x through
+```
+
 Tags:
 
     #kettlebell #workout #fitness
