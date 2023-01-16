@@ -1822,5 +1822,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7d58b386a9cbdc4de2745b36c19b0e845f58fa6e",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20230114131119/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20230116032910",
+		"sha": "985f88fb388b2cd20285b0aae9ae21afd004b867",
+		"size": 408,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20230116032910/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20230116032910/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/985f88fb388b2cd20285b0aae9ae21afd004b867",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230116032910/README.md",
+		"type": "file",
+		"content": "Python's distutil strtobool replacement",
+		"encoding": "base64",
+		"date": "2023-01-16T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20230116032910/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/985f88fb388b2cd20285b0aae9ae21afd004b867",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20230116032910/README.md"
+		}
 	}
 ]
