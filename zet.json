@@ -1860,5 +1860,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/ec118ed6343a8c4bf1edd9531ba3f327ebaf98c2",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20230124022928/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20230125112913",
+		"sha": "424bb42f831a8a48405053bcb4bf2ed0152c7f3b",
+		"size": 1995,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20230125112913/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20230125112913/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/424bb42f831a8a48405053bcb4bf2ed0152c7f3b",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230125112913/README.md",
+		"type": "file",
+		"content": "Go oapi-codegen chi subrouters",
+		"encoding": "base64",
+		"date": "2023-01-25T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20230125112913/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/424bb42f831a8a48405053bcb4bf2ed0152c7f3b",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20230125112913/README.md"
+		}
 	}
 ]
