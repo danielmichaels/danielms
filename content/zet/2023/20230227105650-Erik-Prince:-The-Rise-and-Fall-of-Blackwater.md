@@ -32,6 +32,9 @@ So much of what Erik spoke about absolutely resonated with me. I fought in
 Iraq and Afghanistan and what a fucking joke those wars became through 
 pathetic leadership at the top and in parliament. 
 
+Link to the episode,
+[here](https://www.listennotes.com/podcasts/shawn-ryan-show/29-erik-prince-inside-the-yE_kBbH2xw5/)
+
 Tags:
 
     #pmc #podcast
