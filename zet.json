@@ -1978,11 +1978,11 @@
 	{
 		"name": "README.md",
 		"path": "20230217112943",
-		"sha": "8d496d84bb9cef53ceb03e7ecac3cfac0fbe1936",
-		"size": 1249,
+		"sha": "e963ceb6f94eb663099809d189c65100f46a32ca",
+		"size": 1436,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20230217112943/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20230217112943/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8d496d84bb9cef53ceb03e7ecac3cfac0fbe1936",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e963ceb6f94eb663099809d189c65100f46a32ca",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230217112943/README.md",
 		"type": "file",
 		"content": "Taskfile is my new Makefile",
@@ -1990,7 +1990,7 @@
 		"date": "2023-02-17T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20230217112943/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8d496d84bb9cef53ceb03e7ecac3cfac0fbe1936",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e963ceb6f94eb663099809d189c65100f46a32ca",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20230217112943/README.md"
 		}
 	},

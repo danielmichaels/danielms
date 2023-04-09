@@ -69,6 +69,10 @@ tasks:
 
 ```
 
+This has been incredibly useful in the development of a Django-channels
+application where I needed a lot of setup. I was able to pass this over
+to my team and the concept well received.
+
 Tags:
 
     #taskfile #go #makefile #til
