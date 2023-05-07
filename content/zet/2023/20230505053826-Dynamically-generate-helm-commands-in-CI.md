@@ -105,6 +105,8 @@ helm upgrade --install MyRelease helm \
 This script can then be executed in another job as needed when output
 as an artifact which makes its highly extensible.
 
+Update: I also wrote this in Go which is nicer because you don't need
+to install anything and can build it as a binary and pass around easier.
 
 Tags:
 

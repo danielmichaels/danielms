@@ -2130,11 +2130,11 @@
 	{
 		"name": "README.md",
 		"path": "20230505053826",
-		"sha": "20fef4ff677107c088e745b5a8a626a92c109e32",
-		"size": 2799,
+		"sha": "d5735542c26f3e2f8d4a1b57e2c9cd38a85f11cd",
+		"size": 2942,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20230505053826/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20230505053826/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/20fef4ff677107c088e745b5a8a626a92c109e32",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d5735542c26f3e2f8d4a1b57e2c9cd38a85f11cd",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230505053826/README.md",
 		"type": "file",
 		"content": "Dynamically generate helm commands in CI",
@@ -2142,8 +2142,27 @@
 		"date": "2023-05-05T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20230505053826/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/20fef4ff677107c088e745b5a8a626a92c109e32",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d5735542c26f3e2f8d4a1b57e2c9cd38a85f11cd",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20230505053826/README.md"
+		}
+	},
+	{
+		"name": "README.md",
+		"path": "20230507002110",
+		"sha": "7124da42eacccc59a9eb9bf766b8a325d4841547",
+		"size": 4644,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20230507002110/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20230507002110/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7124da42eacccc59a9eb9bf766b8a325d4841547",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230507002110/README.md",
+		"type": "file",
+		"content": "Helm upgrade dynamically with Go",
+		"encoding": "base64",
+		"date": "2023-05-07T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20230507002110/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7124da42eacccc59a9eb9bf766b8a325d4841547",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20230507002110/README.md"
 		}
 	}
 ]
