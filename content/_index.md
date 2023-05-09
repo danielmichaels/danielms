@@ -11,16 +11,15 @@ This is where I catalogue what I've done - from insignificant wins to big change
 - [HTTPX is The New Requests with Async]({{< ref "blog/2020/05072020-httpx-async-client.md" >}})
 - [Rsync Cheatsheet]({{< ref "blog/2018/01-rsync.md" >}})
 
+## Most Recent Zet's
+
+{{< recent-zets >}}
+
 ## Recent Monthly Retrospectives
 
 - [December 2022]({{< ref "retrospectives/2022/12/index.md" >}})
 - [November 2022]({{< ref "retrospectives/2022/11/index.md" >}})
 - [October 2022]({{< ref "retrospectives/2022/10/index.md" >}})
 - [September 2022]({{< ref "retrospectives/2022/09/index.md" >}})
-- [June 2022]({{< ref "retrospectives/2022/06/index.md" >}})
-- [May 2022]({{< ref "retrospectives/2022/05/index.md" >}})
-- [April 2022]({{< ref "retrospectives/2022/04/index.md" >}})
-- [March 2022]({{< ref "retrospectives/2022/03/index.md" >}})
-- [February 2022]({{< ref "retrospectives/2022/02/index.md" >}})
-- [January 2022]({{< ref "retrospectives/2022/01/index.md" >}})
+
 
