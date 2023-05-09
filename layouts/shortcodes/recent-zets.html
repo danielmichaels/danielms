@@ -1,0 +1,7 @@
+<ul>
+    {{ range (where .Site.RegularPages "Type" "zet" | first 5) }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end}}
+</ul>
