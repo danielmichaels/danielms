@@ -35,13 +35,11 @@ It's a single Go binary with enough firepower to easily run this app. Here's the
 
 ## Functions
 
-This modest website isn't *web scale*, it's serving a minimal number of requests per day. None of 
-the requests are system intensive and for the most part only serve to integrate with other third-party 
-platforms.
-
 The way I think about functions is as handlers for requests. Each function serves a *route* and 
 that's about it. Though I don't split functions up by HTTP method, only by the url they're 
 responsible for.
+
+In OpenFaaS speak each function gets its own url path such as `https://fn.faas.url/function/<fn-name>/`.
 
 How it works is pretty impressive and well detailed across all the OpenFaaS blogs and documentation.
 
@@ -54,18 +52,18 @@ and outputs `stdout` or `stderr` to the caller. Functions can be invoked via HTT
 through event bridges such as Kafka, NATS, MQTT and so on. It also has a [cron] trigger which is a
 great builtin feature.
 
-Since each function is its own container OpenFaaS makes it easier to scale up your functions. just
+Since each function is its own container OpenFaaS makes it easier to scale up your functions. Just
 add more containers for that function. Isolation between functions is also a benefit. One bad function 
 won't crash your entire app. 
 
 Being that everything is containers means I can have functions in Go, python, node, C# or even bash. 
-I typically use Go these days but have use a python function to augment my Go functions because 
+I typically use Go these days but have used a python function to augment my Go functions because 
 it was the right choice. Had that project been a server written in Go more than likely I would 
 of had to stand up a microservice and then setup NATS or HTTP endpoints for them to interact. 
 Using OpenFaaS made it a cinch.
 
 Although it's not perfect. Sometimes function codebases can have a lot of repeated code. 
-As an example, both my functions use the same logger and database modules which are identical. It's
+As an example, both my functions use the same logger and database packages which are identical. It's
 not so bad because I have scripts that autogenerate new functions and handle these things. 
 I will point out that you can create your own [function template][ft] which could include 
 any required modules effectively removing this hiccup.
@@ -122,7 +120,7 @@ made me think about a different way to deal with this problem.
 Is it better than a long-running server? I think it depends on what you want or need out of it. 
 Do Functions-as-a-Service replace servers? No. 
 
-It's right tool for the right job and I think this is the right tool for now. Knowing that when 
+rRght tool for the right job and I think this is the right tool for now. Knowing that when 
 this gets bigger I can lift and shift into kubernetes is nice. Nicer still, I don't have to 
 write any deployment manifests to make it all work because OpenFaaS handles everything under the hood.
 
