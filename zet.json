@@ -2563,5 +2563,43 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/0f69b05dde5b60df924a68e882edbf113b575a9c",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20230919100145/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20231002040858",
+		"sha": "04b15958bf0a7f5b1d8727606c7e70993d53a8a0",
+		"size": 1074,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231002040858/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231002040858/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/04b15958bf0a7f5b1d8727606c7e70993d53a8a0",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231002040858/README.md",
+		"type": "file",
+		"content": "Sourcegraph is awesome",
+		"encoding": "base64",
+		"date": "2023-10-02T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231002040858/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/04b15958bf0a7f5b1d8727606c7e70993d53a8a0",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20231002040858/README.md"
+		}
+	},
+	{
+		"name": "README.md",
+		"path": "20231002042113",
+		"sha": "fdcbe33f46ced7545de7e2197c102b63433fc052",
+		"size": 1978,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231002042113/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231002042113/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/fdcbe33f46ced7545de7e2197c102b63433fc052",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231002042113/README.md",
+		"type": "file",
+		"content": "Go's Functional Options pattern is great",
+		"encoding": "base64",
+		"date": "2023-10-02T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231002042113/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/fdcbe33f46ced7545de7e2197c102b63433fc052",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20231002042113/README.md"
+		}
 	}
 ]
