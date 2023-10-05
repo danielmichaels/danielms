@@ -60,7 +60,7 @@ glab, err := providers.NewGitlab(
     form.ClientToken,
     form.GitLabURL,
     insecure,
-    providers.GitlabClientDefaultTimeout,
+    providers.GitlabClientDefaultTimeout, // a const from internal
     gitlab.WithoutRetries(),
 )
 ```
