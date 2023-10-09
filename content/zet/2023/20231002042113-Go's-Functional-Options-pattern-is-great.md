@@ -69,6 +69,8 @@ In every other instance I do not pass in the `gitlab.WithoutRetries` because the
 
 A simple example but to me it makes life a lot easier and I've started adopting it more in my own work.
 
+*A good reference:* https://michalzalecki.com/golang-options-pattern/
+
 Tags:
 
     #go #code
