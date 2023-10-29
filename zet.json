@@ -2620,5 +2620,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/0f47d9eb6ab479f3e312b59697b405dfb46e55a3",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20231014073423/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20231029055931",
+		"sha": "e63f6cf6b6d3a074edbc4281f740d55f06948a5b",
+		"size": 1662,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231029055931/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231029055931/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e63f6cf6b6d3a074edbc4281f740d55f06948a5b",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231029055931/README.md",
+		"type": "file",
+		"content": "Code AI teaches with examples",
+		"encoding": "base64",
+		"date": "2023-10-29T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231029055931/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e63f6cf6b6d3a074edbc4281f740d55f06948a5b",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20231029055931/README.md"
+		}
 	}
 ]
