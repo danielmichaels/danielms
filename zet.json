@@ -2677,5 +2677,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7a6a2f37a21c4cb563e63ed4837dfecd5b0502bf",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20231109065914/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20231127094056",
+		"sha": "2e8eafa485a65d87e00a0bbf52fcaf3e0c1536ef",
+		"size": 950,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231127094056/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231127094056/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/2e8eafa485a65d87e00a0bbf52fcaf3e0c1536ef",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231127094056/README.md",
+		"type": "file",
+		"content": "air.toml interrupts and kill_delay",
+		"encoding": "base64",
+		"date": "2023-11-27T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231127094056/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/2e8eafa485a65d87e00a0bbf52fcaf3e0c1536ef",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20231127094056/README.md"
+		}
 	}
 ]
