@@ -2715,5 +2715,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/4da18644e104993a218e4df75f803c431b549785",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20231128073707/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20231204121209",
+		"sha": "f601b3db2e5cdc35e1f7741767e5547db4c5c563",
+		"size": 897,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231204121209/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231204121209/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/f601b3db2e5cdc35e1f7741767e5547db4c5c563",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231204121209/README.md",
+		"type": "file",
+		"content": "goa (goland) API design is better than oapi-codegen",
+		"encoding": "base64",
+		"date": "2023-12-04T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231204121209/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/f601b3db2e5cdc35e1f7741767e5547db4c5c563",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20231204121209/README.md"
+		}
 	}
 ]
