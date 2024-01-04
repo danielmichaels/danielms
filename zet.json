@@ -2791,5 +2791,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d5b8fb814f424d9afb4b2f0bb24aef6d9facf84b",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20231231061436/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240104005002",
+		"sha": "e6bd44922e23a554338dfa70626bad37f3b5df33",
+		"size": 2738,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240104005002/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240104005002/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e6bd44922e23a554338dfa70626bad37f3b5df33",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240104005002/README.md",
+		"type": "file",
+		"content": "Why I love gjson",
+		"encoding": "base64",
+		"date": "2024-01-04T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240104005002/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/e6bd44922e23a554338dfa70626bad37f3b5df33",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240104005002/README.md"
+		}
 	}
 ]
