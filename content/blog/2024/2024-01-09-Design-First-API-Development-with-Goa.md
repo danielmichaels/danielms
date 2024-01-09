@@ -8,9 +8,9 @@ draft = "false"
 ShowToc = "true"
 +++
 
-[Goa.design][goa] is a golang tool for developing APIs using a design first approach. By leveraging Goa's approach it is
+[Goa.design][goa] is a golang tool for developing APIs using a design first approach. By leveraging Goa it is
 possible to generate server and client code automatically, documentation through OpenAPI (version 2 and 3 are supported) 
-documents as well as gRPC code. 
+as well as gRPC code. 
 
 This blog post introduces Goa, it's concepts and showcases some short examples. It does not walk through the
 installation, or intend to supersede its tutorial/walkthrough which you should look over, 
@@ -22,7 +22,7 @@ Goa is broken into three parts; the design language (DSL), code generation and t
 
 > A DSL (Domain-Specific Language) is a programming language or a set of rules and syntax specifically designed to solve problems within a particular domain or industry. It provides a higher-level abstraction that allows programmers to express solutions in a more concise and declarative manner.                                                                     
           
-This statement sums it up succinctly. In our case the *domain* or *industry* specifics relate to HTTP and RPC communication
+The above statement sums it up succinctly. In our case the *domain* or *industry* specifics relate to HTTP and RPC communication
 via network calls. A lot of API work is boilerplate and can be hard to implement all the things considered *best practise*.
 Goa strives to reduce the amount of programmer work required to build out well crafted APIs. 
 
@@ -97,7 +97,7 @@ For the above code snippet, if it were at this path `design/design.go` you would
 `goa gen github.com/danielmichaels/checkredirects/design`. In this example `github.com/danielmichaels/checkredirects` is
 my module that I used during `go mod init`.
 
-### Example generation
+#### Example generation
 
 With this directory structure:
 
@@ -146,7 +146,7 @@ After I run `goa gen github.com/danielmichaels/checkredirects/design`, it will c
 Now we have our Go code which we can import into our services. Note, this is all auto generated and **should not** be edited as
 it'll be overwritten whenever we run `goa gen`.
 
-### Creating the services
+#### Creating the services
 
 Now that the package code has been generated we can create the entrypoint, and service files automatically with another command;
 `goa example`. Running this results in some new files:
@@ -285,7 +285,7 @@ tags:
       description: endpoints for determining service uptime and status
 ```
 
-Goa also provides powerful constructs enhance the documents. For example to define a field on a `schema` we can use
+Goa also provides powerful constructs to enhance the documents. For example to define a field on a `schema` we can use
 `Attribute` or  `Field` type. For this post we're only focusing on HTTP which uses `Attribute` whereas `Field` is for both
 HTTP and gRPC.
 
