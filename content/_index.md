@@ -15,11 +15,5 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 {{< recent-zets >}}
 
-## Recent Monthly Retrospectives
-
-- [December 2022]({{< ref "retrospectives/2022/12/index.md" >}})
-- [November 2022]({{< ref "retrospectives/2022/11/index.md" >}})
-- [October 2022]({{< ref "retrospectives/2022/10/index.md" >}})
-- [September 2022]({{< ref "retrospectives/2022/09/index.md" >}})
 
 
