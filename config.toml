@@ -24,7 +24,7 @@ author = "Daniel Michaels"
 copyright = "2018-2023"
 description = "I build things and drink coffee."
 profilePicture = "extra/dansult-twitter.jpg"
-keywords = "software, python, go, golang, next.js, react, javascript, entrepreneur, retrospectives, indie hacker"
+keywords = "software, python, go, golang, entrepreneur, indie hacker"
 favicon = "favicons/"
 images = ["extra/danielmichaels.png"]
 # example ["css/custom.css"]
@@ -34,10 +34,6 @@ customJs = []
 mainSections = ["home"]
 #images = ["images/site-feature-image.png"]
 doNotLoadAnimations = false
-# Form Spree Contact Form
-#contactFormAction = "https://formspree.io/f/your-form-hash-here"
-# Google Site Verify
-#googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 # indexDateFormat = "Mon, Jan 2, 2006"
 # listDateFormat = "Jan 2"
 # singleDateFormat = "Mon, Jan 2, 2006"
@@ -96,20 +92,14 @@ identifier = "zet"
 url = "/zet/"
 
 [[menu.main]]
-name = "Retrospectives"
-weight = 300
-identifier = "retrospectives"
-url = "/retrospectives/"
-
-[[menu.main]]
 name = "Projects"
-weight = 400
+weight = 300
 identifier = "projects"
 url = "/projects/"
 
 [[menu.main]]
 name = "About"
-weight = 500
+weight = 400
 identifier = "about"
 url = "/about/"
 
@@ -118,11 +108,6 @@ url = "/about/"
 series = "series" # lets you link multiple posts such as a 'series'!
 category = "categories"
 tag = "tags"
-
-# Syntax highlighting
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
 
 [permalinks]
 blog = "blog/:slug/"
