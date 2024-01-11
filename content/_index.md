@@ -6,10 +6,12 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 ## Most Popular Blog Posts
 
-- [Web Scraping Javascript with Python]({{< ref "blog/2020/16032020-python-xhr-scraping.md" >}})
-- [Wagtail Embed Youtube Videos]({{< ref "blog/2020/05022020-wagtail-embed.md" >}})
-- [HTTPX is The New Requests with Async]({{< ref "blog/2020/05072020-httpx-async-client.md" >}})
-- [Rsync Cheatsheet]({{< ref "blog/2018/01-rsync.md" >}})
+[//]: # (- [Web Scraping Javascript with Python]&#40;{{< ref "blog/2020/16032020-python-xhr-scraping.md" >}}&#41;)
+[//]: # (- [Wagtail Embed Youtube Videos]&#40;{{< ref "blog/2020/05022020-wagtail-embed.md" >}}&#41;)
+[//]: # (- [HTTPX is The New Requests with Async]&#40;{{< ref "blog/2020/05072020-httpx-async-client.md" >}}&#41;)
+[//]: # (- [Rsync Cheatsheet]&#40;{{< ref "blog/2018/01-rsync.md" >}}&#41;)
+
+{{< top-posts >}}
 
 ## Most Recent Zet's
 
