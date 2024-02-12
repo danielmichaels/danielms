@@ -29,6 +29,8 @@ changes worked.
 
 Hopefully it gets merged sometime. [pr](https://github.com/slack-go/slack/pull/1242)
 
+Edit: My contribution got merged! 
+
 Tags:
 
     #oss #til #go

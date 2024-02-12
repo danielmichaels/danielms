@@ -2643,11 +2643,11 @@
 	{
 		"name": "README.md",
 		"path": "20231106094019",
-		"sha": "01ee7790d1ffab9443d68e0c0403b77f4a86e3a3",
-		"size": 774,
+		"sha": "060aab7155b00b1b020f28c2a85b2cbad3ae7599",
+		"size": 810,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20231106094019/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20231106094019/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/01ee7790d1ffab9443d68e0c0403b77f4a86e3a3",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/060aab7155b00b1b020f28c2a85b2cbad3ae7599",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20231106094019/README.md",
 		"type": "file",
 		"content": "Forking and contributing to a Go project",
@@ -2655,7 +2655,7 @@
 		"date": "2023-11-06T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20231106094019/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/01ee7790d1ffab9443d68e0c0403b77f4a86e3a3",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/060aab7155b00b1b020f28c2a85b2cbad3ae7599",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20231106094019/README.md"
 		}
 	},
