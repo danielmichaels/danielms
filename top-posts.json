@@ -24,9 +24,9 @@
 		"path": "blog/2020/05072020-httpx-async-client.md"
 	},
 	{
-		"title": "Dropbear and AWS",
-		"slug": "dropbear-aws-pem-keys",
-		"slug_url": "/blog/dropbear-aws-pem-keys",
-		"path": "blog/2019/10092019-busybox-aws.md"
+		"title": "Wagtail embeded YouTube videos",
+		"slug": "wagtail-embedurl-youtube-tags",
+		"slug_url": "/blog/wagtail-embedurl-youtube-tags",
+		"path": "blog/2020/05022020-wagtail-embed.md"
 	}
 ]
