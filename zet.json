@@ -2962,5 +2962,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/4c68abcff092589fc64bc213ec60fb3b12a86128",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240324063405/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240326114148",
+		"sha": "13444a8dcbef72b672582839f75ef6dff306b247",
+		"size": 5075,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240326114148/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240326114148/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/13444a8dcbef72b672582839f75ef6dff306b247",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240326114148/README.md",
+		"type": "file",
+		"content": "Goa openapi embedded openapi documentation",
+		"encoding": "base64",
+		"date": "2024-03-26T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240326114148/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/13444a8dcbef72b672582839f75ef6dff306b247",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240326114148/README.md"
+		}
 	}
 ]
