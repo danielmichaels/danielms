@@ -3000,5 +3000,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/42d649ae4e58de52f4d719913037fa8564a643ca",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240329105642/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240330034309",
+		"sha": "0ebdd6033c4bdbde7dccf281e499763ccb9db7e2",
+		"size": 706,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240330034309/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240330034309/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/0ebdd6033c4bdbde7dccf281e499763ccb9db7e2",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330034309/README.md",
+		"type": "file",
+		"content": "nextdns rewrites",
+		"encoding": "base64",
+		"date": "2024-03-30T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240330034309/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/0ebdd6033c4bdbde7dccf281e499763ccb9db7e2",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240330034309/README.md"
+		}
 	}
 ]
