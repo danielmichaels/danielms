@@ -27,6 +27,18 @@ it to be API driven thereafter.
 To make a `server` **not** request a HTTPS certificate automatically then
 use `http://` in the server name block.
 
+## Proxmox Networking
+
+Make sure IPv6 is set to Static and empty. If set to DHCP and your router doesn't provide it
+boot times increase dramatically.
+
+Set static IPv4, especially for Cloudflared LXC or `/etc/resolv.conf` will get the gateway
+instead of DNS server. The server will fail to connect to Cloudflare and `/etc/resolv.conf`
+will always be overwritten by DHCP.
+
+Also make sure all services/VMs have a static IP so when the server reboots it doesn't give 
+new IPs rendering the proxy useless.
+
 Tags
 
   #proxmox #homelab #lxc
