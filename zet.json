@@ -2985,11 +2985,11 @@
 	{
 		"name": "README.md",
 		"path": "20240329105642",
-		"sha": "934aa72b6529840dfdbece5fb48bf82983d05d9a",
-		"size": 1204,
+		"sha": "08f4a266bb801eaedc0eaf55b424f58ee077635b",
+		"size": 1285,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240329105642/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240329105642/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/934aa72b6529840dfdbece5fb48bf82983d05d9a",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/08f4a266bb801eaedc0eaf55b424f58ee077635b",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240329105642/README.md",
 		"type": "file",
 		"content": "Home server notes",
@@ -2997,7 +2997,7 @@
 		"date": "2024-03-29T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240329105642/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/934aa72b6529840dfdbece5fb48bf82983d05d9a",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/08f4a266bb801eaedc0eaf55b424f58ee077635b",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240329105642/README.md"
 		}
 	},

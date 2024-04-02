@@ -37,7 +37,8 @@ instead of DNS server. The server will fail to connect to Cloudflare and `/etc/r
 will always be overwritten by DHCP.
 
 Also make sure all services/VMs have a static IP so when the server reboots it doesn't give 
-new IPs rendering the proxy useless.
+new IPs rendering the proxy useless. Do this in the GUI and not in the service as it'll be
+overwritten by cloud-init.
 
 Tags
 
