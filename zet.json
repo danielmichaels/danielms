@@ -3038,5 +3038,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8d9e1ca7bfd3e7dc7feae17c1700812aa2a35015",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240330143918/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240408083812",
+		"sha": "3555e0c331ae066697bc48b12f4f0c6c4fcfbdfd",
+		"size": 1317,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240408083812/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240408083812/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/3555e0c331ae066697bc48b12f4f0c6c4fcfbdfd",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240408083812/README.md",
+		"type": "file",
+		"content": "Golang: Time.In panic missing Location",
+		"encoding": "base64",
+		"date": "2024-04-08T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240408083812/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/3555e0c331ae066697bc48b12f4f0c6c4fcfbdfd",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240408083812/README.md"
+		}
 	}
 ]
