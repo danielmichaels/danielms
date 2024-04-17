@@ -312,6 +312,79 @@ Output from curl'ing `echo.k3s.lcl`:
 }
 ```
 
+**Updated**
+
+For resources which are not kubernetes primitives such as Traefik, you
+can use a Dynamic Client to create `unstructured.Unstructired{}`.
+
+In this example we're replacing the `networking.k8s.io` `Ingress` with a
+`traefik.io/v1alpha1` `IngressRoute`. 
+
+```go
+func k8sDynClient() *dynamic.DynamicClient {
+	kubeConfigPath := os.Getenv("KUBECONFIG")
+	fmt.Printf("Using kubeconfig: %s\n", kubeConfigPath)
+
+	kubeConfig, err := clientcmd.BuildConfigFromFlags("", kubeConfigPath)
+	if err != nil {
+		fmt.Printf("Error getting kubernetes config: %v\n", err)
+		os.Exit(1)
+	}
+
+  // Everything is the same as k8sClient except this line.
+	clientset, err := dynamic.NewForConfig(kubeConfig)
+	if err != nil {
+		fmt.Printf("error getting kubernetes config: %v\n", err)
+		os.Exit(1)
+	}
+	return clientset
+}
+
+
+func createDynamicIngressRoute(client *dynamic.DynamicClient, ns string, ingressName string, port int32) error {
+	ingress := &unstructured.Unstructured{
+		Object: map[string]interface{}{
+			"apiVersion": "traefik.io/v1alpha1",
+			"kind":       "IngressRoute",
+			"metadata": map[string]interface{}{
+				"name":      ingressName,
+				"namespace": ns,
+			},
+			"spec": map[string]interface{}{
+				"entryPoints": []interface{}{
+					"web",
+				},
+				"routes": []interface{}{
+					map[string]interface{}{
+						"match": "Host(`echo.k3s.lcl`) && PathPrefix(`/`)",
+						"kind":  "Rule",
+						"services": []interface{}{
+							map[string]interface{}{
+								"name":      "echo-svc",
+								"port":      port,
+								"namespace": "default",
+								"kind":      "Service",
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+	slog.Info("ingress", "ingress", ingressName, "status", "creating")
+	result, err := client.Resource(schema.GroupVersionResource{
+		Group:    "traefik.io",
+		Version:  "v1alpha1",
+		Resource: "ingressroutes",
+	}).Namespace(ns).Create(context.TODO(), ingress, metav1.CreateOptions{})
+	if err != nil {
+		return err
+	}
+	slog.Info("ingress", "ingress", result.GetName(), "status", "created")
+	return nil
+}
+```
+
 Tags:
 
   #kubernetes #go
