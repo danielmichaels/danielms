@@ -3076,5 +3076,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/b4fb9d6622da2f31aa70095e550b2bba660f4c5c",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240416120401/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240421132831",
+		"sha": "02e133c5634f9c1eaa3041b2c51474de0f606434",
+		"size": 1970,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240421132831/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240421132831/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/02e133c5634f9c1eaa3041b2c51474de0f606434",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240421132831/README.md",
+		"type": "file",
+		"content": "goa.design custom zerolog logger with HTTP Info, Warn and Error codes",
+		"encoding": "base64",
+		"date": "2024-04-21T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240421132831/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/02e133c5634f9c1eaa3041b2c51474de0f606434",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240421132831/README.md"
+		}
 	}
 ]
