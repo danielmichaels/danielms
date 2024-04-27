@@ -3095,5 +3095,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/02e133c5634f9c1eaa3041b2c51474de0f606434",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240421132831/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240427101416",
+		"sha": "7e0144c6072cc0fce978f8284bb5a68e5a401ebf",
+		"size": 1218,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240427101416/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240427101416/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7e0144c6072cc0fce978f8284bb5a68e5a401ebf",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240427101416/README.md",
+		"type": "file",
+		"content": "golang ssh client snippet",
+		"encoding": "base64",
+		"date": "2024-04-27T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240427101416/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/7e0144c6072cc0fce978f8284bb5a68e5a401ebf",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240427101416/README.md"
+		}
 	}
 ]
