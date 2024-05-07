@@ -12,16 +12,16 @@
 		"path": "blog/2022/22-03-12-Alpine.js and Tailwind HTML setup.md"
 	},
 	{
-		"title": "Web Scraping Javascript with Python",
-		"slug": "web-scraping-javascript-with-python-xhr",
-		"slug_url": "/blog/web-scraping-javascript-with-python-xhr",
-		"path": "blog/2020/16032020-python-xhr-scraping.md"
-	},
-	{
 		"title": "HTTPX is the new Requests with Async",
 		"slug": "httpx-is-the-new-requests-with-async",
 		"slug_url": "/blog/httpx-is-the-new-requests-with-async",
 		"path": "blog/2020/05072020-httpx-async-client.md"
+	},
+	{
+		"title": "Web Scraping Javascript with Python",
+		"slug": "web-scraping-javascript-with-python-xhr",
+		"slug_url": "/blog/web-scraping-javascript-with-python-xhr",
+		"path": "blog/2020/16032020-python-xhr-scraping.md"
 	},
 	{
 		"title": "Wagtail embeded YouTube videos",
