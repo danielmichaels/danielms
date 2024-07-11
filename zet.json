@@ -3133,5 +3133,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/a1b80172da3b05281ee36c580ba4642437543711",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240627070414/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20240711114002",
+		"sha": "d122b79bb6cc27e7a04ab53340c2acacc4a0fd42",
+		"size": 3657,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240711114002/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240711114002/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d122b79bb6cc27e7a04ab53340c2acacc4a0fd42",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240711114002/README.md",
+		"type": "file",
+		"content": "Go's peterbourgon ff CLI package snippet",
+		"encoding": "base64",
+		"date": "2024-07-11T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240711114002/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/d122b79bb6cc27e7a04ab53340c2acacc4a0fd42",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20240711114002/README.md"
+		}
 	}
 ]
