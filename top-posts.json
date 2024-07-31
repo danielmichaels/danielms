@@ -6,16 +6,16 @@
 		"path": "blog/2020/20201127-requirements-poetry.md"
 	},
 	{
-		"title": "Alpine.js and Tailwind HTML setup",
-		"slug": "Alpine.js and Tailwind HTML setup",
-		"slug_url": "/blog/alpine.js-and-tailwind-html-setup",
-		"path": "blog/2022/22-03-12-Alpine.js and Tailwind HTML setup.md"
-	},
-	{
 		"title": "HTTPX is the new Requests with Async",
 		"slug": "httpx-is-the-new-requests-with-async",
 		"slug_url": "/blog/httpx-is-the-new-requests-with-async",
 		"path": "blog/2020/05072020-httpx-async-client.md"
+	},
+	{
+		"title": "Alpine.js and Tailwind HTML setup",
+		"slug": "Alpine.js and Tailwind HTML setup",
+		"slug_url": "/blog/alpine.js-and-tailwind-html-setup",
+		"path": "blog/2022/22-03-12-Alpine.js and Tailwind HTML setup.md"
 	},
 	{
 		"title": "Web Scraping Javascript with Python",
