@@ -3175,11 +3175,11 @@
 	{
 		"name": "README.md",
 		"path": "20240801073758",
-		"sha": "6a5a985e18598b7b85ca53437824bc8a66327986",
-		"size": 4350,
+		"sha": "3f41af895ef559b02a3e6a60976bcabd300d208e",
+		"size": 4282,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20240801073758/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20240801073758/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/6a5a985e18598b7b85ca53437824bc8a66327986",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/3f41af895ef559b02a3e6a60976bcabd300d208e",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240801073758/README.md",
 		"type": "file",
 		"content": "How I write Golang CLI tools today (using Kong)",
@@ -3187,7 +3187,7 @@
 		"date": "2024-08-01T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20240801073758/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/6a5a985e18598b7b85ca53437824bc8a66327986",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/3f41af895ef559b02a3e6a60976bcabd300d208e",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20240801073758/README.md"
 		}
 	}

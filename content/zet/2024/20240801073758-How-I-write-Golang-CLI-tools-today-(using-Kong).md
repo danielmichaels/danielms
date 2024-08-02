@@ -64,7 +64,6 @@ type CLI struct {
         cmd.Globals
 
         Echo cmd.EchoCommand `cmd:"" help:"Example of an Echo command"`
-        //Workers cmd.WorkersCmd `cmd:"" help:"Run atlas workers."`
         Version VersionFlag `       help:"Print version information and quit" short:"v" name:"version"`
 }
 
