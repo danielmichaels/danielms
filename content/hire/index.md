@@ -40,7 +40,7 @@ requirements.
 
 I love challenging projects that make me think and push boundaries. Whether it's building a web
 application from scratch or redesigning an existing one to make it better, I am up for the task. I'm proficient in Go,
-Python, and JavaScript, and am comfortable working with containers, event systems, and microservices.
+Python, and JavaScript, and am comfortable building with containerisation, event systems, and microservices.
 
 ## Why Hire Me?
 
