@@ -3304,5 +3304,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8f42ea5fc4d71177cb72586bee949d655ed72465",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20241020113257/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20241022051503",
+		"sha": "2bf4d21969c39673d064777f4153ab220774a05e",
+		"size": 2538,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20241022051503/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20241022051503/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/2bf4d21969c39673d064777f4153ab220774a05e",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20241022051503/README.md",
+		"type": "file",
+		"content": "Deploy to Netlify using Github Actions",
+		"encoding": "base64",
+		"date": "2024-10-22T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20241022051503/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/2bf4d21969c39673d064777f4153ab220774a05e",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20241022051503/README.md"
+		}
 	}
 ]
