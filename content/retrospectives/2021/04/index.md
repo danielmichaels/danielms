@@ -129,7 +129,7 @@ This month I learned of [litestream]. I think it's a project that has real poten
 every application needs Postgres or some other server-based SQL solution.
 For a great introduction, see this Tweet.
 
-{{< tweet 1387768253854986247 >}}
+{{< tweet user=dansult id=1387768253854986247 >}}
 
 ## Wrap up
 
