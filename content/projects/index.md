@@ -10,7 +10,7 @@ Email collaboration inside Slack. Get your emails in channels with the ability t
 reply, all without leaving Slack.
 
 I am a massive Go fan, and write everything in it. But, MailWarden is a Django project - always use the 
-write tool for the right job. 
+right tool for the right job. 
 
 ## [Mudmap.io](https://mudmap.io?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
