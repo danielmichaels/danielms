@@ -4,6 +4,14 @@ date: "2018-08-12"
 slug: "projects"
 ---
 
+## [MailWarden][mw]
+
+Email collaboration inside Slack. Get your emails in channels with the ability to assign team members to the email, and
+reply, all without leaving Slack.
+
+I am a massive Go fan, and write everything in it. But, MailWarden is a Django project - always use the 
+right tool for the right job. 
+
 ## [Mudmap.io](https://mudmap.io?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
 Cloud monitoring and configuration for pfSense firewalls. Secure, safe and easy
@@ -18,11 +26,11 @@ A web application to help find out where your short links are taking you.
 Entering a URL will return each hop's status code, response headers, and the
 entire redirect chain.
 
-Re-launched in June 2021. Completely re-written using FastAPI and Next.js 
+Re-launched in June 2021. Completely re-written using FastAPI and Next.js
 
 ## [tars.run](https://tars.run?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
-A dead simple, hobbyist, no guarantees URL shortener. Written in Go, rendered with Next.js and 
+A dead simple, hobbyist, no guarantees URL shortener. Written in Go, rendered with Next.js and
 persisted with SQLite through the magic of [Litestream](https://litestream.io).
 
 ## [RFC.py](https://github.com/danielmichaels/rfc.py/)
@@ -41,3 +49,5 @@ given URL.
 
 Useful little web app for figuring out if a Listed Investment Company is over
 or undervalued right now.
+
+[mw]: https://mailwarden.app?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects
