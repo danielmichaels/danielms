@@ -3342,5 +3342,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/325a27d7ed86c3287b74093cc9c3efe7c62a4bbd",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20241120042204/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20241210124807",
+		"sha": "8f1259ee71bd4cd84ab34e42673ebae6a45d586e",
+		"size": 1588,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20241210124807/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20241210124807/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8f1259ee71bd4cd84ab34e42673ebae6a45d586e",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20241210124807/README.md",
+		"type": "file",
+		"content": "structured logging; convincing a team to use it",
+		"encoding": "base64",
+		"date": "2024-12-10T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20241210124807/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/8f1259ee71bd4cd84ab34e42673ebae6a45d586e",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20241210124807/README.md"
+		}
 	}
 ]
