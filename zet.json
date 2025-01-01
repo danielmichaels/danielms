@@ -3384,11 +3384,11 @@
 	{
 		"name": "README.md",
 		"path": "20250101140103",
-		"sha": "96d2883b8552ed248e06c459097f0d8886309520",
-		"size": 995,
+		"sha": "50b9fde30f01ff449bb4daa11073f92ee08a77d9",
+		"size": 1059,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20250101140103/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20250101140103/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/96d2883b8552ed248e06c459097f0d8886309520",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/50b9fde30f01ff449bb4daa11073f92ee08a77d9",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250101140103/README.md",
 		"type": "file",
 		"content": "PocketBase and Litestream - very unreliable",
@@ -3396,7 +3396,7 @@
 		"date": "2025-01-01T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20250101140103/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/96d2883b8552ed248e06c459097f0d8886309520",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/50b9fde30f01ff449bb4daa11073f92ee08a77d9",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20250101140103/README.md"
 		}
 	}
