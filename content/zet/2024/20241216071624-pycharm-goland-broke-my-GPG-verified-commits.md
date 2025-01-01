@@ -8,7 +8,7 @@ draft = "false"
 ShowToc = "true"
 +++
 
-# pycharm/goland broke my GPG verified commits
+# pycharm-goland broke my GPG verified commits
 
 1. Open `~/.gnupg/gpg-agent.conf`
 2. Comment the line that uses `pinentry-program <path>/pinentry-ide.sh`
