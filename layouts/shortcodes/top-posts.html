@@ -1,12 +1,20 @@
-{{ if os.FileExists "/top-posts.json" }}
-{{ $items := getJSON "/top-posts.json" }}
-{{ range $item := sort $items "title" "desc" }}
-<ul style="margin: 0px;">
-    <li>
-        <a href="{{ $item.slug_url }}">{{ $item.title }}</a>
-    </li>
-</ul>
-{{end}}
-{{else}}
-<h2>Top blogs not found</h2>
-{{end}}
+<p>Found? {{ printf "%v" (os.FileExists "top-posts.json") }} </p>
+{{ if os.FileExists "top-posts.json" }}
+    {{ with resources.Get "top-posts.json" | transform.Unmarshal }}
+        {{ range . }}
+          <ul style="margin: 0px;">
+            <li>
+              <a href="{{ .slug_url }}">{{ .title }}</a>
+            </li>
+          </ul>
+        {{ end }}
+    {{ else }}
+      <ul style="margin: 0px;">
+        <li>
+          <p>No posts found</p>
+        </li>
+      </ul>
+    {{ end }}
+{{ else }}
+  <h2>Top blogs not found</h2>
+{{ end }}

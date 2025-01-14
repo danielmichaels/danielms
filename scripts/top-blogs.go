@@ -19,7 +19,7 @@ const (
 
 var (
 	uri        = "https://plausible.io/api/v1/stats/breakdown?site_id=danielms.site&period=12mo&property=event:page&filters=event:page==/blog/**/&limit=5"
-	fileName   = "top-posts.json"
+	fileName   = "./assets/top-posts.json"
 	tmpFileNae = "/tmp/plausible-stats.json"
 )
 
@@ -121,6 +121,7 @@ func readHugoMetadata(path string) (Post, error) {
 	}
 	return Post{}, nil
 }
+
 func (p *Post) toTitle() {
 	p.Title = strings.ReplaceAll(p.Title, "title =", "")
 	p.Title = strings.TrimSpace(p.Title)
@@ -132,12 +133,14 @@ func (p *Post) stripSlugPrefix() {
 	p.Slug = strings.ReplaceAll(p.Slug, "slug =", "")
 	p.Slug = strings.TrimSpace(p.Slug)
 }
+
 func (p *Post) generateSlugURL() {
 	p.Slug = strings.Trim(p.Slug, `"`)
 	p.SlugURL = fmt.Sprintf("/blog/%s", p.Slug)
 	p.SlugURL = strings.ReplaceAll(p.SlugURL, " ", "-")
 	p.SlugURL = strings.ToLower(p.SlugURL)
 }
+
 func (p *Post) stripContent() {
 	p.Path = strings.ReplaceAll(p.Path, "content/", "")
 }
@@ -153,6 +156,7 @@ func getFieldFromHugoMetadata(rx, entry string) string {
 	}
 	return ""
 }
+
 func main() {
 	var data PlausibleStats
 	if err := fetchStats(&data); err != nil {

@@ -44,13 +44,16 @@ ShowToc = "{{.ShowToc}}"
 	}
 	return buf.Bytes(), nil
 }
+
 func (b *Blog) slugify() {
 	b.Slug = strings.ReplaceAll(b.Slug, " ", "-")
 }
+
 func (b *Blog) hugoDateFormatter() {
 	t := time.Now()
 	b.DateNow = t.Format("2006-01-02")
 }
+
 func missingArgs(f string) {
 	fmt.Printf("must provide %q argument", f)
 	flag.Usage()
@@ -70,6 +73,7 @@ func (b *Blog) writePost(path string) {
 	}
 	log.Printf("wrote %q to file", f)
 }
+
 func mkdirp(p string) {
 	if _, err := os.Stat(p); os.IsNotExist(err) {
 		// Create the directory
@@ -81,6 +85,7 @@ func mkdirp(p string) {
 		fmt.Println("Directory created successfully!")
 	}
 }
+
 func main() {
 	title := flag.String("title", "", "Blog post title")
 	slug := flag.String("slug", "", "Blog post url slug")

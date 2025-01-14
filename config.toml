@@ -6,12 +6,8 @@ theme = ["anatole", "plausible-hugo"]
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
-# Plausible
-[params.plausible]
-enable = true
-domain = "danielms.site"
-debug = true
-gitstar = false
+buildFuture = true
+
 
 # Syntax highlighting
 pygmentsUseClasses = true
@@ -21,7 +17,7 @@ pygmentsCodefencesGuessSyntax = true
 [params]
 title = "Daniel Michaels 🇦🇺"
 author = "Daniel Michaels"
-copyright = "2018-2024"
+copyright = "2018-2025"
 description = "I build things and drink coffee."
 profilePicture = "extra/dansult-twitter.jpg"
 keywords = "software, python, go, golang, entrepreneur, indie hacker"
@@ -37,6 +33,17 @@ doNotLoadAnimations = false
 # indexDateFormat = "Mon, Jan 2, 2006"
 # listDateFormat = "Jan 2"
 # singleDateFormat = "Mon, Jan 2, 2006"
+
+[params.umami]
+enable = true
+websiteID = "e413cf37-7243-475e-bf40-0b9b52f924c0"
+scriptURL = "umami.apps.danielms.site"
+
+[params.plausible]
+enable = true
+domain = "danielms.site"
+debug = true
+gitstar = false
 
 # OpenFaaS domain
 [params.openfaas]
@@ -117,3 +124,8 @@ tag = "tags"
 
 [permalinks]
 blog = "blog/:slug/"
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
