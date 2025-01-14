@@ -9,7 +9,10 @@
     {{- if .Site.Params.googleSiteVerify }}
     <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerify }}">
     {{- end -}}
-    {{ partial "plausible_head.html" . }}
+    {{ if ne hugo.Environment "development" }}
+    {{ partial "umami.html" . }}
+    {{ partial "plausible/plausible_head.html" . }}
+    {{ end }}
     <!-- CSS -->
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet"
@@ -97,4 +100,10 @@
 
     <!-- Open Graph -->
     {{ template "_internal/opengraph.html" . }}
+
+    {{- if .Site.Params.umami.enabled }}
+        <script defer src="https://{{ .Site.Params.umami.scriptUrl }}/script.js"
+                data-website-id="{{ .Site.Params.umami.websiteId }}">
+        </script>
+    {{- end -}}
 </head>

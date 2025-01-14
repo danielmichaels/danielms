@@ -1,9 +1,0 @@
-[submodule "themes/cocoa"]
-  path = themes/cocoa
-  url = https://github.com/nishanths/cocoa-hugo-theme.git
-[submodule "themes/anatole"]
-	path = themes/anatole
-	url = https://github.com/lxndrblz/anatole.git
-[submodule "themes/plausible-hugo"]
-	path = themes/plausible-hugo
-	url = https://github.com/divinerites/plausible-hugo.git
