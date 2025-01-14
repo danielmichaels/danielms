@@ -1,5 +1,5 @@
 <!-- Check for config.toml in sync with the used variable in this version -->
-{{- partial "plausible_check.html" . }}
+{{- partial "plausible/plausible_check.html" . }}
 
 <!-- Compute the DOMAIN name -->
 {{- $pio_http       := "https://" }}
@@ -52,14 +52,14 @@
         <script defer data-domain="{{ site.Params.plausible.domain }}" src="{{ $pio_http }}{{ $pio_domain }}{{ $pio_js }}{{ $pio_script }}.js" {{if site.Params.plausible.proxy_netlify }}data-api="{{ $pio_data_api }}"{{ end }}></script>
     {{- end }}
 
-    {{- partialCached "plausible_head_csp.html" (dict "context" . "domain" $pio_domain "script" $pio_script ) }}
-    {{- partialCached "plausible_head_public_url.html" (dict "context" . "domain" $pio_domain_real "script" $pio_script ) }}
+    {{- partialCached "plausible/plausible_head_csp.html" (dict "context" . "domain" $pio_domain "script" $pio_script ) }}
+    {{- partialCached "plausible/plausible_head_public_url.html" (dict "context" . "domain" $pio_domain_real "script" $pio_script ) }}
 
     <!-- For custom goals/events -->
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
     <script>
         /* Create a unique script for all the onclick */
-        {{- partial "plausible_js.html" . | safeJS }}
+        {{- partial "plausible/plausible_js.html" . | safeJS }}
         /* Manage custom goals by entering a page */
         /* if parameter "plausible_custom_goal" is set */
         {{- with .Params.plausible_custom_goal }}

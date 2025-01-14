@@ -11,7 +11,7 @@
     {{- end -}}
     {{ if ne hugo.Environment "development" }}
     {{ partial "umami.html" . }}
-    {{ partial "plausible_head.html" . }}
+    {{ partial "plausible/plausible_head.html" . }}
     {{ end }}
     <!-- CSS -->
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
