@@ -116,7 +116,7 @@
 })(function () {
     if (typeof module !== 'undefined') {
         // Node
-        return require('jquery');
+        return require('assets/js/jquery');
     } else {
         return jQuery;
     }

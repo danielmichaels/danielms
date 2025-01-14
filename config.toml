@@ -2,7 +2,6 @@ baseURL = "https://danielms.site/"
 languageCode = "en"
 DefaultContentLanguage = "en"
 title = "Daniel Michaels | Developer | Entrepreneur | Veteran"
-theme = ["anatole", "plausible-hugo"]
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
