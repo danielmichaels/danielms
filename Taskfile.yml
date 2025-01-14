@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
+
+  serve:
+    cmds:
+      - hugo serve {{.CLI_ARGS}}
+  build:
+    cmds:
+      - hugo build {{.CLI_ARGS}}
+  go:build:all:
+    cmds:
+      - go build -o top-blogs scripts/top-blogs.go
+      - go build -o fetch-zet scripts/fetch-zet.go
+      - go build -o create-post scripts/create-post.go
+  go:build:*:
+    desc: Build Go binary
+    vars:
+      ARG_1: "{{index .MATCH 0}}"
+    cmds:
+      - go build -o {{.ARG_1}} scripts/{{.ARG_1}}.go
