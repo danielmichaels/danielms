@@ -1,4 +1,3 @@
-<p>Found? {{ printf "%v" (os.FileExists "top-posts.json") }} </p>
 {{ if os.FileExists "top-posts.json" }}
     {{ with resources.Get "top-posts.json" | transform.Unmarshal }}
         {{ range . }}
