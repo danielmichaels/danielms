@@ -14,6 +14,8 @@ right tool for the right job.
 
 ## [Mudmap.io](https://mudmap.io?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
+**Archived**
+
 Cloud monitoring and configuration for pfSense firewalls. Secure, safe and easy
 to configure and use. Take the hassle out of multisite firewall maintenance.
 
@@ -27,6 +29,8 @@ Entering a URL will return each hop's status code, response headers, and the
 entire redirect chain.
 
 Re-launched in June 2021. Completely re-written using FastAPI and Next.js
+
+Being re-written in Go, with react and sqlite embedded using PocketBase. [Alpha version](https://redirects.apps.danielms.site?ref=danielms.site)
 
 ## [tars.run](https://tars.run?utm_medium=blog&utm_source=danielms.site&utm_campaign=projects)
 
