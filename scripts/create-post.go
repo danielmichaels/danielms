@@ -32,6 +32,7 @@ slug = "{{.Slug}}"
 date = "{{.DateNow}}"
 draft = "{{.Draft}}"
 ShowToc = "{{.ShowToc}}"
+mermaid = "false"
 +++
 	`))
 	if err != nil {
