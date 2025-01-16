@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/* For mermaid.js */
+.mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 25px 0px
+}
+
 :root {
     --bg-color: #fff;
     --secondary-bg-color: #eeeeee;
