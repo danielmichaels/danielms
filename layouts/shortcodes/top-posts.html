@@ -1,14 +1,14 @@
 {{ if os.FileExists "top-posts.json" }}
     {{ with resources.Get "top-posts.json" | transform.Unmarshal }}
         {{ range . }}
-          <ul style="margin: 0px;">
+          <ul style="margin: 3px;">
             <li>
               <a href="{{ .slug_url }}">{{ .title }}</a>
             </li>
           </ul>
         {{ end }}
     {{ else }}
-      <ul style="margin: 0px;">
+      <ul style="margin: 3px;">
         <li>
           <p>No posts found</p>
         </li>
