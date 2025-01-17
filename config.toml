@@ -7,7 +7,6 @@ enableEmoji = true
 enableRobotsTXT = true
 buildFuture = true
 
-
 # Syntax highlighting
 pygmentsUseClasses = true
 pygmentsCodeFences = true
@@ -22,9 +21,7 @@ profilePicture = "extra/dansult-twitter.jpg"
 keywords = "software, python, go, golang, entrepreneur, indie hacker"
 favicon = "favicons/"
 images = ["extra/danielmichaels.png"]
-# example ["css/custom.css"]
 customCss = []
-# example ["js/custom.js"]
 customJs = []
 mainSections = ["home"]
 #images = ["images/site-feature-image.png"]
