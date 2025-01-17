@@ -3441,11 +3441,11 @@
 	{
 		"name": "README.md",
 		"path": "20250117051621",
-		"sha": "ade9282014c629ef894180d5a42b72878c210ad3",
-		"size": 1405,
+		"sha": "493bbd8b263368f9f15103ccee1c6fb541764539",
+		"size": 635,
 		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20250117051621/README.md?ref=main",
 		"html_url": "https://github.com/danielmichaels/zet/blob/main/20250117051621/README.md",
-		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/ade9282014c629ef894180d5a42b72878c210ad3",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/493bbd8b263368f9f15103ccee1c6fb541764539",
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117051621/README.md",
 		"type": "file",
 		"content": "Mermaid.js for Hugo blogs",
@@ -3453,7 +3453,7 @@
 		"date": "2025-01-17T00:00:00Z",
 		"_links": {
 			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20250117051621/README.md?ref=main",
-			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/ade9282014c629ef894180d5a42b72878c210ad3",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/493bbd8b263368f9f15103ccee1c6fb541764539",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20250117051621/README.md"
 		}
 	}
