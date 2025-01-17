@@ -1,7 +1,7 @@
 +++
 title = "Using Github Actions to publish my zettelkasten notes"
-categories = [""]
-tags = [""]
+categories = ["blog"]
+tags = ["zettelkasten", "github", "github-actions"]
 slug = "github-actions-auto-publish-zettelkasten-notes"
 date = "2025-01-14"
 draft = "false"
@@ -119,11 +119,12 @@ of me to write a blog post.
 
 To do that I use a GitHub action to fetch the zets from my repo and add them to my site. The action runs every hour and
 fetches the latest zets only triggering a rebuild if a new zet is added. This is done via the commit functionality of
-[stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action) which just commits directly
+[stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action) which just commits
+directly
 to `master`. It's my blog, so I don't care if it commits straight to master.
 
-
-All the tools and actions are available on [GitHub](https://github.com/danielmichaels/danielms) in the `scripts` and `.github`
+All the tools and actions are available on [GitHub](https://github.com/danielmichaels/danielms) in the `scripts` and
+`.github`
 directories. `./scripts/fetch-zet.go` is the script this action uses to fetch the zets.
 
 ## How it works
@@ -134,12 +135,36 @@ the full flow.
 {{< mermaid >}}
 graph TD
 subgraph "Github Actions hourly schedule"
-    A[Start fetch-zet.go] --> E[Fetch Contents from GitHub API]
-    E --> F{Check if New Zets}
-    F -->|Yes| G[Write JSON to assets/zet.json]
-    G --> H[Check if zet already exists, create if not]
-    F -->|No| L[Exit - No Updates Needed]
-    H --> M[Commit changes to repo]
+A[Start fetch-zet.go] --> E[Fetch Contents from GitHub API]
+E --> F{Check if New Zets}
+F -->|Yes| G[Write JSON to assets/zet.json]
+G --> H[Create zet entry if needed]
+F -->|No| L[Exit - No Updates Needed]
+H --> M[Commit changes to repo]
 end
-    M --> N[Netlify rebuild on commit to Master]
+M --> N[Netlify rebuild on commit to Master]
 {{< /mermaid >}}
+
+Each hour a GitHub action will run the `fetch-zet` binary. This will fetch the contents of the zet repo from the GitHub
+API. The API returns a list of all the files in the repo.
+
+Once a new zet is identified, the script will write the new zet to a JSON file in the `assets` directory. This is then
+compared against the existing zet entries, if a new one is found the go program will create a new zet markdown file.
+
+The markdown file's top level h1 tag is used to create the slug and title for the hugo page. The GitHub API provides the
+title, but we don't use that because if the h1 changes after the original commit, the API will still return the original
+commits title.
+
+Go templating is used to create the markdown file with hugo's frontmatter.
+
+Once done, the GitHub action will commit any new files to the repo. Netlify will then detect that a commit has been made
+to `master` and trigger a redeployment of the site.
+
+## The result
+
+So far, this simple process has allowed me to continue to write zets using my CLI tools but be able
+to refer to them from anywhere. Before this I was locked out of viewing them without setting up my `zet` CLI locally.
+
+As you can see, it works well enough.
+
+![zet.png](/images/zet.png)
