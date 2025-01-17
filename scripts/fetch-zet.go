@@ -519,6 +519,7 @@ slug = "{{.Slug}}"
 date = "{{.Date}}"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 {{.Body}}

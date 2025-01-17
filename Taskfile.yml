@@ -28,3 +28,7 @@ tasks:
       ARG_1: "{{index .MATCH 0}}"
     cmds:
       - go build -o {{.ARG_1}} scripts/{{.ARG_1}}.go
+  post:
+    desc: Create a new post
+    cmds:
+      - ./create-post {{.CLI_ARGS}}
