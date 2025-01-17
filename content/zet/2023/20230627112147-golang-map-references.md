@@ -6,6 +6,7 @@ slug = "golang-map-references"
 date = "2023-06-27 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # golang map references

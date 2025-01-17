@@ -6,6 +6,7 @@ slug = "Taskfile-is-my-new-Makefile"
 date = "2023-02-17 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # Taskfile is my new Makefile

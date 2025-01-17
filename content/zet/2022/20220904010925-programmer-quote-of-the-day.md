@@ -6,6 +6,7 @@ slug = "programmer-quote-of-the-day"
 date = "2022-09-04 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # programmer quote of the day

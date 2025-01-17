@@ -6,6 +6,7 @@ slug = "Low-effort-issues-and-tickets,-a-cultural-problem"
 date = "2024-03-18 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # Low effort issues and tickets, a cultural problem

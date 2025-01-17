@@ -6,6 +6,7 @@ slug = "Golang:-title-casing-first-character-only"
 date = "2024-02-17 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # Golang: title casing first character only

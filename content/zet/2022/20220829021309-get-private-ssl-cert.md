@@ -6,6 +6,7 @@ slug = "get-private-ssl-cert"
 date = "2022-08-29 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # get private ssl cert

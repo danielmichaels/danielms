@@ -6,6 +6,7 @@ slug = "Razors-worth-remembering"
 date = "2022-07-31 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # Razors worth remembering

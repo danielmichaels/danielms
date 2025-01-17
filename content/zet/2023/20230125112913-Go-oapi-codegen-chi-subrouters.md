@@ -6,6 +6,7 @@ slug = "Go-oapi-codegen-chi-subrouters"
 date = "2023-01-25 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
+mermaid = "true"
 +++
 
 # Go oapi-codegen chi subrouters
