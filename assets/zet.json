@@ -3475,5 +3475,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/60a30267d73301880237d1b3f58b22fb53f5dd87",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20250117232225/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20250129043557",
+		"sha": "855a99d8726f3b2c92ef3b4a00bc73e17b5390c1",
+		"size": 1923,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20250129043557/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20250129043557/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/855a99d8726f3b2c92ef3b4a00bc73e17b5390c1",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250129043557/README.md",
+		"type": "file",
+		"content": "Taskfile dynamic command variables",
+		"encoding": "base64",
+		"date": "2025-01-29T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20250129043557/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/855a99d8726f3b2c92ef3b4a00bc73e17b5390c1",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20250129043557/README.md"
+		}
 	}
 ]
