@@ -3570,5 +3570,24 @@
 			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/876c2396209ea7016410cfe7cc1c3584b0283571",
 			"html": "https://github.com/danielmichaels/zet/blob/main/20250413064048/README.md"
 		}
+	},
+	{
+		"name": "README.md",
+		"path": "20250417092858",
+		"sha": "5c521071741fba80800f59091785f95effe396cb",
+		"size": 810,
+		"url": "https://api.github.com/repos/danielmichaels/zet/contents/20250417092858/README.md?ref=main",
+		"html_url": "https://github.com/danielmichaels/zet/blob/main/20250417092858/README.md",
+		"git_url": "https://api.github.com/repos/danielmichaels/zet/git/blobs/5c521071741fba80800f59091785f95effe396cb",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250417092858/README.md",
+		"type": "file",
+		"content": "Homeassistant MQTT (and NATS)",
+		"encoding": "base64",
+		"date": "2025-04-17T00:00:00Z",
+		"_links": {
+			"self": "https://api.github.com/repos/danielmichaels/zet/contents/20250417092858/README.md?ref=main",
+			"git": "https://api.github.com/repos/danielmichaels/zet/git/blobs/5c521071741fba80800f59091785f95effe396cb",
+			"html": "https://github.com/danielmichaels/zet/blob/main/20250417092858/README.md"
+		}
 	}
 ]
