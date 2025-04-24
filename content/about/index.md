@@ -12,8 +12,6 @@ day to day of working at a big corporation as a developer.
 I mostly work with Python, Go and Javascript. These days I'll reach for Go before
 anything else.
 
-These days, I can be found either trying to launch a profitable online business
+Most days, I can be found either trying to launch a profitable online business
 or hanging out with my family and friends. I love ice hockey (go bruins!), hunting and
 in general trying to be a little bit better than yesterday.
-
-
