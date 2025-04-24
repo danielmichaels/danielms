@@ -110,11 +110,11 @@ weight = 400
 identifier = "about"
 url = "/about/"
 
-[[menu.main]]
-name = "Hire"
-weight = 500
-identifier = "hire"
-url = "/hire/"
+# [[menu.main]]
+# name = "Hire"
+# weight = 500
+# identifier = "hire"
+# url = "/hire/"
 
 ## Taxonomies for Opengraph
 [taxonomies]
