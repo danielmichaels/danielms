@@ -19,7 +19,7 @@ This explains it well with pictures:
 
 To allow it to dropdown into the "desktop" you currently have focused:
 
-- `Profiles` -> <profile> -> `Keys` -> `Configure Hotkey WindowFloating Window` -> `Floating Window` -> restart iTerm.
+- `Profiles` -> `$profile_name` -> `Keys` -> `Configure Hotkey WindowFloating Window` -> `Floating Window` -> restart iTerm.
 - ref: https://gitlab.com/gnachman/iterm2/-/issues/10695#note_1267078045,
 
 Prevent it from disappearing when you change focus:
