@@ -9,5 +9,3 @@ ShowToc = "true"
 mermaid = "true"
 +++
 
-# sqlite JSON and Go
-
