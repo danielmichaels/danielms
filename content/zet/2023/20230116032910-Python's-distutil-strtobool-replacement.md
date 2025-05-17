@@ -9,3 +9,23 @@ ShowToc = "true"
 mermaid = "true"
 +++
 
+# Python's distutil strtobool replacement
+
+From 3.10 `distutil.util.strtobool` is deprecated with removal slated for
+3.11.
+
+This is a trivial function to replace its functionality and useful for kubernetes
+helm values.
+
+```python
+
+def strtobool(value: str) -> bool:
+  value = value.lower()
+  if value in ("y", "yes", "on", "1", "true", "t"):
+    return True
+  return False
+```
+
+Tags:
+
+    #til #python #helm
