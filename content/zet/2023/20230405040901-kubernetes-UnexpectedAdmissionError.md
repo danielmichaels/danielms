@@ -2,7 +2,7 @@
 title = "kubernetes UnexpectedAdmissionError"
 categories = ["zet"]
 tags = ["zet"]
-slug = "kubernetes-UnexpectedAdmissionError"
+slug = "kubernetes-unexpectedadmissionerror"
 date = "2023-04-05 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

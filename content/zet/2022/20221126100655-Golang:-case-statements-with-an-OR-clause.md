@@ -2,7 +2,7 @@
 title = "Golang: case statements with an OR clause"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Golang:-case-statements-with-an-OR-clause"
+slug = "golang:-case-statements-with-an-or-clause"
 date = "2022-11-26 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

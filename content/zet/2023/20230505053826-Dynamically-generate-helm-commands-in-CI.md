@@ -2,7 +2,7 @@
 title = "Dynamically generate helm commands in CI"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Dynamically-generate-helm-commands-in-CI"
+slug = "dynamically-generate-helm-commands-in-ci"
 date = "2023-05-05 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

@@ -2,7 +2,7 @@
 title = "PocketBase and Litestream - very unreliable"
 categories = ["zet"]
 tags = ["zet"]
-slug = "PocketBase-and-Litestream---very-unreliable"
+slug = "pocketbase-and-litestream---very-unreliable"
 date = "2025-01-01 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

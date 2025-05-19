@@ -2,7 +2,7 @@
 title = "Migrating from CapRover to Coolify"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Migrating-from-CapRover-to-Coolify"
+slug = "migrating-from-caprover-to-coolify"
 date = "2025-01-03 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

@@ -2,7 +2,7 @@
 title = "Golang: find uniques"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Golang:-find-uniques"
+slug = "golang:-find-uniques"
 date = "2022-11-29 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

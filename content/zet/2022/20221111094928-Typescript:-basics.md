@@ -2,7 +2,7 @@
 title = "Typescript: basics"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Typescript:-basics"
+slug = "typescript:-basics"
 date = "2022-11-11 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

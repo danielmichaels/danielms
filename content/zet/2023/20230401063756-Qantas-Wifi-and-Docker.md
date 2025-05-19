@@ -2,7 +2,7 @@
 title = "Qantas Wifi and Docker"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Qantas-Wifi-and-Docker"
+slug = "qantas-wifi-and-docker"
 date = "2023-04-01 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

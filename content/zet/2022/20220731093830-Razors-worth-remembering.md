@@ -2,7 +2,7 @@
 title = "Razors worth remembering"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Razors-worth-remembering"
+slug = "razors-worth-remembering"
 date = "2022-07-31 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

@@ -2,7 +2,7 @@
 title = "Golang URL Params"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Golang-URL-Params"
+slug = "golang-url-params"
 date = "2022-04-28 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"

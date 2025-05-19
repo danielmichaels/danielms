@@ -2,7 +2,7 @@
 title = "Developer Experience is Everything"
 categories = ["zet"]
 tags = ["zet"]
-slug = "Developer-Experience-is-Everything"
+slug = "developer-experience-is-everything"
 date = "2022-05-11 00:00:00 +0000 UTC"
 draft = "false"
 ShowToc = "true"
