@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"bytes"
-	"encoding/base64"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -11,7 +10,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"text/template"
@@ -19,67 +20,21 @@ import (
 )
 
 var (
-	gh         = "https://api.github.com"
-	repo       = "zet"
-	owner      = "danielmichaels"
-	contentUrl = fmt.Sprintf("%s/repos/%s/%s/contents", gh, owner, repo)
-	readmeUrl  = fmt.Sprintf("%s/repos/%s/%s/readme", gh, owner, repo)
+	repo        = "zet"
+	owner       = "danielmichaels"
+	repoUrl     = fmt.Sprintf("https://github.com/%s/%s.git", owner, repo)
+	cloneDir    = "/tmp/zet-clone"
+	excludeDirs = []string{".git", "LICENSE", ".github"}
 )
 
-type Content struct {
-	Name        string      `json:"name"`
-	Path        string      `json:"path"`
-	Sha         string      `json:"sha"`
-	Size        int         `json:"size"`
-	Url         string      `json:"url"`
-	HtmlUrl     string      `json:"html_url"`
-	GitUrl      string      `json:"git_url"`
-	DownloadUrl interface{} `json:"download_url"`
-	Type        string      `json:"type"`
-	Links       struct {
-		Self string `json:"self"`
-		Git  string `json:"git"`
-		Html string `json:"html"`
-	} `json:"_links"`
-}
-type Readme struct {
-	Name        string    `json:"name"`
+type ZetEntry struct {
+	Title       string    `json:"content"`
 	Path        string    `json:"path"`
 	Sha         string    `json:"sha"`
-	Size        int       `json:"size"`
-	Url         string    `json:"url"`
 	HtmlUrl     string    `json:"html_url"`
-	GitUrl      string    `json:"git_url"`
 	DownloadUrl string    `json:"download_url"`
-	Type        string    `json:"type"`
-	Content     string    `json:"content"`
-	Encoding    string    `json:"encoding"`
 	Date        time.Time `json:"date"`
-	Links       struct {
-		Self string `json:"self"`
-		Git  string `json:"git"`
-		Html string `json:"html"`
-	} `json:"_links"`
-}
-
-type ZetJson struct {
-	Name        string    `json:"name"`
-	Path        string    `json:"path"`
-	Sha         string    `json:"sha"`
-	Size        int       `json:"size"`
-	Url         string    `json:"url"`
-	HtmlUrl     string    `json:"html_url"`
-	GitUrl      string    `json:"git_url"`
-	DownloadUrl string    `json:"download_url"`
-	Type        string    `json:"type"`
-	Content     string    `json:"content"`
-	Encoding    string    `json:"encoding"`
-	Date        time.Time `json:"date"`
-	Links       struct {
-		Self string `json:"self"`
-		Git  string `json:"git"`
-		Html string `json:"html"`
-	} `json:"_links"`
+	Content     string    `json:"name"`
 }
 
 type ZetTemplate struct {
@@ -91,197 +46,266 @@ type ZetTemplate struct {
 }
 
 func main() {
-	log.Println("retrieving zets from github")
+	log.Println("Starting zet fetch process")
 	start := time.Now()
 	defer func() {
 		finish := time.Since(start)
 		log.Println("Execution Time:", finish)
 	}()
-	content, err := fetchContents()
+
+	err := cloneRepository()
 	if err != nil {
-		log.Fatalln("fetchContents failed", err)
+		log.Fatalln("Failed to clone repository:", err)
 	}
-	paths, err := parseIsosec(content)
+	defer cleanupClone()
+
+	entries, err := processZetEntries()
 	if err != nil {
-		log.Fatalln("parseIsosec failed", err)
-	}
-	rData, err := fetchReadmeData(paths)
-	if err != nil {
-		log.Fatalln("fetchReadme failed", err)
+		log.Fatalln("Failed to process zet entries:", err)
 	}
 
-	readme, err := parseTitle(rData)
-	if err != nil {
-		log.Fatalln("parseTitle failed", err)
-	}
-
-	if noNewZets(readme) {
+	if noNewZets(entries) {
 		fmt.Println("No new zet's. Skipping...")
 		return
 	}
-	err = writeJSONToFile(readme)
+
+	err = writeToFile(entries)
 	if err != nil {
-		log.Fatalln("writeJSONToFile failed", err)
+		log.Fatalln("writeToFile failed", err)
 	}
-	// only create new markdown entries if a new zet has been created
+
 	createZetMarkdownFiles()
 }
 
-// fetchContents retrieves each file or folder from the repository.
-func fetchContents() ([]*Content, error) {
-	cl := http.Client{Timeout: time.Second * 2}
-	req, err := http.NewRequest(http.MethodGet, contentUrl, nil)
+// cloneRepository clones the zet repository to the temporary directory
+func cloneRepository() error {
+	log.Printf("Cloning repository %s to %s", repoUrl, cloneDir)
+
+	// remove if already exists
+	_ = os.RemoveAll(cloneDir)
+
+	cmd := exec.Command("git", "clone", repoUrl, cloneDir)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("git clone failed: %s, output: %s", err, output)
+	}
+
+	return nil
+}
+
+// cleanupClone removes the temporary clone directory
+func cleanupClone() {
+	log.Printf("Cleaning up %s", cloneDir)
+	_ = os.RemoveAll(cloneDir)
+}
+
+// processZetEntries processes all zet entries in the cloned repository
+func processZetEntries() ([]*ZetEntry, error) {
+	var entries []*ZetEntry
+
+	// Get list of directories (isosec format)
+	dirs, err := os.ReadDir(cloneDir)
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Accept", "application/vnd.github.v3+json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", os.Getenv("GH_ZET_PAT")))
-	res, err := cl.Do(req)
+
+	for _, dir := range dirs {
+		if !dir.IsDir() || isExcluded(dir.Name()) {
+			continue
+		}
+
+		dirPath := filepath.Join(cloneDir, dir.Name())
+		readmePath := filepath.Join(dirPath, "README.md")
+
+		if _, err := os.Stat(readmePath); os.IsNotExist(err) {
+			log.Printf("No README.md in %s, skipping", dirPath)
+			continue
+		}
+
+		title, err := readZetTitle(readmePath)
+		if err != nil {
+			log.Printf("Error reading title from %s: %v", readmePath, err)
+			continue
+		}
+
+		sha, err := getGitSha(dirPath)
+		if err != nil {
+			log.Printf("Error getting SHA for %s: %v", dirPath, err)
+			continue
+		}
+
+		date, err := time.Parse("20060102", dir.Name()[:8])
+		if err != nil {
+			log.Printf("Error parsing date from %s: %v", dir.Name(), err)
+			continue
+		}
+
+		entry := &ZetEntry{
+			Title:       title,
+			Path:        dir.Name(),
+			Sha:         sha,
+			HtmlUrl:     fmt.Sprintf("https://github.com/%s/%s/tree/main/%s", owner, repo, dir.Name()),
+			DownloadUrl: fmt.Sprintf("https://raw.githubusercontent.com/%s/%s/main/%s/README.md", owner, repo, dir.Name()),
+			Date:        date,
+			Content:     title,
+		}
+
+		entries = append(entries, entry)
+	}
+
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].Date.After(entries[j].Date)
+	})
+
+	log.Printf("Found %d zet entries", len(entries))
+	return entries, nil
+}
+
+// isExcluded checks if a directory should be excluded
+func isExcluded(name string) bool {
+	for _, exclude := range excludeDirs {
+		if name == exclude {
+			return true
+		}
+	}
+	// Also exclude entries that don't start with numeric isosec format
+	if len(name) < 8 {
+		return true
+	}
+	_, err := strconv.Atoi(name[:8])
+	return err != nil
+}
+
+// readZetTitle reads the first line of a README.md file and extracts the title
+func readZetTitle(path string) (string, error) {
+	file, err := os.Open(path)
 	if err != nil {
-		return nil, err
+		return "", err
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	if scanner.Scan() {
+		title := scanner.Text()
+		title = strings.TrimPrefix(title, "# ")
+		title = strings.TrimSpace(title)
+		return title, nil
 	}
 
-	if res.Body != nil {
-		defer res.Body.Close()
-	}
+	return "", errors.New("empty file or error reading file")
+}
 
-	var content []*Content
-
-	err = decodeJSONBody(res, &content)
+// getGitSha gets the git SHA of the last commit that modified the specified path
+func getGitSha(path string) (string, error) {
+	relPath, err := filepath.Rel(cloneDir, path)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 
-	return content, nil
-}
-
-// parseIsosec grabs the folder name which is an 'isosec' format. Each isosec
-// is appended to an array for use in other functions.
-func parseIsosec(c []*Content) ([]string, error) {
-	var s []string
-	for _, v := range c {
-		s = append(s, v.Path)
-	}
-	return s, nil
-}
-
-// fetchReadmeData retrieves the repositories readme subfolders by looping
-// over each directory and pulling out the data. This uses the GitHub API /readme
-// endpoints. This is limited to 1000 objects. If this is exceeded or rate limiting
-// is applied to this task, the git tree endpoint must be used.
-func fetchReadmeData(i []string) ([]*Readme, error) {
-	cl := http.Client{Timeout: time.Second * 2}
-
-	var r []*Readme
-
-	for _, path := range i[:] {
-		var readme *Readme
-
-		url := fmt.Sprintf("%s/%s", readmeUrl, path)
-		req, err := http.NewRequest(http.MethodGet, url, nil)
-		if err != nil {
-			return nil, err
-		}
-
-		req.Header.Set("Accept", "application/vnd.github.v3+json")
-		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", os.Getenv("GH_ZET_PAT")))
-		res, err := cl.Do(req)
-		if err != nil {
-			return nil, err
-		}
-
-		if res.Body != nil {
-			defer res.Body.Close()
-		}
-
-		err = json.NewDecoder(res.Body).Decode(&readme)
-		if err != nil {
-			return nil, err
-		}
-		r = append(r, readme)
-		log.Printf("fetched: %q", readme.Path)
+	cmd := exec.Command("git", "-C", cloneDir, "log", "-n", "1", "--pretty=format:%H", "--", relPath)
+	out, err := cmd.Output()
+	if err != nil {
+		return "", err
 	}
 
-	return r, nil
-}
-
-// parseTitle loops over an array of Readme objects to munge the data into a
-// format we desire for showing users.
-func parseTitle(r []*Readme) ([]*Readme, error) {
-	for k := range r {
-		c, err := base64.StdEncoding.DecodeString(r[k].Content)
+	sha := strings.TrimSpace(string(out))
+	if sha == "" {
+		// fallback to the HEAD commit
+		cmd = exec.Command("git", "-C", cloneDir, "rev-parse", "HEAD")
+		out, err = cmd.Output()
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("failed to decode for %q", r[k].Path))
+			return "", err
 		}
-		scanner := bufio.NewScanner(strings.NewReader(string(c)))
-		var line int
-		for scanner.Scan() {
-			if line >= 1 {
-				break
-			}
-			// Remove the prefix # from the first line
-			content := strings.Replace(scanner.Text(), "# ", "", -1)
-			content = strings.TrimSpace(content)
-			r[k].Content = content
-			// Remove the /README.md from the path struct field
-			r[k].Path = strings.Replace(r[k].Path, "/README.md", "", -1)
-
-			r[k].Date = parseDate(r[k])
-			line++
-		}
-		if err := scanner.Err(); err != nil {
-			return nil, err
-		}
+		sha = strings.TrimSpace(string(out))
 	}
-	return r, nil
+
+	return sha, nil
 }
 
-func parseDate(r *Readme) time.Time {
-	d := r.Path[:8]
-	date, _ := time.Parse("20060102", d)
-	r.Date = date
-	return r.Date
-}
-
-// noNewZets is a checking function to ensure that the zet.json file is only regenerated
-// if the current file is not equal to the number of zets found in the zet repo on GitHub.
-// This prevents needless commits via GitHub actions.
-func noNewZets(r []*Readme) bool {
-	z, err := os.Stat("./assets/zet.json")
+// noNewZets checks if the current zet.json file contains the same entries as the ones we just found
+func noNewZets(entries []*ZetEntry) bool {
+	zetFilePath := "./assets/zet.json"
+	_, err := os.Stat(zetFilePath)
 	if err != nil {
 		log.Println("zet.json does not exist", err)
 		return false
 	}
 
-	zetFile, err := os.ReadFile(z.Name())
+	zetFile, err := os.ReadFile(zetFilePath)
 	if err != nil {
 		log.Println("error checking zet.json contents", err)
 		return false
 	}
 
-	var existingZets []*Readme
+	var existingZets []*ZetEntry
 	err = json.Unmarshal(zetFile, &existingZets)
 	if err != nil {
 		log.Println("error unmarshalling zet.json", err)
 		return false
 	}
 
-	for k, v := range existingZets {
-		if v.Sha != r[k].Sha {
-			log.Printf("updated zet %q (old: %s, new: %s) found\n", v.Content, v.Sha, r[k].Sha)
-			return false
+	if len(existingZets) != len(entries) {
+		log.Printf("zet count changed: %d existing vs %d new", len(existingZets), len(entries))
+
+		// Create maps to track entries by path
+		existingMap := make(map[string]*ZetEntry)
+		for _, z := range existingZets {
+			existingMap[z.Path] = z
+		}
+
+		newMap := make(map[string]*ZetEntry)
+		for _, z := range entries {
+			newMap[z.Path] = z
+		}
+
+		// Find added zets
+		for path, entry := range newMap {
+			if _, exists := existingMap[path]; !exists {
+				log.Printf("New zet added: %s - %s", path, entry.Title)
+			}
+		}
+
+		// Find removed zets
+		for path, entry := range existingMap {
+			if _, exists := newMap[path]; !exists {
+				log.Printf("Zet removed: %s - %s", path, entry.Title)
+			}
+		}
+
+		return false
+	}
+
+	// Check for changes in SHA or content
+	changesFound := false
+	for i, v := range entries {
+		if i >= len(existingZets) {
+			log.Printf("New zet added at index %d: %s", i, v.Title)
+			changesFound = true
+			continue
+		}
+
+		if v.Sha != existingZets[i].Sha {
+			log.Printf("SHA changed for %s: %s → %s", v.Path, existingZets[i].Sha[:8], v.Sha[:8])
+			changesFound = true
+		}
+
+		if v.Title != existingZets[i].Title {
+			log.Printf("Title changed for %s: %q → %q", v.Path, existingZets[i].Title, v.Title)
+			changesFound = true
 		}
 	}
 
-	if len(existingZets) == len(r) {
-		return true
-	}
-
-	return false
+	return !changesFound
 }
 
-func writeJSONToFile(s []*Readme) error {
-	j, err := json.MarshalIndent(s, "", "\t")
+func writeToFile(entries []*ZetEntry) error {
+	// Make sure assets directory exists
+	err := os.MkdirAll("./assets", 0755)
+	if err != nil {
+		return err
+	}
+
+	j, err := json.MarshalIndent(entries, "", "\t")
 	if err != nil {
 		return err
 	}
@@ -289,97 +313,7 @@ func writeJSONToFile(s []*Readme) error {
 	if err != nil {
 		return err
 	}
-	log.Printf("wrote %d entries to zet.json", len(s))
-	return nil
-}
-
-// readJSON is helper for trapping errors and return values for JSON related
-// handlers
-func decodeJSONBody(r *http.Response, dst interface{}) error {
-	// Set a max body length. Without this it will accept unlimited size requests
-	maxBytes := 1_048_576 // 1MB
-
-	// Init a Decoder and call DisallowUnknownFields() on it before decoding.
-	// This means that JSON from the client will be rejected if it contains keys
-	// which do not match the target destination struct. If not implemented,
-	// the decoder will silently drop unknown fields - this will raise an error instead.
-	dec := json.NewDecoder(r.Body)
-	dec.DisallowUnknownFields()
-
-	// decode the request body into the target struct/destination
-	err := dec.Decode(dst)
-	if err != nil {
-		// start triaging the various JSON related errors
-		var syntaxError *json.SyntaxError
-		var unmarshallTypeError *json.UnmarshalTypeError
-		var invalidUnmarshallError *json.InvalidUnmarshalError
-
-		switch {
-		// Use the errors.As() function to check whether the error has the
-		// *json.SyntaxError. If it does, then return a user-readable error
-		// message including the location of the problem
-		case errors.As(err, &syntaxError):
-			return fmt.Errorf(
-				"body contains badly-formed JSON (at character %d)",
-				syntaxError.Offset,
-			)
-
-		// Decode() can also return an io.ErrUnexpectedEOF for JSON syntax errors. This is
-		// checked for with errors.Is() and returns a generic error message to the client.
-		case errors.Is(err, io.ErrUnexpectedEOF):
-			return errors.New("body contains badly-formed JSON")
-
-		// Wrong JSON types will return an error when they do not match the target destination
-		// struct.
-		case errors.As(err, &unmarshallTypeError):
-			if unmarshallTypeError.Field != "" {
-				return fmt.Errorf(
-					"body contains incorrect JSON type for field %q",
-					unmarshallTypeError.Field,
-				)
-			}
-			return fmt.Errorf(
-				"body contains incorrect JSON type (at character %d)",
-				unmarshallTypeError.Offset,
-			)
-
-		// An EOF error will be returned by Decode() if the request body is empty. Use errors.Is()
-		// to check for this and return a human-readable error message
-		case errors.Is(err, io.EOF):
-			return errors.New("body must not be empty")
-
-		// If JSON contains a field which cannot be mapped to the target destination
-		// then Decode will return an error message in the format "json: unknown field "<name>""
-		// We check for this, extract the field name and interpolate it into an error
-		// which is returned to the client
-		case strings.HasPrefix(err.Error(), "json: unknown field "):
-			fieldName := strings.TrimPrefix(err.Error(), "json: unknown field ")
-			return fmt.Errorf("body contains unknown key %s", fieldName)
-
-		// If the request body exceeds maxBytes the decode will fail with a
-		// "http: request body too large".
-		case err.Error() == "http: request body too large":
-			return fmt.Errorf("body must not be larger than %d bytes", maxBytes)
-
-		// A json.InvalidUnmarshallError will be returned if we pass a non-nil pointer
-		// to Decode(). We catch and panic, rather than return an error.
-		case errors.As(err, &invalidUnmarshallError):
-			panic(err)
-
-		// All else fails, return an error as-is
-		default:
-			return err
-		}
-	}
-
-	// Call Decode() again, using a pointer to anonymous empty struct as the
-	// destination. If the body only has one JSON value then an io.EOF error
-	// will be returned. If there is anything else, extra data has been sent
-	// and we craft a custom error message back to the client
-	err = dec.Decode(&struct{}{})
-	if err != io.EOF {
-		return errors.New("body must only contain a single JSON value")
-	}
+	log.Printf("wrote %d entries to zet.json", len(entries))
 	return nil
 }
 
@@ -392,10 +326,12 @@ func createZetMarkdownFiles() {
 		log.Fatalln("failed to parse zet.json")
 	}
 
-	var zets []ZetJson
+	var zets []ZetEntry
 	err = json.Unmarshal(zetFile, &zets)
+	if err != nil {
+		log.Fatalln("failed to unmarshal zet.json")
+	}
 
-	// Get years and create directory paths for them if not exist.
 	yrs := getZetYears(zets)
 	for _, v := range yrs {
 		v := strconv.Itoa(v)
@@ -410,13 +346,20 @@ func createZetMarkdownFiles() {
 	}
 
 	for _, z := range zets[:] {
-		zbody, err := getZetContents(z)
+		readmePath := filepath.Join(cloneDir, z.Path, "README.md")
+		zbody, err := os.ReadFile(readmePath)
 		if err != nil {
-			log.Fatalln("failed to retrieve zet body from github", err)
+			log.Printf("failed to read content from %s: %v", readmePath, err)
+			// fallback, attempt to fetch from github
+			zbody, err = getZetContents(z.DownloadUrl)
+			if err != nil {
+				log.Fatalf("failed to retrieve zet body: %v", err)
+			}
 		}
+
 		zt := ZetTemplate{
-			Title:  z.Content,
-			Slug:   slugify(z.Content),
+			Title:  z.Title,
+			Slug:   slugify(z.Title),
 			Date:   z.Date,
 			Body:   string(zbody),
 			IsoSec: z.Path,
@@ -429,7 +372,6 @@ func createZetMarkdownFiles() {
 
 		zetYear := strconv.Itoa(z.Date.Year())
 		writeZetMarkdown(zt, filepath.Join(zetPath, zetYear))
-
 	}
 }
 
@@ -445,7 +387,7 @@ func exists(path string) (bool, error) {
 }
 
 // getZetYears extracts only unique years from an array of all zets
-func getZetYears(zets []ZetJson) []int {
+func getZetYears(zets []ZetEntry) []int {
 	var yrs []int
 	for _, y := range zets {
 		yrs = append(yrs, y.Date.Year())
@@ -468,26 +410,20 @@ func removeDupeYears(arr []int) []int {
 	return l
 }
 
-func getZetContents(z ZetJson) ([]byte, error) {
-	cl := http.Client{Timeout: 10 * time.Second}
-	req, err := http.NewRequest(http.MethodGet, z.DownloadUrl, nil)
+func getZetContents(url string) ([]byte, error) {
+	// Use Go's HTTP client instead of external curl command
+	client := &http.Client{Timeout: 10 * time.Second}
+	resp, err := client.Get(url)
 	if err != nil {
 		return nil, err
 	}
-	res, err := cl.Do(req)
-	if err != nil {
-		return nil, err
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("HTTP request failed with status code: %d", resp.StatusCode)
 	}
 
-	if res.Body != nil {
-		defer res.Body.Close()
-	}
-
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-	return body, nil
+	return io.ReadAll(resp.Body)
 }
 
 func writeZetMarkdown(zt ZetTemplate, path string) {
@@ -504,7 +440,7 @@ func writeZetMarkdown(zt ZetTemplate, path string) {
 }
 
 func slugify(s string) string {
-	return strings.Replace(s, " ", "-", -1)
+	return strings.Replace(strings.ToLower(s), " ", "-", -1)
 }
 
 func createTemplate(z *ZetTemplate) ([]byte, error) {
