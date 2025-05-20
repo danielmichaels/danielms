@@ -1,5 +1,14 @@
 [
 	{
+		"content": "NATS Micro example",
+		"path": "20250520102040",
+		"sha": "68b752e17f206042e8230c6ab50c93e911f8c382",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250520102040",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250520102040/README.md",
+		"date": "2025-05-20T00:00:00Z",
+		"name": "NATS Micro example"
+	},
+	{
 		"content": "DBeaver wordwrap and autoformat by default",
 		"path": "20250508222632",
 		"sha": "1d18827af58fcae572b5b102866529067997a3ff",
