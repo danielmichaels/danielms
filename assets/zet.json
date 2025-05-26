@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Go: errors.As versus type assertions",
+		"path": "20250526223144",
+		"sha": "1a49ce1897a0b5668b4572d97044484c2222182b",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250526223144",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250526223144/README.md",
+		"date": "2025-05-26T00:00:00Z",
+		"name": "Go: errors.As versus type assertions"
+	},
+	{
 		"content": "NATS Micro example",
 		"path": "20250520102040",
 		"sha": "68b752e17f206042e8230c6ab50c93e911f8c382",
@@ -1143,15 +1152,6 @@
 		"name": "goland: highlight error without mouse hover"
 	},
 	{
-		"content": "I need to track contract time",
-		"path": "20221016002414",
-		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
-		"date": "2022-10-16T00:00:00Z",
-		"name": "I need to track contract time"
-	},
-	{
 		"content": "create cli reminder script",
 		"path": "20221016044558",
 		"sha": "679f3112f72d2537f2ee1ccd3463027bdc52af7c",
@@ -1168,6 +1168,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016025223/README.md",
 		"date": "2022-10-16T00:00:00Z",
 		"name": "go parsing seconds into time.Duration"
+	},
+	{
+		"content": "I need to track contract time",
+		"path": "20221016002414",
+		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
+		"date": "2022-10-16T00:00:00Z",
+		"name": "I need to track contract time"
 	},
 	{
 		"content": "Contract time countdown and hours remaining",
@@ -1287,15 +1296,6 @@
 		"name": "get private ssl cert"
 	},
 	{
-		"content": "TIL: bash flags",
-		"path": "20220826040451",
-		"sha": "665e498e5d1facdedb52b19d57869a091b553a7f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220826040451",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040451/README.md",
-		"date": "2022-08-26T00:00:00Z",
-		"name": "TIL: bash flags"
-	},
-	{
 		"content": "microservice learning task",
 		"path": "20220826040905",
 		"sha": "a414b24746a62c787cd1fb12ba699ecc647056d8",
@@ -1303,6 +1303,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040905/README.md",
 		"date": "2022-08-26T00:00:00Z",
 		"name": "microservice learning task"
+	},
+	{
+		"content": "TIL: bash flags",
+		"path": "20220826040451",
+		"sha": "665e498e5d1facdedb52b19d57869a091b553a7f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220826040451",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040451/README.md",
+		"date": "2022-08-26T00:00:00Z",
+		"name": "TIL: bash flags"
 	},
 	{
 		"content": "k3s nginx ingress over traefik",
@@ -1350,15 +1359,6 @@
 		"name": "k3s custom resolv.conf"
 	},
 	{
-		"content": "WGD Fri 2022-07-29",
-		"path": "20220731093411",
-		"sha": "e6c62e13d42ee482378161757570ec35950d9101",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220731093411",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220731093411/README.md",
-		"date": "2022-07-31T00:00:00Z",
-		"name": "WGD Fri 2022-07-29"
-	},
-	{
 		"content": "Razors worth remembering",
 		"path": "20220731093830",
 		"sha": "5eb1c5b43821a2254450e64ca676a1714170b004",
@@ -1368,13 +1368,13 @@
 		"name": "Razors worth remembering"
 	},
 	{
-		"content": "wails as a standalone app",
-		"path": "20220722105002",
-		"sha": "84ad6f5d64b26d79bbfbdb804ee4bb892012b19e",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220722105002",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220722105002/README.md",
-		"date": "2022-07-22T00:00:00Z",
-		"name": "wails as a standalone app"
+		"content": "WGD Fri 2022-07-29",
+		"path": "20220731093411",
+		"sha": "e6c62e13d42ee482378161757570ec35950d9101",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220731093411",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220731093411/README.md",
+		"date": "2022-07-31T00:00:00Z",
+		"name": "WGD Fri 2022-07-29"
 	},
 	{
 		"content": "python Protocols are Go interfaces",
@@ -1384,6 +1384,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220722110001/README.md",
 		"date": "2022-07-22T00:00:00Z",
 		"name": "python Protocols are Go interfaces"
+	},
+	{
+		"content": "wails as a standalone app",
+		"path": "20220722105002",
+		"sha": "84ad6f5d64b26d79bbfbdb804ee4bb892012b19e",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220722105002",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220722105002/README.md",
+		"date": "2022-07-22T00:00:00Z",
+		"name": "wails as a standalone app"
 	},
 	{
 		"content": "WGD Fri 2022-07-22",
@@ -1404,15 +1413,6 @@
 		"name": "WGD Mon 2022-07-01"
 	},
 	{
-		"content": "Ansible check exists with register",
-		"path": "20220620100552",
-		"sha": "d1f6505cb78fbe28f2ae599667ee29d16bcbf967",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220620100552",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220620100552/README.md",
-		"date": "2022-06-20T00:00:00Z",
-		"name": "Ansible check exists with register"
-	},
-	{
 		"content": "Kubernetes local development musings: work edition",
 		"path": "20220620101413",
 		"sha": "25d96f93dcf59a8d80499b6f5cead325993d81b6",
@@ -1420,6 +1420,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220620101413/README.md",
 		"date": "2022-06-20T00:00:00Z",
 		"name": "Kubernetes local development musings: work edition"
+	},
+	{
+		"content": "Ansible check exists with register",
+		"path": "20220620100552",
+		"sha": "d1f6505cb78fbe28f2ae599667ee29d16bcbf967",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220620100552",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220620100552/README.md",
+		"date": "2022-06-20T00:00:00Z",
+		"name": "Ansible check exists with register"
 	},
 	{
 		"content": "WGD Fri 2022-06-17",
@@ -1584,15 +1593,6 @@
 		"name": "WGD Fri 2022-05-13"
 	},
 	{
-		"content": "Developer Experience is Everything",
-		"path": "20220511093050",
-		"sha": "94b0ed297ad0d3b75261c47d68c984deef41b78b",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220511093050",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220511093050/README.md",
-		"date": "2022-05-11T00:00:00Z",
-		"name": "Developer Experience is Everything"
-	},
-	{
 		"content": "Old skills, new skills",
 		"path": "20220511093929",
 		"sha": "69bc8f8a65f91cd6c41ed7b9f42bc2e153a3f463",
@@ -1602,13 +1602,13 @@
 		"name": "Old skills, new skills"
 	},
 	{
-		"content": "Twitch streams I follow",
-		"path": "20220509064148",
-		"sha": "71872e64ee0c952f6247df1fd2208d0fc9ef7244",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220509064148",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220509064148/README.md",
-		"date": "2022-05-09T00:00:00Z",
-		"name": "Twitch streams I follow"
+		"content": "Developer Experience is Everything",
+		"path": "20220511093050",
+		"sha": "94b0ed297ad0d3b75261c47d68c984deef41b78b",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220511093050",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220511093050/README.md",
+		"date": "2022-05-11T00:00:00Z",
+		"name": "Developer Experience is Everything"
 	},
 	{
 		"content": "Mudmap Org Register Proposed Flow",
@@ -1618,6 +1618,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220509110329/README.md",
 		"date": "2022-05-09T00:00:00Z",
 		"name": "Mudmap Org Register Proposed Flow"
+	},
+	{
+		"content": "Twitch streams I follow",
+		"path": "20220509064148",
+		"sha": "71872e64ee0c952f6247df1fd2208d0fc9ef7244",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220509064148",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220509064148/README.md",
+		"date": "2022-05-09T00:00:00Z",
+		"name": "Twitch streams I follow"
 	},
 	{
 		"content": "Cheatsheet: psql and pg_dump",
