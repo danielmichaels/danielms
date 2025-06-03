@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Went to my local SecTalks today",
+		"path": "20250603114349",
+		"sha": "ac9af0549b66b7bf2aafc989f5c83c1c37f51c01",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250603114349",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250603114349/README.md",
+		"date": "2025-06-03T00:00:00Z",
+		"name": "Went to my local SecTalks today"
+	},
+	{
 		"content": "Go: errors.As versus type assertions",
 		"path": "20250526223144",
 		"sha": "1a49ce1897a0b5668b4572d97044484c2222182b",
