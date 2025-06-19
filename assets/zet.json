@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Github UI needs vimium extension to be useful",
+		"path": "20250619000023",
+		"sha": "a8815639b1594fa15d92a6537e5f2bde2799e501",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250619000023",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250619000023/README.md",
+		"date": "2025-06-19T00:00:00Z",
+		"name": "Github UI needs vimium extension to be useful"
+	},
+	{
 		"content": "Went to my local SecTalks today",
 		"path": "20250603114349",
 		"sha": "ac9af0549b66b7bf2aafc989f5c83c1c37f51c01",
@@ -1053,15 +1062,6 @@
 		"name": "Golang: case statements with an OR clause"
 	},
 	{
-		"content": "Mudmap: installer fixes",
-		"path": "20221125235417",
-		"sha": "c2a80e227d80add6c935090ca42644467af650ee",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125235417",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125235417/README.md",
-		"date": "2022-11-25T00:00:00Z",
-		"name": "Mudmap: installer fixes"
-	},
-	{
 		"content": "Slack apps",
 		"path": "20221125234253",
 		"sha": "c315bff45b3011eaa13f316ac6757099361695f8",
@@ -1069,6 +1069,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125234253/README.md",
 		"date": "2022-11-25T00:00:00Z",
 		"name": "Slack apps"
+	},
+	{
+		"content": "Mudmap: installer fixes",
+		"path": "20221125235417",
+		"sha": "c2a80e227d80add6c935090ca42644467af650ee",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125235417",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125235417/README.md",
+		"date": "2022-11-25T00:00:00Z",
+		"name": "Mudmap: installer fixes"
 	},
 	{
 		"content": "inlets troubleshooting",
@@ -1188,6 +1197,15 @@
 		"name": "I need to track contract time"
 	},
 	{
+		"content": "SQLite select between dates",
+		"path": "20221011090625",
+		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
+		"date": "2022-10-11T00:00:00Z",
+		"name": "SQLite select between dates"
+	},
+	{
 		"content": "Contract time countdown and hours remaining",
 		"path": "20221011102814",
 		"sha": "b7375c49e2daa08fcc07bb6a4061d850f65f813f",
@@ -1204,15 +1222,6 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011094312/README.md",
 		"date": "2022-10-11T00:00:00Z",
 		"name": "pop-os shell over i3"
-	},
-	{
-		"content": "SQLite select between dates",
-		"path": "20221011090625",
-		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
-		"date": "2022-10-11T00:00:00Z",
-		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Hugo sort json",
