@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Go vendor for debugging dependencies",
+		"path": "20250622222529",
+		"sha": "ef305012f4660c6faf1899d811371006a5e45d4f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250622222529",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250622222529/README.md",
+		"date": "2025-06-22T00:00:00Z",
+		"name": "Go vendor for debugging dependencies"
+	},
+	{
 		"content": "Github UI needs vimium extension to be useful",
 		"path": "20250619000023",
 		"sha": "a8815639b1594fa15d92a6537e5f2bde2799e501",
