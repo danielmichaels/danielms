@@ -1,5 +1,14 @@
 [
 	{
+		"content": "NATS and Fly Gateway proxy",
+		"path": "20250624220256",
+		"sha": "24bd95f78ba47500b47cc8f3d14a5c2a55fe4283",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250624220256",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250624220256/README.md",
+		"date": "2025-06-24T00:00:00Z",
+		"name": "NATS and Fly Gateway proxy"
+	},
+	{
 		"content": "Go vendor for debugging dependencies",
 		"path": "20250622222529",
 		"sha": "ef305012f4660c6faf1899d811371006a5e45d4f",
@@ -333,15 +342,6 @@
 		"name": "Golang: Time.In panic missing Location"
 	},
 	{
-		"content": "Caddy and CORS",
-		"path": "20240330143918",
-		"sha": "f24fdd2c8424ea6378494053ec4f7864b870614b",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330143918",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330143918/README.md",
-		"date": "2024-03-30T00:00:00Z",
-		"name": "Caddy and CORS"
-	},
-	{
 		"content": "nextdns rewrites",
 		"path": "20240330034309",
 		"sha": "aec8443857d73cf7fb1c61b432a69e5077e00dfe",
@@ -349,6 +349,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330034309/README.md",
 		"date": "2024-03-30T00:00:00Z",
 		"name": "nextdns rewrites"
+	},
+	{
+		"content": "Caddy and CORS",
+		"path": "20240330143918",
+		"sha": "f24fdd2c8424ea6378494053ec4f7864b870614b",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330143918",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330143918/README.md",
+		"date": "2024-03-30T00:00:00Z",
+		"name": "Caddy and CORS"
 	},
 	{
 		"content": "Home server notes",
@@ -1071,15 +1080,6 @@
 		"name": "Golang: case statements with an OR clause"
 	},
 	{
-		"content": "Slack apps",
-		"path": "20221125234253",
-		"sha": "c315bff45b3011eaa13f316ac6757099361695f8",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125234253",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125234253/README.md",
-		"date": "2022-11-25T00:00:00Z",
-		"name": "Slack apps"
-	},
-	{
 		"content": "Mudmap: installer fixes",
 		"path": "20221125235417",
 		"sha": "c2a80e227d80add6c935090ca42644467af650ee",
@@ -1087,6 +1087,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125235417/README.md",
 		"date": "2022-11-25T00:00:00Z",
 		"name": "Mudmap: installer fixes"
+	},
+	{
+		"content": "Slack apps",
+		"path": "20221125234253",
+		"sha": "c315bff45b3011eaa13f316ac6757099361695f8",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125234253",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125234253/README.md",
+		"date": "2022-11-25T00:00:00Z",
+		"name": "Slack apps"
 	},
 	{
 		"content": "inlets troubleshooting",
@@ -1206,15 +1215,6 @@
 		"name": "I need to track contract time"
 	},
 	{
-		"content": "SQLite select between dates",
-		"path": "20221011090625",
-		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
-		"date": "2022-10-11T00:00:00Z",
-		"name": "SQLite select between dates"
-	},
-	{
 		"content": "Contract time countdown and hours remaining",
 		"path": "20221011102814",
 		"sha": "b7375c49e2daa08fcc07bb6a4061d850f65f813f",
@@ -1231,6 +1231,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011094312/README.md",
 		"date": "2022-10-11T00:00:00Z",
 		"name": "pop-os shell over i3"
+	},
+	{
+		"content": "SQLite select between dates",
+		"path": "20221011090625",
+		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
+		"date": "2022-10-11T00:00:00Z",
+		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Hugo sort json",
