@@ -12,16 +12,16 @@
 		"path": "blog/2022/22-03-12-Alpine.js and Tailwind HTML setup.md"
 	},
 	{
-		"title": "HTTPX is the new Requests with Async",
-		"slug": "httpx-is-the-new-requests-with-async",
-		"slug_url": "/blog/httpx-is-the-new-requests-with-async",
-		"path": "blog/2020/05072020-httpx-async-client.md"
-	},
-	{
 		"title": "Design First API Development with Goa",
 		"slug": "Design-First-API-Development-with-Goa",
 		"slug_url": "/blog/design-first-api-development-with-goa",
 		"path": "blog/2024/2024-01-09-Design-First-API-Development-with-Goa.md"
+	},
+	{
+		"title": "HTTPX is the new Requests with Async",
+		"slug": "httpx-is-the-new-requests-with-async",
+		"slug_url": "/blog/httpx-is-the-new-requests-with-async",
+		"path": "blog/2020/05072020-httpx-async-client.md"
 	},
 	{
 		"title": "The Slight Edge, A Summary",
