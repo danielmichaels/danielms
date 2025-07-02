@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Ollama on the plane",
+		"path": "20250702105756",
+		"sha": "cdc4135804ef5273b9179b9f1215727a5fde7753",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250702105756",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250702105756/README.md",
+		"date": "2025-07-02T00:00:00Z",
+		"name": "Ollama on the plane"
+	},
+	{
 		"content": "NATS and Fly Gateway proxy",
 		"path": "20250624220256",
 		"sha": "24bd95f78ba47500b47cc8f3d14a5c2a55fe4283",
@@ -342,15 +351,6 @@
 		"name": "Golang: Time.In panic missing Location"
 	},
 	{
-		"content": "nextdns rewrites",
-		"path": "20240330034309",
-		"sha": "aec8443857d73cf7fb1c61b432a69e5077e00dfe",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330034309",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330034309/README.md",
-		"date": "2024-03-30T00:00:00Z",
-		"name": "nextdns rewrites"
-	},
-	{
 		"content": "Caddy and CORS",
 		"path": "20240330143918",
 		"sha": "f24fdd2c8424ea6378494053ec4f7864b870614b",
@@ -358,6 +358,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330143918/README.md",
 		"date": "2024-03-30T00:00:00Z",
 		"name": "Caddy and CORS"
+	},
+	{
+		"content": "nextdns rewrites",
+		"path": "20240330034309",
+		"sha": "aec8443857d73cf7fb1c61b432a69e5077e00dfe",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330034309",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330034309/README.md",
+		"date": "2024-03-30T00:00:00Z",
+		"name": "nextdns rewrites"
 	},
 	{
 		"content": "Home server notes",
@@ -423,15 +432,6 @@
 		"name": "AsyncClient: python quick example"
 	},
 	{
-		"content": "HTMX and Echo; rendering HTML",
-		"path": "20240118103716",
-		"sha": "cec51d6a4fb35d95e90f266451f0c2d964ea9951",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240118103716",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118103716/README.md",
-		"date": "2024-01-18T00:00:00Z",
-		"name": "HTMX and Echo; rendering HTML"
-	},
-	{
 		"content": "qemu kvm: operation not permitted fix",
 		"path": "20240118055021",
 		"sha": "c5de5d3482880878cb28145a440ae6c819aaec1a",
@@ -439,6 +439,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118055021/README.md",
 		"date": "2024-01-18T00:00:00Z",
 		"name": "qemu kvm: operation not permitted fix"
+	},
+	{
+		"content": "HTMX and Echo; rendering HTML",
+		"path": "20240118103716",
+		"sha": "cec51d6a4fb35d95e90f266451f0c2d964ea9951",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240118103716",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118103716/README.md",
+		"date": "2024-01-18T00:00:00Z",
+		"name": "HTMX and Echo; rendering HTML"
 	},
 	{
 		"content": "GoLand and templ with autocomplete",
