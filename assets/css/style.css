@@ -30,8 +30,8 @@ html[data-theme='dark'] {
     --secondary-bg-color: #2c2d32;
     --heading-color: rgb(169, 169, 179);
     --body-color: rgb(169, 169, 179);
-    --post-color: rgba(0, 0, 0, 0.44);
-    --border-color: rgb(38, 38, 38);
+    --post-color: rgba(255, 255, 255, 0.7);
+    --border-color: rgb(85, 85, 85);
     --form-border-color: rgb(169, 169, 179);
     --form-button-hover-border-color: #fff;
     --pre-bg-color: rgb(33, 33, 45);

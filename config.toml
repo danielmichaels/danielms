@@ -105,6 +105,12 @@ identifier = "projects"
 url = "/projects/"
 
 [[menu.main]]
+name = "NATS ADS-B"
+weight = 350
+identifier = "nats-adsb"
+url = "/nats-adsb/"
+
+[[menu.main]]
 name = "About"
 weight = 400
 identifier = "about"
