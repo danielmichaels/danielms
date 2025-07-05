@@ -4,8 +4,8 @@ date: 2025-07-03T00:00:00Z
 draft: false
 ---
 
-What you are seeing here is live [ADS-B] data from a sensor located at my house. It is connected to a NATS server
-as a [leaf node][ln] which then connects to [Synadia] [Cloud][ngs]. 
+What you are seeing here is live [ADS-B] data from a sensor located at my house. It is connected to a server
+which then connects to [Synadia] [Cloud][ngs]. The server proxies data to and from NATS over a websocket.
 
 --- 
 
