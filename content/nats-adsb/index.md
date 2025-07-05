@@ -5,7 +5,7 @@ draft: false
 ---
 
 What you are seeing here is live [ADS-B] data from a sensor located at my house. It is connected to a NATS server
-as a [leaf node][ln] which then connects to [Synadia]'s [Cloud][ngs]. 
+as a [leaf node][ln] which then connects to [Synadia] [Cloud][ngs]. 
 
 --- 
 

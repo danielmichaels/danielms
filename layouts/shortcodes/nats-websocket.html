@@ -518,6 +518,25 @@
         // Check if this is a callsign lookup with flight route data
         else if (responseData && responseData.response && responseData.response.flightroute) {
             const flightRoute = responseData.response.flightroute;
+            
+            // Helper function to create Google Maps link for airport
+            function createAirportLink(airport) {
+                if (!airport || !airport.name) return '-';
+                
+                let searchQuery = airport.name;
+                if (airport.iata_code) {
+                    searchQuery += ` ${airport.iata_code}`;
+                }
+                if (airport.municipality) {
+                    searchQuery += ` ${airport.municipality}`;
+                }
+                
+                const mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(searchQuery + ' airport')}`;
+                const displayText = escapeHtml(airport.name) + (airport.iata_code ? ' (' + escapeHtml(airport.iata_code) + ')' : '');
+                
+                return `<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="airport-link">${displayText}</a>`;
+            }
+            
             resultContent = `
                 <div class="result-header">
                     <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
@@ -528,8 +547,8 @@
                     <tr><td><strong>ICAO:</strong></td><td>${escapeHtml(flightRoute.callsign_icao || '-')}</td></tr>
                     <tr><td><strong>IATA:</strong></td><td>${escapeHtml(flightRoute.callsign_iata || '-')}</td></tr>
                     <tr><td><strong>Airline:</strong></td><td>${escapeHtml((flightRoute.airline && flightRoute.airline.name) || '-')}</td></tr>
-                    <tr><td><strong>Origin:</strong></td><td>${escapeHtml((flightRoute.origin && flightRoute.origin.name) || '-')} ${flightRoute.origin && flightRoute.origin.iata_code ? '(' + escapeHtml(flightRoute.origin.iata_code) + ')' : ''}</td></tr>
-                    <tr><td><strong>Destination:</strong></td><td>${escapeHtml((flightRoute.destination && flightRoute.destination.name) || '-')} ${flightRoute.destination && flightRoute.destination.iata_code ? '(' + escapeHtml(flightRoute.destination.iata_code) + ')' : ''}</td></tr>
+                    <tr><td><strong>Origin:</strong></td><td>${createAirportLink(flightRoute.origin)}</td></tr>
+                    <tr><td><strong>Destination:</strong></td><td>${createAirportLink(flightRoute.destination)}</td></tr>
                     <tr><td><strong>Country:</strong></td><td>${escapeHtml((flightRoute.airline && flightRoute.airline.country) || '-')}</td></tr>
                 </table>
             `;
@@ -1054,7 +1073,8 @@ html[data-theme='dark'] #nats-aircraft-container .status.connected {
 
 /* Aircraft table clickable links */
 #nats-aircraft-container .aircraft-lookup,
-#nats-aircraft-container .callsign-lookup {
+#nats-aircraft-container .callsign-lookup,
+#nats-aircraft-container .airport-link {
     color: #2660ab;
     text-decoration: underline;
     cursor: pointer;
@@ -1062,7 +1082,8 @@ html[data-theme='dark'] #nats-aircraft-container .status.connected {
 }
 
 #nats-aircraft-container .aircraft-lookup:hover,
-#nats-aircraft-container .callsign-lookup:hover {
+#nats-aircraft-container .callsign-lookup:hover,
+#nats-aircraft-container .airport-link:hover {
     color: #1e4a73;
     text-decoration: none;
 }
