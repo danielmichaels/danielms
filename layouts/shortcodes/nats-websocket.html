@@ -1,0 +1,1166 @@
+<div id="nats-aircraft-container">
+    <div class="controls">
+        <button id="watchAircraftBtn" disabled>Watch Aircraft</button>
+        <button id="unwatchAircraftBtn" disabled>Stop Watching Aircraft</button>
+    </div>
+
+    <div class="controls">
+        <select id="requestType">
+            <option value="$SVC.adsb.callsign">Callsign Lookup</option>
+            <option value="$SVC.adsb.aircraft">Aircraft Lookup</option>
+        </select>
+        <input type="text" id="requestData" placeholder="Enter callsign or aircraft ID" value="VOZ511">
+        <button id="requestBtn" disabled>Send Request</button>
+    </div>
+
+    <div id="status" class="status disconnected">Disconnected</div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value" id="messageCount">0</div>
+            <div class="stat-label">Messages Received</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" id="aircraftCount">0</div>
+            <div class="stat-label">Active Aircraft</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" id="errorCount">0</div>
+            <div class="stat-label">Errors</div>
+        </div>
+    </div>
+
+    <div id="requestResultsContainer" style="display: none;">
+        <h3>Request Results</h3>
+        <div id="requestResultsContent"></div>
+        <div class="controls">
+            <button id="clearResultsBtn">Clear Results</button>
+        </div>
+    </div>
+
+    <div id="aircraftContainer" style="display: none;">
+        <h3>Live Aircraft</h3>
+        <table id="aircraftTable">
+            <thead>
+                <tr>
+                    <th>ICAO</th>
+                    <th>Callsign</th>
+                    <th>Altitude</th>
+                    <th>Speed</th>
+                    <th>Heading</th>
+                    <th>Last Seen</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="aircraftTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="messages" id="messages"></div>
+
+    <div class="controls">
+        <button id="clearBtn">Clear Messages</button>
+        <button id="pauseBtn">Pause</button>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    
+    let ws = null;
+    let messageCount = 0;
+    let errorCount = 0;
+    let paused = false;
+    let requestId = 0;
+    let watchingAircraft = false;
+    let aircraftMap = new Map();
+    let isConnected = false;
+    let pendingRequests = new Map();
+    let animationTimeouts = new Map();
+    let lastSeenUpdateInterval = null;
+
+    const elements = {
+        watchAircraftBtn: document.getElementById('watchAircraftBtn'),
+        unwatchAircraftBtn: document.getElementById('unwatchAircraftBtn'),
+        requestType: document.getElementById('requestType'),
+        requestData: document.getElementById('requestData'),
+        requestBtn: document.getElementById('requestBtn'),
+        status: document.getElementById('status'),
+        messages: document.getElementById('messages'),
+        messageCount: document.getElementById('messageCount'),
+        aircraftCount: document.getElementById('aircraftCount'),
+        errorCount: document.getElementById('errorCount'),
+        clearBtn: document.getElementById('clearBtn'),
+        pauseBtn: document.getElementById('pauseBtn'),
+        aircraftContainer: document.getElementById('aircraftContainer'),
+        aircraftTableBody: document.getElementById('aircraftTableBody'),
+        requestResultsContainer: document.getElementById('requestResultsContainer'),
+        requestResultsContent: document.getElementById('requestResultsContent'),
+        clearResultsBtn: document.getElementById('clearResultsBtn')
+    };
+
+    function escapeHtml(unsafe) {
+        return String(unsafe)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function getWebSocketUrl() {
+        const isDevelopment = window.location.hostname === 'localhost' || 
+                             window.location.hostname === '127.0.0.1' ||
+                             window.location.hostname === '';
+        
+        if (isDevelopment) {
+            return 'ws://localhost:7070/ws';
+        } else {
+            return 'wss://nats-adsb.danielms.site/ws';
+        }
+    }
+
+    function updateStatus(connected) {
+        elements.status.textContent = connected ? 'Connected' : 'Disconnected';
+        elements.status.className = connected ? 'status connected' : 'status disconnected';
+        
+        elements.requestBtn.disabled = !connected;
+        elements.watchAircraftBtn.disabled = !connected || watchingAircraft;
+        elements.unwatchAircraftBtn.disabled = !connected || !watchingAircraft;
+    }
+
+    function addMessage(type, data) {
+        if (paused) return;
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}`;
+        
+        const timestamp = new Date().toLocaleTimeString();
+        const content = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+        const escapedContent = escapeHtml(content);
+        
+        messageDiv.innerHTML = `
+            <div class="timestamp">${timestamp}</div>
+            <div>${escapedContent}</div>
+        `;
+        
+        elements.messages.appendChild(messageDiv);
+        elements.messages.scrollTop = elements.messages.scrollHeight;
+        
+        if (type === 'received') {
+            messageCount++;
+            elements.messageCount.textContent = messageCount;
+        } else if (type === 'error') {
+            errorCount++;
+            elements.errorCount.textContent = errorCount;
+        }
+    }
+
+    function sendMessage(message) {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify(message));
+            addMessage('sent', message);
+        }
+    }
+
+    function connect() {
+        const url = getWebSocketUrl();
+        
+        try {
+            ws = new WebSocket(url);
+            
+            ws.onopen = function() {
+                isConnected = true;
+                updateStatus(true);
+                addMessage('received', { type: 'connection', message: 'Connected to WebSocket' });
+            };
+            
+            ws.onmessage = function(event) {
+                try {
+                    const data = JSON.parse(event.data);
+                    
+                    // Handle different message types
+                    if (data.type === 'aircraft_list') {
+                        handleAircraftList(data);
+                    } else if (data.type === 'aircraft_update') {
+                        handleAircraftUpdate(data);
+                    } else if (data.type === 'response') {
+                        handleRequestResponse(data);
+                    } else if (data.type === 'error') {
+                        // Check if this is a response to a pending request
+                        if (data.id && pendingRequests.has(data.id)) {
+                            handleRequestResponse(data);
+                        } else {
+                            addMessage('received', data);
+                        }
+                        errorCount++;
+                        elements.errorCount.textContent = errorCount;
+                    } else {
+                        addMessage('received', data);
+                    }
+                } catch (e) {
+                    addMessage('error', { error: 'Failed to parse message', raw: event.data });
+                }
+            };
+            
+            ws.onclose = function() {
+                isConnected = false;
+                updateStatus(false);
+                addMessage('received', { type: 'connection', message: 'Disconnected from WebSocket' });
+                watchingAircraft = false;
+                elements.aircraftContainer.style.display = 'none';
+                aircraftMap.clear();
+                elements.aircraftTableBody.innerHTML = '';
+                elements.aircraftCount.textContent = 0;
+                stopLastSeenUpdates();
+                
+                // Clear all animation timeouts
+                // animationTimeouts.forEach(timeout => clearTimeout(timeout));
+                // animationTimeouts.clear();
+                
+                // Attempt to reconnect after 3 seconds
+                setTimeout(connect, 3000);
+            };
+            
+            ws.onerror = function(error) {
+                addMessage('error', { error: 'WebSocket error', details: error });
+            };
+            
+        } catch (e) {
+            addMessage('error', { error: 'Failed to connect', details: e.message });
+            // Retry connection after 3 seconds
+            setTimeout(connect, 3000);
+        }
+    }
+
+    function watchAircraft() {
+        sendMessage({
+            type: 'watch_aircraft'
+        });
+        watchingAircraft = true;
+        elements.watchAircraftBtn.disabled = true;
+        elements.unwatchAircraftBtn.disabled = false;
+        elements.aircraftContainer.style.display = 'block';
+        startLastSeenUpdates();
+    }
+
+    function unwatchAircraft() {
+        sendMessage({
+            type: 'unwatch_aircraft'
+        });
+        watchingAircraft = false;
+        elements.watchAircraftBtn.disabled = false;
+        elements.unwatchAircraftBtn.disabled = true;
+        elements.aircraftContainer.style.display = 'none';
+        aircraftMap.clear();
+        elements.aircraftTableBody.innerHTML = '';
+        elements.aircraftCount.textContent = 0;
+        stopLastSeenUpdates();
+    }
+
+    function sendRequest() {
+        const subject = elements.requestType.value;
+        const data = elements.requestData.value;
+        
+        if (!subject || !data) return;
+        
+        // Clear old request results
+        clearRequestResults();
+        
+        const reqId = `req-${++requestId}`;
+        const requestInfo = {
+            id: reqId,
+            subject: subject,
+            searchTerm: data,
+            timestamp: new Date().toLocaleTimeString(),
+            type: subject.includes('callsign') ? 'Callsign Lookup' : 'Aircraft Lookup'
+        };
+        
+        pendingRequests.set(reqId, requestInfo);
+        
+        sendMessage({
+            type: 'request',
+            id: reqId,
+            subject: subject,
+            data: data
+        });
+    }
+
+    function handleAircraftList(data) {
+        if (!data.aircraft) return;
+        
+        const aircraftList = Array.isArray(data.aircraft) ? data.aircraft : JSON.parse(data.aircraft);
+        aircraftMap.clear();
+        elements.aircraftTableBody.innerHTML = '';
+        
+        aircraftList.forEach(aircraft => {
+            aircraftMap.set(aircraft.icao, aircraft);
+            addAircraftToTable(aircraft, 'existing');
+        });
+        
+        elements.aircraftCount.textContent = aircraftList.length;
+        addMessage('received', { 
+            type: 'aircraft_list', 
+            message: `Loaded ${aircraftList.length} aircraft` 
+        });
+    }
+
+    function handleAircraftUpdate(data) {
+        const icao = data.icao;
+        
+        if (data.operation === 'delete') {
+            const row = document.getElementById(`aircraft-${icao}`);
+            if (row) {
+                row.classList.add('aircraft-removed');
+                setTimeout(() => {
+                    row.remove();
+                    aircraftMap.delete(icao);
+                    elements.aircraftCount.textContent = aircraftMap.size;
+                }, 1000);
+            }
+        } else if (data.operation === 'put') {
+            const aircraft = data.data;
+            const isNew = !aircraftMap.has(icao);
+            aircraftMap.set(icao, aircraft);
+            
+            if (isNew) {
+                addAircraftToTable(aircraft, 'new');
+            } else {
+                updateAircraftInTable(aircraft);
+            }
+            
+            elements.aircraftCount.textContent = aircraftMap.size;
+        }
+    }
+
+    function addAircraftToTable(aircraft, status) {
+        const row = document.createElement('tr');
+        row.id = `aircraft-${aircraft.icao}`;
+        
+        const icaoClickable = aircraft.icao ? `<a href="#" class="aircraft-lookup" data-type="aircraft" data-value="${escapeHtml(aircraft.icao)}">${escapeHtml(aircraft.icao)}</a>` : '-';
+        const callsignClickable = aircraft.callsign ? `<a href="#" class="callsign-lookup" data-type="callsign" data-value="${escapeHtml(aircraft.callsign)}">${escapeHtml(aircraft.callsign)}</a>` : '-';
+        
+        row.innerHTML = `
+            <td>${icaoClickable}</td>
+            <td>${callsignClickable}</td>
+            <td>${aircraft.altitude ? aircraft.altitude.toFixed(0) + ' ft' : '-'}</td>
+            <td>${aircraft.speed ? aircraft.speed.toFixed(0) + ' kts' : '-'}</td>
+            <td>${aircraft.heading ? aircraft.heading.toFixed(0) + '°' : '-'}</td>
+            <td>${formatLastSeen(aircraft.last_seen)}</td>
+            <td>${escapeHtml(status)}</td>
+        `;
+        
+        if (status === 'new') {
+            row.classList.add('aircraft-new');
+        }
+        
+        elements.aircraftTableBody.appendChild(row);
+    }
+
+    function updateAircraftInTable(aircraft) {
+        const row = document.getElementById(`aircraft-${aircraft.icao}`);
+        if (!row) {
+            addAircraftToTable(aircraft, 'new');
+            return;
+        }
+        
+        const icaoClickable = aircraft.icao ? `<a href="#" class="aircraft-lookup" data-type="aircraft" data-value="${escapeHtml(aircraft.icao)}">${escapeHtml(aircraft.icao)}</a>` : '-';
+        const callsignClickable = aircraft.callsign ? `<a href="#" class="callsign-lookup" data-type="callsign" data-value="${escapeHtml(aircraft.callsign)}">${escapeHtml(aircraft.callsign)}</a>` : '-';
+        
+        row.innerHTML = `
+            <td>${icaoClickable}</td>
+            <td>${callsignClickable}</td>
+            <td>${aircraft.altitude ? aircraft.altitude.toFixed(0) + ' ft' : '-'}</td>
+            <td>${aircraft.speed ? aircraft.speed.toFixed(0) + ' kts' : '-'}</td>
+            <td>${aircraft.heading ? aircraft.heading.toFixed(0) + '°' : '-'}</td>
+            <td>${formatLastSeen(aircraft.last_seen)}</td>
+            <td>updated</td>
+        `;
+        
+        debouncedAnimateRow(aircraft.icao, 'aircraft-updated');
+    }
+
+    function debouncedAnimateRow(icao, animationClass) {
+        const row = document.getElementById(`aircraft-${icao}`);
+        if (!row) return;
+        
+        // Clear any existing timeout for this aircraft
+        if (animationTimeouts.has(icao)) {
+            clearTimeout(animationTimeouts.get(icao));
+            // Remove existing animation class
+            row.classList.remove('aircraft-updated');
+        }
+        
+        // Add the animation class
+        row.classList.add(animationClass);
+        
+        // Set a longer timeout to remove the animation class
+        const timeout = setTimeout(() => {
+            row.classList.remove(animationClass);
+            animationTimeouts.delete(icao);
+        }, 2000);
+        
+        animationTimeouts.set(icao, timeout);
+    }
+
+    function formatLastSeen(lastSeen) {
+        if (!lastSeen) return '-';
+        const date = new Date(lastSeen);
+        const now = new Date();
+        const diffSeconds = Math.floor((now - date) / 1000);
+        
+        if (diffSeconds < 60) {
+            return `${diffSeconds}s ago`;
+        } else if (diffSeconds < 3600) {
+            return `${Math.floor(diffSeconds / 60)}m ago`;
+        } else {
+            return date.toLocaleTimeString();
+        }
+    }
+
+    function updateAllLastSeenTimes() {
+        if (!watchingAircraft) return;
+        
+        // Update all aircraft rows with fresh "last seen" times
+        aircraftMap.forEach((aircraft, icao) => {
+            const row = document.getElementById(`aircraft-${icao}`);
+            if (row) {
+                const lastSeenCell = row.cells[5]; // 6th column (0-indexed)
+                if (lastSeenCell) {
+                    lastSeenCell.textContent = formatLastSeen(aircraft.last_seen);
+                }
+            }
+        });
+    }
+
+    function startLastSeenUpdates() {
+        stopLastSeenUpdates(); // Clear any existing interval
+        lastSeenUpdateInterval = setInterval(updateAllLastSeenTimes, 1000); // Update every second
+    }
+
+    function stopLastSeenUpdates() {
+        if (lastSeenUpdateInterval) {
+            clearInterval(lastSeenUpdateInterval);
+            lastSeenUpdateInterval = null;
+        }
+    }
+
+    function updateRequestPlaceholder() {
+        const requestType = elements.requestType.value;
+        if (requestType === '$SVC.adsb.callsign') {
+            elements.requestData.placeholder = 'Enter callsign (e.g. VOZ511)';
+            elements.requestData.value = 'VOZ511';
+        } else if (requestType === '$SVC.adsb.aircraft') {
+            elements.requestData.placeholder = 'Enter aircraft ID (e.g. 7C6AF3)';
+            elements.requestData.value = '7C6AF3';
+        }
+    }
+
+    function clearMessages() {
+        elements.messages.innerHTML = '';
+        messageCount = 0;
+        errorCount = 0;
+        elements.messageCount.textContent = 0;
+        elements.errorCount.textContent = 0;
+    }
+
+    function togglePause() {
+        paused = !paused;
+        elements.pauseBtn.textContent = paused ? 'Resume' : 'Pause';
+        elements.pauseBtn.style.backgroundColor = paused ? '#28a745' : '#007bff';
+    }
+
+    function handleRequestResponse(data) {
+        const requestInfo = pendingRequests.get(data.id);
+        if (!requestInfo) {
+            // Still show in debug messages if we can't match the request
+            addMessage('received', data);
+            return;
+        }
+
+        // Remove from pending requests
+        pendingRequests.delete(data.id);
+
+        // Show the results container
+        elements.requestResultsContainer.style.display = 'block';
+
+        // Parse the response data
+        let responseData;
+        try {
+            responseData = typeof data.data === 'string' ? JSON.parse(data.data) : data.data;
+        } catch (e) {
+            responseData = data.data;
+        }
+
+        // Create a result entry
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'request-result';
+        
+        let resultContent = '';
+        
+        // Check if this is an error response from the server
+        if (data.error || (responseData && responseData.error)) {
+            const errorMessage = data.error || responseData.error || 'Unknown error occurred';
+            resultContent = `
+                <div class="result-header">
+                    <h4>Error: ${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <div class="error-message">
+                    <p style="color: var(--error-color, #d32f2f);">${escapeHtml(errorMessage)}</p>
+                    ${requestInfo.type === 'Aircraft Lookup' ? '<p><small>This may indicate the aircraft is not in the database or the external API is unavailable.</small></p>' : ''}
+                    ${requestInfo.type === 'Callsign Lookup' ? '<p><small>This may indicate the callsign is not found or the external API is unavailable.</small></p>' : ''}
+                </div>
+            `;
+        }
+        // Check if this is a callsign lookup with flight route data
+        else if (responseData && responseData.response && responseData.response.flightroute) {
+            const flightRoute = responseData.response.flightroute;
+            resultContent = `
+                <div class="result-header">
+                    <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <table class="result-table">
+                    <tr><td><strong>Callsign:</strong></td><td>${escapeHtml(flightRoute.callsign || '-')}</td></tr>
+                    <tr><td><strong>ICAO:</strong></td><td>${escapeHtml(flightRoute.callsign_icao || '-')}</td></tr>
+                    <tr><td><strong>IATA:</strong></td><td>${escapeHtml(flightRoute.callsign_iata || '-')}</td></tr>
+                    <tr><td><strong>Airline:</strong></td><td>${escapeHtml((flightRoute.airline && flightRoute.airline.name) || '-')}</td></tr>
+                    <tr><td><strong>Origin:</strong></td><td>${escapeHtml((flightRoute.origin && flightRoute.origin.name) || '-')} ${flightRoute.origin && flightRoute.origin.iata_code ? '(' + escapeHtml(flightRoute.origin.iata_code) + ')' : ''}</td></tr>
+                    <tr><td><strong>Destination:</strong></td><td>${escapeHtml((flightRoute.destination && flightRoute.destination.name) || '-')} ${flightRoute.destination && flightRoute.destination.iata_code ? '(' + escapeHtml(flightRoute.destination.iata_code) + ')' : ''}</td></tr>
+                    <tr><td><strong>Country:</strong></td><td>${escapeHtml((flightRoute.airline && flightRoute.airline.country) || '-')}</td></tr>
+                </table>
+            `;
+        } else if (responseData && responseData.response && responseData.response.aircraft) {
+            const aircraft = responseData.response.aircraft;
+            const thumbnailHtml = aircraft.url_photo_thumbnail ? 
+                `<div class="aircraft-thumbnail">
+                    <a href="${escapeHtml(aircraft.url_photo || '')}" target="_blank" rel="noopener noreferrer">
+                        <img src="${escapeHtml(aircraft.url_photo_thumbnail)}" alt="Aircraft ${escapeHtml(aircraft.registration || aircraft.mode_s || 'photo')}" />
+                    </a>
+                </div>` : '';
+            
+            resultContent = `
+                <div class="result-header">
+                    <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <div class="result-content-wrapper">
+                    ${thumbnailHtml}
+                    <table class="result-table">
+                        <tr><td><strong>Registration:</strong></td><td>${escapeHtml(aircraft.registration || '-')}</td></tr>
+                        <tr><td><strong>Mode S:</strong></td><td>${escapeHtml(aircraft.mode_s || '-')}</td></tr>
+                        <tr><td><strong>Aircraft Type:</strong></td><td>${escapeHtml(aircraft.type || '-')}</td></tr>
+                        <tr><td><strong>ICAO Type:</strong></td><td>${escapeHtml(aircraft.icao_type || '-')}</td></tr>
+                        <tr><td><strong>Manufacturer:</strong></td><td>${escapeHtml(aircraft.manufacturer || '-')}</td></tr>
+                        <tr><td><strong>Owner:</strong></td><td>${escapeHtml(aircraft.registered_owner || '-')}</td></tr>
+                        <tr><td><strong>Country:</strong></td><td>${escapeHtml(aircraft.registered_owner_country_name || '-')}</td></tr>
+                    </table>
+                </div>
+            `;
+        } else if (responseData && typeof responseData === 'object' && !Array.isArray(responseData)) {
+            // Live aircraft result (real-time tracking data)
+            resultContent = `
+                <div class="result-header">
+                    <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <table class="result-table">
+                    <tr><td><strong>ICAO:</strong></td><td>${escapeHtml(responseData.icao || '-')}</td></tr>
+                    <tr><td><strong>Callsign:</strong></td><td>${escapeHtml(responseData.callsign || '-')}</td></tr>
+                    <tr><td><strong>Altitude:</strong></td><td>${responseData.altitude ? responseData.altitude.toFixed(0) + ' ft' : '-'}</td></tr>
+                    <tr><td><strong>Speed:</strong></td><td>${responseData.speed ? responseData.speed.toFixed(0) + ' kts' : '-'}</td></tr>
+                    <tr><td><strong>Heading:</strong></td><td>${responseData.heading ? responseData.heading.toFixed(0) + '°' : '-'}</td></tr>
+                    <tr><td><strong>Last Seen:</strong></td><td>${formatLastSeen(responseData.last_seen)}</td></tr>
+                </table>
+            `;
+        } else if (Array.isArray(responseData)) {
+            // Multiple results
+            resultContent = `
+                <div class="result-header">
+                    <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <p>Found ${responseData.length} result(s)</p>
+                <table class="result-table">
+                    <thead>
+                        <tr>
+                            <th>ICAO</th>
+                            <th>Callsign</th>
+                            <th>Altitude</th>
+                            <th>Speed</th>
+                            <th>Heading</th>
+                            <th>Last Seen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${responseData.map(aircraft => `
+                            <tr>
+                                <td>${escapeHtml(aircraft.icao || '-')}</td>
+                                <td>${escapeHtml(aircraft.callsign || '-')}</td>
+                                <td>${aircraft.altitude ? aircraft.altitude.toFixed(0) + ' ft' : '-'}</td>
+                                <td>${aircraft.speed ? aircraft.speed.toFixed(0) + ' kts' : '-'}</td>
+                                <td>${aircraft.heading ? aircraft.heading.toFixed(0) + '°' : '-'}</td>
+                                <td>${formatLastSeen(aircraft.last_seen)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        } else {
+            // Raw data or no results
+            resultContent = `
+                <div class="result-header">
+                    <h4>${escapeHtml(requestInfo.type)}: ${escapeHtml(requestInfo.searchTerm)}</h4>
+                    <span class="result-timestamp">${requestInfo.timestamp}</span>
+                </div>
+                <p>${responseData ? 'Raw response:' : 'No results found'}</p>
+                ${responseData ? `<pre>${escapeHtml(JSON.stringify(responseData, null, 2))}</pre>` : ''}
+            `;
+        }
+
+        resultDiv.innerHTML = resultContent;
+        
+        // Add to results container (newest first)
+        elements.requestResultsContent.insertBefore(resultDiv, elements.requestResultsContent.firstChild);
+
+        // Also add to debug messages
+        addMessage('received', data);
+    }
+
+    function clearRequestResults() {
+        elements.requestResultsContent.innerHTML = '';
+        elements.requestResultsContainer.style.display = 'none';
+    }
+
+    // Event listeners
+    elements.watchAircraftBtn.addEventListener('click', watchAircraft);
+    elements.unwatchAircraftBtn.addEventListener('click', unwatchAircraft);
+    elements.requestBtn.addEventListener('click', sendRequest);
+    elements.clearBtn.addEventListener('click', clearMessages);
+    elements.pauseBtn.addEventListener('click', togglePause);
+    elements.requestType.addEventListener('change', updateRequestPlaceholder);
+    elements.clearResultsBtn.addEventListener('click', clearRequestResults);
+
+    elements.requestData.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') sendRequest();
+    });
+
+    // Event delegation for aircraft table clicks
+    elements.aircraftContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('aircraft-lookup') || e.target.classList.contains('callsign-lookup')) {
+            e.preventDefault();
+            
+            const lookupType = e.target.getAttribute('data-type');
+            const lookupValue = e.target.getAttribute('data-value');
+            
+            if (lookupType && lookupValue) {
+                // Set the request type dropdown
+                if (lookupType === 'aircraft') {
+                    elements.requestType.value = '$SVC.adsb.aircraft';
+                } else if (lookupType === 'callsign') {
+                    elements.requestType.value = '$SVC.adsb.callsign';
+                }
+                
+                // Set the request data
+                elements.requestData.value = lookupValue;
+                
+                // Update placeholder to match selection
+                updateRequestPlaceholder();
+                
+                // Clear old results and send request
+                clearRequestResults();
+                
+                const reqId = `req-${++requestId}`;
+                const requestInfo = {
+                    id: reqId,
+                    subject: elements.requestType.value,
+                    searchTerm: lookupValue,
+                    timestamp: new Date().toLocaleTimeString(),
+                    type: lookupType === 'callsign' ? 'Callsign Lookup' : 'Aircraft Lookup'
+                };
+                
+                pendingRequests.set(reqId, requestInfo);
+                
+                sendMessage({
+                    type: 'request',
+                    id: reqId,
+                    subject: elements.requestType.value,
+                    data: lookupValue
+                });
+            }
+        }
+    });
+
+    // Initialize
+    updateStatus(false);
+    updateRequestPlaceholder();
+    
+    // Auto-connect when page loads
+    connect();
+})();
+</script>
+
+<style>
+#nats-aircraft-container {
+    font-family: 'Verdana', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--body-color);
+}
+
+#nats-aircraft-container .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#nats-aircraft-container button {
+    display: inline-block;
+    position: relative;
+    outline: 0;
+    color: var(--heading-color);
+    background: transparent;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid var(--heading-color);
+    white-space: nowrap;
+    font-weight: 600;
+    font-style: normal;
+    border-radius: 999em;
+    padding: 0.5em 1.25em;
+    line-height: 1.666em;
+    transition: all 0.2s ease;
+}
+
+#nats-aircraft-container button:hover:not(:disabled) {
+    color: #2660ab;
+    border-color: #2660ab;
+    background-color: var(--secondary-bg-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(38, 166, 171, 0.2);
+}
+
+#nats-aircraft-container button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: var(--post-color);
+    border-color: var(--post-color);
+}
+
+#nats-aircraft-container input[type="text"],
+#nats-aircraft-container select {
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 8px;
+    outline: none;
+    background-color: var(--bg-color);
+    border: 1px solid var(--form-border-color);
+    color: var(--body-color);
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+#nats-aircraft-container select {
+    min-width: 150px;
+}
+
+#nats-aircraft-container input[type="text"]:focus,
+#nats-aircraft-container select:focus {
+    box-shadow: 0 0 5px;
+    border: 1px solid var(--form-button-hover-border-color);
+}
+
+#nats-aircraft-container .status {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+}
+
+#nats-aircraft-container .status.connected {
+    background-color: var(--secondary-bg-color);
+    color: #1e4a73;
+    border-color: #2660ab;
+}
+
+html[data-theme='dark'] #nats-aircraft-container .status.connected {
+    color: #4a9eff;
+}
+
+#nats-aircraft-container .status.disconnected {
+    background-color: var(--secondary-bg-color);
+    color: var(--heading-color);
+    border-color: var(--border-color);
+}
+
+#nats-aircraft-container .messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    background-color: var(--pre-bg-color);
+    font-family: monospace;
+    font-size: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+#nats-aircraft-container .message {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+    color: var(--body-color);
+}
+
+#nats-aircraft-container .message.sent {
+    background-color: var(--secondary-bg-color);
+    border-left: 3px solid #2660ab;
+}
+
+#nats-aircraft-container .message.received {
+    background-color: var(--secondary-bg-color);
+    border-left: 3px solid var(--tag-color);
+}
+
+#nats-aircraft-container .message.error {
+    background-color: var(--secondary-bg-color);
+    border-left: 3px solid #d9534f;
+}
+
+#nats-aircraft-container .timestamp {
+    color: var(--post-color);
+    font-size: 10px;
+}
+
+#nats-aircraft-container .stats {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+#nats-aircraft-container .stat {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-width: 120px;
+}
+
+#nats-aircraft-container .stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2660ab;
+}
+
+#nats-aircraft-container .stat-label {
+    font-size: 12px;
+    color: var(--heading-color);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+#nats-aircraft-container #aircraftContainer {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+#nats-aircraft-container #aircraftContainer h3 {
+    color: var(--heading-color);
+    margin-top: 0;
+}
+
+#nats-aircraft-container #aircraftTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: var(--body-color);
+}
+
+#nats-aircraft-container #aircraftTable th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--pre-bg-color);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+#nats-aircraft-container #aircraftTable td {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#nats-aircraft-container #aircraftTable tr:hover {
+    background-color: var(--pre-bg-color);
+}
+
+#nats-aircraft-container .aircraft-new {
+    animation: highlight-green 2s ease;
+}
+
+#nats-aircraft-container .aircraft-updated {
+    animation: highlight-yellow 2s ease;
+}
+
+#nats-aircraft-container .aircraft-removed {
+    animation: fade-out 1s ease;
+    opacity: 0.5;
+}
+
+@keyframes highlight-green {
+    0% { 
+        background-color: rgba(38, 96, 171, 0.3);
+        color: var(--body-color);
+    }
+    50% {
+        background-color: rgba(38, 96, 171, 0.15);
+        color: var(--body-color);
+    }
+    100% { 
+        background-color: transparent; 
+        color: var(--body-color);
+    }
+}
+
+@keyframes highlight-yellow {
+    0% { 
+        background-color: rgba(38, 96, 171, 0.2);
+        border-left: 3px solid rgba(38, 96, 171, 0.6);
+    }
+    50% {
+        background-color: rgba(38, 96, 171, 0.1);
+        border-left: 3px solid rgba(38, 96, 171, 0.3);
+    }
+    100% { 
+        background-color: transparent; 
+        border-left: 3px solid transparent;
+    }
+}
+
+@keyframes fade-out {
+    0% { 
+        opacity: 1; 
+        background-color: rgba(217, 83, 79, 0.2);
+    }
+    50% {
+        opacity: 0.7;
+        background-color: rgba(217, 83, 79, 0.1);
+    }
+    100% { 
+        opacity: 0.3; 
+        background-color: transparent; 
+    }
+}
+
+#nats-aircraft-container #requestResultsContainer {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+#nats-aircraft-container #requestResultsContainer h3 {
+    color: var(--heading-color);
+    margin-top: 0;
+}
+
+#nats-aircraft-container .request-result {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    border-left: 4px solid #2660ab;
+}
+
+#nats-aircraft-container .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#nats-aircraft-container .result-header h4 {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#nats-aircraft-container .result-timestamp {
+    color: var(--post-color);
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#nats-aircraft-container .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: var(--body-color);
+    margin-top: 10px;
+}
+
+#nats-aircraft-container .result-table th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--pre-bg-color);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+#nats-aircraft-container .result-table td {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+#nats-aircraft-container .result-table tr:hover {
+    background-color: var(--pre-bg-color);
+}
+
+#nats-aircraft-container .request-result pre {
+    background-color: var(--pre-bg-color);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+    font-size: 12px;
+    color: var(--body-color);
+    margin: 10px 0;
+}
+
+#nats-aircraft-container .request-result p {
+    margin: 10px 0;
+    color: var(--body-color);
+}
+
+/* Aircraft table clickable links */
+#nats-aircraft-container .aircraft-lookup,
+#nats-aircraft-container .callsign-lookup {
+    color: #2660ab;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#nats-aircraft-container .aircraft-lookup:hover,
+#nats-aircraft-container .callsign-lookup:hover {
+    color: #1e4a73;
+    text-decoration: none;
+}
+
+/* Aircraft thumbnail styles */
+#nats-aircraft-container .result-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#nats-aircraft-container .aircraft-thumbnail {
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--pre-bg-color);
+}
+
+#nats-aircraft-container .aircraft-thumbnail img {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+#nats-aircraft-container .aircraft-thumbnail:hover img {
+    transform: scale(1.05);
+}
+
+#nats-aircraft-container .result-content-wrapper .result-table {
+    flex-grow: 1;
+}
+
+/* Responsive design */
+@media screen and (max-width: 960px) {
+    #nats-aircraft-container {
+        padding: 10px;
+    }
+    
+    #nats-aircraft-container .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #nats-aircraft-container input[type="text"],
+    #nats-aircraft-container select,
+    #nats-aircraft-container button {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 10px;
+    }
+    
+    #nats-aircraft-container .stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #nats-aircraft-container .stat {
+        min-width: auto;
+    }
+    
+    #nats-aircraft-container #aircraftTable {
+        font-size: 12px;
+    }
+    
+    #nats-aircraft-container #aircraftTable th,
+    #nats-aircraft-container #aircraftTable td {
+        padding: 4px;
+    }
+    
+    #nats-aircraft-container .result-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    #nats-aircraft-container .result-table {
+        font-size: 12px;
+    }
+    
+    #nats-aircraft-container .result-table th,
+    #nats-aircraft-container .result-table td {
+        padding: 4px;
+    }
+    
+    /* Mobile thumbnail adjustments */
+    #nats-aircraft-container .result-content-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #nats-aircraft-container .aircraft-thumbnail {
+        align-self: center;
+    }
+    
+    #nats-aircraft-container .aircraft-thumbnail img {
+        max-width: 150px;
+    }
+}
+</style>

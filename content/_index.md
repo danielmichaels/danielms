@@ -12,5 +12,9 @@ This is where I catalogue what I've done - from insignificant wins to big change
 
 {{< recent-zets >}}
 
+## Quick Links
+
+- [NATS ADS-B](/nats-adsb/) - Interactive ADS-B over NATS 
+
 
 
