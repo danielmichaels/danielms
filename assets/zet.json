@@ -1,5 +1,14 @@
 [
 	{
+		"content": "NATS, ADS-B and my blog",
+		"path": "20250706031449",
+		"sha": "3a9ef3cb9377754e4669be7a1fee379c94256933",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250706031449",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250706031449/README.md",
+		"date": "2025-07-06T00:00:00Z",
+		"name": "NATS, ADS-B and my blog"
+	},
+	{
 		"content": "Ollama on the plane",
 		"path": "20250702105756",
 		"sha": "cdc4135804ef5273b9179b9f1215727a5fde7753",
@@ -432,15 +441,6 @@
 		"name": "AsyncClient: python quick example"
 	},
 	{
-		"content": "qemu kvm: operation not permitted fix",
-		"path": "20240118055021",
-		"sha": "c5de5d3482880878cb28145a440ae6c819aaec1a",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240118055021",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118055021/README.md",
-		"date": "2024-01-18T00:00:00Z",
-		"name": "qemu kvm: operation not permitted fix"
-	},
-	{
 		"content": "HTMX and Echo; rendering HTML",
 		"path": "20240118103716",
 		"sha": "cec51d6a4fb35d95e90f266451f0c2d964ea9951",
@@ -448,6 +448,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118103716/README.md",
 		"date": "2024-01-18T00:00:00Z",
 		"name": "HTMX and Echo; rendering HTML"
+	},
+	{
+		"content": "qemu kvm: operation not permitted fix",
+		"path": "20240118055021",
+		"sha": "c5de5d3482880878cb28145a440ae6c819aaec1a",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240118055021",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240118055021/README.md",
+		"date": "2024-01-18T00:00:00Z",
+		"name": "qemu kvm: operation not permitted fix"
 	},
 	{
 		"content": "GoLand and templ with autocomplete",
@@ -954,15 +963,6 @@
 		"name": "ArgoCD: refresh v sync"
 	},
 	{
-		"content": "Mudmap updates Jan",
-		"path": "20230108054236",
-		"sha": "f7f3ede191b3802c68217699ae48a9e81a39b26c",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20230108054236",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230108054236/README.md",
-		"date": "2023-01-08T00:00:00Z",
-		"name": "Mudmap updates Jan"
-	},
-	{
 		"content": "fc is a hidden linux gem",
 		"path": "20230108053927",
 		"sha": "010d46dc47e6a823d362c5d27b25fbad8949c61c",
@@ -970,6 +970,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230108053927/README.md",
 		"date": "2023-01-08T00:00:00Z",
 		"name": "fc is a hidden linux gem"
+	},
+	{
+		"content": "Mudmap updates Jan",
+		"path": "20230108054236",
+		"sha": "f7f3ede191b3802c68217699ae48a9e81a39b26c",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20230108054236",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230108054236/README.md",
+		"date": "2023-01-08T00:00:00Z",
+		"name": "Mudmap updates Jan"
 	},
 	{
 		"content": "Kong is an amazing CLI for Go apps",
@@ -1089,15 +1098,6 @@
 		"name": "Golang: case statements with an OR clause"
 	},
 	{
-		"content": "Mudmap: installer fixes",
-		"path": "20221125235417",
-		"sha": "c2a80e227d80add6c935090ca42644467af650ee",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125235417",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125235417/README.md",
-		"date": "2022-11-25T00:00:00Z",
-		"name": "Mudmap: installer fixes"
-	},
-	{
 		"content": "Slack apps",
 		"path": "20221125234253",
 		"sha": "c315bff45b3011eaa13f316ac6757099361695f8",
@@ -1105,6 +1105,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125234253/README.md",
 		"date": "2022-11-25T00:00:00Z",
 		"name": "Slack apps"
+	},
+	{
+		"content": "Mudmap: installer fixes",
+		"path": "20221125235417",
+		"sha": "c2a80e227d80add6c935090ca42644467af650ee",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221125235417",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221125235417/README.md",
+		"date": "2022-11-25T00:00:00Z",
+		"name": "Mudmap: installer fixes"
 	},
 	{
 		"content": "inlets troubleshooting",
@@ -1224,6 +1233,15 @@
 		"name": "I need to track contract time"
 	},
 	{
+		"content": "SQLite select between dates",
+		"path": "20221011090625",
+		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
+		"date": "2022-10-11T00:00:00Z",
+		"name": "SQLite select between dates"
+	},
+	{
 		"content": "Contract time countdown and hours remaining",
 		"path": "20221011102814",
 		"sha": "b7375c49e2daa08fcc07bb6a4061d850f65f813f",
@@ -1240,15 +1258,6 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011094312/README.md",
 		"date": "2022-10-11T00:00:00Z",
 		"name": "pop-os shell over i3"
-	},
-	{
-		"content": "SQLite select between dates",
-		"path": "20221011090625",
-		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
-		"date": "2022-10-11T00:00:00Z",
-		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Hugo sort json",
