@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Claude Code findings",
+		"path": "20250709034811",
+		"sha": "b0ad48811ffd1ce07a5604c6687896032ae40285",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250709034811",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250709034811/README.md",
+		"date": "2025-07-09T00:00:00Z",
+		"name": "Claude Code findings"
+	},
+	{
 		"content": "NATS, ADS-B and my blog",
 		"path": "20250706031449",
 		"sha": "3a9ef3cb9377754e4669be7a1fee379c94256933",
