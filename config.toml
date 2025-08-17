@@ -116,6 +116,12 @@ weight = 400
 identifier = "about"
 url = "/about/"
 
+[[menu.main]]
+name = "Uses"
+weight = 450
+identifier = "uses"
+url = "/uses/"
+
 # [[menu.main]]
 # name = "Hire"
 # weight = 500
