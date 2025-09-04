@@ -1,5 +1,23 @@
 [
 	{
+		"content": "Disable Firefox AI summary",
+		"path": "20250904035930",
+		"sha": "74ed922908b07dd6317eb8db7bd7cb1251462e5c",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250904035930",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250904035930/README.md",
+		"date": "2025-09-04T00:00:00Z",
+		"name": "Disable Firefox AI summary"
+	},
+	{
+		"content": "Working across timezones",
+		"path": "20250903230410",
+		"sha": "ef70582d12dbae3c17d7cfecdd73fb30ea25677c",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250903230410",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250903230410/README.md",
+		"date": "2025-09-03T00:00:00Z",
+		"name": "Working across timezones"
+	},
+	{
 		"content": "Ghostty quick-terminal makes Mac terminals useful again",
 		"path": "20250726055435",
 		"sha": "f38e278482fcf8c5c82b189bcb82e0b96815169e",
