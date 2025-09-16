@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Remarkable 3.22 SSH",
+		"path": "20250916004036",
+		"sha": "9730194606ba6e0ba92e6022395311f9915f53a2",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250916004036",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250916004036/README.md",
+		"date": "2025-09-16T00:00:00Z",
+		"name": "Remarkable 3.22 SSH"
+	},
+	{
 		"content": "Disable Firefox AI summary",
 		"path": "20250904035930",
 		"sha": "74ed922908b07dd6317eb8db7bd7cb1251462e5c",
