@@ -1,5 +1,14 @@
 [
 	{
+		"content": "TIL about Go's json.Indent and when to use it",
+		"path": "20250919031623",
+		"sha": "7415c709858d8f774686f89d45c460a3be7d44e1",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250919031623",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250919031623/README.md",
+		"date": "2025-09-19T00:00:00Z",
+		"name": "TIL about Go's json.Indent and when to use it"
+	},
+	{
 		"content": "ROG PG278Q Won't start - fix",
 		"path": "20250917003724",
 		"sha": "c2987288d09f3d1b2a8d87c128cfbff62dd61692",
