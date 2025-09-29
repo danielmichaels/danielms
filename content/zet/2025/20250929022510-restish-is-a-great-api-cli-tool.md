@@ -418,14 +418,17 @@ To me this makes using API's using a CLI **actually** possible without consultin
 
 ## Walkthrough 
 
-Let's walkthrough how to set all this up by using the GitHub API as an example.
+Let's walkthrough how to set all this up by using the `restish` example API.
 
 ```shell
-restish api configure github
+restish api configure example
 # next steps are interactive
 restish api configure example https://api.rest.sh
 > ? Select option Save and exit
 ```
+
+We've told `restish` to associate <https://api.rest.sh> with the namespace of `example`. This is how we can segresgate many different
+API's from one another. 
 
 Now we can auto detect what endpoints exist.
 
