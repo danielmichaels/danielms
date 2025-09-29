@@ -1,5 +1,14 @@
 [
 	{
+		"content": "restish is a great API CLI tool",
+		"path": "20250929022510",
+		"sha": "69b35b3b7996170eaeae2b1d0bfac363568b8297",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250929022510",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250929022510/README.md",
+		"date": "2025-09-29T00:00:00Z",
+		"name": "restish is a great API CLI tool"
+	},
+	{
 		"content": "TIL about Go's json.Indent and when to use it",
 		"path": "20250919031623",
 		"sha": "7415c709858d8f774686f89d45c460a3be7d44e1",
@@ -1377,15 +1386,6 @@
 		"name": "docker buildkit breaks 'docker build -o'"
 	},
 	{
-		"content": "self-hosted gitlab-runner queue slow",
-		"path": "20220904023300",
-		"sha": "3194115067c6d08c4ff3abd7290b9224fe0923e4",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220904023300",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904023300/README.md",
-		"date": "2022-09-04T00:00:00Z",
-		"name": "self-hosted gitlab-runner queue slow"
-	},
-	{
 		"content": "programmer quote of the day",
 		"path": "20220904010925",
 		"sha": "f6c16ae1d2f83cd86dfa72d945a4456213fbb452",
@@ -1393,6 +1393,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904010925/README.md",
 		"date": "2022-09-04T00:00:00Z",
 		"name": "programmer quote of the day"
+	},
+	{
+		"content": "self-hosted gitlab-runner queue slow",
+		"path": "20220904023300",
+		"sha": "3194115067c6d08c4ff3abd7290b9224fe0923e4",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220904023300",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904023300/README.md",
+		"date": "2022-09-04T00:00:00Z",
+		"name": "self-hosted gitlab-runner queue slow"
 	},
 	{
 		"content": "kubernetes ingress and metallb",
