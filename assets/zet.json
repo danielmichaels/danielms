@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Claude Code update",
+		"path": "20251107035903",
+		"sha": "ea442649cb19901c330ea55f0ae10aefd75af67f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20251107035903",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20251107035903/README.md",
+		"date": "2025-11-07T00:00:00Z",
+		"name": "Claude Code update"
+	},
+	{
 		"content": "restish is a great API CLI tool",
 		"path": "20250929022510",
 		"sha": "c4aed43f74d61262d00e94171957ec9b1d8270fd",
