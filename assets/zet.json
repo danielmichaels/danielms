@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Ziglings is an engaging way to learn zig basics",
+		"path": "20251108031541",
+		"sha": "e0f22fe21e0ebb34546141b87a7cdb6303709ba7",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20251108031541",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20251108031541/README.md",
+		"date": "2025-11-08T00:00:00Z",
+		"name": "Ziglings is an engaging way to learn zig basics"
+	},
+	{
 		"content": "Claude Code update",
 		"path": "20251107035903",
 		"sha": "ea442649cb19901c330ea55f0ae10aefd75af67f",
@@ -441,15 +450,6 @@
 		"name": "Golang: Time.In panic missing Location"
 	},
 	{
-		"content": "Caddy and CORS",
-		"path": "20240330143918",
-		"sha": "f24fdd2c8424ea6378494053ec4f7864b870614b",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330143918",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330143918/README.md",
-		"date": "2024-03-30T00:00:00Z",
-		"name": "Caddy and CORS"
-	},
-	{
 		"content": "nextdns rewrites",
 		"path": "20240330034309",
 		"sha": "aec8443857d73cf7fb1c61b432a69e5077e00dfe",
@@ -457,6 +457,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330034309/README.md",
 		"date": "2024-03-30T00:00:00Z",
 		"name": "nextdns rewrites"
+	},
+	{
+		"content": "Caddy and CORS",
+		"path": "20240330143918",
+		"sha": "f24fdd2c8424ea6378494053ec4f7864b870614b",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20240330143918",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20240330143918/README.md",
+		"date": "2024-03-30T00:00:00Z",
+		"name": "Caddy and CORS"
 	},
 	{
 		"content": "Home server notes",
@@ -1395,15 +1404,6 @@
 		"name": "docker buildkit breaks 'docker build -o'"
 	},
 	{
-		"content": "programmer quote of the day",
-		"path": "20220904010925",
-		"sha": "f6c16ae1d2f83cd86dfa72d945a4456213fbb452",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220904010925",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904010925/README.md",
-		"date": "2022-09-04T00:00:00Z",
-		"name": "programmer quote of the day"
-	},
-	{
 		"content": "self-hosted gitlab-runner queue slow",
 		"path": "20220904023300",
 		"sha": "3194115067c6d08c4ff3abd7290b9224fe0923e4",
@@ -1411,6 +1411,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904023300/README.md",
 		"date": "2022-09-04T00:00:00Z",
 		"name": "self-hosted gitlab-runner queue slow"
+	},
+	{
+		"content": "programmer quote of the day",
+		"path": "20220904010925",
+		"sha": "f6c16ae1d2f83cd86dfa72d945a4456213fbb452",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220904010925",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220904010925/README.md",
+		"date": "2022-09-04T00:00:00Z",
+		"name": "programmer quote of the day"
 	},
 	{
 		"content": "kubernetes ingress and metallb",
