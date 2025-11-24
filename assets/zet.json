@@ -1,5 +1,14 @@
 [
 	{
+		"content": "TIL about fmt.Appendf",
+		"path": "20251124032537",
+		"sha": "969183e9734d7aa404f2eb0096dcf50f266a1fb6",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20251124032537",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20251124032537/README.md",
+		"date": "2025-11-24T00:00:00Z",
+		"name": "TIL about fmt.Appendf"
+	},
+	{
 		"content": "Huma API demo repo",
 		"path": "20251124002857",
 		"sha": "7eb567be72119d5925caf485017c0a767eda749c",
