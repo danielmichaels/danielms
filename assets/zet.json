@@ -1,5 +1,14 @@
 [
 	{
+		"content": "I miss being a sniper sometimes",
+		"path": "20251212103936",
+		"sha": "6f6d04fadf4e92c3d8684331b91d7b87469b5ea8",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20251212103936",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20251212103936/README.md",
+		"date": "2025-12-12T00:00:00Z",
+		"name": "I miss being a sniper sometimes"
+	},
+	{
 		"content": "TIL about fmt.Appendf",
 		"path": "20251124032537",
 		"sha": "969183e9734d7aa404f2eb0096dcf50f266a1fb6",
