@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Tailscale with pfSense",
+		"path": "20251230015022",
+		"sha": "9c10a9d14a400368588368cf29d7ba3afed13530",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20251230015022",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20251230015022/README.md",
+		"date": "2025-12-30T00:00:00Z",
+		"name": "Tailscale with pfSense"
+	},
+	{
 		"content": "Github is the Microsoft of VCS",
 		"path": "20251216234811",
 		"sha": "e54ddf6bd6b09b6a55cea1d64b79fed2fd209080",
