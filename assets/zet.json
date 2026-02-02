@@ -1,5 +1,14 @@
 [
 	{
+		"content": "AI on the cow",
+		"path": "20260202042257",
+		"sha": "6a149c1b017ac1c31b17b72ab6696f2e30260435",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260202042257",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260202042257/README.md",
+		"date": "2026-02-02T00:00:00Z",
+		"name": "AI on the cow"
+	},
+	{
 		"content": "TIL: Go's fnv hash",
 		"path": "20260114002052",
 		"sha": "232bd12892f74259e1b769ddd0cd190239533f15",
