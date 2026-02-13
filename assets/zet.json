@@ -1,5 +1,14 @@
 [
 	{
+		"content": "SCP nats-box creds k8s",
+		"path": "20260213120734",
+		"sha": "d6dc02be5688c21d6208f7a563a7c158430ff926",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260213120734",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260213120734/README.md",
+		"date": "2026-02-13T00:00:00Z",
+		"name": "SCP nats-box creds k8s"
+	},
+	{
 		"content": "FluxCD soldiers 5",
 		"path": "20260212015329",
 		"sha": "4b399d9f77e0e5b4bfc4a9931e60974cfac31536",
