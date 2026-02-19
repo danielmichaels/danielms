@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Singleton row pattern in application design",
+		"path": "20260219040422",
+		"sha": "a73fef31bafd99dc874ae638589f095942301b19",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260219040422",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260219040422/README.md",
+		"date": "2026-02-19T00:00:00Z",
+		"name": "Singleton row pattern in application design"
+	},
+	{
 		"content": "SCP nats-box creds k8s",
 		"path": "20260213120734",
 		"sha": "d6dc02be5688c21d6208f7a563a7c158430ff926",
