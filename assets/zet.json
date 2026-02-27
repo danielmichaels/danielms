@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Remove firefox autocomplete history",
+		"path": "20260227023618",
+		"sha": "6f7ae3718f73800f42b4ca6dd12f7274c9c9f2e4",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260227023618",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260227023618/README.md",
+		"date": "2026-02-27T00:00:00Z",
+		"name": "Remove firefox autocomplete history"
+	},
+	{
 		"content": "Codex has a pretty slick UI",
 		"path": "20260226034338",
 		"sha": "8d0a1f40f3cf2697b58d45fc2c4da7efafa43b31",
