@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Dokploy Clourdflared Tailscale and Proxmox",
+		"path": "20260308021107",
+		"sha": "52e6dca88ef23f78daa2fef0f582402643e8ef32",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260308021107",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260308021107/README.md",
+		"date": "2026-03-08T00:00:00Z",
+		"name": "Dokploy Clourdflared Tailscale and Proxmox"
+	},
+	{
 		"content": "GHA build and push faster",
 		"path": "20260306121602",
 		"sha": "1cf23435670c0cbab18f869bb4ccf008e78c5583",
