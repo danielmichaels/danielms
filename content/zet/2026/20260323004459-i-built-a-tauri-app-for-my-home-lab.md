@@ -45,6 +45,8 @@ I don't need too much more than that.
 
 I found the Tauri experience to be top-notch compared to Wails (a Go Tauri like app builder).
 
+Repo: <https://github.com/danielmichaels/knative-dash>
+
 Tags
 
     #rust #ai #tauri
