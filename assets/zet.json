@@ -1,5 +1,14 @@
 [
 	{
+		"content": "I built a Tauri app for my home lab",
+		"path": "20260323004459",
+		"sha": "5c4bc9b4087f4c2befce9c9b4cbad0bdb022dce7",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260323004459",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260323004459/README.md",
+		"date": "2026-03-23T00:00:00Z",
+		"name": "I built a Tauri app for my home lab"
+	},
+	{
 		"content": "TIL: Remarkable can share to screen",
 		"path": "20260311072421",
 		"sha": "fdf7bda611822c7a54a3c2f4fde8dfc26fa1d0b1",
