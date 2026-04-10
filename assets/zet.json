@@ -1,5 +1,14 @@
 [
 	{
+		"content": "TIL: raycast for mac file search",
+		"path": "20260410011744",
+		"sha": "05d744c73c50d7103f15f56b1e189361e6b8b81a",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260410011744",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260410011744/README.md",
+		"date": "2026-04-10T00:00:00Z",
+		"name": "TIL: raycast for mac file search"
+	},
+	{
 		"content": "Rust, cap.so and capturing login links",
 		"path": "20260323092133",
 		"sha": "cc069a50c6460fb3c83e25b7a4fca79d3861c176",
