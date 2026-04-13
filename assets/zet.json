@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Agents should use config directories properly",
+		"path": "20260413012631",
+		"sha": "6ba48c88fbe5bb97a7f17535b8cdf627905b9b56",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260413012631",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260413012631/README.md",
+		"date": "2026-04-13T00:00:00Z",
+		"name": "Agents should use config directories properly"
+	},
+	{
 		"content": "TIL: raycast for mac file search",
 		"path": "20260410011744",
 		"sha": "05d744c73c50d7103f15f56b1e189361e6b8b81a",
