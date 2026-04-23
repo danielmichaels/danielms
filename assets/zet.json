@@ -1,5 +1,14 @@
 [
 	{
+		"content": "Zed's new Agent first panel is good",
+		"path": "20260423092909",
+		"sha": "2f6e04d9018a710f9002e1d1b95a2dcaad34739e",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260423092909",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260423092909/README.md",
+		"date": "2026-04-23T00:00:00Z",
+		"name": "Zed's new Agent first panel is good"
+	},
+	{
 		"content": "Agents should use config directories properly",
 		"path": "20260413012631",
 		"sha": "6ba48c88fbe5bb97a7f17535b8cdf627905b9b56",
