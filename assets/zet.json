@@ -1,5 +1,14 @@
 [
 	{
+		"content": "NATS as C2",
+		"path": "20260513235720",
+		"sha": "516f30c53db6c230ffe8a88f7b86ac003d3991c2",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260513235720",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260513235720/README.md",
+		"date": "2026-05-13T00:00:00Z",
+		"name": "NATS as C2"
+	},
+	{
 		"content": "Shunt docs page is live",
 		"path": "20260426235013",
 		"sha": "6518fa60cd1d8bdcbd49a34796be6dc94c34b453",
