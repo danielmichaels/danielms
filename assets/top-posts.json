@@ -18,15 +18,15 @@
 		"path": "blog/2024/2024-01-09-Design-First-API-Development-with-Goa.md"
 	},
 	{
-		"title": "HTTPX is the new Requests with Async",
-		"slug": "httpx-is-the-new-requests-with-async",
-		"slug_url": "/blog/httpx-is-the-new-requests-with-async",
-		"path": "blog/2020/05072020-httpx-async-client.md"
-	},
-	{
 		"title": "Rsync cheatsheet",
 		"slug": "rsync-cheatsheet",
 		"slug_url": "/blog/rsync-cheatsheet",
 		"path": "blog/2018/01-rsync.md"
+	},
+	{
+		"title": "Base64 ELI5",
+		"slug": "Base64-ELI5",
+		"slug_url": "/blog/base64-eli5",
+		"path": "blog/2018/09-base64-eil5.md"
 	}
 ]
