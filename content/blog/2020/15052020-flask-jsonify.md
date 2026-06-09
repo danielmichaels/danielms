@@ -20,18 +20,18 @@ When you need to return json in a response, you can simply use a plain python di
 
 ```python
 # plain dictionary
-@app.route('/plaindict')                                                              
-    def testplain():                                                                          
-        test = 'testing'                                                                 
-        name = 'roger'                                                                   
-        age =  30                                                                        
-        _list = [1,2,3]                                                                    
-        return {                                                                         
-                "development": test,                                                     
-                "name": name,                                                            
-                "age": age,                                                              
-                "list": _list                                                              
-                }       
+@app.route('/plaindict')
+def testplain():
+    test = 'testing'
+    name = 'roger'
+    age = 30
+    _list = [1, 2, 3]
+    return {
+        "development": test,
+        "name": name,
+        "age": age,
+        "list": _list,
+    }
 ```
 
 The above code will return the following:
@@ -60,17 +60,17 @@ And the same code but with `jsonify` (for comparison) will return the exact same
 
 ```python
 @app.route('/jsonify')
-   def testjsonify():                                                                   
-        test = 'testing'                                                                 
-        name = 'roger'                                                                   
-        age =  30                                                                        
-        lst = [1,2,3]                                                                    
-        return jsonify({                                                                 
-                 "development": test,                                                     
-                 "name": name,                                                            
-                 "age": age,                                                              
-                 "list": lst                                                              
-                 })  
+def testjsonify():
+    test = 'testing'
+    name = 'roger'
+    age = 30
+    lst = [1, 2, 3]
+    return jsonify({
+        "development": test,
+        "name": name,
+        "age": age,
+        "list": lst,
+    })
 ```
 
 ## How does it work
@@ -91,9 +91,9 @@ An example of when you will still need to user `jsonify` is when the response is
 
 ```python
 @app.route("/users")
-    def users_api():
-        users = get_all_users()
-        return jsonify([user.to_json() for user in users])
+def users_api():
+    users = get_all_users()
+    return jsonify([user.to_json() for user in users])
 ```
 
 ## Fin
