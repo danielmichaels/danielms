@@ -1,5 +1,5 @@
 baseURL = "https://danielms.site/"
-languageCode = "en"
+locale = "en"
 DefaultContentLanguage = "en"
 title = "Daniel Michaels | Developer | Entrepreneur | Veteran"
 summarylength = 10

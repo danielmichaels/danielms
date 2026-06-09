@@ -1,6 +1,5 @@
-{{ if os.FileExists "/zet.json" }}
-{{ $items := getJSON "/zet.json" }}
-{{ range $item := sort $items "date" "desc" }}
+{{ with resources.Get "zet.json" | transform.Unmarshal }}
+{{ range $item := sort . "date" "desc" }}
 <div class="archive animated fadeInDown">
     <ul class="list-with-title" style="margin: 0px;">
         <ul class="listing">
