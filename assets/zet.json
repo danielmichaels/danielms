@@ -1,5 +1,14 @@
 [
 	{
+		"content": "codex just saved my homelab",
+		"path": "20260808222829",
+		"sha": "9901fa5c93d30bab73b453c4778d89eb0736d725",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260808222829",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260808222829/README.md",
+		"date": "2026-08-08T00:00:00Z",
+		"name": "codex just saved my homelab"
+	},
+	{
 		"content": "herdr is actually worth the hype",
 		"path": "20260808025013",
 		"sha": "c880c2959477857452b5ea0839fb449d6bcbcbfa",
@@ -495,15 +504,6 @@
 		"name": "Taskfile dynamic command variables"
 	},
 	{
-		"content": "Mermaid.js for Hugo blogs",
-		"path": "20250117051621",
-		"sha": "6acf5c558b129d4d7fdeee3e879da3efeb10ea8c",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250117051621",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117051621/README.md",
-		"date": "2025-01-17T00:00:00Z",
-		"name": "Mermaid.js for Hugo blogs"
-	},
-	{
 		"content": "PocketBase used in Beszel server monitoring",
 		"path": "20250117232225",
 		"sha": "099eaa8a5f70486f28cac35a064d2f7263e1fd66",
@@ -511,6 +511,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117232225/README.md",
 		"date": "2025-01-17T00:00:00Z",
 		"name": "PocketBase used in Beszel server monitoring"
+	},
+	{
+		"content": "Mermaid.js for Hugo blogs",
+		"path": "20250117051621",
+		"sha": "6acf5c558b129d4d7fdeee3e879da3efeb10ea8c",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250117051621",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117051621/README.md",
+		"date": "2025-01-17T00:00:00Z",
+		"name": "Mermaid.js for Hugo blogs"
 	},
 	{
 		"content": "PocketBase learned me a browser caching",
