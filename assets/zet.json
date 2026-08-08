@@ -1,5 +1,14 @@
 [
 	{
+		"content": "herdr is actually worth the hype",
+		"path": "20260808025013",
+		"sha": "c880c2959477857452b5ea0839fb449d6bcbcbfa",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260808025013",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260808025013/README.md",
+		"date": "2026-08-08T00:00:00Z",
+		"name": "herdr is actually worth the hype"
+	},
+	{
 		"content": "pi is my favourite agent so far (mostly)",
 		"path": "20260804011341",
 		"sha": "8d0b54183f48d5f434510113d91119909588f8fc",
@@ -486,15 +495,6 @@
 		"name": "Taskfile dynamic command variables"
 	},
 	{
-		"content": "PocketBase used in Beszel server monitoring",
-		"path": "20250117232225",
-		"sha": "099eaa8a5f70486f28cac35a064d2f7263e1fd66",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250117232225",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117232225/README.md",
-		"date": "2025-01-17T00:00:00Z",
-		"name": "PocketBase used in Beszel server monitoring"
-	},
-	{
 		"content": "Mermaid.js for Hugo blogs",
 		"path": "20250117051621",
 		"sha": "6acf5c558b129d4d7fdeee3e879da3efeb10ea8c",
@@ -502,6 +502,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117051621/README.md",
 		"date": "2025-01-17T00:00:00Z",
 		"name": "Mermaid.js for Hugo blogs"
+	},
+	{
+		"content": "PocketBase used in Beszel server monitoring",
+		"path": "20250117232225",
+		"sha": "099eaa8a5f70486f28cac35a064d2f7263e1fd66",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20250117232225",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20250117232225/README.md",
+		"date": "2025-01-17T00:00:00Z",
+		"name": "PocketBase used in Beszel server monitoring"
 	},
 	{
 		"content": "PocketBase learned me a browser caching",
@@ -1539,15 +1548,6 @@
 		"name": "goland: highlight error without mouse hover"
 	},
 	{
-		"content": "I need to track contract time",
-		"path": "20221016002414",
-		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
-		"date": "2022-10-16T00:00:00Z",
-		"name": "I need to track contract time"
-	},
-	{
 		"content": "create cli reminder script",
 		"path": "20221016044558",
 		"sha": "679f3112f72d2537f2ee1ccd3463027bdc52af7c",
@@ -1566,13 +1566,22 @@
 		"name": "go parsing seconds into time.Duration"
 	},
 	{
-		"content": "SQLite select between dates",
-		"path": "20221011090625",
-		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
+		"content": "I need to track contract time",
+		"path": "20221016002414",
+		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
+		"date": "2022-10-16T00:00:00Z",
+		"name": "I need to track contract time"
+	},
+	{
+		"content": "Contract time countdown and hours remaining",
+		"path": "20221011102814",
+		"sha": "b7375c49e2daa08fcc07bb6a4061d850f65f813f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011102814",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011102814/README.md",
 		"date": "2022-10-11T00:00:00Z",
-		"name": "SQLite select between dates"
+		"name": "Contract time countdown and hours remaining"
 	},
 	{
 		"content": "pop-os shell over i3",
@@ -1584,13 +1593,13 @@
 		"name": "pop-os shell over i3"
 	},
 	{
-		"content": "Contract time countdown and hours remaining",
-		"path": "20221011102814",
-		"sha": "b7375c49e2daa08fcc07bb6a4061d850f65f813f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011102814",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011102814/README.md",
+		"content": "SQLite select between dates",
+		"path": "20221011090625",
+		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
 		"date": "2022-10-11T00:00:00Z",
-		"name": "Contract time countdown and hours remaining"
+		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Hugo sort json",
@@ -1683,15 +1692,6 @@
 		"name": "get private ssl cert"
 	},
 	{
-		"content": "TIL: bash flags",
-		"path": "20220826040451",
-		"sha": "665e498e5d1facdedb52b19d57869a091b553a7f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220826040451",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040451/README.md",
-		"date": "2022-08-26T00:00:00Z",
-		"name": "TIL: bash flags"
-	},
-	{
 		"content": "microservice learning task",
 		"path": "20220826040905",
 		"sha": "a414b24746a62c787cd1fb12ba699ecc647056d8",
@@ -1699,6 +1699,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040905/README.md",
 		"date": "2022-08-26T00:00:00Z",
 		"name": "microservice learning task"
+	},
+	{
+		"content": "TIL: bash flags",
+		"path": "20220826040451",
+		"sha": "665e498e5d1facdedb52b19d57869a091b553a7f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220826040451",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220826040451/README.md",
+		"date": "2022-08-26T00:00:00Z",
+		"name": "TIL: bash flags"
 	},
 	{
 		"content": "k3s nginx ingress over traefik",
@@ -1728,15 +1737,6 @@
 		"name": "Getting into the back country"
 	},
 	{
-		"content": "k3s custom resolv.conf",
-		"path": "20220803031202",
-		"sha": "a69653a13b44f167445fb6d7229efaf39ef6411c",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220803031202",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220803031202/README.md",
-		"date": "2022-08-03T00:00:00Z",
-		"name": "k3s custom resolv.conf"
-	},
-	{
 		"content": "thisisunsafe Chrome ssl bypass",
 		"path": "20220803031953",
 		"sha": "39138d7ed92bb72ed6490943621ce57d4e1c8878",
@@ -1746,13 +1746,13 @@
 		"name": "thisisunsafe Chrome ssl bypass"
 	},
 	{
-		"content": "WGD Fri 2022-07-29",
-		"path": "20220731093411",
-		"sha": "e6c62e13d42ee482378161757570ec35950d9101",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220731093411",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220731093411/README.md",
-		"date": "2022-07-31T00:00:00Z",
-		"name": "WGD Fri 2022-07-29"
+		"content": "k3s custom resolv.conf",
+		"path": "20220803031202",
+		"sha": "a69653a13b44f167445fb6d7229efaf39ef6411c",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220803031202",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220803031202/README.md",
+		"date": "2022-08-03T00:00:00Z",
+		"name": "k3s custom resolv.conf"
 	},
 	{
 		"content": "Razors worth remembering",
@@ -1762,6 +1762,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220731093830/README.md",
 		"date": "2022-07-31T00:00:00Z",
 		"name": "Razors worth remembering"
+	},
+	{
+		"content": "WGD Fri 2022-07-29",
+		"path": "20220731093411",
+		"sha": "e6c62e13d42ee482378161757570ec35950d9101",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220731093411",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220731093411/README.md",
+		"date": "2022-07-31T00:00:00Z",
+		"name": "WGD Fri 2022-07-29"
 	},
 	{
 		"content": "python Protocols are Go interfaces",
@@ -1818,15 +1827,6 @@
 		"name": "Ansible check exists with register"
 	},
 	{
-		"content": "Performance review notes Q1 2022",
-		"path": "20220618043036",
-		"sha": "987965a69ef72ea9c436b83d9c410a6623045c49",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220618043036",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220618043036/README.md",
-		"date": "2022-06-18T00:00:00Z",
-		"name": "Performance review notes Q1 2022"
-	},
-	{
 		"content": "WGD Fri 2022-06-17",
 		"path": "20220618043044",
 		"sha": "79d5e7998698c515f6a23add69e1da933321bb78",
@@ -1834,6 +1834,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220618043044/README.md",
 		"date": "2022-06-18T00:00:00Z",
 		"name": "WGD Fri 2022-06-17"
+	},
+	{
+		"content": "Performance review notes Q1 2022",
+		"path": "20220618043036",
+		"sha": "987965a69ef72ea9c436b83d9c410a6623045c49",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220618043036",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220618043036/README.md",
+		"date": "2022-06-18T00:00:00Z",
+		"name": "Performance review notes Q1 2022"
 	},
 	{
 		"content": "Mudmap org and new user registration",
@@ -1872,15 +1881,6 @@
 		"name": "WGD Fri 2022-06-10"
 	},
 	{
-		"content": "fly.io CNAME setup",
-		"path": "20220607035515",
-		"sha": "1245be06137e87160caf184ad5ce42caf74e4321",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220607035515",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220607035515/README.md",
-		"date": "2022-06-07T00:00:00Z",
-		"name": "fly.io CNAME setup"
-	},
-	{
 		"content": "Breadcrumbs for Go templates",
 		"path": "20220607114443",
 		"sha": "5ae1f1480546266cc3b147ff70dcfb109a392c73",
@@ -1888,6 +1888,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220607114443/README.md",
 		"date": "2022-06-07T00:00:00Z",
 		"name": "Breadcrumbs for Go templates"
+	},
+	{
+		"content": "fly.io CNAME setup",
+		"path": "20220607035515",
+		"sha": "1245be06137e87160caf184ad5ce42caf74e4321",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20220607035515",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20220607035515/README.md",
+		"date": "2022-06-07T00:00:00Z",
+		"name": "fly.io CNAME setup"
 	},
 	{
 		"content": "WGD Fri 2022-06-03",
