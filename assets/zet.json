@@ -1,5 +1,14 @@
 [
 	{
+		"content": "I don't think we are ready to NOT read the output",
+		"path": "20260820095058",
+		"sha": "4d551877a92eac5cbcbc9168538404a7d5b6ee28",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260820095058",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260820095058/README.md",
+		"date": "2026-08-20T00:00:00Z",
+		"name": "I don't think we are ready to NOT read the output"
+	},
+	{
 		"content": "codex just saved my homelab",
 		"path": "20260808222829",
 		"sha": "9901fa5c93d30bab73b453c4778d89eb0736d725",
@@ -1080,15 +1089,6 @@
 		"name": "oapi-codegen with Gin and Echo"
 	},
 	{
-		"content": "API project design",
-		"path": "20230519014650",
-		"sha": "f8138a48aa5be121a586146f4d3dbc2955fba477",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20230519014650",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230519014650/README.md",
-		"date": "2023-05-19T00:00:00Z",
-		"name": "API project design"
-	},
-	{
 		"content": "Quick math temp conversions",
 		"path": "20230519032608",
 		"sha": "62822c931bb830b201390e27646096377b45733f",
@@ -1096,6 +1096,15 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230519032608/README.md",
 		"date": "2023-05-19T00:00:00Z",
 		"name": "Quick math temp conversions"
+	},
+	{
+		"content": "API project design",
+		"path": "20230519014650",
+		"sha": "f8138a48aa5be121a586146f4d3dbc2955fba477",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20230519014650",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20230519014650/README.md",
+		"date": "2023-05-19T00:00:00Z",
+		"name": "API project design"
 	},
 	{
 		"content": "Docker layers and ARG",
@@ -1557,6 +1566,15 @@
 		"name": "goland: highlight error without mouse hover"
 	},
 	{
+		"content": "I need to track contract time",
+		"path": "20221016002414",
+		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
+		"date": "2022-10-16T00:00:00Z",
+		"name": "I need to track contract time"
+	},
+	{
 		"content": "create cli reminder script",
 		"path": "20221016044558",
 		"sha": "679f3112f72d2537f2ee1ccd3463027bdc52af7c",
@@ -1575,13 +1593,13 @@
 		"name": "go parsing seconds into time.Duration"
 	},
 	{
-		"content": "I need to track contract time",
-		"path": "20221016002414",
-		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
-		"date": "2022-10-16T00:00:00Z",
-		"name": "I need to track contract time"
+		"content": "SQLite select between dates",
+		"path": "20221011090625",
+		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
+		"date": "2022-10-11T00:00:00Z",
+		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Contract time countdown and hours remaining",
@@ -1600,15 +1618,6 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011094312/README.md",
 		"date": "2022-10-11T00:00:00Z",
 		"name": "pop-os shell over i3"
-	},
-	{
-		"content": "SQLite select between dates",
-		"path": "20221011090625",
-		"sha": "5ae51ccc11fbe516b89584fc693b5e041b74410f",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221011090625",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221011090625/README.md",
-		"date": "2022-10-11T00:00:00Z",
-		"name": "SQLite select between dates"
 	},
 	{
 		"content": "Hugo sort json",
