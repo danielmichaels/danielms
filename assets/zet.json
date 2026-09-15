@@ -1,5 +1,23 @@
 [
 	{
+		"content": "without me you do not exist",
+		"path": "20260915010111",
+		"sha": "30d552dbd9560818b0a8f3120fcc9b1e623abf5f",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260915010111",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260915010111/README.md",
+		"date": "2026-09-15T00:00:00Z",
+		"name": "without me you do not exist"
+	},
+	{
+		"content": "amp is silky smooth",
+		"path": "20260915005124",
+		"sha": "a8362e311d10d4273d67e5cf67bd152dc6390321",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20260915005124",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20260915005124/README.md",
+		"date": "2026-09-15T00:00:00Z",
+		"name": "amp is silky smooth"
+	},
+	{
 		"content": "I was on a podcast",
 		"path": "20260910213300",
 		"sha": "8d68c5f174f44e4af5240f294667479bc7ab500a",
@@ -1584,6 +1602,15 @@
 		"name": "goland: highlight error without mouse hover"
 	},
 	{
+		"content": "I need to track contract time",
+		"path": "20221016002414",
+		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
+		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
+		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
+		"date": "2022-10-16T00:00:00Z",
+		"name": "I need to track contract time"
+	},
+	{
 		"content": "create cli reminder script",
 		"path": "20221016044558",
 		"sha": "679f3112f72d2537f2ee1ccd3463027bdc52af7c",
@@ -1600,15 +1627,6 @@
 		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016025223/README.md",
 		"date": "2022-10-16T00:00:00Z",
 		"name": "go parsing seconds into time.Duration"
-	},
-	{
-		"content": "I need to track contract time",
-		"path": "20221016002414",
-		"sha": "6a2ddd4eedaa0bf7b44b4377f002f46cc2b6f0fe",
-		"html_url": "https://github.com/danielmichaels/zet/tree/main/20221016002414",
-		"download_url": "https://raw.githubusercontent.com/danielmichaels/zet/main/20221016002414/README.md",
-		"date": "2022-10-16T00:00:00Z",
-		"name": "I need to track contract time"
 	},
 	{
 		"content": "Contract time countdown and hours remaining",
