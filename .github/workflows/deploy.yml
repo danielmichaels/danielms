@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     env:
-      HUGO_VERSION: 0.162.1
+      HUGO_VERSION: 0.168.0
       HUGO_ENV: production
     steps:
       - name: Checkout

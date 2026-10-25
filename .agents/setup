@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-HUGO_VERSION=0.162.1
-GO_VERSION=1.24.13
+HUGO_VERSION=0.168.0
+GO_VERSION=1.27.3
 TASK_VERSION=3.54.0
 
 step() {
