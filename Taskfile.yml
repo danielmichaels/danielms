@@ -33,11 +33,12 @@ tasks:
     cmds:
       - ./create-post {{.CLI_ARGS}}
   pdf:pages:
-    desc: Render each page of a PDF to WebP for the pdf shortcode
+    desc: "Render each page of a PDF in static/images to WebP for the pdf shortcode (task pdf:pages -- name.pdf)"
     cmds:
       - |
         set -euo pipefail
-        pdf="{{.CLI_ARGS}}"
+        pdf="static/images/$(basename "{{.CLI_ARGS}}")"
+        test -f "$pdf" || { echo "$pdf not found: put the PDF in static/images first" >&2; exit 1; }
         base="${pdf%.pdf}"
         tmp=$(mktemp -d)
         trap 'rm -rf "$tmp"' EXIT

@@ -6,6 +6,6 @@ slug: remarkable-pdf-preview
 
 This is a draft to try the `pdf` shortcode with the real guide.
 
-{{< pdf src="amp-remarkable-guide.pdf" title="Amp + reMarkable: Review Documents by Hand" >}}
+{{< pdf src="/images/amp-remarkable-guide.pdf" title="Amp + reMarkable: Review Documents by Hand" >}}
 
 Text after the viewer.
