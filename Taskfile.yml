@@ -32,3 +32,18 @@ tasks:
     desc: Create a new post
     cmds:
       - ./create-post {{.CLI_ARGS}}
+  pdf:pages:
+    desc: Render each page of a PDF to WebP for the pdf shortcode
+    cmds:
+      - |
+        set -euo pipefail
+        pdf="{{.CLI_ARGS}}"
+        base="${pdf%.pdf}"
+        tmp=$(mktemp -d)
+        trap 'rm -rf "$tmp"' EXIT
+        rm -f "$base"-*.webp
+        pdftoppm -png -scale-to-x 1600 -scale-to-y -1 "$pdf" "$tmp/p"
+        for png in "$tmp"/p-*.png; do
+          n=${png##*/p-}
+          magick "$png" -define webp:lossless=true "$base-${n%.png}.webp"
+        done

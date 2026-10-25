@@ -43,6 +43,14 @@ install_task() {
     sudo tar -C /usr/local/bin -xz task
 }
 
+install_poppler() {
+  if command -v pdftoppm >/dev/null; then
+    return
+  fi
+  sudo apt-get update -qq
+  sudo apt-get install -y -qq poppler-utils
+}
+
 warm_go_cache() {
   for script in top-blogs fetch-zet create-post; do
     go build -o /dev/null "scripts/$script.go"
@@ -53,4 +61,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 step "hugo ${HUGO_VERSION}" install_hugo
 step "go ${GO_VERSION}" install_go
 step "task ${TASK_VERSION}" install_task
+step "poppler" install_poppler
 step "warm go build cache" warm_go_cache

@@ -1,0 +1,30 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $pdf := .Page.Resources.Get $src -}}
+{{- if not $pdf -}}
+  {{- errorf "pdf shortcode: %q is not in the page bundle at %s" $src .Position -}}
+{{- end -}}
+{{- $pages := sort (.Page.Resources.Match (printf "%s-*.webp" (strings.TrimSuffix ".pdf" $pdf.Name))) "Name" -}}
+{{- if not $pages -}}
+  {{- errorf "pdf shortcode: no page images for %q at %s. Run: task pdf:pages -- content/%s%s" $src .Position .Page.File.Dir $pdf.Name -}}
+{{- end -}}
+{{- $title := .Get "title" -}}
+{{- $count := len $pages -}}
+<figure class="pdf-viewer">
+  <div class="pdf-viewer-track" tabindex="0" role="region"
+       aria-label="{{ with $title }}{{ . }}: {{ end }}{{ $count }} pages. Use the arrow keys or swipe to change page.">
+    {{- range $i, $p := $pages }}
+    <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}"
+         alt="Page {{ add $i 1 }} of {{ $count }}{{ with $title }} of {{ . }}{{ end }}"
+         loading="{{ if $i }}lazy{{ else }}eager{{ end }}" decoding="async">
+    {{- end }}
+  </div>
+  <div class="pdf-viewer-toolbar">
+    <button type="button" data-action="prev" aria-label="Previous page" disabled><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <span class="pdf-viewer-count" aria-live="polite">Page <span data-page-num>1</span> of {{ $count }}</span>
+    <button type="button" data-action="next" aria-label="Next page"{{ if eq $count 1 }} disabled{{ end }}><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    <a class="pdf-viewer-open" href="{{ $pdf.RelPermalink }}" target="_blank" rel="noopener">Open PDF</a>
+  </div>
+  {{- with $title }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>

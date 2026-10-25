@@ -4,6 +4,10 @@
         {{ if .Params.mermaid }}
             {{ partial "mermaid.html" . }}
         {{ end }}
+        {{ if .HasShortcode "pdf" }}
+            {{ $js := resources.Get "js/pdf-viewer.js" | resources.Minify | resources.Fingerprint }}
+            <script type="module" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+        {{ end }}
         {{ if .Params.thumbnail }}
         <img class="post-thumbnail" src="{{ .Params.thumbnail | absURL }}" alt="Thumbnail image">
         {{ end }}
