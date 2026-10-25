@@ -16,3 +16,4 @@ resources/
 /public/
 .idea/*
 .hugo_build.lock
+.amp/portals/*

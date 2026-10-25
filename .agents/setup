@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HUGO_VERSION=0.162.1
+GO_VERSION=1.24.13
+TASK_VERSION=3.54.0
+
+step() {
+  local name=$1
+  shift
+  local start=$SECONDS
+  echo "==> $name"
+  "$@"
+  echo "<== $name ($((SECONDS - start))s)"
+}
+
+install_hugo() {
+  if hugo version 2>/dev/null | grep -q "v${HUGO_VERSION}.*extended"; then
+    return
+  fi
+  local tmp
+  tmp=$(mktemp -d)
+  curl -fsSL -o "$tmp/hugo.deb" \
+    "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+  sudo dpkg -i "$tmp/hugo.deb"
+  rm -rf "$tmp"
+}
+
+install_go() {
+  if [ "$(/usr/local/go/bin/go env GOVERSION 2>/dev/null)" = "go${GO_VERSION}" ]; then
+    return
+  fi
+  sudo rm -rf /usr/local/go
+  curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" | sudo tar -C /usr/local -xz
+  sudo ln -sf /usr/local/go/bin/go /usr/local/go/bin/gofmt /usr/local/bin/
+}
+
+install_task() {
+  if task --version 2>/dev/null | grep -q "${TASK_VERSION}"; then
+    return
+  fi
+  curl -fsSL "https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.tar.gz" |
+    sudo tar -C /usr/local/bin -xz task
+}
+
+warm_go_cache() {
+  for script in top-blogs fetch-zet create-post; do
+    go build -o /dev/null "scripts/$script.go"
+  done
+}
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+step "hugo ${HUGO_VERSION}" install_hugo
+step "go ${GO_VERSION}" install_go
+step "task ${TASK_VERSION}" install_task
+step "warm go build cache" warm_go_cache
