@@ -19,11 +19,9 @@ The big win for me is memory usage. The repo has the full comparison but the sho
 - Small PDF read/render/export: Python **193 MiB**, Go **32 MiB**.
 - EPUB + nine Markdown renders/uploads: Python **245 MiB**, Go **71 MiB**.
 
-Those are settled process memory figures from short local tests using the same files and operations, not a promise that every document will use that little memory. It's still experimental and not every operation is faster.
+This matters for my [Amp orbs](https://ampcode.com/what-are-orbs). As memory matters for all things *cloud*. We pay in memory and CPU. I converted this from python to go so that the limited memory by Orbs have is dedicated to work not idle processes. 
 
-But this matters for my [Amp orbs](https://ampcode.com/what-are-orbs). The MCP server shares memory with the agent, builds, tests and whatever else I'm running. I want that memory going towards the actual work, not starving the orb just so I can send a PDF to my tablet.
-
-No Python runtime needed either. Same idea as before: send a doc, scribble on it, get Amp to read it back. Just with a much smaller memory footprint.
+This also removes any runtime requirements. No `uvx` just a small binary ready and willing whenver I call it.
 
 Tags:
 
